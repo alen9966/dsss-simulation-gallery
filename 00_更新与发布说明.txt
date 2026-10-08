@@ -12,8 +12,9 @@
    note写明场景、主要参数、随机种子和验证边界。
 3. 在工程目录执行：
    .\更新并发布仿真图.ps1
-4. 检查GitHub Pages部署完成，再确认在线图像和文字可读。
-   新push不等于网页已经部署，发布状态文件先写PENDING_VERIFICATION。
+4. 命令会等待GitHub Pages部署，并逐文件校验线上内容与本地发布副本一致。
+   新push不等于网页已经部署：状态先为PENDING_VERIFICATION，全部核验通过后为VERIFIED。
+   超时或核验失败会明确报错；仍可保留已推送提交和本地原始成果。
 
 二、只整理不上传
    .\更新并发布仿真图.ps1 -LocalOnly
@@ -28,6 +29,7 @@ scripts/tools/organize_simulation_figures.py：刷新本地分类、副本校验
 scripts/tools/simulation_figure_registry.json：后续新图的分类与证据登记。
 scripts/tools/publish_simulation_gallery.py：构建静态发布副本、校验链接和Git对象、提交推送。
 generated/github/dsss-simulation-gallery：图册仓库本地工作目录。
+scripts/tools/verify_gallery_publication.py：核对Pages部署提交及线上全部文件哈希。
 results/system/gallery_publish_status.json：最近推送提交及在线验证状态。
 
 四、约定
