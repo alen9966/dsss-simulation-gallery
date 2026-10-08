@@ -73,6 +73,24 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#script_ui">22 历史交互界面截图</a>：界面/脚本入口</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>历史交互界面截图；不是某个处理块的独立仿真输出。</p>
 </details></article>
+<article data-modules="ad_tx ad_channel ad_rx ad_dll ad_costas ad_frame"><span class="badge">Simulink实际模型框图</span><h3>01_AD9361_Simulink实际模型.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" alt="01_AD9361_Simulink实际模型.png"></a><p>当前 AD9361 功能模型；50 MSPS物理I/Q、250 MHz DSP参考、80 us块执行。主链从左向右，日志在源模块下方。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_channel">02 信道：70 km、频偏、采样钟差与噪声</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_rx">03 接收前端：signed12、插值5与FIR48</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_frame">06 信息恢复：BPSK判决、帧头与100字节载荷</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details></article>
+<article data-modules="if_tx if_channel if_rx if_dll if_costas if_frame"><span class="badge">Simulink实际模型框图</span><h3>02_旧中频_Simulink实际模型.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" alt="02_旧中频_Simulink实际模型.png"></a><p>旧70 MHz中频参考；250 MSPS、80 us块执行。I/Q拆分、BPSK判决及有效信号旁路均为模型实际连线。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#if_tx">12 旧发送：DSSS、FIR201与70MHz上变频</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_channel">13 旧信道：独立时钟、中频、噪声和ADC打包</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_rx">14 旧接收：70MHz下变频与FIR48</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_dll">15 旧同步：FFT、DLL与解扩</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_costas">16 旧载波：归一化、PI/NCO与旋转</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_frame">17 旧信息恢复：判决、极性与载荷</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details></article>
 </div></section>
 <section data-category="1" id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">
 <article data-modules="ad_tx ad_channel ad_rx ad_dll ad_costas ad_frame"><span class="badge">当前功能参考</span><h3>01_AD9361_单窗波形总览.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" alt="01_AD9361_单窗波形总览.png"></a><p>6子图；使用设定信道参数，不是70km实测。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
@@ -166,6 +184,14 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <p><strong>第2行左 · 真实归一化+Costas星座</strong><br>独立Xsim backend.csv<br>没有对应的RTL对照模型Costas块；捕获/DLL绕过。</p>
 <p><strong>第2行中 · 连续三帧恢复</strong><br>独立帧解析器测试统计<br>没有对应的RTL对照模型Frame块；不代表连续三帧全链无线验证。</p>
 <p><strong>第2行右 · 五路最大数值误差</strong><br>Valid_Sample_Error / Error_Log<br>仅在valid掩码允许的采样点比较。</p>
+</details></article>
+<article data-modules="rtl_stimulus rtl_fir rtl_actual rtl_compare rtl_tdd"><span class="badge">Simulink实际模型框图</span><h3>01_RTL对照_Simulink实际模型.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" alt="01_RTL对照_Simulink实际模型.png"></a><p>4 ns重放实际Xsim导出；上半区为五路FIR数值对照，下半区为TDD独立方程对照。From Workspace不是实时HDL协同仿真。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#rtl_stimulus">07 RTL对照：同一整数激励</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#rtl_fir">08 RTL对照：五路整数FIR参考</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#rtl_actual">09 RTL对照：真实Xsim/IP输出重放</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#rtl_compare">10 RTL对照：有效点差分与记录</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#rtl_tdd">11 RTL对照：本地时隙公式与实际轨迹</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
 </details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">本目录为旧方案信道场景。新板BER/FER统计、多径及RF非理想性能曲线仍待补。</p><div class="grid">

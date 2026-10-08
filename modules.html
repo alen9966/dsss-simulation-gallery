@@ -1,9 +1,10 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>仿真图与Simulink模块对应</title><style>body{margin:0;background:#f3f6fa;color:#1b2e45;font:16px/1.75 "Microsoft YaHei",sans-serif}main{max-width:1240px;margin:auto;padding:28px}a{color:#075fa7}h1{margin:0}h2{margin-top:40px}h3{margin:4px 0 12px}article{background:white;border:1px solid #dae2ec;border-radius:12px;padding:22px;margin:20px 0;scroll-margin-top:16px}code{font:14px/1.6 Consolas,monospace;overflow-wrap:anywhere;background:#eff4f8;padding:2px 4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eff4f8;padding:12px;font:14px/1.7 Consolas,monospace}table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}td,th{border:1px solid #dae2ec;padding:9px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#eef4fa}nav a,.button{display:inline-block;margin:4px 9px 4px 0;padding:6px 12px;background:#e3edf7;border-radius:6px;text-decoration:none}.note{color:#536476}.scope{background:#fff4dc;padding:12px;border-left:4px solid #d39c32}.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.chain a{background:white;border:1px solid #b8cfe3;border-radius:8px;padding:12px}.figlinks li{margin:8px 0}summary{cursor:pointer;color:#075fa7}.groupnote{background:#e8f1fb;padding:16px;border-radius:8px}@media(max-width:650px){main{padding:14px}article{padding:14px}table{display:block;overflow:auto}}</style><main>
+<title>仿真图与Simulink模块对应</title><style>body{margin:0;background:#f3f6fa;color:#1b2e45;font:16px/1.75 "Microsoft YaHei",sans-serif}main{max-width:1240px;margin:auto;padding:28px}a{color:#075fa7}h1{margin:0}h2{margin-top:40px}h3{margin:4px 0 12px}article{background:white;border:1px solid #dae2ec;border-radius:12px;padding:22px;margin:20px 0;scroll-margin-top:16px}code{font:14px/1.6 Consolas,monospace;overflow-wrap:anywhere;background:#eff4f8;padding:2px 4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eff4f8;padding:12px;font:14px/1.7 Consolas,monospace}table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}td,th{border:1px solid #dae2ec;padding:9px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#eef4fa}nav a,.button{display:inline-block;margin:4px 9px 4px 0;padding:6px 12px;background:#e3edf7;border-radius:6px;text-decoration:none}.note{color:#536476}.scope{background:#fff4dc;padding:12px;border-left:4px solid #d39c32}.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.chain a{background:white;border:1px solid #b8cfe3;border-radius:8px;padding:12px}.figlinks li{margin:8px 0}summary{cursor:pointer;color:#075fa7}.model-diagram{margin:20px 0;padding:18px;background:white;border:1px solid #b8cfe3;border-radius:12px}.diagram-viewport{overflow:auto;border:1px solid #d8e2ee;background:white;max-height:760px}.diagram-viewport img{display:block;width:100%;max-width:none;height:auto}.diagram-toolbar button{cursor:pointer;border:0;border-radius:6px;padding:8px 14px;margin:4px;color:#075fa7;background:#e3edf7}.diagram-toolbar a{margin-left:10px}.groupnote{background:#e8f1fb;padding:16px;border-radius:8px}@media(max-width:650px){main{padding:14px}article{padding:14px}table{display:block;overflow:auto}}</style><main>
 <h1>仿真图 ↔ Simulink 模块</h1><p>按实际模块查找对应图片、端口和观察方法。</p>
 <nav><a href="00_图册索引.html">返回图册</a><a href="00_Simulink模块与仿真图说明.txt">文字说明</a><a href="00_图与Simulink模块对应.json">完整对应数据</a></nav>
-<p class="note">核对日期：2026-10-08 15:22:14（北京时间）。已用MATLAB读取三个现有模型；本次仅补说明，没有重跑波形或改动模型。</p>
+<p class="note">核对日期：2026-10-08 16:03:18（北京时间）。已用MATLAB读取三个现有模型；实际模型框图已导出，主链、有效信号和日志连线已整理；图中所有块名与下方清单一致。</p>
 <p class="scope">当前主模型是6个Level-2 MATLAB S-function。一次模型执行为80 us，内部处理4000个50 MSPS样本或20000个250 MSPS样本；不是把Simulink步长设为4 ns的整链RTL仿真。S-function端口使用double容器表达整数码值。图由脚本绘制，不能一律称为Simulink Scope截图。</p>
+<p class="groupnote">布局核验：2026-10-08 16:03:17（北京时间），3个模型共46个块、47个输入连接；参数、连接关系和日志设置检查一致，三个模型均编译通过。数值回归另见各类仿真证据，模型图本身不代表硬件验证。</p>
 <nav>
 <a href="#group-ad">A · 当前 AD9361 功能模型</a>
 <a href="#group-rtl">B · 实际 RTL 导出对照模型</a>
@@ -24,8 +25,10 @@
 </div><p>发送扩频、接收解扩都已经包含在相应S-function内；当前模型没有独立的“DSSS Modulator/Demodulator”库块。在线页面提供位置与文字说明，完整模型仍在本地工程models目录。</p>
 <h2 id="group-ad">A · 当前 AD9361 功能模型</h2>
 <p class="groupnote">模型文件：models/dsss_ad9361_link.mdl；日志通过Log_*的To Workspace块输出。</p>
+<section class="model-diagram" id="diagram-ad"><h3>实际 Simulink 模型框图</h3><p>当前 AD9361 功能模型；50 MSPS物理I/Q、250 MHz DSP参考、80 us块执行。主链从左向右，日志在源模块下方。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。</p><div class="diagram-toolbar"><button type="button" data-diagram="ad" data-zoom="1">适合宽度</button><button type="button" data-diagram="ad" data-zoom="2">放大 2 倍</button><button type="button" data-diagram="ad" data-zoom="3">放大 3 倍</button><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" target="_blank" rel="noopener">打开高清原图 / 下载</a></div><p class="note">放大后可横向滚动查看。模型中的S-function内部算法解释见各模块卡片。</p><div class="diagram-viewport"><img id="image-ad" loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" alt="A · 当前 AD9361 功能模型实际模块及连线"></div></section>
 <article id="ad_tx"><h3>01 发送：组帧、DSSS 扩频、FIR201 与抽取</h3>
 <p><code>dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12</code></p>
+<p><a class="button" href="#diagram-ad">查看本模块所在的实际模型图</a></p>
 <p>把148字节帧按位发送，每个数据位乘PN1000完成DSSS/BPSK扩频；进行20相FIR201插值，再每5点取1点，得到AD9361端50 MSPS基带。当前TX Q为零，接收信道旋转后Q可以非零。</p><table><tr><th>输入</th><td>无数据输入端口；从 dsss_ad9361_cfg 读取帧字节、PN、COE 和发送参数。</td></tr><tr><th>输出</th><td>端口1：4000×1复数 I/Q，表示50 MSPS、signed12码值；端口2：[当前bit；削顶数量；峰值]。</td></tr>
 <tr><th>日志位置</th><td>Log_tx_info → tx_info；完整TX片段由MATLAB参考运行器保存到r.waveforms.txIQ。</td></tr>
 <tr><th>参数与尺度</th><td>PN1000；12.5 Mchip/s；12.5 kbit/s；FIR201；TX_SHIFT默认3；帧长94.72 ms。</td></tr>
@@ -33,6 +36,7 @@
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 左上TX I、右上频谱</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 左上TX I、右上频谱</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -40,6 +44,7 @@ hilite_system(&#x27;dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12&#x27;,&
 </details></article>
 <article id="ad_channel"><h3>02 信道：70 km、频偏、采样钟差与噪声</h3>
 <p><code>dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN</code></p>
+<p><a class="button" href="#diagram-ad">查看本模块所在的实际模型图</a></p>
 <p>用因果分数延迟表示传播，用重采样位置表示采样率差，再叠加载波频偏、初相、接收增益、AWGN与signed12饱和。</p><table><tr><th>输入</th><td>端口1：4000点发送复数I/Q。</td></tr><tr><th>输出</th><td>端口1：4000点接收复数I/Q；端口2：[有效信号RMS；每路噪声sigma；I/Q削顶数量]。</td></tr>
 <tr><th>日志位置</th><td>Log_channel_info → channel_info；r.waveforms.rxPhysicalIQ是该端口的片段。</td></tr>
 <tr><th>参数与尺度</th><td>distance_m、snr_dB、extraCfoHz、initialPhase_deg、txReferenceError、rxReferenceError、rxGain、seed。</td></tr>
@@ -47,6 +52,7 @@ hilite_system(&#x27;dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12&#x27;,&
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 左上RX Q、右下码片叠加</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 左上RX Q、右下码片叠加</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -54,6 +60,7 @@ hilite_system(&#x27;dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN&#x27;,&#x27;find
 </details></article>
 <article id="ad_rx"><h3>03 接收前端：signed12、插值5与FIR48</h3>
 <p><code>dsss_ad9361_link/RX_signed12_interp5_FIR48</code></p>
+<p><a class="button" href="#diagram-ad">查看本模块所在的实际模型图</a></p>
 <p>先将signed12码值乘16，再用121抽头Q16滤波器插值5并饱和到signed16，最后分别通过I/Q的48抽头低通与截位回绕。每窗复位FIR48，插值5状态连续。</p><table><tr><th>输入</th><td>端口1：4000点、50 MSPS接收复数I/Q。</td></tr><tr><th>输出</th><td>端口1：20000点、250 MSPS DSP复数I/Q；端口2：[插值饱和数量；输出峰值]。</td></tr>
 <tr><th>日志位置</th><td>Log_rx_info → rx_info；r.waveforms.rxDspIQ有DSP波形片段。</td></tr>
 <tr><th>参数与尺度</th><td>interpCoeInt、rxCoeInt、rxWindowReset；实际COE长度121/48。</td></tr>
@@ -61,6 +68,7 @@ hilite_system(&#x27;dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN&#x27;,&#x27;find
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 接收前端相关级，本图没有直接画出其输出</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 接收前端相关级，本图没有直接画出其输出</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -68,6 +76,7 @@ hilite_system(&#x27;dsss_ad9361_link/RX_signed12_interp5_FIR48&#x27;,&#x27;find&
 </details></article>
 <article id="ad_dll"><h3>04 接收同步：FFT捕获、DLL与DSSS解扩</h3>
 <p><code>dsss_ad9361_link/FFT1024_DLL_20000point</code></p>
+<p><a class="button" href="#diagram-ad">查看本模块所在的实际模型图</a></p>
 <p>降采样后的1024点FFT相关先找PN粗码相位，再局部细搜；Early/Prompt/Late相关闭环调整积分起点，将1000码片解扩为一个数据符号。</p><table><tr><th>输入</th><td>端口1：每次20000点DSP I/Q。</td></tr><tr><th>输出</th><td>端口1：复数Prompt；端口2：valid；端口3：[acquired；峰/中值比；积分起点；DLL误差；Early；Late；|Prompt|；速率状态]。</td></tr>
 <tr><th>日志位置</th><td>Log_dll_prompt → dll_prompt；Log_dll_valid → dll_valid；Log_dll_info → dll_info。</td></tr>
 <tr><th>参数与尺度</th><td>acquisitionRatio默认8、acquisitionMinRms默认30；功能DLL Kp=0.6 samples、Ki=0.005 samples。不能直接当作RTL环路带宽。</td></tr>
@@ -75,6 +84,7 @@ hilite_system(&#x27;dsss_ad9361_link/RX_signed12_interp5_FIR48&#x27;,&#x27;find&
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 左中解扩星座、左下DLL误差</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 左中解扩星座、左下DLL误差</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -82,6 +92,7 @@ hilite_system(&#x27;dsss_ad9361_link/FFT1024_DLL_20000point&#x27;,&#x27;find&#x2
 </details></article>
 <article id="ad_costas"><h3>05 载波同步：归一化与Costas环</h3>
 <p><code>dsss_ad9361_link/Normalization_Costas_raw40</code></p>
+<p><a class="button" href="#diagram-ad">查看本模块所在的实际模型图</a></p>
 <p>用幅度估计归一化，按sign(I)×Q鉴相，以raw40整数PI/NCO事件算法更新相位并旋转符号，消除载波残余相位与频偏。</p><table><tr><th>输入</th><td>端口1：复数Prompt；端口2：DLL valid。</td></tr><tr><th>输出</th><td>端口1：旋转后的复数符号；端口2：valid；端口3：[鉴相误差；累加相位rad；频偏估计Hz；幅度估计]。</td></tr>
 <tr><th>日志位置</th><td>Log_costas_iq → costas_iq；Log_costas_info → costas_info。</td></tr>
 <tr><th>参数与尺度</th><td>C1=0x02D152、C2=0x00081A；频率换算包含2^37与80 us事件周期，不能只由C1/C2直接读出Hz带宽。</td></tr>
@@ -89,6 +100,7 @@ hilite_system(&#x27;dsss_ad9361_link/FFT1024_DLL_20000point&#x27;,&#x27;find&#x2
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 右中星座与末段相位RMS</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 右中星座与末段相位RMS</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/dsss_costas_integer_update.m；scripts/system/dsss_costas_lock_metrics.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -96,6 +108,7 @@ hilite_system(&#x27;dsss_ad9361_link/Normalization_Costas_raw40&#x27;,&#x27;find
 </details></article>
 <article id="ad_frame"><h3>06 信息恢复：BPSK判决、帧头与100字节载荷</h3>
 <p><code>dsss_ad9361_link/BPSK_Header_100Byte</code></p>
+<p><a class="button" href="#diagram-ad">查看本模块所在的实际模型图</a></p>
 <p>以I&lt;0判决比特，识别64 bit固定帧头及其反相形式，纠正极性并收满800 bit载荷。标题中的帧数/BER由运行器把这些字节与已知测试载荷比较得到。</p><table><tr><th>输入</th><td>端口1：Costas复数符号；端口2：valid。</td></tr><tr><th>输出</th><td>端口1：100×1载荷数值数组；端口2：[done；本窗帧数；反相标志；已收载荷bit数；已见符号数]。</td></tr>
 <tr><th>日志位置</th><td>Log_payload_bytes → payload_bytes；Log_frame_info → frame_info。</td></tr>
 <tr><th>参数与尺度</th><td>帧头FF 08 C6 80 8E 25 C0 C9；载荷100字节；每接收窗重置解析状态。</td></tr>
@@ -103,6 +116,7 @@ hilite_system(&#x27;dsss_ad9361_link/Normalization_Costas_raw40&#x27;,&#x27;find
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 标题帧数/BER的载荷来源</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 标题帧数/BER的载荷来源</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m；scripts/entrypoints/run_dsss_ad9361_link.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -110,12 +124,15 @@ hilite_system(&#x27;dsss_ad9361_link/BPSK_Header_100Byte&#x27;,&#x27;find&#x27;)
 </details></article>
 <h2 id="group-rtl">B · 实际 RTL 导出对照模型</h2>
 <p class="groupnote">模型文件：models/dsss_rtl_comparison.mdl；4 ns重放Xsim导出并运行整数参考。后端Costas和帧测试另在D组说明。</p>
+<section class="model-diagram" id="diagram-rtl"><h3>实际 Simulink 模型框图</h3><p>4 ns重放实际Xsim导出；上半区为五路FIR数值对照，下半区为TDD独立方程对照。From Workspace不是实时HDL协同仿真。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。</p><div class="diagram-toolbar"><button type="button" data-diagram="rtl" data-zoom="1">适合宽度</button><button type="button" data-diagram="rtl" data-zoom="2">放大 2 倍</button><button type="button" data-diagram="rtl" data-zoom="3">放大 3 倍</button><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" target="_blank" rel="noopener">打开高清原图 / 下载</a></div><p class="note">放大后可横向滚动查看。模型中的S-function内部算法解释见各模块卡片。</p><div class="diagram-viewport"><img id="image-rtl" loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" alt="B · 实际 RTL 导出对照模型实际模块及连线"></div></section>
 <article id="rtl_stimulus"><h3>07 RTL对照：同一整数激励</h3>
 <p><code>dsss_rtl_comparison/Identical_Integer_Stimulus</code></p>
+<p><a class="button" href="#diagram-rtl">查看本模块所在的实际模型图</a></p>
 <p>把与Xsim相同的输入送入Simulink整数FIR参考，保证比较使用同一刺激。</p><table><tr><th>输入</th><td>From Workspace变量rtl_input。</td></tr><tr><th>输出</th><td>7路前端测试激励及使能，以4 ns步长重放。</td></tr>
 </table><p><strong>怎么看：</strong>先核对输入样本、valid与插值使能，再看输出误差。</p><p class="scope"><strong>验证边界：</strong>输入是接口测试向量，不是完整70 km接收波形。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png">01_实际RTL_分段验证总览.png</a> — 前端同一输入</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_RTL对照_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/rtl_link/dsss_rtl_load_data.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_rtl_comparison.mdl&#x27;);
@@ -123,10 +140,12 @@ hilite_system(&#x27;dsss_rtl_comparison/Identical_Integer_Stimulus&#x27;,&#x27;f
 </details></article>
 <article id="rtl_fir"><h3>08 RTL对照：五路整数FIR参考</h3>
 <p><code>dsss_rtl_comparison/Integer_FIR_Reference</code></p>
+<p><a class="button" href="#diagram-rtl">查看本模块所在的实际模型图</a></p>
 <p>每4 ns执行整数卷积、指定截位或饱和，再对齐IP流水线，作为实际RTL前端的参考。</p><table><tr><th>输入</th><td>7路整数激励/使能；对话框给TX/RX/插值COE与实测流水线延迟。</td></tr><tr><th>输出</th><td>5路：TX201、RX48-I、RX48-Q、插值5-I、插值5-Q。</td></tr>
 </table><p><strong>怎么看：</strong>看五路有效样本的最大码误差与异常点。当前57824个有效比较点误差为零。</p><p class="scope"><strong>验证边界：</strong>覆盖这五路滤波计算，不含完整FFT/DLL/Costas链路。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png">01_实际RTL_分段验证总览.png</a> — 五路整数参考</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_RTL对照_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/rtl_link/dsss_rtl_reference_sfun.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_rtl_comparison.mdl&#x27;);
@@ -134,10 +153,12 @@ hilite_system(&#x27;dsss_rtl_comparison/Integer_FIR_Reference&#x27;,&#x27;find&#
 </details></article>
 <article id="rtl_actual"><h3>09 RTL对照：真实Xsim/IP输出重放</h3>
 <p><code>dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim</code></p>
+<p><a class="button" href="#diagram-rtl">查看本模块所在的实际模型图</a></p>
 <p>加载Xsim导出的数值轨迹，与同一激励的整数参考比较。</p><table><tr><th>输入</th><td>From Workspace变量rtl_actual。</td></tr><tr><th>输出</th><td>真实Verilog/IP批量仿真的五路输出。</td></tr>
 </table><p><strong>怎么看：</strong>总览上排的FIR波形/频谱/码片眼图来自实际RTL前端数据。</p><p class="scope"><strong>验证边界：</strong>这是批量导出重放，不是运行中由Simulink直接调用Vivado的实时HDL联仿。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png">01_实际RTL_分段验证总览.png</a> — 上排实际RTL波形来源</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_RTL对照_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/rtl_link/dsss_rtl_load_data.m；scripts/rtl_link/render_rtl_findings.py</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_rtl_comparison.mdl&#x27;);
@@ -150,10 +171,12 @@ hilite_system(&#x27;dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim&#x27;,&#x27;f
 <p><code>dsss_rtl_comparison/Error_Log</code></p>
 <p><code>dsss_rtl_comparison/Compare_Waveforms</code></p>
 <p><code>dsss_rtl_comparison/Waveform_Log</code></p>
+<p><a class="button" href="#diagram-rtl">查看本模块所在的实际模型图</a></p>
 <p>先求实际减参考，再乘valid掩码，仅统计有定义的输出点；Mux另存两路波形。</p><table><tr><th>输入</th><td>实际输出、参考输出及rtl_mask。</td></tr><tr><th>输出</th><td>rtl_error有效点误差；rtl_waves参考/实际波形记录。</td></tr>
 </table><p><strong>怎么看：</strong>总览右下是五路最大误差。无效周期、首拍延迟和使能节拍也应单独检查。</p><p class="scope"><strong>验证边界：</strong>不能把所有周期的零值或只看柱状图当作全链无误码证据。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png">01_实际RTL_分段验证总览.png</a> — 右下五路有效点误差</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_RTL对照_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/rtl_link/build_dsss_rtl_comparison.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_rtl_comparison.mdl&#x27;);
@@ -164,10 +187,11 @@ hilite_system(&#x27;dsss_rtl_comparison/RTL_minus_Model&#x27;,&#x27;find&#x27;);
 <p><code>dsss_rtl_comparison/Independent_TDD_Equations</code></p>
 <p><code>dsss_rtl_comparison/TDD_RTL_minus_Equations</code></p>
 <p><code>dsss_rtl_comparison/TDD_Error_Log</code></p>
+<p><a class="button" href="#diagram-rtl">查看本模块所在的实际模型图</a></p>
 <p>逐拍对比slot、主站TX/RX、两站发送请求、RX重启、解调复位和捕获启动。</p><table><tr><th>输入</th><td>实际控制器轨迹rtl_tdd_actual与独立公式rtl_tdd_expected。</td></tr><tr><th>输出</th><td>8路误差rtl_tdd_error。</td></tr>
 </table><p><strong>怎么看：</strong>应看复位保持/释放、捕获脉冲及误差；目前有482拍对照数据，尚无该分支独立PNG。</p><p class="scope"><strong>验证边界：</strong>测试使用80拍加速时隙，硬件默认25000000拍另有定向测试；此分支不实现双站初始历元协商。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
-<li>当前没有该模块的独立图；相关日志/待补项见上文，不能用其他图代替。</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_RTL%E5%AF%B9%E7%85%A7_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_RTL对照_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_tdd_compare.m；scripts/rtl_link/build_dsss_rtl_comparison.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_rtl_comparison.mdl&#x27;);
@@ -175,13 +199,16 @@ hilite_system(&#x27;dsss_rtl_comparison/Actual_TDD_RTL&#x27;,&#x27;find&#x27;);<
 </details></article>
 <h2 id="group-if">C · 旧 70 MHz 中频参考模型</h2>
 <p class="groupnote">模型文件：models/dsss_wireless_link.slx；旧70 MHz中频基准，保留参考。</p>
+<section class="model-diagram" id="diagram-if"><h3>实际 Simulink 模型框图</h3><p>旧70 MHz中频参考；250 MSPS、80 us块执行。I/Q拆分、BPSK判决及有效信号旁路均为模型实际连线。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。</p><div class="diagram-toolbar"><button type="button" data-diagram="if" data-zoom="1">适合宽度</button><button type="button" data-diagram="if" data-zoom="2">放大 2 倍</button><button type="button" data-diagram="if" data-zoom="3">放大 3 倍</button><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" target="_blank" rel="noopener">打开高清原图 / 下载</a></div><p class="note">放大后可横向滚动查看。模型中的S-function内部算法解释见各模块卡片。</p><div class="diagram-viewport"><img id="image-if" loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png" alt="C · 旧 70 MHz 中频参考模型实际模块及连线"></div></section>
 <article id="if_tx"><h3>12 旧发送：DSSS、FIR201与70MHz上变频</h3>
 <p><code>dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC</code></p>
+<p><a class="button" href="#diagram-if">查看本模块所在的实际模型图</a></p>
 <p>同样进行DSSS扩频与FIR201，再乘70 MHz数控载波。旧图左上和TX频谱对应这里。</p><table><tr><th>输入</th><td>无输入，读取旧配置/帧/PN/COE。</td></tr><tr><th>输出</th><td>20000点复数解析中频；TX信息。</td></tr>
 <tr><th>日志位置</th><td>使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。</td></tr>
 </table><p><strong>怎么看：</strong>对应旧70 MHz总览；与新板视图分开查看。</p><p class="scope"><strong>验证边界：</strong>不能把70 MHz DUC直接搬进AD9361零中频模型。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">90_旧70MHz中频_波形总览.png</a> — TX时域/频谱/COE</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">02_旧中频_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_wireless_link.slx&#x27;);
@@ -189,11 +216,13 @@ hilite_system(&#x27;dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC&#x27;,&#x27;find
 </details></article>
 <article id="if_channel"><h3>13 旧信道：独立时钟、中频、噪声和ADC打包</h3>
 <p><code>dsss_wireless_link/Wireless_70km_Independent_Clocks</code></p>
+<p><a class="button" href="#diagram-if">查看本模块所在的实际模型图</a></p>
 <p>旧S-function支持因果延迟、采样率差、多径、相噪与噪声；再模拟旧ADC饱和及低12位打包。</p><table><tr><th>输入</th><td>发送解析中频。</td></tr><tr><th>输出</th><td>20000点实数ADC打包值；信号/噪声、饱和及low12回绕统计。</td></tr>
 <tr><th>日志位置</th><td>使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。</td></tr>
 </table><p><strong>怎么看：</strong>对应旧70 MHz总览；与新板视图分开查看。</p><p class="scope"><strong>验证边界：</strong>旧ADC低12位回绕不等于新AD9361 signed12饱和；旧sim/matlab_link场景图另属独立脚本。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">90_旧70MHz中频_波形总览.png</a> — ADC中频/频谱</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">02_旧中频_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_wireless_link.slx&#x27;);
@@ -201,11 +230,13 @@ hilite_system(&#x27;dsss_wireless_link/Wireless_70km_Independent_Clocks&#x27;,&#
 </details></article>
 <article id="if_rx"><h3>14 旧接收：70MHz下变频与FIR48</h3>
 <p><code>dsss_wireless_link/ADC_Bits_DDC_FIR48</code></p>
+<p><a class="button" href="#diagram-if">查看本模块所在的实际模型图</a></p>
 <p>乘70 MHz正交载波下变频并通过两路FIR48。旧总览右上基带波形与眼图取自这里。</p><table><tr><th>输入</th><td>实数ADC打包数据。</td></tr><tr><th>输出</th><td>20000点复数DDC/FIR48基带。</td></tr>
 <tr><th>日志位置</th><td>使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。</td></tr>
 </table><p><strong>怎么看：</strong>对应旧70 MHz总览；与新板视图分开查看。</p><p class="scope"><strong>验证边界：</strong>旧图眼图为展示而做相位/时序对齐；展示处理没有反馈给接收机。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">90_旧70MHz中频_波形总览.png</a> — DDC基带与展示眼图</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">02_旧中频_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_wireless_link.slx&#x27;);
@@ -213,11 +244,13 @@ hilite_system(&#x27;dsss_wireless_link/ADC_Bits_DDC_FIR48&#x27;,&#x27;find&#x27;
 </details></article>
 <article id="if_dll"><h3>15 旧同步：FFT、DLL与解扩</h3>
 <p><code>dsss_wireless_link/FFT_Acquisition_DLL_Despread</code></p>
+<p><a class="button" href="#diagram-if">查看本模块所在的实际模型图</a></p>
 <p>与新模型复用功能捕获/DLL/解扩函数，但没有新板每窗包装与新接收前端。</p><table><tr><th>输入</th><td>20000点旧接收基带。</td></tr><tr><th>输出</th><td>Prompt、valid、8路DLL信息。</td></tr>
 <tr><th>日志位置</th><td>使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。</td></tr>
 </table><p><strong>怎么看：</strong>对应旧70 MHz总览；与新板视图分开查看。</p><p class="scope"><strong>验证边界：</strong>不能将旧模型的状态连续行为等同于当前每窗复位的AD9361接收。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">90_旧70MHz中频_波形总览.png</a> — DLL误差与眼图对齐参考</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">02_旧中频_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_wireless_link.slx&#x27;);
@@ -225,11 +258,13 @@ hilite_system(&#x27;dsss_wireless_link/FFT_Acquisition_DLL_Despread&#x27;,&#x27;
 </details></article>
 <article id="if_costas"><h3>16 旧载波：归一化、PI/NCO与旋转</h3>
 <p><code>dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate</code></p>
+<p><a class="button" href="#diagram-if">查看本模块所在的实际模型图</a></p>
 <p>旧总览星座和右轴频偏轨迹来自此处的功能事件参考。</p><table><tr><th>输入</th><td>Prompt及valid。</td></tr><tr><th>输出</th><td>Costas复数符号、valid、4路环路信息。</td></tr>
 <tr><th>日志位置</th><td>使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。</td></tr>
 </table><p><strong>怎么看：</strong>对应旧70 MHz总览；与新板视图分开查看。</p><p class="scope"><strong>验证边界：</strong>它也不是独立脚本生成的旧Costas理想阶跃图，二者不得混称。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">90_旧70MHz中频_波形总览.png</a> — 星座与频偏轨迹</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">02_旧中频_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_wireless_link.slx&#x27;);
@@ -240,11 +275,13 @@ hilite_system(&#x27;dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate&#x27;,&#x2
 <p><code>dsss_wireless_link/BPSK_I_Negative</code></p>
 <p><code>dsss_wireless_link/Bit_As_Double</code></p>
 <p><code>dsss_wireless_link/Header_Polarity_Payload100</code></p>
+<p><a class="button" href="#diagram-if">查看本模块所在的实际模型图</a></p>
 <p>Costas_I_Q提取I，BPSK_I_Negative执行I&lt;0，Bit_As_Double转类型后送帧头/载荷解析。</p><table><tr><th>输入</th><td>辅助判决块输出的bit与valid。</td></tr><tr><th>输出</th><td>100字节载荷数组及帧状态。</td></tr>
 <tr><th>日志位置</th><td>使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。</td></tr>
 </table><p><strong>怎么看：</strong>对应旧70 MHz总览；与新板视图分开查看。</p><p class="scope"><strong>验证边界：</strong>旧模型也没有当前工程可用的四时间戳/CRC协议。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">90_旧70MHz中频_波形总览.png</a> — 右下收帧/误码统计</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/02_%E6%97%A7%E4%B8%AD%E9%A2%91_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">02_旧中频_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_wireless_link.slx&#x27;);
@@ -533,4 +570,10 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details>
 <details><summary>90_旧方案_四时间戳交换示意.svg</summary><p>历史双向时间戳示意图；当前三个Simulink模型均无四时间戳求钟差块。</p>
 </details>
-</main></html>
+<details><summary>01_AD9361_Simulink实际模型.png</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details>
+<details><summary>01_RTL对照_Simulink实际模型.png</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details>
+<details><summary>02_旧中频_Simulink实际模型.png</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details>
+<script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

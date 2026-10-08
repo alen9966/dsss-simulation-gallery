@@ -52,3 +52,18 @@ modules.html：按模块分类说明，含输入输出、日志、图源及本�
 该命令只读取三个现有模型，不重建、不仿真。然后更新
 scripts/tools/render_simulink_module_guide.py中的对应说明并重新发布。
 独立脚本图、示意图和未实现协议必须如实注明，不编造Simulink模块。
+
+六、实际Simulink模型图片与连线（2026-10-08）
+三个实际模型图已放入modules.html，各模型分组上方均可查看：
+适合宽度、放大2倍/3倍、滚动查看、高清原图/下载。
+图片由MATLAB直接打印现有模型；不是手工绘制的替代框图。
+主链从左向右，采用正交折线；日志放在源模块下方。
+RTL模型上半区为FIR数值对照，下半区为TDD方程对照。
+当前仍是原来的三个模型；未增加展示用模型，也未改变算法和信号连接。
+模型生成脚本统一调用scripts/tools/layout_dsss_model.m，重建后保留排版。
+修改模型后更新实际图：
+  setup_dsss_project; export_dsss_model_diagrams; export_dsss_model_inventory
+图源：results/model_diagrams；布局检查：layout_validation.json。
+本次旧IF前后14路日志完全一致；AD9361功能回归及RTL导出对照均通过。
+然后在PowerShell执行 .\更新并发布仿真图.ps1。
+

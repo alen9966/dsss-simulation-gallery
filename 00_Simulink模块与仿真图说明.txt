@@ -1,9 +1,11 @@
 仿真图与Simulink模块对应说明
-核对日期：2026-10-08 15:22:14（北京时间）
+核对日期：2026-10-08 16:03:18（北京时间）
 一次功能模型执行80 us，内部包含4000物理/20000 DSP样本。不是整链逐周期RTL。
 
 A · 当前 AD9361 功能模型
 模型文件：models/dsss_ad9361_link.mdl；日志通过Log_*的To Workspace块输出。
+实际模型框图：00_导航与方案说明/01_AD9361_Simulink实际模型.png
+当前 AD9361 功能模型；50 MSPS物理I/Q、250 MHz DSP参考、80 us块执行。主链从左向右，日志在源模块下方。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。
 
 01 发送：组帧、DSSS 扩频、FIR201 与抽取
 dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12
@@ -17,6 +19,7 @@ dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12
 实现：scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；左上TX I、右上频谱
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；左上TX I、右上频谱
+对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 02 信道：70 km、频偏、采样钟差与噪声
 dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
@@ -30,6 +33,7 @@ dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
 实现：scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；左上RX Q、右下码片叠加
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；左上RX Q、右下码片叠加
+对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 03 接收前端：signed12、插值5与FIR48
 dsss_ad9361_link/RX_signed12_interp5_FIR48
@@ -43,6 +47,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 实现：scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；接收前端相关级，本图没有直接画出其输出
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；接收前端相关级，本图没有直接画出其输出
+对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -56,6 +61,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 实现：scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；左中解扩星座、左下DLL误差
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；左中解扩星座、左下DLL误差
+对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -69,6 +75,7 @@ dsss_ad9361_link/Normalization_Costas_raw40
 实现：scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/dsss_costas_integer_update.m；scripts/system/dsss_costas_lock_metrics.m
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；右中星座与末段相位RMS
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；右中星座与末段相位RMS
+对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 06 信息恢复：BPSK判决、帧头与100字节载荷
 dsss_ad9361_link/BPSK_Header_100Byte
@@ -82,9 +89,12 @@ dsss_ad9361_link/BPSK_Header_100Byte
 实现：scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m；scripts/entrypoints/run_dsss_ad9361_link.m
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；标题帧数/BER的载荷来源
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；标题帧数/BER的载荷来源
+对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 B · 实际 RTL 导出对照模型
 模型文件：models/dsss_rtl_comparison.mdl；4 ns重放Xsim导出并运行整数参考。后端Costas和帧测试另在D组说明。
+实际模型框图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png
+4 ns重放实际Xsim导出；上半区为五路FIR数值对照，下半区为TDD独立方程对照。From Workspace不是实时HDL协同仿真。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。
 
 07 RTL对照：同一整数激励
 dsss_rtl_comparison/Identical_Integer_Stimulus
@@ -97,6 +107,7 @@ dsss_rtl_comparison/Identical_Integer_Stimulus
 参数：
 实现：scripts/rtl_link/dsss_rtl_load_data.m
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；前端同一输入
+对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 08 RTL对照：五路整数FIR参考
 dsss_rtl_comparison/Integer_FIR_Reference
@@ -109,6 +120,7 @@ dsss_rtl_comparison/Integer_FIR_Reference
 参数：
 实现：scripts/rtl_link/dsss_rtl_reference_sfun.m
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；五路整数参考
+对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 09 RTL对照：真实Xsim/IP输出重放
 dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim
@@ -121,6 +133,7 @@ dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim
 参数：
 实现：scripts/rtl_link/dsss_rtl_load_data.m；scripts/rtl_link/render_rtl_findings.py
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；上排实际RTL波形来源
+对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 10 RTL对照：有效点差分与记录
 dsss_rtl_comparison/RTL_minus_Model
@@ -138,6 +151,7 @@ dsss_rtl_comparison/Waveform_Log
 参数：
 实现：scripts/rtl_link/build_dsss_rtl_comparison.m
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；右下五路有效点误差
+对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 11 RTL对照：本地时隙公式与实际轨迹
 dsss_rtl_comparison/Actual_TDD_RTL
@@ -152,9 +166,12 @@ dsss_rtl_comparison/TDD_Error_Log
 日志：
 参数：
 实现：scripts/system/dsss_tdd_compare.m；scripts/rtl_link/build_dsss_rtl_comparison.m
+对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 C · 旧 70 MHz 中频参考模型
 模型文件：models/dsss_wireless_link.slx；旧70 MHz中频基准，保留参考。
+实际模型框图：00_导航与方案说明/02_旧中频_Simulink实际模型.png
+旧70 MHz中频参考；250 MSPS、80 us块执行。I/Q拆分、BPSK判决及有效信号旁路均为模型实际连线。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。
 
 12 旧发送：DSSS、FIR201与70MHz上变频
 dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC
@@ -167,6 +184,7 @@ dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC
 参数：
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；TX时域/频谱/COE
+对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 13 旧信道：独立时钟、中频、噪声和ADC打包
 dsss_wireless_link/Wireless_70km_Independent_Clocks
@@ -179,6 +197,7 @@ dsss_wireless_link/Wireless_70km_Independent_Clocks
 参数：
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；ADC中频/频谱
+对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 14 旧接收：70MHz下变频与FIR48
 dsss_wireless_link/ADC_Bits_DDC_FIR48
@@ -191,6 +210,7 @@ dsss_wireless_link/ADC_Bits_DDC_FIR48
 参数：
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；DDC基带与展示眼图
+对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 15 旧同步：FFT、DLL与解扩
 dsss_wireless_link/FFT_Acquisition_DLL_Despread
@@ -203,6 +223,7 @@ dsss_wireless_link/FFT_Acquisition_DLL_Despread
 参数：
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；DLL误差与眼图对齐参考
+对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 16 旧载波：归一化、PI/NCO与旋转
 dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate
@@ -215,6 +236,7 @@ dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate
 参数：
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；星座与频偏轨迹
+对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 17 旧信息恢复：判决、极性与载荷
 dsss_wireless_link/Costas_I_Q
@@ -230,6 +252,7 @@ dsss_wireless_link/Header_Polarity_Payload100
 参数：
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；右下收帧/误码统计
+对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 
 D · 独立脚本与展示（非 Simulink 模块）
 这些是实际图源，但不是Simulink处理块；无对应模块或尚未实现的协议会明确写出。
@@ -480,3 +503,12 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：10_双向时间比对/90_旧方案_四时间戳交换示意.svg
 来源：历史双向时间戳示意图；当前三个Simulink模型均无四时间戳求钟差块。
+
+图：00_导航与方案说明/01_AD9361_Simulink实际模型.png
+来源：MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。
+
+图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png
+来源：MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。
+
+图：00_导航与方案说明/02_旧中频_Simulink实际模型.png
+来源：MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。

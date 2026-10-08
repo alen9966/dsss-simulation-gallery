@@ -1,6 +1,6 @@
 {
   "date": "2026-10-08",
-  "copied_files": 22,
+  "copied_files": 25,
   "original_files_preserved": true,
   "files": [
     {
@@ -975,6 +975,136 @@
       ],
       "panel_map": [],
       "provenance": "历史双向时间戳示意图；当前三个Simulink模型均无四时间戳求钟差块。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/model_diagrams/ad9361_model.png",
+      "filename": "01_AD9361_Simulink实际模型.png",
+      "status": "Simulink实际模型框图",
+      "note": "当前 AD9361 功能模型；50 MSPS物理I/Q、250 MHz DSP参考、80 us块执行。主链从左向右，日志在源模块下方。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。",
+      "requested_module_ids": [
+        "ad_tx",
+        "ad_channel",
+        "ad_rx",
+        "ad_dll",
+        "ad_costas",
+        "ad_frame"
+      ],
+      "relative_path": "00_导航与方案说明/01_AD9361_Simulink实际模型.png",
+      "decoded_pixel_sha256": "1218144b178469487d110a5ccb8649b44a51c6e0e327d191db56cfd9a5362cee",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_frame",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/model_diagrams/rtl_comparison_model.png",
+      "filename": "01_RTL对照_Simulink实际模型.png",
+      "status": "Simulink实际模型框图",
+      "note": "4 ns重放实际Xsim导出；上半区为五路FIR数值对照，下半区为TDD独立方程对照。From Workspace不是实时HDL协同仿真。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。",
+      "requested_module_ids": [
+        "rtl_stimulus",
+        "rtl_fir",
+        "rtl_actual",
+        "rtl_compare",
+        "rtl_tdd"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png",
+      "decoded_pixel_sha256": "32e84f2d5f53f18aee5ef9d86b56eef74c010f180161551c2ef900c20dc1a679",
+      "module_refs": [
+        {
+          "id": "rtl_stimulus",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_fir",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_actual",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_compare",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/model_diagrams/wireless_if_model.png",
+      "filename": "02_旧中频_Simulink实际模型.png",
+      "status": "Simulink实际模型框图",
+      "note": "旧70 MHz中频参考；250 MSPS、80 us块执行。I/Q拆分、BPSK判决及有效信号旁路均为模型实际连线。 图片由MATLAB直接打印现有模型；仅整理布局，不代表新增硬件验证。",
+      "requested_module_ids": [
+        "if_tx",
+        "if_channel",
+        "if_rx",
+        "if_dll",
+        "if_costas",
+        "if_frame"
+      ],
+      "relative_path": "00_导航与方案说明/02_旧中频_Simulink实际模型.png",
+      "decoded_pixel_sha256": "93c9081360e88a71ab276f5d8063347bed5729b96b2a154b10a60034793a9b56",
+      "module_refs": [
+        {
+          "id": "if_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_frame",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。"
     }
   ]
 }
