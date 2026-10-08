@@ -1,0 +1,193 @@
+四阶段迁移与验证
+
+    
+
+ 从原 Vivado 到 AD9361 四阶段迁移与验证 
+
+ 本次重跑：2026-10-08 18:31:47（北京时间） · 以原 690T 工程为来源 · 新硬件目标 XC7Z045 + AD9361 
+
+  仿真图册  实际 Simulink 模型与模块  本次验证数据  本地复跑  
+
+  结论：采用用户提出的四阶段主线，并在每次迁移之间加入来源核对和数值对照。  原 Vivado → 原方案 Simulink → AD9361 Simulink → AD9361 Vivado。这个顺序使每一处硬件变化都能追溯到模型及测试。现有工程中已经完成的 RTL 复用、功能模型和 Xsim 分段对照继续使用，按这条主线组织。  当前模型的六个处理块是 MATLAB S-function。最后一步落实为“模型导出参数、系数及测试数据 → 复用/修改 RTL → 生成集成顶层 → Vivado/Xsim 核验”，没有声称从当前模型自动生成 FFT、DLL、Costas 等全部 Verilog。整链 RTL 与射频验收仍待完成。  
+
+ 
+
+  01 · 原工程来源  16 个 RTL  按声明修改核对；5份原COE一致  
+
+  02 · 旧方案模型  1 帧 / 0 位错  本次运行原70 MHz功能基线  
+
+  03 · AD9361 模型  2 个接收窗  功能双窗回归与Simulink一致  
+
+  04 · 新 Vivado  78 个端口  模型导出顶层；分段测试和展开核验  
+
+   1. 四阶段之间分别传递什么  箭头代表有依据的工程迁移；每一级都必须保留输入、输出、参数来源与验证边界。 
+
+  适合宽度  放大2倍  放大3倍      这是迁移流程示意。下列三个模型图来自实际 Simulink 导出。 
+
+    阶段  实际文件  传给下一阶段的内容  已验证与边界  
+
+  原 Vivado  fm7vx690t2wmodule.xpr / MW_BiDir_Transceiver_Top  PN3、FIR201/FIR48、相关ROM、帧头、数据位宽、环路整数参数、采样/有效节拍  原组帧/扩频参数、16个被复用模块及5份COE可追溯；未声称原7通道工程全部在模型中逐周期复现。  
+
+  原方案 Simulink  models/dsss_wireless_link.slx  70 MHz中频功能基线、传播/频差/噪声、收帧与载荷；明确原ADC低12位打包行为  本次收1帧、0位错；FFT/DLL/归一化及旋转为功能参考。  
+
+  AD9361 Simulink  models/dsss_ad9361_link.mdl  复基带采样、signed12、TX_SHIFT、插值5、三组实际整数系数、接收窗复位、同一载荷  32,000点TX迁移检查和双窗回归通过；没有逐周期建模LVDS/FIFO及所有IP流水线。  
+
+  AD9361 Vivado  fpga_ad9361/rtl/ad9361_dsss_model_top.v  78端口集成顶层、复用/适配RTL、6份COE及66个IP配置；对照入口dsss_rtl_comparison.mdl  真实IP分段、正常符号节拍和模型对照通过；顶层/IP接口展开仍含加密宏黑盒，非映射综合、完整波形RTL或板上通信验收。  
+
+     2. 用户路线和现有做法，如何取舍 
+
+    判断项  用户四阶段路线  现有工程做法  采用方式  
+
+  来源可追溯  每一步有上一步作为基线  模型、适配RTL与分段验证并行发展，材料分散  按四阶段建立来源表和证据入口。  
+
+  复用成熟代码  允许从原模型和原HDL保留不变部分  复用原FFT/DLL/Costas及IP，交付较快  保留现有RTL，不为了流程整齐重写已验证模块。  
+
+  模型到代码  必须说明哪些由模型导出、哪些需要RTL实现  当前S-function无法作为完整自动HDL生成证据  自动导出参数、来源记录和集成顶层，算法RTL逐段核对。  
+
+  验证力度  每个迁移箭头都有独立检查  已有功能整链与RTL分段，原后端使用加速节拍  补同一载荷、独立TX整数卷积和20,000时钟符号节拍。  
+
+  工程完成判据  最终完整通信链需要通过  已有分段结果尚不足以推出板上通信可用  保留整链RTL、初始化/标定及射频验收关卡。  
+
+    推荐结果： 四阶段路线负责组织与交付，现有 RTL 复用和 Xsim 对照负责实现与验证。纯粹从六个功能块重新自动生成整套 HDL，当前缺少可综合定点/时钟模型，投入与风险都更高。  
+
+  3. 原方案改为 AD9361，具体改在哪里  无线载频由射频前端承担。旧FPGA内部的70 MHz中频与新AD9361的复基带属于不同信号域，不能仅把模块名改成AD9361。     处理段  原模型 → 新模型  RTL落点与原因  
+
+  发送   TX_Frame_DSSS_FIR201_DUC  →  TX_PN1000_FIR201_decimate5_signed12   保留PN1000及FIR201；移除70 MHz数字DUC，增加/5、右移3位和signed12饱和。  dsss_tx_250, tx_intp20, ad9361_dsss_stream_core   
+
+  信道/接口   Wireless_70km_Independent_Clocks  →  Wireless_70km_CFO_SFO_AWGN   实中频ADC低12位打包改为signed12复I/Q；信道损伤留在仿真端，不能综合成射频信道。  ad9361_lvds_1r1t, iq_clock_bridge   
+
+  接收前端   ADC_Bits_DDC_FIR48  →  RX_signed12_interp5_FIR48   移除70 MHz数字DDC；signed12扩展后由FIR121插值5，接回原FIR48与250 MHz DSP。  complex_interp5, ddc_hb_filter   
+
+  捕获/解扩   FFT_Acquisition_DLL_Despread  →  FFT1024_DLL_20000point   保留FFT1024、PN1000和20,000点积分；新增逐接收窗复位。功能DLL增益与插值不等同原RTL所有定点运算。  rx_deci, fft_cap_3, code_loop_3, dsss_rx_burst_control   
+
+  载波恢复   Normalize_Costas_PI_NCO_Rotate  →  Normalization_Costas_raw40   保留raw40 PI整数系数；功能模型的EWMA/复指数旋转与RTL分块归一化/CORDIC存在数值差异。  rx_norm, costas_loop_v2   
+
+  解帧   Header_Polarity_Payload100  →  BPSK_Header_100Byte   保持帧头、极性和100字节载荷；修复解析器清空状态以恢复连续帧。现有帧未实现CRC/四时间戳绑定。  bpsk_demod, rx_frame_identify_v2, rx_phy_par   
+
+    查看原方案实际模型图   查看AD9361实际模型图   查看RTL对照模型图  
+
+ 模型导出后必须与代码一致的参数     对象  当前值  数值操作与边界  
+
+  TX FIR  201抽头，Q17  原整数系数；取[31:16]为signed16，发生溢出时回绕。随后/5、算术右移3位并饱和为signed12。  
+
+  RX FIR  48抽头，Q16  原整数系数；取[30:15]为signed16，发生溢出时回绕。  
+
+  RX插值5  121抽头，signed18/Q16  5相×25抽头，末尾补零；39位累加、右移16位、signed16饱和。编译用初始化表按相序核对COE。  
+
+  Costas PI  C1=0x02D152 (184658)；C2=0x00081A (2074)  保持原raw40更新顺序及回绕。功能模型没有复现CORDIC全部舍入、流水线和反馈重叠。  
+
+  DLL PI  C1=0x0407FF7C；C2=0x00084188  原RTL乘积取[62:31]，32位环路；功能DLL包含不同的误差归一化/插值，尚未证明逐周期等效。  
+
+  完整帧  35×A5 + 8字节帧头 + 100字节载荷 + 5×A5  帧头FF08C6808E25C0C9；148字节/1184比特。当前未包含CRC或四时间戳协议。  
+
+   这些是当前模型与复用RTL的实际值，不是重新推导后保证最优的环路带宽。修改采样率、系数或帧头后必须重新适配、仿真和导出；工具会拒绝模型与现有RTL不一致的配置。 
+
+     本次功能迁移仿真：前两幅属于不同采样率/码宽的信号域；后两幅在同一50 MSPS码值接口比较独立卷积与模型TX，32,000点误差为零。不能由此推出全部TX/RX RTL逐点一致。 点击图片打开高清原图。  
+
+ 独立参考先对PN码片按20倍插零，经原Q17 FIR201卷积并按原[31:16]取位，再/5、算术右移3位及12位饱和；该参考没有调用模型的多相滤波实现。两种实现输出相同，支持发送域迁移的数值正确性。 
+
+     实际系数分析：TX201与RX48保留，新增FIR121用于50→250 MSPS。频率按250 MHz DSP域定义，每条幅频曲线分别按其DC响应归一化；不是绝对链路增益或RF实测。 点击图片打开高清原图。  
+
+     实际RTL发送段：dsss_tx_250组帧器、PN初始化及真实FIR201 IP，前8个A5前导比特，按独立FIR延迟与首码片时刻对齐后，160,000个DSP点一致；首个valid包含19个启动零点。下半区抽取/缩放为参考数学运算；未覆盖载荷正文、LVDS或接收机。 点击图片打开高清原图。  
+
+  这次发现的模型抽象差异： 真实FIR201从首个valid起有19个启动零样本，而功能TX从因果卷积的第一个样本开始。直接按首个valid比较有159984点不符，最大差20412码值。独立FIR测试给出57拍延迟，结合记录的首个码片时刻建立统一时钟后，8000个码片和160000个DSP点一致。这支持发送段码值正确，同时说明功能模型未逐周期表达valid启动；没有对本次TX波形搜索最优平移。 
+
+ 时钟关系可复算：启动零点数 = 首码片记录拍 25053 + 下一上升沿采样补偿1拍 + 独立FIR延迟 57 − 首valid记录拍 25092 = 19 点。码片记录位于生产寄存器更新后的下降沿，FIR在下一上升沿采样；独立前端标定以已采样的输入拍为基准。 
+
+ 插值5恢复原DSP算法需要的20点/chip采样网格；物理端仍只有4点/chip。它不增加AD9361的有效采样带宽、量化分辨率或时延测量精度。  
+
+  4. 关键参数为什么能够放进100 ms时隙  码片率为12.5 Mchip/s、每比特1000码片，因此数据率 R b  = 12.5×10 6 /1000 =  12.5 kbit/s ，每比特80 μs。148字节完整帧包含1184比特，所以 T frame  = 148×8/R b  =  94.72 ms 。  70 km单程自由空间传播延迟 τ = 70,000/299,792,458 ≈  233.495 μs 。加入100 μs发送前保护和20 μs后保护后，100 ms时隙的算术余量约为  4.927 ms 。按每方向每200 ms发送一次100字节有效载荷计算，单站单向净载荷速率为100×8/0.2 = 4 kbit/s（假设无丢帧和重传）。这支持当前帧长预算；收发切换、滤波/流水线延迟和捕获余量仍需结合完整RTL与硬件核验。  250 MHz×100 ms =  25,000,000个DSP时钟 ，同一方向每200 ms重复。两站不是共用10 MHz/PPS，仍需要共同历元建立及漂移跟踪；独立PPS不能直接等价为时隙已对齐。  本次功能场景：70 km、20 dB设定SNR、5 GHz示例载频、两端频率偏差+1×10⁻¹⁰与−1×10⁻¹⁰，对应约1 Hz载波频偏。5 GHz、SNR和频差是可调假设，不是射频实测或铷钟保证值；旧实IF与新复基带的噪声参考点不同，本页不据此比较两种接收机灵敏度。  
+
+  还要计入归一化的整帧缓存：  原rx_norm先跳过80个输入符号、用500个符号估计幅度，继续缓存，直到输入静默TIME_OUT_VAL=50000拍后才输出。静默等待约0.200 ms；随后每250拍输出一个归一化符号，1184个符号的排空时间约1.184 ms。两项在帧尾增加约1.384 ms。  扣除这项后，前述算术余量约为3.543 ms，尚未计入其余捕获/滤波/流水线及RF切换延迟。这是代码参数推算的分段预算；本次实际输出间隔见验证数据中的normalizationOutputGap_clocks，仍需完整波形RTL核验最终时刻。  
+
+  5. 本次新仿真与代码核验结果     关卡  本次结果  证据与不能推出的结论  
+
+  来源  16个复用RTL符合声明变更，5份原COE一致  source_audit.json；另逐项核对原tx_phy_framing/tx_mod_spread_v3的帧头、35/100/5字节结构、PN1000、20点/chip及±16384码片幅度。声明修改见下表。仅覆盖选用依赖，不是原7通道整工程验收。  
+
+  旧模型功能  1帧，0位错  run_dsss_wireless_link；现有旧70 MHz模型真实运行。  
+
+  新模型功能  理想/标称/双窗/饱和/失败场景通过  validate_dsss_workflow；新Simulink与参考函数DLL/Costas/载荷一致。共用阶段函数，不等同独立RTL实现。  
+
+  TX迁移  32,000点，最大码值误差0  独立零插值整数卷积 vs 新模型多相实现，覆盖前8个比特；不是整帧RTL发送测试。  
+
+  实际RTL发送段  前8个前导比特，160,000个DSP点，误差0  实际组帧器/PN/FIR201；8000码片一致，按独立FIR时钟标定后160000点一致。直接按首个valid比较不符；不含载荷正文、LVDS或接收机。  
+
+  真实IP FIR  五路共57,824个有效点，误差0  重新编译/执行Xsim，再运行RTL对照模型；有效位掩码及延迟对齐后比较。  
+
+  真实RTL后端  20,000时钟/符号；100字节，0字节错  1184个符号事件，80 μs正常输入节拍；绕过RF、前端、FFT/DLL，不等同完整无线链。  
+
+  真实解帧  3帧无复位，每帧100字节，0字节错  20,000时钟/输入比特；第3帧反极性测试。未包含CRC。  
+
+  模型导出与代码  78端口顶层，66个IP配置  模型导出后生成集成壳层并校验COE；算法RTL复用/适配。  
+
+  Vivado展开  模型生成顶层及IP接口展开通过  使用已有690T仿真项目；74个加密IP底层宏仍为黑盒。行为由单独Xsim分段测试核验；非XC7Z045映射综合、时序或布局布线。  
+
+   当前功能Costas与真实RTL输出最大相差 36 码值。这项差异被保留并报告：两者采用不同归一化启动/缓冲、量化和旋转方式，不能把“FIR误差0”扩展为“整链定点误差0”。   查看16个复用模块及声明修改     模块  原工程位置  适配位置  声明修改  
+
+   bpsk_demod    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/bpsk_demod.v    rtl\legacy\bpsk_demod.v   原样保留；本次审计一致。  
+
+   code_loop_3    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/code_loop_3.v    rtl\legacy\code_loop_3.v   复位skip标志，默认清除NCO单周期码片脉冲。  
+
+   code_loop_frame_cap    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/code_loop_frame_cap.v    rtl\legacy\code_loop_frame_cap.v   原样保留；本次审计一致。  
+
+   code_loop_lock_det    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/code_loop_lock_det.v    rtl\legacy\code_loop_lock_det.v   原样保留；本次审计一致。  
+
+   code_phase_est2    fm7vx690t2wmodule.srcs/sources_1/new/code_phase_est2.v    rtl\legacy\code_phase_est2.v   原样保留；本次审计一致。  
+
+   costas_lock_det    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/costas_lock_det.v    rtl\legacy\costas_lock_det.v   原样保留；本次审计一致。  
+
+   costas_loop_v2    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/costas_loop_v2.v    rtl\legacy\costas_loop_v2.v   原样保留；本次审计一致。  
+
+   ddc_hb_filter    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/ddc_hb_filter.v    rtl\legacy\ddc_hb_filter.v   原样保留；本次审计一致。  
+
+   fft_cap_3    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/fft_cap_3.v    rtl\legacy\fft_cap_3.v   原样保留；本次审计一致。  
+
+   rx_deci    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/rx_deci.v    rtl\legacy\rx_deci.v   原样保留；本次审计一致。  
+
+   rx_frame_identify_v2    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/rx_frame_identify_v2.v    rtl\legacy\rx_frame_identify_v2.v   原样保留；本次审计一致。  
+
+   rx_norm    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/rx_norm.v    rtl\legacy\rx_norm.v   原样保留；本次审计一致。  
+
+   rx_phy_cap_top_3    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/rx_phy_cap_top_3.v    rtl\legacy\rx_phy_cap_top_3.v   恢复捕获幅度连线为32位。  
+
+   rx_phy_par    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/rx_phy_par.v    rtl\legacy\rx_phy_par.v   空FIFO后退出清空状态，恢复连续帧；未使用FIFO计数断开。  
+
+   time_diff_cal    fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/time_diff_cal.v    rtl\legacy\time_diff_cal.v   原样保留；本次审计一致。  
+
+   tx_intp20    fm7vx690t2wmodule.srcs/sources_1/phy_tx/rtl/tx_intp20.v    rtl\legacy\tx_intp20.v   原样保留；本次审计一致。  
+
+    
+
+  6. 本地从哪里运行、得到哪些文件  只维护三个原有模型，不增加展示用重复模型。模型、代码和原始数据保存在本机；公开仓库只发布图册和解释性证据。  PowerShell：
+.\运行迁移验证.ps1
+
+MATLAB核心入口：
+setup_dsss_project;
+run_dsss_migration
+  PowerShell入口依次执行：来源审计 → 三个模型及真实IP分段验证 → 实际发送器对照 → 导出/校验生成顶层 → Vivado顶层展开 → 整理图册 → GitHub发布及线上文件核验。每一步失败即停止，不把旧报告当作本次通过。     目录/关键文件  用途  
+
+  results/migration/  来源审计、模型参数导出、本次迁移验证JSON/MAT/CSV和新图。  
+
+  scripts/entrypoints/run_dsss_migration.m  本次统一仿真入口；调用现有模型和验证函数。  
+
+  scripts/tools/audit_dsss_migration.py  核对原RTL、声明修改和原COE。  
+
+  scripts/tools/export_dsss_ad9361_model.m  从实际模型导出硬件配置、整数系数、PN、帧头和测试载荷。  
+
+  fpga_ad9361/tools/build_from_simulink.py  生成78端口集成顶层；检查模型/代码/COE是否已变化。  
+
+  fpga_ad9361/rtl/ad9361_dsss_model_top.v  新增的模型驱动顶层；STATION_ROLE允许两站分别设0/1。  
+
+  fpga_ad9361/rtl/ad9361_dsss_radio.v  已有LVDS/时钟/基带/SPI集成实现；原有入口继续可用。  
+
+  fpga_ad9361/build_config/model_contract.json  导出参数、当前来源指纹、生成顶层指纹与66个IP清单关联。  
+
+  fpga_ad9361/ip/create_from_model.tcl  为实际完整XC7Z045型号创建新工程；用户XDC另加。  
+
+  fpga_ad9361/ip/validate_model_top.tcl  使用现有仿真项目展开模型驱动顶层，记录器件与验证边界。  
+
+   创建硬件工程时执行  vivado -mode batch -source fpga_ad9361/ip/create_from_model.tcl -tclargs <输出目录> <实际完整XC7Z045型号> 。封装/速度级未确认前不擅自选择；这不阻碍本页功能仿真和已有IP验证。XDC按用户要求暂缓。  
+
+  静态审查发现的待修订项： rx_norm的P_SKIP状态判断了超时，但time_out_cnt计数使能只覆盖P_WAIT/P_CAL/P_END，P_SKIP内断流时不能自行触发该超时分支。当前每接收窗复位能够回收状态；仍需修订该条件并定向测试短突发、预热阶段断流及同窗重入。本次完整标称输入测试不覆盖这一故障条件。 
+
+  7. 下一道必须完成的关卡  完整速率同一帧 TX → 70 km信道波形 → LVDS/FIFO → FFT/DLL → 归一化/Costas → 载荷的RTL对照；覆盖连续收发窗、采样频差、无信号/低SNR、溢出与复位恢复。然后完成AD9361初始化与LVDS窗口校准、两站历元协议、四时间戳序号/CRC绑定及链路延迟标定。  当前可以交付模型驱动的集成代码与可复跑的阶段证据；不能据此承诺硬件到货后已经无需联调即可通信，也没有标定后的可用钟差结果。XDC暂缓不意味着其余未完成关卡自动通过。  

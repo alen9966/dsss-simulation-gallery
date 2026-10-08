@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1040" viewBox="0 0 1280 1040">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#176d9a"/></marker></defs>
+<rect width="1280" height="1040" fill="#f3f7fc"/>
+<g font-family="Microsoft YaHei,Arial,sans-serif" fill="#18354e">
+<text x="45" y="52" font-size="29" font-weight="bold">按四阶段推进：旧 Vivado → 旧模型 → AD9361 模型 → 新 Vivado</text>
+<text x="45" y="90" font-size="19" fill="#526c81">工程迁移示意；实际模型图片、仿真数据和验证范围分别列出。</text>
+<g fill="white" stroke="#a6bed4" stroke-width="2">
+<rect x="40" y="125" width="740" height="155" rx="14"/>
+<rect x="40" y="335" width="740" height="155" rx="14"/>
+<rect x="40" y="545" width="740" height="155" rx="14"/>
+<rect x="40" y="755" width="740" height="170" rx="14"/>
+<rect x="835" y="125" width="405" height="155" rx="14" fill="#e6f1fa"/>
+<rect x="835" y="335" width="405" height="155" rx="14" fill="#e6f1fa"/>
+<rect x="835" y="545" width="405" height="155" rx="14" fill="#e6f1fa"/>
+<rect x="835" y="755" width="405" height="170" rx="14" fill="#fff3db"/>
+</g>
+<g font-size="24" font-weight="bold">
+<text x="65" y="164">01 · 原 690T / 高速 ADDA Vivado 工程</text>
+<text x="65" y="374">02 · 原方案 Simulink 功能基线</text>
+<text x="65" y="584">03 · AD9361 Simulink 功能模型</text>
+<text x="65" y="794">04 · 模型驱动的 AD9361 Vivado 交付</text>
+</g>
+<g font-size="20">
+<text x="65" y="205">MW_BiDir_Transceiver_Top / 70 MHz 数字中频</text>
+<text x="65" y="242">提取 PN、COE、数据格式、帧结构与环路参数</text>
+<text x="65" y="415">dsss_wireless_link.slx / 250 MSPS / 70 MHz IF</text>
+<text x="65" y="452">组帧 → DSSS / FIR → 信道 → DDC → DLL / Costas → 载荷</text>
+<text x="65" y="625">dsss_ad9361_link.mdl / 50 MSPS complex signed12</text>
+<text x="65" y="662">去除数字中频，新增 /5、插值5、量化和接收窗复位</text>
+<text x="65" y="835">ad9361_dsss_model_top.v / 复用及修改 RTL + COE + IP</text>
+<text x="65" y="872">导出参数与载荷 → Xsim → dsss_rtl_comparison.mdl</text>
+<text x="65" y="905" fill="#526c81">S-function 内部算法未自动转换成 Verilog。</text>
+</g>
+<g stroke="#176d9a" stroke-width="3" fill="none" marker-end="url(#arrow)">
+<path d="M410 280V330"/><path d="M410 490V540"/><path d="M410 700V750"/>
+<path d="M780 202H827"/><path d="M780 412H827"/><path d="M780 622H827"/><path d="M780 840H827"/>
+</g>
+<g font-size="20">
+<text x="855" y="164" font-weight="bold">来源关卡</text>
+<text x="855" y="205">RTL 复制差异有说明</text><text x="855" y="242">原 PN / FIR / 相关 ROM 可追溯</text>
+<text x="855" y="374" font-weight="bold">旧基线关卡</text>
+<text x="855" y="415">原方案收帧及载荷核对</text><text x="855" y="452">功能等效 ≠ 全部 RTL 逐周期等效</text>
+<text x="855" y="584" font-weight="bold">迁移关卡</text>
+<text x="855" y="625">同一载荷、实际系数、码值检查</text><text x="855" y="662">100 ms 时隙 / 200 ms 重复窗</text>
+<text x="855" y="794" font-weight="bold">实现关卡与待办</text>
+<text x="855" y="835">分段真实 IP 仿真 + 顶层展开</text><text x="855" y="872">整链 RTL / 初始化 / 标定待验</text>
+<text x="855" y="905">XDC 暂缓；当前无硬件验收结论</text>
+</g>
+<text x="45" y="982" font-size="22" font-weight="bold">推荐：用用户的四阶段路线组织交付，用现有 RTL 复用与 Xsim 对照落实每个阶段。</text>
+<text x="45" y="1018" font-size="19" fill="#526c81">每条“通过”必须关联实际日志；整链逐周期、射频实测和标定钟差不能由分段结果替代。</text>
+</g></svg>

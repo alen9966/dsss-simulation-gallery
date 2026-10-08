@@ -1,0 +1,185 @@
+{
+  "date": "2026-10-08 18:31:47",
+  "source_audit_date": "2026-10-08T17:48:04+08:00",
+  "legacy_modules_checked": 16,
+  "legacy_contract": {
+    "preamble": 165,
+    "preambleBytes": 35,
+    "tailBytes": 5,
+    "payloadBytes": 100,
+    "header": [
+      255,
+      8,
+      198,
+      128,
+      142,
+      37,
+      192,
+      201
+    ],
+    "chipsPerBit": 1000,
+    "dspSamplesPerChip": 20,
+    "positiveChipCode": 16384,
+    "negativeChipCodeUnsigned": 49152,
+    "files": {
+      "fm7vx690t2wmodule.srcs/sources_1/phy_tx/rtl/tx_phy_framing.v": "2bef62d953406530e6ad9148b256189b1c7a3b87ff0158718d69c2b764593756",
+      "fm7vx690t2wmodule.srcs/sources_1/phy_tx/rtl/tx_mod_spread_v3.v": "7d8d18c2decbf9d77a386bd0bdd7cf4d0e70a88cb9d11a5c684d46d6d280d167"
+    }
+  },
+  "unchanged_legacy_coe_files": 5,
+  "declared_changes": [
+    {
+      "module": "code_loop_3",
+      "changes": [
+        "Reset skip flag and default each NCO chip strobe to zero"
+      ]
+    },
+    {
+      "module": "rx_phy_cap_top_3",
+      "changes": [
+        "Restore 32-bit capture magnitude wire"
+      ]
+    },
+    {
+      "module": "rx_phy_par",
+      "changes": [
+        "Leave unused FIFO debug count explicitly disconnected",
+        "Exit clear state when output FIFO is empty; recover for subsequent frames"
+      ]
+    }
+  ],
+  "model_profile": {
+    "fsPhysical": 50000000.0,
+    "fsDsp": 250000000.0,
+    "fsInterface": 100000000.0,
+    "fsIdelay": 200000000.0,
+    "chipRate": 12500000.0,
+    "chipsPerBit": 1000,
+    "sampleBits": 12,
+    "frameBytes": 148,
+    "payloadBytes": 100,
+    "slot_s": 0.1,
+    "exchange_s": 0.2,
+    "txShift": 3,
+    "costasC1": 184658,
+    "costasC2": 2074,
+    "dllC1": 67633020.0,
+    "dllC2": 541064
+  },
+  "generated_top": "ad9361_dsss_model_top",
+  "top_port_count": 78,
+  "configured_ip_count": 66,
+  "legacy_frames": 1,
+  "ad9361_frames": 1,
+  "same_functional_payload": true,
+  "actual_tx": {
+    "date": "2026-10-08 18:33:55",
+    "passed": true,
+    "actualSnapshotMatchesCurrentRtlAndPn": true,
+    "chipsCompared": 8000,
+    "chipCodeErrors": 0,
+    "rawDspSamplesExported": 160064,
+    "dspSamplesCompared": 160000,
+    "dspCodeErrors": 0,
+    "maximumDspCodeError": 0,
+    "unalignedDspCodeErrors": 159984,
+    "unalignedMaximumDspCodeError": 20412,
+    "independentFirLatencyClocks": 57,
+    "leadingValidZeroSamples": 19,
+    "producerToFirSampleOffsetClocks": 1,
+    "alignmentMethod": "Independent frontend FIR impulse/vector calibration and logged first chip clock; no lag search using TX waveform.",
+    "physicalReferenceSamplesCompared": 32000,
+    "maximumPhysicalReferenceCodeError": 0,
+    "firstChipClock": 25053,
+    "firstDspClock": 25092,
+    "lastDspClock": 185155,
+    "scope": "Actual dsss_tx_250 sequencer, PN ROM initialization and real FIR201 IP; first 8 A5 preamble bits, 8000 chips and 160000 aligned DSP points. Functional TX omits RTL valid startup. Decimate5/shift3/saturation are reference math, not actual LVDS output. No payload body, full frame or receiver acceptance."
+  },
+  "tx_samples_compared": 32000,
+  "tx_code_error": 0,
+  "real_ip_fir_valid_samples": 57824,
+  "rtl_backend": {
+    "scope": "Symbol-event input; capture/DLL bypassed; see inputGap_clocks for actual cadence",
+    "inputGap_clocks": 20000,
+    "physicalInputGap_clocks": 20000,
+    "normOutputs": 1184,
+    "normalizationIntegerErrors": 0,
+    "averageMagnitudeCodes": 998,
+    "costasOutputs": 1184,
+    "receivedBytes": 100,
+    "lastMarkers": 1,
+    "comparedByteErrors": 0,
+    "passed": true,
+    "functionalCostasVsRtlMaxCodeDifference": 36,
+    "firstNormalizationClock": 23710147.0,
+    "lastNormalizationClock": 24005897.0,
+    "normalizationOutputGap_clocks": 250,
+    "normalizationOutputSpan_s": 0.001183,
+    "firstPayloadClock": 23996728.0,
+    "lastPayloadClock": 23996827.0,
+    "phase_deg": 35,
+    "cfo_hz": 1,
+    "functionalNormalization": "EWMA starts immediately at 16384; RTL skips 80, estimates 500, buffers and bursts",
+    "realSymbolCadence": true
+  },
+  "rtl_frames": [
+    {
+      "packet": 0,
+      "expectedBytes": 100,
+      "receivedBytes": 100,
+      "comparedByteErrors": 0,
+      "lastMarkers": 1,
+      "passed": true,
+      "finalByteParserState": 0,
+      "finalFrameParserState": 0
+    },
+    {
+      "packet": 1,
+      "expectedBytes": 100,
+      "receivedBytes": 100,
+      "comparedByteErrors": 0,
+      "lastMarkers": 1,
+      "passed": true,
+      "finalByteParserState": 0,
+      "finalFrameParserState": 0
+    },
+    {
+      "packet": 2,
+      "expectedBytes": 100,
+      "receivedBytes": 100,
+      "comparedByteErrors": 0,
+      "lastMarkers": 1,
+      "passed": true,
+      "finalByteParserState": 0,
+      "finalFrameParserState": 0
+    }
+  ],
+  "rtl_simulink": {
+    "samples": 12000,
+    "maximumCodeError": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mode": "Actual Xsim output versus integer convolution evaluated in Simulink",
+    "tddMaximumError": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "tddExportedTraceClocks": 482,
+    "validationDate": "2026-10-08 18:31:43"
+  },
+  "top_elaboration": "PASS: MODEL_TOP_REAL_IP_ELABORATED\nsimulation_part=xc7vx690tffg1157-2\ntop=ad9361_dsss_model_top\nblackbox_count=74\nblackbox_reference_counts=c_addsub_v12_0_12_viv__parameterized26 1 mult_gen_v12_0_14_viv__parameterized3 1 c_accum_v12_0_12_viv 1 cmpy_v6_0_16_viv 1 xfft_v9_1_1_viv 1 c_addsub_v12_0_12_viv__parameterized20 1 c_addsub_v12_0_12_viv__parameterized22 3 xfft_v9_1_1_viv__parameterized1 1 c_addsub_v12_0_12_viv__parameterized18 1 mult_gen_v12_0_14_viv 2 mult_gen_v12_0_14_viv__parameterized1 1 c_addsub_v12_0_12_viv__parameterized24 2 c_accum_v12_0_12_viv__parameterized7 1 cordic_v6_0_14_viv__parameterized3 1 c_addsub_v12_0_12_viv__parameterized90 3 c_addsub_v12_0_12_viv__parameterized92 1 mult_gen_v12_0_14_viv__parameterized12 2 c_addsub_v12_0_12_viv__parameterized94 1 c_shift_ram_v12_0_12_viv__parameterized44 2 c_shift_ram_v12_0_12_viv__parameterized40 2 mult_gen_v12_0_14_viv__parameterized7 2 c_addsub_v12_0_12_viv__parameterized78 4 c_shift_ram_v12_0_12_viv__parameterized46 1 c_shift_ram_v12_0_12_viv__parameterized42 1 div_gen_v5_1_14_viv 1 c_accum_v12_0_12_viv__parameterized3 6 c_accum_v12_0_12_viv__parameterized1 1 c_addsub_v12_0_12_viv__parameterized28 1 cordic_v6_0_14_viv 2 c_addsub_v12_0_12_viv__parameterized30 2 mult_gen_v12_0_14_viv__parameterized5 4 fir_compiler_v7_2_11_viv__parameterized1 2 c_accum_v12_0_12_viv__parameterized5 1 div_gen_v5_1_14_viv__parameterized1 1 div_gen_v5_1_14_viv__parameterized3 2 cordic_v6_0_14_viv__parameterized1 1 mult_gen_v12_0_14_viv__parameterized9 2 c_addsub_v12_0_12_viv__parameterized96 1 div_gen_v5_1_14_viv__parameterized5 1 mult_gen_v12_0_14_viv__parameterized14 1 c_addsub_v12_0_12_viv__parameterized98 1 mult_gen_v12_0_14_viv__parameterized16 1 mult_gen_v12_0_14_viv__parameterized18 1 c_addsub_v12_0_12_viv__parameterized102 1 c_addsub_v12_0_12_viv__parameterized100 3 fir_compiler_v7_2_11_viv 1\nscope=Top and configured IP interface elaboration; 74 encrypted vendor IP macros remain black boxes in synth_design -rtl. Behavioral correctness is covered only by separately executed Xsim segments. Not XC7Z045 mapped synthesis, route, timing, XDC or RF acceptance.\n",
+  "scope": "Fresh legacy and AD9361 functional models; fresh real-IP FIR and real-cadence symbol/frame segments. Complete real-rate waveform RTL, hardware RF, epoch binding and calibrated time difference remain pending.",
+  "full_chain_rtl_passed": false,
+  "hardware_passed": false,
+  "xdc": "按用户要求暂缓"
+}

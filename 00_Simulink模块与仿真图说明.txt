@@ -1,5 +1,5 @@
 仿真图与Simulink模块对应说明
-核对日期：2026-10-08 16:03:18（北京时间）
+核对日期：2026-10-08 18:31:48（北京时间）
 一次功能模型执行80 us，内部包含4000物理/20000 DSP样本。不是整链逐周期RTL。
 
 A · 当前 AD9361 功能模型
@@ -20,6 +20,9 @@ dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；左上TX I、右上频谱
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；左上TX I、右上频谱
 对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：01_发送与接收波形/03_旧方案到AD9361_信号域与码值核对.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/03_实际发送器_PN_FIR201_模型对照.png；登记的新图对应模块；场景及信号说明见图注
 
 02 信道：70 km、频偏、采样钟差与噪声
 dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
@@ -48,6 +51,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；接收前端相关级，本图没有直接画出其输出
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；接收前端相关级，本图没有直接画出其输出
 对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -185,6 +189,8 @@ dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；TX时域/频谱/COE
 对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：01_发送与接收波形/03_旧方案到AD9361_信号域与码值核对.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
 
 13 旧信道：独立时钟、中频、噪声和ADC打包
 dsss_wireless_link/Wireless_70km_Independent_Clocks
@@ -211,6 +217,7 @@ dsss_wireless_link/ADC_Bits_DDC_FIR48
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；DDC基带与展示眼图
 对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
 
 15 旧同步：FFT、DLL与解扩
 dsss_wireless_link/FFT_Acquisition_DLL_Despread
@@ -347,11 +354,26 @@ D · 独立脚本与展示（非 Simulink 模块）
 输入：配置、COE、历史MATLAB或Xsim导出。
 输出：图像/统计/示意，不是Simulink端口。
 观察：对照图的真实产生路径；没有对应块的图不编造模块名。
-边界：后端绕过FFT/DLL并把符号间隔加速到500拍；连续帧解析器测试也不等于完整无线接收链路。
+边界：后端绕过FFT/DLL；本次正常符号节拍与历史加速测试分别列在迁移说明中，均不等于完整无线接收链路。
 日志：
 参数：
 实现：scripts/rtl_link/render_rtl_findings.py；results/rtl_link/rtl_validation.json
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；左下/中下：独立RTL测试，非模型内Costas/解析块
+
+25 四阶段迁移与模型驱动交付
+
+作用：来源审计、两类功能模型重跑、TX独立整数卷积、实际发送器/PN/FIR IP对照、三组FIR响应及模型导出顶层验证。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：独立迁移工具与绘图，不是新增Simulink块；完整波形RTL与射频验收仍待完成。
+日志：
+参数：
+实现：scripts/entrypoints/run_dsss_migration.m；scripts/tools/audit_dsss_migration.py；scripts/tools/export_dsss_ad9361_model.m；scripts/tools/validate_dsss_model_tx.m；rtl_cosim/ad9361/tb_model_tx.v；fpga_ad9361/tools/build_from_simulink.py
+对应图：00_导航与方案说明/03_四阶段迁移主线.svg；登记的新图对应模块；场景及信号说明见图注
+对应图：01_发送与接收波形/03_旧方案到AD9361_信号域与码值核对.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/03_实际发送器_PN_FIR201_模型对照.png；登记的新图对应模块；场景及信号说明见图注
 
 图：01_发送与接收波形/01_AD9361_单窗波形总览.png
 来源：MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。
@@ -512,3 +534,19 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：00_导航与方案说明/02_旧中频_Simulink实际模型.png
 来源：MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。
+
+图：00_导航与方案说明/03_四阶段迁移主线.svg
+来源：四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。
+
+图：01_发送与接收波形/03_旧方案到AD9361_信号域与码值核对.png
+来源：四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。
+
+图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png
+来源：四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。
+
+图：08_MATLAB_Simulink_RTL对照/03_实际发送器_PN_FIR201_模型对照.png
+来源：validate_dsss_model_tx读取实际dsss_tx_250/PN/真实FIR201 IP的Xsim输出，记录8000个码片，并按独立FIR延迟和首码片时刻对齐160000个DSP点；不是Scope截图。
+左上 | 实际TX/PN/FIR201输出与独立卷积 | tb_model_tx的bb_data与模型整数参考 | 250MHz signed16 DSP有效样本；按独立FIR57拍延迟对齐，valid启动含19个零点。
+右上 | 前2000点的未对齐/标定后误差 | 实际RTL减独立参考 | 统计基于160000点；曲线仅显示前2000点，8个A5比特。
+左下 | 参考/5、右移3位与signed12饱和 | 实际FIR样本经参考后处理 vs AD9361功能TX | 后处理不是实际LVDS接口输出。
+右下 | 160000个DSP点对齐误差 | 独立FIR时钟对齐后的250MHz码值 | 全段误差0；不是LVDS/收发整链验收。

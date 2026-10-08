@@ -12,7 +12,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 </style><main><h1>DSSS 项目仿真图汇总</h1>
 <p>2026-10-08 · XC7Z045 + AD9361 · 已有图分类副本</p>
 <p><a href="https://alen9966.github.io/dsss-simulation-gallery/">在线图册</a> · <a href="https://github.com/alen9966/dsss-simulation-gallery">GitHub仓库</a></p>
-<p><a class="module-button" href="modules.html">按 Simulink 模块查看与解释</a></p>
+<p><a class="module-button" href="migration.html">先看：原 Vivado → Simulink → AD9361 → 新 Vivado</a> <a class="module-button" href="modules.html">按 Simulink 模块查看与解释</a></p>
 <p>先看 01 新板双窗总览和 08 RTL 分段验证。历史图已标注；60项清单包含尚未生成的图。</p>
 <p><a href="00_完整60项仿真图清单.txt">完整60项清单</a> · <a href="00_先看这里.txt">目录说明</a> · <a href="00_图文件来源.json">原始文件来源</a></p><nav>
 <a href="#c0">00_导航与方案说明</a>
@@ -51,8 +51,9 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <option value="script_ui">22 历史交互界面截图</option>
 <option value="script_diagram">23 历史方案框图</option>
 <option value="script_backend">24 RTL后端/解析器独立测试</option>
+<option value="script_migration">25 四阶段迁移与模型驱动交付</option>
 </select> <a id="module-help" href="modules.html">查看模块说明</a><p id="filter-count">显示全部图片</p></div>
-<section data-category="0" id="c0"><h2>00_导航与方案说明</h2><p class="note">总览入口、历史方案框图和历史交互界面。框图属于旧方案，不作为新板连接依据。</p><div class="grid">
+<section data-category="0" id="c0"><h2>00_导航与方案说明</h2><p class="note">迁移主线、实际模型图、导航入口与历史方案框图；不同图的来源和验证范围见各自图注。</p><div class="grid">
 <article data-modules="script_ui"><span class="badge old">历史参考</span><h3>90_旧中频_参数界面.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" alt="90_旧中频_参数界面.png"></a><p>历史界面截图，不表示当前运行状态。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
 <li><a href="modules.html#script_ui">22 历史交互界面截图</a>：界面/脚本入口</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>历史交互界面截图；不是某个处理块的独立仿真输出。</p>
@@ -90,6 +91,10 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#if_costas">16 旧载波：归一化、PI/NCO与旋转</a>：登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="modules.html#if_frame">17 旧信息恢复：判决、极性与载荷</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details></article>
+<article data-modules="script_migration"><span class="badge">工程迁移示意</span><h3>03_四阶段迁移主线.svg</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/03_%E5%9B%9B%E9%98%B6%E6%AE%B5%E8%BF%81%E7%A7%BB%E4%B8%BB%E7%BA%BF.svg" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/03_%E5%9B%9B%E9%98%B6%E6%AE%B5%E8%BF%81%E7%A7%BB%E4%B8%BB%E7%BA%BF.svg" alt="03_四阶段迁移主线.svg"></a><p>按用户路线组织：原Vivado→原方案模型→AD9361模型→模型驱动Vivado；流程图不是完成所有关卡的证明。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。</p>
 </details></article>
 </div></section>
 <section data-category="1" id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">
@@ -141,13 +146,27 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <p><strong>第3行中 · DLL/Costas跟踪</strong><br>DLL info第4列、Costas info第3列<br>左轴码环误差，右轴估计频偏。</p>
 <p><strong>第3行右 · 场景/载荷统计</strong><br>配置及Frame输出比较<br>文字摘要，无独立信号输出曲线。</p>
 </details></article>
+<article data-modules="ad_tx if_tx script_migration"><span class="badge">本次功能迁移验证</span><h3>03_旧方案到AD9361_信号域与码值核对.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/03_%E6%97%A7%E6%96%B9%E6%A1%88%E5%88%B0AD9361_%E4%BF%A1%E5%8F%B7%E5%9F%9F%E4%B8%8E%E7%A0%81%E5%80%BC%E6%A0%B8%E5%AF%B9.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/03_%E6%97%A7%E6%96%B9%E6%A1%88%E5%88%B0AD9361_%E4%BF%A1%E5%8F%B7%E5%9F%9F%E4%B8%8E%E7%A0%81%E5%80%BC%E6%A0%B8%E5%AF%B9.png" alt="03_旧方案到AD9361_信号域与码值核对.png"></a><p>旧70MHz/250MSPS与新复基带50MSPS属于不同信号域；独立卷积与新TX模型比较同一接口前8比特32,000点，误差0；非完整RTL。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_tx">12 旧发送：DSSS、FIR201与70MHz上变频</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。</p>
+</details></article>
 </div></section>
-<section data-category="2" id="c2"><h2>02_FIR与多速率</h2><p class="note">已有历史FIR201/FIR48图；当前三组FIR独立图仍待补，原始响应数据在results/system。</p><div class="grid">
+<section data-category="2" id="c2"><h2>02_FIR与多速率</h2><p class="note">已有历史FIR201/FIR48图；当前三组整数系数响应见迁移FIR对照图，原始响应数据在results/system。</p><div class="grid">
 <article data-modules="script_fir"><span class="badge old">历史参考</span><h3>90_旧方案_FIR系数与幅频响应.png</h3><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/90_%E6%97%A7%E6%96%B9%E6%A1%88_FIR%E7%B3%BB%E6%95%B0%E4%B8%8E%E5%B9%85%E9%A2%91%E5%93%8D%E5%BA%94.png" target="_blank"><img loading="lazy" src="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/90_%E6%97%A7%E6%96%B9%E6%A1%88_FIR%E7%B3%BB%E6%95%B0%E4%B8%8E%E5%B9%85%E9%A2%91%E5%93%8D%E5%BA%94.png" alt="90_旧方案_FIR系数与幅频响应.png"></a><p>旧TX201/RX48；未覆盖当前插值5 FIR121。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
 <li><a href="modules.html#script_fir">18 参数脚本：旧FIR系数与幅频图</a>：真实绘图来源</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立COE参数分析/绘图脚本，没有一一对应的Simulink输出端口。</p>
 <p><strong>上排 · TX201系数与归一化响应</strong><br>旧TX COE<br>参数图，不是运行中的滤波输出。</p>
 <p><strong>下排 · RX48系数与归一化响应</strong><br>旧RX COE<br>没有当前插值5滤波器。</p>
+</details></article>
+<article data-modules="ad_tx ad_rx if_tx if_rx script_migration"><span class="badge">当前整数系数分析</span><h3>01_迁移_TX201_RX48_插值5_FIR121.png</h3><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/01_%E8%BF%81%E7%A7%BB_TX201_RX48_%E6%8F%92%E5%80%BC5_FIR121.png" target="_blank"><img loading="lazy" src="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/01_%E8%BF%81%E7%A7%BB_TX201_RX48_%E6%8F%92%E5%80%BC5_FIR121.png" alt="01_迁移_TX201_RX48_插值5_FIR121.png"></a><p>三组实际整数系数；FFT65536点、250MHz频率标尺、各自DC归一化；旧TX201/RX48保留，新增RX插值5 FIR121。不是绝对RF增益。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_rx">03 接收前端：signed12、插值5与FIR48</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_tx">12 旧发送：DSSS、FIR201与70MHz上变频</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_rx">14 旧接收：70MHz下变频与FIR48</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。</p>
 </details></article>
 </div></section>
 <section data-category="3" id="c3"><h2>03_FFT捕获</h2><p class="note">尚无独立捕获图。真实IP重捕获已有日志，概率、虚警及完整RTL捕获曲线待补。</p><div class="grid">
@@ -170,7 +189,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <section data-category="7" id="c7"><h2>07_双向时隙与接口</h2><p class="note">独立图待补。时隙控制有RTL单测与Simulink轨迹对照；双站共同历元尚未实现。</p><div class="grid">
 <article>尚无本类独立图；查看本类说明及完整清单。相关组合图位置见上方说明。</article>
 </div></section>
-<section data-category="8" id="c8"><h2>08_MATLAB_Simulink_RTL对照</h2><p class="note">已有实际RTL分段总览；后端绕过FFT/DLL并加速符号事件，不能称完整RTL整链验收。</p><div class="grid">
+<section data-category="8" id="c8"><h2>08_MATLAB_Simulink_RTL对照</h2><p class="note">已有实际RTL分段总览；后端绕过FFT/DLL；历史加速与本次正常符号节拍分别标注，不能称完整RTL整链验收。</p><div class="grid">
 <article data-modules="rtl_stimulus rtl_fir rtl_actual rtl_compare script_backend"><span class="badge">RTL分段验证</span><h3>01_实际RTL_分段验证总览.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png" alt="01_实际RTL_分段验证总览.png"></a><p>FIR、后端Costas及连续帧等分段证据；不是完整采样链路。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
 <li><a href="modules.html#rtl_stimulus">07 RTL对照：同一整数激励</a>：前端同一输入</li>
 <li><a href="modules.html#rtl_fir">08 RTL对照：五路整数FIR参考</a>：五路整数参考</li>
@@ -192,6 +211,15 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#rtl_compare">10 RTL对照：有效点差分与记录</a>：登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="modules.html#rtl_tdd">11 RTL对照：本地时隙公式与实际轨迹</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details></article>
+<article data-modules="ad_tx script_migration"><span class="badge">本次真实RTL发送段验证</span><h3>03_实际发送器_PN_FIR201_模型对照.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/03_%E5%AE%9E%E9%99%85%E5%8F%91%E9%80%81%E5%99%A8_PN_FIR201_%E6%A8%A1%E5%9E%8B%E5%AF%B9%E7%85%A7.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/03_%E5%AE%9E%E9%99%85%E5%8F%91%E9%80%81%E5%99%A8_PN_FIR201_%E6%A8%A1%E5%9E%8B%E5%AF%B9%E7%85%A7.png" alt="03_实际发送器_PN_FIR201_模型对照.png"></a><p>实际dsss_tx_250组帧/PN/真实FIR201 IP，前8个A5比特、8000码片；按独立FIR延迟和输入时刻对齐后160,000个DSP点误差0。直接按首个valid对照会不符，valid启动含19个零样本；下半区/5、缩放为参考运算，非LVDS/载荷正文/接收链测试。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>validate_dsss_model_tx读取实际dsss_tx_250/PN/真实FIR201 IP的Xsim输出，记录8000个码片，并按独立FIR延迟和首码片时刻对齐160000个DSP点；不是Scope截图。</p>
+<p><strong>左上 · 实际TX/PN/FIR201输出与独立卷积</strong><br>tb_model_tx的bb_data与模型整数参考<br>250MHz signed16 DSP有效样本；按独立FIR57拍延迟对齐，valid启动含19个零点。</p>
+<p><strong>右上 · 前2000点的未对齐/标定后误差</strong><br>实际RTL减独立参考<br>统计基于160000点；曲线仅显示前2000点，8个A5比特。</p>
+<p><strong>左下 · 参考/5、右移3位与signed12饱和</strong><br>实际FIR样本经参考后处理 vs AD9361功能TX<br>后处理不是实际LVDS接口输出。</p>
+<p><strong>右下 · 160000个DSP点对齐误差</strong><br>独立FIR时钟对齐后的250MHz码值<br>全段误差0；不是LVDS/收发整链验收。</p>
 </details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">本目录为旧方案信道场景。新板BER/FER统计、多径及RF非理想性能曲线仍待补。</p><div class="grid">

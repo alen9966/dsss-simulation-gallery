@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-10-08 16:03:18",
+  "inventory_date": "2026-10-08 18:31:48",
   "scope": "Read-only inventory of existing saved models; no new waveform run or model modification",
   "models": [
     {
@@ -869,10 +869,32 @@
       "outputs": "图像/统计/示意，不是Simulink端口。",
       "purpose": "RTL总览左下Costas与中下连续帧来自独立Xsim后端和解析器测试。dsss_rtl_comparison模型中没有Costas或帧解析处理块，这两幅子图由render_rtl_findings读取测试导出绘制。",
       "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
-      "limits": "后端绕过FFT/DLL并把符号间隔加速到500拍；连续帧解析器测试也不等于完整无线接收链路。",
+      "limits": "后端绕过FFT/DLL；本次正常符号节拍与历史加速测试分别列在迁移说明中，均不等于完整无线接收链路。",
       "sources": [
         "scripts/rtl_link/render_rtl_findings.py",
         "results/rtl_link/rtl_validation.json"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_migration",
+      "title": "25 四阶段迁移与模型驱动交付",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "来源审计、两类功能模型重跑、TX独立整数卷积、实际发送器/PN/FIR IP对照、三组FIR响应及模型导出顶层验证。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "独立迁移工具与绘图，不是新增Simulink块；完整波形RTL与射频验收仍待完成。",
+      "sources": [
+        "scripts/entrypoints/run_dsss_migration.m",
+        "scripts/tools/audit_dsss_migration.py",
+        "scripts/tools/export_dsss_ad9361_model.m",
+        "scripts/tools/validate_dsss_model_tx.m",
+        "rtl_cosim/ad9361/tb_model_tx.v",
+        "fpga_ad9361/tools/build_from_simulink.py"
       ],
       "logs": "",
       "tune": ""
@@ -1860,6 +1882,111 @@
       ],
       "panel_map": [],
       "provenance": "MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/03_四阶段迁移主线.svg",
+      "filename": "03_四阶段迁移主线.svg",
+      "status": "工程迁移示意",
+      "module_refs": [
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。"
+    },
+    {
+      "relative_path": "01_发送与接收波形/03_旧方案到AD9361_信号域与码值核对.png",
+      "filename": "03_旧方案到AD9361_信号域与码值核对.png",
+      "status": "本次功能迁移验证",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。"
+    },
+    {
+      "relative_path": "02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png",
+      "filename": "01_迁移_TX201_RX48_插值5_FIR121.png",
+      "status": "当前整数系数分析",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/03_实际发送器_PN_FIR201_模型对照.png",
+      "filename": "03_实际发送器_PN_FIR201_模型对照.png",
+      "status": "本次真实RTL发送段验证",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "左上",
+          "title": "实际TX/PN/FIR201输出与独立卷积",
+          "signal": "tb_model_tx的bb_data与模型整数参考",
+          "meaning": "250MHz signed16 DSP有效样本；按独立FIR57拍延迟对齐，valid启动含19个零点。"
+        },
+        {
+          "position": "右上",
+          "title": "前2000点的未对齐/标定后误差",
+          "signal": "实际RTL减独立参考",
+          "meaning": "统计基于160000点；曲线仅显示前2000点，8个A5比特。"
+        },
+        {
+          "position": "左下",
+          "title": "参考/5、右移3位与signed12饱和",
+          "signal": "实际FIR样本经参考后处理 vs AD9361功能TX",
+          "meaning": "后处理不是实际LVDS接口输出。"
+        },
+        {
+          "position": "右下",
+          "title": "160000个DSP点对齐误差",
+          "signal": "独立FIR时钟对齐后的250MHz码值",
+          "meaning": "全段误差0；不是LVDS/收发整链验收。"
+        }
+      ],
+      "provenance": "validate_dsss_model_tx读取实际dsss_tx_250/PN/真实FIR201 IP的Xsim输出，记录8000个码片，并按独立FIR延迟和首码片时刻对齐160000个DSP点；不是Scope截图。"
     }
   ],
   "layout_verification": {
