@@ -1,0 +1,40 @@
+仿真成果的统一收录与发布
+
+用户已经明确要求：以后有意义的仿真成果都收录到“仿真图汇总”，同时提交到GitHub，公开供同事在线访问。
+仓库：https://github.com/alen9966/dsss-simulation-gallery
+在线图册：https://alen9966.github.io/dsss-simulation-gallery/
+
+一、每次有新成果
+1. 原始波形图仍输出到原有results目录。
+2. 在scripts/tools/simulation_figure_registry.json的figures数组中登记新图。
+   文件内有示例，填写source、category(0到10)、filename、status和note。
+   source相对工程根目录；status注明当前功能参考、RTL分段验证、历史参考或实测。
+   note写明场景、主要参数、随机种子和验证边界。
+3. 在工程目录执行：
+   .\更新并发布仿真图.ps1
+4. 检查GitHub Pages部署完成，再确认在线图像和文字可读。
+   新push不等于网页已经部署，发布状态文件先写PENDING_VERIFICATION。
+
+二、只整理不上传
+   .\更新并发布仿真图.ps1 -LocalOnly
+或者仅刷新本地图册：
+   python scripts/tools/organize_simulation_figures.py
+LocalOnly只整理本地图册，不连接GitHub、不修改发布仓库。
+发布工作目录若有未提交内容，应先检查，不得强行清空用户内容。
+
+三、文件位置
+仿真图汇总：用户查看的本地分类图册；原始数据不移动。
+scripts/tools/organize_simulation_figures.py：刷新本地分类、副本校验和HTML索引。
+scripts/tools/simulation_figure_registry.json：后续新图的分类与证据登记。
+scripts/tools/publish_simulation_gallery.py：构建静态发布副本、校验链接和Git对象、提交推送。
+generated/github/dsss-simulation-gallery：图册仓库本地工作目录。
+results/system/gallery_publish_status.json：最近推送提交及在线验证状态。
+
+四、约定
+新图如尚未登记，会从results下自动发现，先放00类并标为“待确认”，避免遗漏；
+最终交付前应补齐分类和验证范围。没有新图的类别不伪造结果。
+旧方案图保留历史标签；当前功能波形、RTL分段、整链RTL和硬件实测分别说明。
+在线发布保留图源相对位置，不携带本机绝对路径。
+常规发布只上传图册与说明，不把完整工程、私有IP、工具缓存或大体积MAT原始数据混入。
+GitHub Pages使用main分支根目录发布；每次push后由GitHub部署。
+这不是定时任务；在后续仿真工作完成时更新和发布。

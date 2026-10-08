@@ -1,0 +1,203 @@
+{
+  "date": "2026-10-08",
+  "copied_files": 22,
+  "original_files_preserved": true,
+  "files": [
+    {
+      "category": 1,
+      "source": "project/results/ad9361_link/waveform_constellation.png",
+      "filename": "01_AD9361_单窗波形总览.png",
+      "status": "当前功能参考",
+      "note": "6子图；使用设定信道参数，不是70km实测。",
+      "relative_path": "01_发送与接收波形/01_AD9361_单窗波形总览.png",
+      "decoded_pixel_sha256": "14fcbf9b3e8cdc1f352d629f7d65abf4c586184adcddfad605c4517fe6d46fe1"
+    },
+    {
+      "category": 1,
+      "source": "project/results/ad9361_link/scenarios/two_frames_200ms/waveform_constellation.png",
+      "filename": "02_AD9361_双窗波形与收敛.png",
+      "status": "当前功能参考",
+      "note": "两帧零误码；橙色为各载荷完成前末200符号；码片叠加未对齐眼中心。",
+      "relative_path": "01_发送与接收波形/02_AD9361_双窗波形与收敛.png",
+      "decoded_pixel_sha256": "bec0845f6c0c1b2d7384b29b267e2cbb27768d4d36d6704e47ccc64a0c43ccb8"
+    },
+    {
+      "category": 1,
+      "source": "project/results/wireless_link/wireless_link_waveforms.png",
+      "filename": "90_旧70MHz中频_波形总览.png",
+      "status": "历史参考",
+      "note": "旧板ADDA/70MHz中频功能参考。",
+      "relative_path": "01_发送与接收波形/90_旧70MHz中频_波形总览.png",
+      "decoded_pixel_sha256": "3c4b12918db9c9fccdf1946294346eac9c080c99f65f4b1ba2b44cc5938fe56c"
+    },
+    {
+      "category": 8,
+      "source": "project/results/rtl_link/rtl_comparison.png",
+      "filename": "01_实际RTL_分段验证总览.png",
+      "status": "RTL分段验证",
+      "note": "FIR、后端Costas及连续帧等分段证据；不是完整采样链路。",
+      "relative_path": "08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png",
+      "decoded_pixel_sha256": "5597dba7bca869dce552d3ecd11d88269774986fd95edc0f8e4106aec7652289"
+    },
+    {
+      "category": 0,
+      "source": "project/results/wireless_link/dashboard.png",
+      "filename": "90_旧中频_参数界面.png",
+      "status": "历史参考",
+      "note": "历史界面截图，不表示当前运行状态。",
+      "relative_path": "00_导航与方案说明/90_旧中频_参数界面.png",
+      "decoded_pixel_sha256": "b67d6256f4dd460617e912ae869413025ca75f318e3b2975e41673bd5c89fe00"
+    },
+    {
+      "category": 0,
+      "source": "legacy/sim/matlab_link/results/data_link_diagram.png",
+      "filename": "91_旧方案_数据链路框图.png",
+      "status": "历史参考",
+      "note": "旧ADDA方案框图，不能当作当前AD9361结构图。",
+      "relative_path": "00_导航与方案说明/91_旧方案_数据链路框图.png",
+      "decoded_pixel_sha256": "c14b6b3ab7a2701129ded9af55186f89af3723effa05d5a5b3276c6a2f28b8ad"
+    },
+    {
+      "category": 0,
+      "source": "legacy/sim/matlab_link/results/data_link_diagram.svg",
+      "filename": "91_旧方案_数据链路框图.svg",
+      "status": "历史参考",
+      "note": "旧ADDA方案框图，不能当作当前AD9361结构图。",
+      "relative_path": "00_导航与方案说明/91_旧方案_数据链路框图.svg"
+    },
+    {
+      "category": 0,
+      "source": "legacy/sim/matlab_link/results/link_visualizer_preview.png",
+      "filename": "92_旧方案_可视化界面预览.png",
+      "status": "历史参考",
+      "note": "旧MATLAB可视化界面。",
+      "relative_path": "00_导航与方案说明/92_旧方案_可视化界面预览.png",
+      "decoded_pixel_sha256": "47c59fd966224e89f1e1815e7f1eae3c4b74f890707dd38c35c4795122aec8c4"
+    },
+    {
+      "category": 0,
+      "source": "legacy/sim/matlab_link/results/interactive_view_20260916_211340.png",
+      "filename": "93_旧方案_交互仿真截图.png",
+      "status": "历史参考",
+      "note": "2026-09-16历史截图。",
+      "relative_path": "00_导航与方案说明/93_旧方案_交互仿真截图.png",
+      "decoded_pixel_sha256": "3a0924facace5d8b2cf703411d3b37eb628292b75dc83e1a278347526c75b602"
+    },
+    {
+      "category": 2,
+      "source": "legacy/sim/matlab_link/results/fir_detailed_response.png",
+      "filename": "90_旧方案_FIR系数与幅频响应.png",
+      "status": "历史参考",
+      "note": "旧TX201/RX48；未覆盖当前插值5 FIR121。",
+      "relative_path": "02_FIR与多速率/90_旧方案_FIR系数与幅频响应.png",
+      "decoded_pixel_sha256": "ad312df8803efd751d9e341fd8504ae78a3ad9fcb26d7b9c84df2b2be7568a7c"
+    },
+    {
+      "category": 5,
+      "source": "legacy/sim/matlab_link/results/costas_parameter_response.png",
+      "filename": "90_旧方案_Costas理想阶跃响应.png",
+      "status": "历史参考",
+      "note": "旧环路理想响应，须按新板缩放/有效节拍重跑。",
+      "relative_path": "05_Costas环/90_旧方案_Costas理想阶跃响应.png",
+      "decoded_pixel_sha256": "2626d553e66c9fbfa393d2c38b2112582b98cda1416d2de5cb8c689a1fdc9c9e"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/noiseless_70km.png",
+      "filename": "90_旧方案_无噪声70km.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/90_旧方案_无噪声70km.png",
+      "decoded_pixel_sha256": "c600a3c670ac090899d7e80a94b5cc06c643d9ec55d34787348223ff97a4cf1e"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/independent_rubidium_LOS.png",
+      "filename": "91_旧方案_独立铷钟视距.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/91_旧方案_独立铷钟视距.png",
+      "decoded_pixel_sha256": "8095eadc29efe518ad4b253f9ca45ff4e4ffc65197c954c088de51eef79c8c5c"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/reverse_rubidium_LOS.png",
+      "filename": "92_旧方案_反向独立铷钟.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/92_旧方案_反向独立铷钟.png",
+      "decoded_pixel_sha256": "6339b9e0a7c667525718b5d5fd0f5a69d6d2bb18007cd78d96132efbdab38069"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/representative_2p4GHz.png",
+      "filename": "93_旧方案_示例2点4GHz.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/93_旧方案_示例2点4GHz.png",
+      "decoded_pixel_sha256": "3201bf7ea041f1fe60fe16316695b3d061b394409032121f45837eecd4c54f9b"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/weak_signal_70km.png",
+      "filename": "94_旧方案_弱信号70km.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/94_旧方案_弱信号70km.png",
+      "decoded_pixel_sha256": "9a524a38d46c342f424d42f496ee9b83b2080b3afa4240ff301080912a4489c7"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/multipath_70km.png",
+      "filename": "95_旧方案_多径70km.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/95_旧方案_多径70km.png",
+      "decoded_pixel_sha256": "063d255e1ab528adb901a4874c8c238ee58583be8f33ecba64feb8ee581613a6"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/frequency_offset_stress.png",
+      "filename": "96_旧方案_频偏压力.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/96_旧方案_频偏压力.png",
+      "decoded_pixel_sha256": "66f8b1703faff49885daadf9fc086bc72843a63408ef86e72452717f9c75c79a"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/adc_low12_wrap_stress.png",
+      "filename": "97_旧方案_旧ADC低12位回绕压力.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/97_旧方案_旧ADC低12位回绕压力.png",
+      "decoded_pixel_sha256": "2f6fe2d5bbc69cad935cf4bc96d9ec45ea043518cd008120b0c076189c07d037"
+    },
+    {
+      "category": 9,
+      "source": "legacy/sim/matlab_link/results/claimed_sensitivity_minus127dBm.png",
+      "filename": "98_旧方案_标称负127dBm假设_非灵敏度验收.png",
+      "status": "历史参考",
+      "note": "旧信道/接口模型及假设，不是AD9361新板无线性能验收。",
+      "relative_path": "09_无线性能与鲁棒性/98_旧方案_标称负127dBm假设_非灵敏度验收.png",
+      "decoded_pixel_sha256": "b2e54f5e3e432f94dc2d5cbfeca70ab1de0a837a5e9bcbe5652024eeaaead5ec"
+    },
+    {
+      "category": 10,
+      "source": "legacy/sim/matlab_link/results/two_way_timestamp_diagram.png",
+      "filename": "90_旧方案_四时间戳交换示意.png",
+      "status": "历史参考",
+      "note": "示意图，不证明当前RTL已实现时间戳绑定或已标定钟差。",
+      "relative_path": "10_双向时间比对/90_旧方案_四时间戳交换示意.png",
+      "decoded_pixel_sha256": "a2c8762346e02cc208097a7b382400a7ddd03f99fa8b212df92859434af4365a"
+    },
+    {
+      "category": 10,
+      "source": "legacy/sim/matlab_link/results/two_way_timestamp_diagram.svg",
+      "filename": "90_旧方案_四时间戳交换示意.svg",
+      "status": "历史参考",
+      "note": "示意图，不证明当前RTL已实现时间戳绑定或已标定钟差。",
+      "relative_path": "10_双向时间比对/90_旧方案_四时间戳交换示意.svg"
+    }
+  ]
+}

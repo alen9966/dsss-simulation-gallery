@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120">
+<rect width="100%" height="100%" fill="#f5f7fb"/>
+<style>text{font-family:'Microsoft YaHei',sans-serif;fill:#17324d}.s{font-size:22px;fill:#63788e}.h{font-size:42px;font-weight:700}.b{font-size:25px;font-weight:700}</style>
+<text x="65" y="85" class="h">双向时间报文与四时间戳钟差解算</text>
+<text x="67" y="130" class="s">两帧完整 DSSS/BPSK 波形 · 100 B 载荷透明传输 · 各站独立铷钟</text>
+<line x1="360" y1="225" x2="360" y2="865" stroke="#8aa0b4" stroke-width="4"/><line x1="1440" y1="225" x2="1440" y2="865" stroke="#8aa0b4" stroke-width="4"/>
+<text x="220" y="200" class="b" fill="#2171b5">站 A：时钟 C_A(t)</text><text x="1280" y="200" class="b" fill="#238b78">站 B：时钟 C_B(t)</text>
+<line x1="360" y1="305" x2="1440" y2="475" stroke="#2171b5" stroke-width="5" marker-end="url(#ab)"/>
+<line x1="1440" y1="625" x2="360" y2="795" stroke="#238b78" stroke-width="5" marker-end="url(#ba)"/>
+<defs><marker id="ab" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#2171b5"/></marker><marker id="ba" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#238b78"/></marker></defs>
+<text x="390" y="290" class="b">t1：A发射</text><text x="1250" y="465" class="b">t2：B接收测量</text><text x="1250" y="615" class="b">t3：B发射响应</text><text x="390" y="785" class="b">t4：A接收测量</text>
+<text x="900" y="355" text-anchor="middle" class="b">请求帧 A → B：载荷携带 t1</text><text x="900" y="705" text-anchor="middle" class="b">响应帧 B → A：载荷携带 t1、t2、t3</text>
+<rect x="90" y="900" width="1620" height="165" rx="20" fill="#f0ebf8" stroke="#c4addf" stroke-width="2"/><text x="135" y="945" class="b">θ = [(t2 − t1) − (t4 − t3)] / 2</text><text x="900" y="945" class="b">τ = [(t2 − t1) + (t4 − t3)] / 2</text><text x="135" y="995" class="s">双向传播对称且设备延迟已校准；时间字段分辨率不等于硬件测量精度。</text><text x="135" y="1035" class="s">两帧均经过完整波形链路、解扩、Costas和解帧。</text></svg>

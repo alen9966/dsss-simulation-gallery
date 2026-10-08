@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1960" height="1430" viewBox="0 0 1960 1430">
+<rect width="100%" height="100%" fill="#f5f7fb"/>
+<text x="60" y="77" font-family="Microsoft YaHei, sans-serif" font-size="42" fill="#162942" text-anchor="start">70 km 无线时间比对数据链</text>
+<text x="62" y="116" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#52667f" text-anchor="start">当前 Vivado RTL 实现 · 250 MS/s 采样 · 70 MHz 中频 · 可切换 GHz 射频 · 各站独立铷钟</text>
+<rect x="60" y="145" width="1840" height="54" rx="12" fill="#e6edf7" stroke="#e6edf7" stroke-width="2"/>
+<text x="82" y="178" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#162942" text-anchor="start">帧：35 B 前导 + 8 B 帧头 + 100 B 载荷 + 5 B 尾部     ｜     1000 码片 / bit     ｜     空中帧长 94.72 ms / 时隙 100 ms</text>
+<text x="62" y="248" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#185ba1" text-anchor="start">01  发送数字链路</text>
+<rect x="60" y="270" width="290" height="142" rx="12" fill="#eef6ff" stroke="#aac9e9" stroke-width="2"/>
+<text x="205.0" y="312" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">ARM / FSMC</text>
+<text x="205.0" y="348" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">100 B 载荷写入</text>
+<text x="205.0" y="375" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">异步 FIFO 跨时钟</text>
+<rect x="370" y="270" width="290" height="142" rx="12" fill="#eef6ff" stroke="#aac9e9" stroke-width="2"/>
+<text x="515.0" y="312" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">校验与组帧</text>
+<text x="515.0" y="348" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">A5 前导 / 固定帧头</text>
+<text x="515.0" y="375" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">tx_phy_framing</text>
+<rect x="680" y="270" width="290" height="142" rx="12" fill="#eef6ff" stroke="#aac9e9" stroke-width="2"/>
+<text x="825.0" y="312" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">并串转换</text>
+<text x="825.0" y="348" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">MSB 先发</text>
+<text x="825.0" y="375" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">12.5 kbit/s</text>
+<rect x="990" y="270" width="290" height="142" rx="12" fill="#eef6ff" stroke="#aac9e9" stroke-width="2"/>
+<text x="1135.0" y="312" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">DSSS 扩频 + BPSK</text>
+<text x="1135.0" y="348" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">数据 bit × 3 号码，1000 chip/bit</text>
+<text x="1135.0" y="375" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">12.5 Mchip/s，±16384</text>
+<rect x="1300" y="270" width="290" height="142" rx="12" fill="#eef6ff" stroke="#aac9e9" stroke-width="2"/>
+<text x="1445.0" y="312" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">20 倍插值 FIR</text>
+<text x="1445.0" y="348" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">工程原始 201 tap</text>
+<text x="1445.0" y="375" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">16 bit，250 MS/s</text>
+<rect x="1610" y="270" width="290" height="142" rx="12" fill="#eef6ff" stroke="#aac9e9" stroke-width="2"/>
+<text x="1755.0" y="312" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">数字上变频 DUC</text>
+<text x="1755.0" y="348" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">70 MHz DDS × 基带</text>
+<text x="1755.0" y="375" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">乘积截取 [30:15]</text>
+<polyline points="350,341 370,341" fill="none" stroke="#3778b9" stroke-width="3"/>
+<polygon points="370,341 358.2941876694152,346.654551943446 358.2941876694152,335.345448056554" fill="#3778b9"/>
+<polyline points="660,341 680,341" fill="none" stroke="#3778b9" stroke-width="3"/>
+<polygon points="680,341 668.2941876694152,346.654551943446 668.2941876694152,335.345448056554" fill="#3778b9"/>
+<polyline points="970,341 990,341" fill="none" stroke="#3778b9" stroke-width="3"/>
+<polygon points="990,341 978.2941876694152,346.654551943446 978.2941876694152,335.345448056554" fill="#3778b9"/>
+<polyline points="1280,341 1300,341" fill="none" stroke="#3778b9" stroke-width="3"/>
+<polygon points="1300,341 1288.2941876694151,346.654551943446 1288.2941876694151,335.345448056554" fill="#3778b9"/>
+<polyline points="1590,341 1610,341" fill="none" stroke="#3778b9" stroke-width="3"/>
+<polygon points="1610,341 1598.2941876694151,346.654551943446 1598.2941876694151,335.345448056554" fill="#3778b9"/>
+<text x="62" y="474" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#997022" text-anchor="start">02  DAC、射频与无线传播</text>
+<rect x="60" y="500" width="360" height="142" rx="12" fill="#fff8eb" stroke="#dfc88f" stroke-width="2"/>
+<text x="240.0" y="542" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">ADC 与 JESD204</text>
+<text x="240.0" y="578" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">SD9694I，14 bit</text>
+<text x="240.0" y="605" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">ADC 解帧：数据 [15:2]</text>
+<rect x="430" y="500" width="360" height="142" rx="12" fill="#fff8eb" stroke="#dfc88f" stroke-width="2"/>
+<text x="610.0" y="542" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">接收射频前端</text>
+<text x="610.0" y="578" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">天线 ≥5 dBi，NF ≤3 dB</text>
+<text x="610.0" y="605" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">下变频至 70 MHz</text>
+<rect x="800" y="500" width="360" height="142" rx="12" fill="#fff8eb" stroke="#dfc88f" stroke-width="2"/>
+<text x="980.0" y="542" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">70 km 无线信道</text>
+<text x="980.0" y="578" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">单程 233.494867 μs</text>
+<text x="980.0" y="605" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">多径 / 噪声 / 频偏 / 衰落</text>
+<rect x="1170" y="500" width="360" height="142" rx="12" fill="#fff8eb" stroke="#dfc88f" stroke-width="2"/>
+<text x="1350.0" y="542" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">发射射频前端</text>
+<text x="1350.0" y="578" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">可切换 GHz，功率 ≥20 W</text>
+<text x="1350.0" y="605" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">模拟带宽 20 MHz</text>
+<rect x="1540" y="500" width="360" height="142" rx="12" fill="#fff8eb" stroke="#dfc88f" stroke-width="2"/>
+<text x="1720.0" y="542" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">DAC 输出</text>
+<text x="1720.0" y="578" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">ZK9783，16 bit</text>
+<text x="1720.0" y="605" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">250 MS/s 实数中频</text>
+<polyline points="1540,571 1530,571" fill="none" stroke="#af8535" stroke-width="3"/>
+<polygon points="1530,571 1541.7058123305849,565.345448056554 1541.7058123305849,576.654551943446" fill="#af8535"/>
+<polyline points="1170,571 1160,571" fill="none" stroke="#af8535" stroke-width="3"/>
+<polygon points="1160,571 1171.7058123305849,565.345448056554 1171.7058123305849,576.654551943446" fill="#af8535"/>
+<polyline points="800,571 790,571" fill="none" stroke="#af8535" stroke-width="3"/>
+<polygon points="790,571 801.7058123305848,565.345448056554 801.7058123305848,576.654551943446" fill="#af8535"/>
+<polyline points="430,571 420,571" fill="none" stroke="#af8535" stroke-width="3"/>
+<polygon points="420,571 431.7058123305848,565.345448056554 431.7058123305848,576.654551943446" fill="#af8535"/>
+<polyline points="1755,412 1755,500" fill="none" stroke="#af8535" stroke-width="3"/>
+<polygon points="1755,500 1749.345448056554,488.2941876694152 1760.654551943446,488.2941876694152" fill="#af8535"/>
+<text x="600" y="677" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#785d2a" text-anchor="start">接收功率由距离、射频频点、功率和天线增益决定；不是固定指定一个“理想 SNR”</text>
+<text x="62" y="740" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#237366" text-anchor="start">03  接收数字链路</text>
+<rect x="60" y="761" width="290" height="142" rx="12" fill="#edf8f4" stroke="#a8cfc4" stroke-width="2"/>
+<text x="205.0" y="803" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">ADC 数据映射</text>
+<text x="205.0" y="839" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">当前取低 12 bit ×16</text>
+<text x="205.0" y="866" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">高电平可能二补码回绕</text>
+<rect x="370" y="761" width="290" height="142" rx="12" fill="#edf8f4" stroke="#a8cfc4" stroke-width="2"/>
+<text x="515.0" y="803" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">DDC 与低通 FIR</text>
+<text x="515.0" y="839" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">70 MHz 正交混频</text>
+<text x="515.0" y="866" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">工程原始 48 tap</text>
+<rect x="680" y="761" width="290" height="142" rx="12" fill="#edf8f4" stroke="#a8cfc4" stroke-width="2"/>
+<text x="825.0" y="803" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">DSSS 码捕获</text>
+<text x="825.0" y="839" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">rx_deci：20 倍抽取</text>
+<text x="825.0" y="866" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">1000 点相关 → 1024 FFT</text>
+<rect x="990" y="761" width="290" height="142" rx="12" fill="#edf8f4" stroke="#a8cfc4" stroke-width="2"/>
+<text x="1135.0" y="803" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">DSSS 跟踪与相关解扩</text>
+<text x="1135.0" y="839" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">3 号本地码 Early / Prompt / Late</text>
+<text x="1135.0" y="866" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">1000 chip 相关积分，code_loop_3</text>
+<rect x="1300" y="761" width="290" height="142" rx="12" fill="#edf8f4" stroke="#a8cfc4" stroke-width="2"/>
+<text x="1445.0" y="803" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">载波恢复 / BPSK 解调</text>
+<text x="1445.0" y="839" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">解扩符号 → Costas 环</text>
+<text x="1445.0" y="866" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">I 路符号硬判决</text>
+<rect x="1610" y="761" width="290" height="142" rx="12" fill="#edf8f4" stroke="#a8cfc4" stroke-width="2"/>
+<text x="1755.0" y="803" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">帧同步与数据输出</text>
+<text x="1755.0" y="839" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">正 / 反帧头识别</text>
+<text x="1755.0" y="866" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">100 B 载荷 → ARM</text>
+<polyline points="350,832 370,832" fill="none" stroke="#3d8a78" stroke-width="3"/>
+<polygon points="370,832 358.2941876694152,837.654551943446 358.2941876694152,826.345448056554" fill="#3d8a78"/>
+<polyline points="660,832 680,832" fill="none" stroke="#3d8a78" stroke-width="3"/>
+<polygon points="680,832 668.2941876694152,837.654551943446 668.2941876694152,826.345448056554" fill="#3d8a78"/>
+<polyline points="970,832 990,832" fill="none" stroke="#3d8a78" stroke-width="3"/>
+<polygon points="990,832 978.2941876694152,837.654551943446 978.2941876694152,826.345448056554" fill="#3d8a78"/>
+<polyline points="1280,832 1300,832" fill="none" stroke="#3d8a78" stroke-width="3"/>
+<polygon points="1300,832 1288.2941876694151,837.654551943446 1288.2941876694151,826.345448056554" fill="#3d8a78"/>
+<polyline points="1590,832 1610,832" fill="none" stroke="#3d8a78" stroke-width="3"/>
+<polygon points="1610,832 1598.2941876694151,837.654551943446 1598.2941876694151,826.345448056554" fill="#3d8a78"/>
+<polyline points="240,642 240,761" fill="none" stroke="#3d8a78" stroke-width="3"/>
+<polygon points="240,761 234.345448056554,749.2941876694152 245.654551943446,749.2941876694152" fill="#3d8a78"/>
+<text x="62" y="975" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#705098" text-anchor="start">04  时间测量、时隙分配与双向钟差</text>
+<rect x="60" y="999" width="505" height="154" rx="12" fill="#f3eef9" stroke="#cbb8df" stroke-width="2"/>
+<text x="312.5" y="1041" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">独立时频基准</text>
+<text x="312.5" y="1077" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">站 A / 站 B：各自铷钟 10 MHz + 1PPS</text>
+<text x="312.5" y="1104" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">采样率偏差、载频偏差、PPS 偏置分开建模</text>
+<rect x="635" y="999" width="580" height="154" rx="12" fill="#f3eef9" stroke="#cbb8df" stroke-width="2"/>
+<text x="925.0" y="1041" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">码 / 载波测量支路</text>
+<text x="925.0" y="1077" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">code_phase_est2 → time_diff_cal</text>
+<text x="925.0" y="1104" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">Costas 相位、SNR、码环/载波环锁定状态</text>
+<rect x="1285" y="999" width="615" height="154" rx="12" fill="#f3eef9" stroke="#cbb8df" stroke-width="2"/>
+<text x="1592.5" y="1041" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="middle">时隙分配 → FSMC → ARM</text>
+<text x="1592.5" y="1077" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">单路 phy_rx_chn3 → 六路测量接口</text>
+<text x="1592.5" y="1104" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#4d6079" text-anchor="middle">正反向时标交换：钟差 = (反向 − 正向) / 2</text>
+<polyline points="1135,903 1135,960 925,960 925,999" fill="none" stroke="#88709d" stroke-width="3"/>
+<polygon points="925,999 919.345448056554,987.2941876694152 930.654551943446,987.2941876694152" fill="#88709d"/>
+<polyline points="1215,1077 1285,1077" fill="none" stroke="#88709d" stroke-width="3"/>
+<polygon points="1285,1077 1273.2941876694151,1082.654551943446 1273.2941876694151,1071.345448056554" fill="#88709d"/>
+<polyline points="565,1077 635,1077" fill="none" stroke="#88709d" stroke-width="3"/>
+<polygon points="635,1077 623.2941876694152,1082.654551943446 623.2941876694152,1071.345448056554" fill="#88709d"/>
+<rect x="60" y="1190" width="1840" height="180" rx="12" fill="#ffffff" stroke="#d7e0eb" stroke-width="2"/>
+<text x="85" y="1231" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#162942" text-anchor="start">仿真对应关系</text>
+<text x="85" y="1270" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#162942" text-anchor="start">对齐 RTL：真实扩频码 / 帧格式 / FIR 系数 / 数字截位 / ADC 低12位映射 / 完整100 ms接收窗。</text>
+<text x="85" y="1306" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#162942" text-anchor="start">行为近似：捕获模板相关、DLL、模拟重构与射频非理想；未逐周期复刻 JESD / FIFO / FFT IP / 板级固定延迟。</text>
+<text x="85" y="1340" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#795b30" text-anchor="start">图中为当前单链路实现；方案的 15 路并行接收、实际射频频道及 1 ns 指标需分别核对，不能由本图或理想仿真证明。</text>
+<text x="60" y="1406" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#62738a" text-anchor="start">来源：当前工程 RTL / COE / XCI；用户提供《分布式微波时间比对系统设计方案V4.0》及 70 km、独立铷钟说明。</text>
+</svg>
