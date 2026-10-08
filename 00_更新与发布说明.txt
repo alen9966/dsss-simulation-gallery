@@ -40,3 +40,15 @@ results/system/gallery_publish_status.json：最近推送提交及在线验证�
 常规发布只上传图册与说明，不把完整工程、私有IP、工具缓存或大体积MAT原始数据混入。
 GitHub Pages使用main分支根目录发布；每次push后由GitHub部署。
 这不是定时任务；在后续仿真工作完成时更新和发布。
+
+五、图与Simulink模块对应
+modules.html：按模块分类说明，含输入输出、日志、图源及本地定位命令。
+00_Simulink模块与仿真图说明.txt：同一内容的文字版。
+00_图与Simulink模块对应.json：结构化对应与真实模型清单。
+主图册可按模块筛图，并查看各组合图的子图取数位置。
+新图登记时可以填写module_ids，例如["ad_costas"]。
+模型结构变化时，在MATLAB工程目录执行：
+  addpath('scripts/tools'); export_dsss_model_inventory
+该命令只读取三个现有模型，不重建、不仿真。然后更新
+scripts/tools/render_simulink_module_guide.py中的对应说明并重新发布。
+独立脚本图、示意图和未实现协议必须如实注明，不编造Simulink模块。

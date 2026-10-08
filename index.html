@@ -7,10 +7,12 @@ a{color:#075fa7}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(
 article{background:white;padding:16px;border:1px solid #dae2ec;border-radius:10px}
 img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:17px;margin:8px 0}
 .badge{display:inline-block;padding:2px 9px;background:#e6f1fa;border-radius:5px}
+.module-links{font-size:14px;padding-left:18px}.module-links li{margin:7px 0}.filters{background:white;padding:14px;border-radius:8px;border:1px solid #dae2ec}.filters select{max-width:100%;padding:7px;font:inherit}.module-button{display:inline-block;padding:8px 16px;background:#075fa7;color:white;border-radius:6px;text-decoration:none}.panel-note{font-size:14px}.panel-note summary{cursor:pointer;color:#075fa7}
 .old,.pending{background:#fff0d5;color:#7c4a09}.note{color:#536476}section{margin-top:36px}
 </style><main><h1>DSSS 项目仿真图汇总</h1>
 <p>2026-10-08 · XC7Z045 + AD9361 · 已有图分类副本</p>
 <p><a href="https://alen9966.github.io/dsss-simulation-gallery/">在线图册</a> · <a href="https://github.com/alen9966/dsss-simulation-gallery">GitHub仓库</a></p>
+<p><a class="module-button" href="modules.html">按 Simulink 模块查看与解释</a></p>
 <p>先看 01 新板双窗总览和 08 RTL 分段验证。历史图已标注；60项清单包含尚未生成的图。</p>
 <p><a href="00_完整60项仿真图清单.txt">完整60项清单</a> · <a href="00_先看这里.txt">目录说明</a> · <a href="00_图文件来源.json">原始文件来源</a></p><nav>
 <a href="#c0">00_导航与方案说明</a>
@@ -24,53 +26,258 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <a href="#c8">08_MATLAB_Simulink_RTL对照</a>
 <a href="#c9">09_无线性能与鲁棒性</a>
 <a href="#c10">10_双向时间比对</a>
-</nav>
-<section id="c0"><h2>00_导航与方案说明</h2><p class="note">总览入口、历史方案框图和历史交互界面。框图属于旧方案，不作为新板连接依据。</p><div class="grid">
-<article><span class="badge old">历史参考</span><h3>90_旧中频_参数界面.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" alt="90_旧中频_参数界面.png"></a><p>历史界面截图，不表示当前运行状态。</p></article>
-<article><span class="badge old">历史参考</span><h3>91_旧方案_数据链路框图.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.png" alt="91_旧方案_数据链路框图.png"></a><p>旧ADDA方案框图，不能当作当前AD9361结构图。</p></article>
-<article><span class="badge old">历史参考</span><h3>91_旧方案_数据链路框图.svg</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.svg" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.svg" alt="91_旧方案_数据链路框图.svg"></a><p>旧ADDA方案框图，不能当作当前AD9361结构图。</p></article>
-<article><span class="badge old">历史参考</span><h3>92_旧方案_可视化界面预览.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2%E9%A2%84%E8%A7%88.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2%E9%A2%84%E8%A7%88.png" alt="92_旧方案_可视化界面预览.png"></a><p>旧MATLAB可视化界面。</p></article>
-<article><span class="badge old">历史参考</span><h3>93_旧方案_交互仿真截图.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E4%BA%A4%E4%BA%92%E4%BB%BF%E7%9C%9F%E6%88%AA%E5%9B%BE.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E4%BA%A4%E4%BA%92%E4%BB%BF%E7%9C%9F%E6%88%AA%E5%9B%BE.png" alt="93_旧方案_交互仿真截图.png"></a><p>2026-09-16历史截图。</p></article>
+</nav><div class="filters"><label for="module-filter">按模块筛选图片：</label><select id="module-filter"><option value="">全部图片</option>
+<option value="ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</option>
+<option value="ad_channel">02 信道：70 km、频偏、采样钟差与噪声</option>
+<option value="ad_rx">03 接收前端：signed12、插值5与FIR48</option>
+<option value="ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</option>
+<option value="ad_costas">05 载波同步：归一化与Costas环</option>
+<option value="ad_frame">06 信息恢复：BPSK判决、帧头与100字节载荷</option>
+<option value="rtl_stimulus">07 RTL对照：同一整数激励</option>
+<option value="rtl_fir">08 RTL对照：五路整数FIR参考</option>
+<option value="rtl_actual">09 RTL对照：真实Xsim/IP输出重放</option>
+<option value="rtl_compare">10 RTL对照：有效点差分与记录</option>
+<option value="rtl_tdd">11 RTL对照：本地时隙公式与实际轨迹</option>
+<option value="if_tx">12 旧发送：DSSS、FIR201与70MHz上变频</option>
+<option value="if_channel">13 旧信道：独立时钟、中频、噪声和ADC打包</option>
+<option value="if_rx">14 旧接收：70MHz下变频与FIR48</option>
+<option value="if_dll">15 旧同步：FFT、DLL与解扩</option>
+<option value="if_costas">16 旧载波：归一化、PI/NCO与旋转</option>
+<option value="if_frame">17 旧信息恢复：判决、极性与载荷</option>
+<option value="script_fir">18 参数脚本：旧FIR系数与幅频图</option>
+<option value="script_costas">19 参数脚本：旧Costas理想阶跃</option>
+<option value="script_link">20 历史MATLAB链路：九组信道场景</option>
+<option value="script_time">21 时间比对脚本与四时间戳示意</option>
+<option value="script_ui">22 历史交互界面截图</option>
+<option value="script_diagram">23 历史方案框图</option>
+<option value="script_backend">24 RTL后端/解析器独立测试</option>
+</select> <a id="module-help" href="modules.html">查看模块说明</a><p id="filter-count">显示全部图片</p></div>
+<section data-category="0" id="c0"><h2>00_导航与方案说明</h2><p class="note">总览入口、历史方案框图和历史交互界面。框图属于旧方案，不作为新板连接依据。</p><div class="grid">
+<article data-modules="script_ui"><span class="badge old">历史参考</span><h3>90_旧中频_参数界面.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" alt="90_旧中频_参数界面.png"></a><p>历史界面截图，不表示当前运行状态。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_ui">22 历史交互界面截图</a>：界面/脚本入口</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>历史交互界面截图；不是某个处理块的独立仿真输出。</p>
+</details></article>
+<article data-modules="script_diagram"><span class="badge old">历史参考</span><h3>91_旧方案_数据链路框图.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.png" alt="91_旧方案_数据链路框图.png"></a><p>旧ADDA方案框图，不能当作当前AD9361结构图。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_diagram">23 历史方案框图</a>：独立绘图</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>旧方案结构示意，不是Simulink模型截图。</p>
+</details></article>
+<article data-modules="script_diagram"><span class="badge old">历史参考</span><h3>91_旧方案_数据链路框图.svg</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.svg" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E6%A1%86%E5%9B%BE.svg" alt="91_旧方案_数据链路框图.svg"></a><p>旧ADDA方案框图，不能当作当前AD9361结构图。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_diagram">23 历史方案框图</a>：独立绘图</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>旧方案结构示意，不是Simulink模型截图。</p>
+</details></article>
+<article data-modules="script_ui"><span class="badge old">历史参考</span><h3>92_旧方案_可视化界面预览.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2%E9%A2%84%E8%A7%88.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2%E9%A2%84%E8%A7%88.png" alt="92_旧方案_可视化界面预览.png"></a><p>旧MATLAB可视化界面。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_ui">22 历史交互界面截图</a>：界面/脚本入口</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>历史交互界面截图；不是某个处理块的独立仿真输出。</p>
+</details></article>
+<article data-modules="script_ui"><span class="badge old">历史参考</span><h3>93_旧方案_交互仿真截图.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E4%BA%A4%E4%BA%92%E4%BB%BF%E7%9C%9F%E6%88%AA%E5%9B%BE.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E4%BA%A4%E4%BA%92%E4%BB%BF%E7%9C%9F%E6%88%AA%E5%9B%BE.png" alt="93_旧方案_交互仿真截图.png"></a><p>2026-09-16历史截图。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_ui">22 历史交互界面截图</a>：界面/脚本入口</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>历史交互界面截图；不是某个处理块的独立仿真输出。</p>
+</details></article>
 </div></section>
-<section id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">
-<article><span class="badge">当前功能参考</span><h3>01_AD9361_单窗波形总览.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" alt="01_AD9361_单窗波形总览.png"></a><p>6子图；使用设定信道参数，不是70km实测。</p></article>
-<article><span class="badge">当前功能参考</span><h3>02_AD9361_双窗波形与收敛.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png" alt="02_AD9361_双窗波形与收敛.png"></a><p>两帧零误码；橙色为各载荷完成前末200符号；码片叠加未对齐眼中心。</p></article>
-<article><span class="badge old">历史参考</span><h3>90_旧70MHz中频_波形总览.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" alt="90_旧70MHz中频_波形总览.png"></a><p>旧板ADDA/70MHz中频功能参考。</p></article>
+<section data-category="1" id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">
+<article data-modules="ad_tx ad_channel ad_rx ad_dll ad_costas ad_frame"><span class="badge">当前功能参考</span><h3>01_AD9361_单窗波形总览.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" alt="01_AD9361_单窗波形总览.png"></a><p>6子图；使用设定信道参数，不是70km实测。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：左上TX I、右上频谱</li>
+<li><a href="modules.html#ad_channel">02 信道：70 km、频偏、采样钟差与噪声</a>：左上RX Q、右下码片叠加</li>
+<li><a href="modules.html#ad_rx">03 接收前端：signed12、插值5与FIR48</a>：接收前端相关级，本图没有直接画出其输出</li>
+<li><a href="modules.html#ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</a>：左中解扩星座、左下DLL误差</li>
+<li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：右中星座与末段相位RMS</li>
+<li><a href="modules.html#ad_frame">06 信息恢复：BPSK判决、帧头与100字节载荷</a>：标题帧数/BER的载荷来源</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。</p>
+<p><strong>第1行左 · TX I与RX Q时域</strong><br>TX/1实部；Channel/1虚部<br>比较发送与信道损伤后的接收片段，不是RX FIR48输出。</p>
+<p><strong>第1行右 · 50 MSPS发送频谱</strong><br>TX/1；r.waveforms.txIQ<br>发送端扩频/滤波后的基带频谱。</p>
+<p><strong>第2行左 · 解扩后星座</strong><br>DLL/1与DLL/2；dll_prompt、dll_valid<br>码已解扩，载波相位尚未由Costas纠正。</p>
+<p><strong>第2行右 · Costas后星座</strong><br>Costas/1；costas_iq；frame_info限定末段<br>同时保留捕获瞬态和帧后噪声；橙色仅标出载荷末200符号。</p>
+<p><strong>第3行左 · DLL误差</strong><br>DLL/3第4列；dll_info(:,4)<br>Early/Late归一化误差，不能单凭趋零认定有效帧。</p>
+<p><strong>第3行右 · 接收码片叠加</strong><br>Channel/1实部；rxPhysicalIQ<br>未做眼中心对齐；不是解扩后数据符号眼图。</p>
+</details></article>
+<article data-modules="ad_tx ad_channel ad_rx ad_dll ad_costas ad_frame"><span class="badge">当前功能参考</span><h3>02_AD9361_双窗波形与收敛.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png" alt="02_AD9361_双窗波形与收敛.png"></a><p>两帧零误码；橙色为各载荷完成前末200符号；码片叠加未对齐眼中心。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：左上TX I、右上频谱</li>
+<li><a href="modules.html#ad_channel">02 信道：70 km、频偏、采样钟差与噪声</a>：左上RX Q、右下码片叠加</li>
+<li><a href="modules.html#ad_rx">03 接收前端：signed12、插值5与FIR48</a>：接收前端相关级，本图没有直接画出其输出</li>
+<li><a href="modules.html#ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</a>：左中解扩星座、左下DLL误差</li>
+<li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：右中星座与末段相位RMS</li>
+<li><a href="modules.html#ad_frame">06 信息恢复：BPSK判决、帧头与100字节载荷</a>：标题帧数/BER的载荷来源</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。</p>
+<p><strong>第1行左 · TX I与RX Q时域</strong><br>TX/1实部；Channel/1虚部<br>比较发送与信道损伤后的接收片段，不是RX FIR48输出。</p>
+<p><strong>第1行右 · 50 MSPS发送频谱</strong><br>TX/1；r.waveforms.txIQ<br>发送端扩频/滤波后的基带频谱。</p>
+<p><strong>第2行左 · 解扩后星座</strong><br>DLL/1与DLL/2；dll_prompt、dll_valid<br>码已解扩，载波相位尚未由Costas纠正。</p>
+<p><strong>第2行右 · Costas后星座</strong><br>Costas/1；costas_iq；frame_info限定末段<br>同时保留捕获瞬态和帧后噪声；橙色仅标出载荷末200符号。</p>
+<p><strong>第3行左 · DLL误差</strong><br>DLL/3第4列；dll_info(:,4)<br>Early/Late归一化误差，不能单凭趋零认定有效帧。</p>
+<p><strong>第3行右 · 接收码片叠加</strong><br>Channel/1实部；rxPhysicalIQ<br>未做眼中心对齐；不是解扩后数据符号眼图。</p>
+</details></article>
+<article data-modules="if_tx if_channel if_rx if_dll if_costas if_frame"><span class="badge old">历史参考</span><h3>90_旧70MHz中频_波形总览.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/90_%E6%97%A770MHz%E4%B8%AD%E9%A2%91_%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" alt="90_旧70MHz中频_波形总览.png"></a><p>旧板ADDA/70MHz中频功能参考。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#if_tx">12 旧发送：DSSS、FIR201与70MHz上变频</a>：TX时域/频谱/COE</li>
+<li><a href="modules.html#if_channel">13 旧信道：独立时钟、中频、噪声和ADC打包</a>：ADC中频/频谱</li>
+<li><a href="modules.html#if_rx">14 旧接收：70MHz下变频与FIR48</a>：DDC基带与展示眼图</li>
+<li><a href="modules.html#if_dll">15 旧同步：FFT、DLL与解扩</a>：DLL误差与眼图对齐参考</li>
+<li><a href="modules.html#if_costas">16 旧载波：归一化、PI/NCO与旋转</a>：星座与频偏轨迹</li>
+<li><a href="modules.html#if_frame">17 旧信息恢复：判决、极性与载荷</a>：右下收帧/误码统计</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>旧70 MHz Simulink功能模型的同算法参考图；由plot_dsss_wireless_link绘制。</p>
+<p><strong>第1行左 · TX 70 MHz IF</strong><br>TX/1<br>旧板数字上变频输出。</p>
+<p><strong>第1行中 · RX IF/ADC</strong><br>Channel/1<br>旧ADC低12位打包参考。</p>
+<p><strong>第1行右 · DDC/FIR48基带</strong><br>RX/1<br>下变频后I/Q。</p>
+<p><strong>第2行左 · TX/RX中频频谱</strong><br>TX/1、Channel/1<br>两路同类频谱比较。</p>
+<p><strong>第2行中 · FIR201/FIR48响应</strong><br>配置COE参数<br>参数分析，不是端口时域采样。</p>
+<p><strong>第2行右 · Costas星座</strong><br>Costas/1<br>旧功能载波环输出。</p>
+<p><strong>第3行左 · 对齐码片眼图</strong><br>RX/1及DLL相位统计<br>展示相位/时序对齐不回灌接收算法。</p>
+<p><strong>第3行中 · DLL/Costas跟踪</strong><br>DLL info第4列、Costas info第3列<br>左轴码环误差，右轴估计频偏。</p>
+<p><strong>第3行右 · 场景/载荷统计</strong><br>配置及Frame输出比较<br>文字摘要，无独立信号输出曲线。</p>
+</details></article>
 </div></section>
-<section id="c2"><h2>02_FIR与多速率</h2><p class="note">已有历史FIR201/FIR48图；当前三组FIR独立图仍待补，原始响应数据在results/system。</p><div class="grid">
-<article><span class="badge old">历史参考</span><h3>90_旧方案_FIR系数与幅频响应.png</h3><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/90_%E6%97%A7%E6%96%B9%E6%A1%88_FIR%E7%B3%BB%E6%95%B0%E4%B8%8E%E5%B9%85%E9%A2%91%E5%93%8D%E5%BA%94.png" target="_blank"><img loading="lazy" src="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/90_%E6%97%A7%E6%96%B9%E6%A1%88_FIR%E7%B3%BB%E6%95%B0%E4%B8%8E%E5%B9%85%E9%A2%91%E5%93%8D%E5%BA%94.png" alt="90_旧方案_FIR系数与幅频响应.png"></a><p>旧TX201/RX48；未覆盖当前插值5 FIR121。</p></article>
+<section data-category="2" id="c2"><h2>02_FIR与多速率</h2><p class="note">已有历史FIR201/FIR48图；当前三组FIR独立图仍待补，原始响应数据在results/system。</p><div class="grid">
+<article data-modules="script_fir"><span class="badge old">历史参考</span><h3>90_旧方案_FIR系数与幅频响应.png</h3><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/90_%E6%97%A7%E6%96%B9%E6%A1%88_FIR%E7%B3%BB%E6%95%B0%E4%B8%8E%E5%B9%85%E9%A2%91%E5%93%8D%E5%BA%94.png" target="_blank"><img loading="lazy" src="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/90_%E6%97%A7%E6%96%B9%E6%A1%88_FIR%E7%B3%BB%E6%95%B0%E4%B8%8E%E5%B9%85%E9%A2%91%E5%93%8D%E5%BA%94.png" alt="90_旧方案_FIR系数与幅频响应.png"></a><p>旧TX201/RX48；未覆盖当前插值5 FIR121。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_fir">18 参数脚本：旧FIR系数与幅频图</a>：真实绘图来源</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立COE参数分析/绘图脚本，没有一一对应的Simulink输出端口。</p>
+<p><strong>上排 · TX201系数与归一化响应</strong><br>旧TX COE<br>参数图，不是运行中的滤波输出。</p>
+<p><strong>下排 · RX48系数与归一化响应</strong><br>旧RX COE<br>没有当前插值5滤波器。</p>
+</details></article>
 </div></section>
-<section id="c3"><h2>03_FFT捕获</h2><p class="note">尚无独立捕获图。真实IP重捕获已有日志，概率、虚警及完整RTL捕获曲线待补。</p><div class="grid">
+<section data-category="3" id="c3"><h2>03_FFT捕获</h2><p class="note">尚无独立捕获图。真实IP重捕获已有日志，概率、虚警及完整RTL捕获曲线待补。</p><div class="grid">
 <article>尚无本类独立图；查看本类说明及完整清单。相关组合图位置见上方说明。</article>
 </div></section>
-<section id="c4"><h2>04_DLL与解扩</h2><p class="note">DLL误差及解扩星座见01目录的AD9361总览；E/P/L、S曲线等独立图待补。</p><div class="grid">
+<section data-category="4" id="c4"><h2>04_DLL与解扩</h2><p class="note">DLL误差及解扩星座见01目录的AD9361总览；E/P/L、S曲线等独立图待补。</p><div class="grid">
 <article>尚无本类独立图；查看本类说明及完整清单。相关组合图位置见上方说明。</article>
 </div></section>
-<section id="c5"><h2>05_Costas环</h2><p class="note">新板星座和末段RMS见01目录；本目录阶跃响应为旧方案参考，不能替代新板环路验证。</p><div class="grid">
-<article><span class="badge old">历史参考</span><h3>90_旧方案_Costas理想阶跃响应.png</h3><a href="05_Costas%E7%8E%AF/90_%E6%97%A7%E6%96%B9%E6%A1%88_Costas%E7%90%86%E6%83%B3%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94.png" target="_blank"><img loading="lazy" src="05_Costas%E7%8E%AF/90_%E6%97%A7%E6%96%B9%E6%A1%88_Costas%E7%90%86%E6%83%B3%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94.png" alt="90_旧方案_Costas理想阶跃响应.png"></a><p>旧环路理想响应，须按新板缩放/有效节拍重跑。</p></article>
+<section data-category="5" id="c5"><h2>05_Costas环</h2><p class="note">新板星座和末段RMS见01目录；本目录阶跃响应为旧方案参考，不能替代新板环路验证。</p><div class="grid">
+<article data-modules="script_costas"><span class="badge old">历史参考</span><h3>90_旧方案_Costas理想阶跃响应.png</h3><a href="05_Costas%E7%8E%AF/90_%E6%97%A7%E6%96%B9%E6%A1%88_Costas%E7%90%86%E6%83%B3%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94.png" target="_blank"><img loading="lazy" src="05_Costas%E7%8E%AF/90_%E6%97%A7%E6%96%B9%E6%A1%88_Costas%E7%90%86%E6%83%B3%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94.png" alt="90_旧方案_Costas理想阶跃响应.png"></a><p>旧环路理想响应，须按新板缩放/有效节拍重跑。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_costas">19 参数脚本：旧Costas理想阶跃</a>：真实绘图来源</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立理想PI阶跃分析；不是当前Simulink Costas块输出。</p>
+<p><strong>上图 · 理想相位响应</strong><br>costas_step_response.csv<br>旧线性近似模型。</p>
+<p><strong>下图 · 理想频率跟踪</strong><br>同一参数脚本输出<br>不作为当前raw40环路捕获范围或带宽证据。</p>
+</details></article>
 </div></section>
-<section id="c6"><h2>06_帧同步与信息恢复</h2><p class="note">连续帧恢复见08目录RTL总览；载荷对照、错误位置及CRC/序号图待补。当前协议无CRC。</p><div class="grid">
+<section data-category="6" id="c6"><h2>06_帧同步与信息恢复</h2><p class="note">连续帧恢复见08目录RTL总览；载荷对照、错误位置及CRC/序号图待补。当前协议无CRC。</p><div class="grid">
 <article>尚无本类独立图；查看本类说明及完整清单。相关组合图位置见上方说明。</article>
 </div></section>
-<section id="c7"><h2>07_双向时隙与接口</h2><p class="note">独立图待补。时隙控制有RTL单测与Simulink轨迹对照；双站共同历元尚未实现。</p><div class="grid">
+<section data-category="7" id="c7"><h2>07_双向时隙与接口</h2><p class="note">独立图待补。时隙控制有RTL单测与Simulink轨迹对照；双站共同历元尚未实现。</p><div class="grid">
 <article>尚无本类独立图；查看本类说明及完整清单。相关组合图位置见上方说明。</article>
 </div></section>
-<section id="c8"><h2>08_MATLAB_Simulink_RTL对照</h2><p class="note">已有实际RTL分段总览；后端绕过FFT/DLL并加速符号事件，不能称完整RTL整链验收。</p><div class="grid">
-<article><span class="badge">RTL分段验证</span><h3>01_实际RTL_分段验证总览.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png" alt="01_实际RTL_分段验证总览.png"></a><p>FIR、后端Costas及连续帧等分段证据；不是完整采样链路。</p></article>
+<section data-category="8" id="c8"><h2>08_MATLAB_Simulink_RTL对照</h2><p class="note">已有实际RTL分段总览；后端绕过FFT/DLL并加速符号事件，不能称完整RTL整链验收。</p><div class="grid">
+<article data-modules="rtl_stimulus rtl_fir rtl_actual rtl_compare script_backend"><span class="badge">RTL分段验证</span><h3>01_实际RTL_分段验证总览.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png" alt="01_实际RTL_分段验证总览.png"></a><p>FIR、后端Costas及连续帧等分段证据；不是完整采样链路。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#rtl_stimulus">07 RTL对照：同一整数激励</a>：前端同一输入</li>
+<li><a href="modules.html#rtl_fir">08 RTL对照：五路整数FIR参考</a>：五路整数参考</li>
+<li><a href="modules.html#rtl_actual">09 RTL对照：真实Xsim/IP输出重放</a>：上排实际RTL波形来源</li>
+<li><a href="modules.html#rtl_compare">10 RTL对照：有效点差分与记录</a>：右下五路有效点误差</li>
+<li><a href="modules.html#script_backend">24 RTL后端/解析器独立测试</a>：左下/中下：独立RTL测试，非模型内Costas/解析块</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>render_rtl_findings将前端Xsim导出、后端独立测试、连续帧测试与Simulink误差统计组合绘图。</p>
+<p><strong>第1行左 · 实际RTL TX FIR201波形</strong><br>Actual_Verilog_and_IP_Xsim对应的TX前端导出<br>250 MHz DSP测试码值，不是AD9361最终signed12端口。</p>
+<p><strong>第1行中 · TX FIR频谱</strong><br>同一前端导出<br>接口测试输入频谱，不是70 km链路实测。</p>
+<p><strong>第1行右 · 20点/chip码片眼图</strong><br>同一前端导出<br>DSP域发送码片，与新板物理4点/chip图不同。</p>
+<p><strong>第2行左 · 真实归一化+Costas星座</strong><br>独立Xsim backend.csv<br>没有对应的RTL对照模型Costas块；捕获/DLL绕过。</p>
+<p><strong>第2行中 · 连续三帧恢复</strong><br>独立帧解析器测试统计<br>没有对应的RTL对照模型Frame块；不代表连续三帧全链无线验证。</p>
+<p><strong>第2行右 · 五路最大数值误差</strong><br>Valid_Sample_Error / Error_Log<br>仅在valid掩码允许的采样点比较。</p>
+</details></article>
 </div></section>
-<section id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">本目录为旧方案信道场景。新板BER/FER统计、多径及RF非理想性能曲线仍待补。</p><div class="grid">
-<article><span class="badge old">历史参考</span><h3>90_旧方案_无噪声70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" alt="90_旧方案_无噪声70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>91_旧方案_独立铷钟视距.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F%E8%A7%86%E8%B7%9D.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F%E8%A7%86%E8%B7%9D.png" alt="91_旧方案_独立铷钟视距.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>92_旧方案_反向独立铷钟.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%8D%E5%90%91%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%8D%E5%90%91%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F.png" alt="92_旧方案_反向独立铷钟.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>93_旧方案_示例2点4GHz.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%A4%BA%E4%BE%8B2%E7%82%B94GHz.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%A4%BA%E4%BE%8B2%E7%82%B94GHz.png" alt="93_旧方案_示例2点4GHz.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>94_旧方案_弱信号70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/94_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%BC%B1%E4%BF%A1%E5%8F%B770km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/94_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%BC%B1%E4%BF%A1%E5%8F%B770km.png" alt="94_旧方案_弱信号70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>95_旧方案_多径70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/95_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%A4%9A%E5%BE%8470km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/95_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%A4%9A%E5%BE%8470km.png" alt="95_旧方案_多径70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>96_旧方案_频偏压力.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/96_%E6%97%A7%E6%96%B9%E6%A1%88_%E9%A2%91%E5%81%8F%E5%8E%8B%E5%8A%9B.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/96_%E6%97%A7%E6%96%B9%E6%A1%88_%E9%A2%91%E5%81%8F%E5%8E%8B%E5%8A%9B.png" alt="96_旧方案_频偏压力.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>97_旧方案_旧ADC低12位回绕压力.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/97_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A7ADC%E4%BD%8E12%E4%BD%8D%E5%9B%9E%E7%BB%95%E5%8E%8B%E5%8A%9B.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/97_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A7ADC%E4%BD%8E12%E4%BD%8D%E5%9B%9E%E7%BB%95%E5%8E%8B%E5%8A%9B.png" alt="97_旧方案_旧ADC低12位回绕压力.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
-<article><span class="badge old">历史参考</span><h3>98_旧方案_标称负127dBm假设_非灵敏度验收.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/98_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%A0%87%E7%A7%B0%E8%B4%9F127dBm%E5%81%87%E8%AE%BE_%E9%9D%9E%E7%81%B5%E6%95%8F%E5%BA%A6%E9%AA%8C%E6%94%B6.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/98_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%A0%87%E7%A7%B0%E8%B4%9F127dBm%E5%81%87%E8%AE%BE_%E9%9D%9E%E7%81%B5%E6%95%8F%E5%BA%A6%E9%AA%8C%E6%94%B6.png" alt="98_旧方案_标称负127dBm假设_非灵敏度验收.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p></article>
+<section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">本目录为旧方案信道场景。新板BER/FER统计、多径及RF非理想性能曲线仍待补。</p><div class="grid">
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>90_旧方案_无噪声70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" alt="90_旧方案_无噪声70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>91_旧方案_独立铷钟视距.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F%E8%A7%86%E8%B7%9D.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/91_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F%E8%A7%86%E8%B7%9D.png" alt="91_旧方案_独立铷钟视距.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>92_旧方案_反向独立铷钟.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%8D%E5%90%91%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%8D%E5%90%91%E7%8B%AC%E7%AB%8B%E9%93%B7%E9%92%9F.png" alt="92_旧方案_反向独立铷钟.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>93_旧方案_示例2点4GHz.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%A4%BA%E4%BE%8B2%E7%82%B94GHz.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E7%A4%BA%E4%BE%8B2%E7%82%B94GHz.png" alt="93_旧方案_示例2点4GHz.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>94_旧方案_弱信号70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/94_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%BC%B1%E4%BF%A1%E5%8F%B770km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/94_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%BC%B1%E4%BF%A1%E5%8F%B770km.png" alt="94_旧方案_弱信号70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>95_旧方案_多径70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/95_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%A4%9A%E5%BE%8470km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/95_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%A4%9A%E5%BE%8470km.png" alt="95_旧方案_多径70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>96_旧方案_频偏压力.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/96_%E6%97%A7%E6%96%B9%E6%A1%88_%E9%A2%91%E5%81%8F%E5%8E%8B%E5%8A%9B.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/96_%E6%97%A7%E6%96%B9%E6%A1%88_%E9%A2%91%E5%81%8F%E5%8E%8B%E5%8A%9B.png" alt="96_旧方案_频偏压力.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>97_旧方案_旧ADC低12位回绕压力.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/97_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A7ADC%E4%BD%8E12%E4%BD%8D%E5%9B%9E%E7%BB%95%E5%8E%8B%E5%8A%9B.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/97_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A7ADC%E4%BD%8E12%E4%BD%8D%E5%9B%9E%E7%BB%95%E5%8E%8B%E5%8A%9B.png" alt="97_旧方案_旧ADC低12位回绕压力.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
+<article data-modules="script_link"><span class="badge old">历史参考</span><h3>98_旧方案_标称负127dBm假设_非灵敏度验收.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/98_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%A0%87%E7%A7%B0%E8%B4%9F127dBm%E5%81%87%E8%AE%BE_%E9%9D%9E%E7%81%B5%E6%95%8F%E5%BA%A6%E9%AA%8C%E6%94%B6.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/98_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%A0%87%E7%A7%B0%E8%B4%9F127dBm%E5%81%87%E8%AE%BE_%E9%9D%9E%E7%81%B5%E6%95%8F%E5%BA%A6%E9%AA%8C%E6%94%B6.png" alt="98_旧方案_标称负127dBm假设_非灵敏度验收.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_link">20 历史MATLAB链路：九组信道场景</a>：TX→信道→RX函数链及link_plot</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。</p>
+<p><strong>第1行左 · 接收70 MHz中频</strong><br>link_channel记录的rxIF<br>旧接收采样片段。</p>
+<p><strong>第1行右 · 信号与噪声PSD</strong><br>同一rxIF<br>带限噪声与中频谱。</p>
+<p><strong>第2行左 · PN捕获相关功率</strong><br>link_rx acquisitionPower<br>旧脚本捕获结果，不是当前FFT模块端口。</p>
+<p><strong>第2行右 · Costas输出</strong><br>link_rx corrected<br>包含空闲段，不能只看形状判断锁定。</p>
+<p><strong>第3行左 · 频偏估计/设定值</strong><br>link_rx cfoHz、channel effectiveCfoHz<br>旧脚本环路。</p>
+<p><strong>第3行右 · DLL时间修正</strong><br>link_rx symbolStart<br>旧符号起点修正及ADC统计。</p>
+</details></article>
 </div></section>
-<section id="c10"><h2>10_双向时间比对</h2><p class="note">现有四时间戳示意为历史协议模型。新时隙模式尚无标定后的可用硬件钟差。</p><div class="grid">
-<article><span class="badge old">历史参考</span><h3>90_旧方案_四时间戳交换示意.png</h3><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.png" target="_blank"><img loading="lazy" src="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.png" alt="90_旧方案_四时间戳交换示意.png"></a><p>示意图，不证明当前RTL已实现时间戳绑定或已标定钟差。</p></article>
-<article><span class="badge old">历史参考</span><h3>90_旧方案_四时间戳交换示意.svg</h3><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.svg" target="_blank"><img loading="lazy" src="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.svg" alt="90_旧方案_四时间戳交换示意.svg"></a><p>示意图，不证明当前RTL已实现时间戳绑定或已标定钟差。</p></article>
+<section data-category="10" id="c10"><h2>10_双向时间比对</h2><p class="note">现有四时间戳示意为历史协议模型。新时隙模式尚无标定后的可用硬件钟差。</p><div class="grid">
+<article data-modules="script_time"><span class="badge old">历史参考</span><h3>90_旧方案_四时间戳交换示意.png</h3><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.png" target="_blank"><img loading="lazy" src="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.png" alt="90_旧方案_四时间戳交换示意.png"></a><p>示意图，不证明当前RTL已实现时间戳绑定或已标定钟差。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_time">21 时间比对脚本与四时间戳示意</a>：独立协议模型/绘图</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>历史双向时间戳示意图；当前三个Simulink模型均无四时间戳求钟差块。</p>
+</details></article>
+<article data-modules="script_time"><span class="badge old">历史参考</span><h3>90_旧方案_四时间戳交换示意.svg</h3><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.svg" target="_blank"><img loading="lazy" src="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.svg" alt="90_旧方案_四时间戳交换示意.svg"></a><p>示意图，不证明当前RTL已实现时间戳绑定或已标定钟差。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_time">21 时间比对脚本与四时间戳示意</a>：独立协议模型/绘图</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>历史双向时间戳示意图；当前三个Simulink模型均无四时间戳求钟差块。</p>
+</details></article>
 </div></section>
-</main></html>
+<script>
+const filter=document.getElementById('module-filter');
+const cards=Array.from(document.querySelectorAll('article[data-modules]'));
+filter.addEventListener('change',()=>{
+ const id=filter.value;let visible=0;
+ cards.forEach(card=>{const show=!id||card.dataset.modules.split(' ').includes(id);card.hidden=!show;if(show)visible++;});
+ document.querySelectorAll('section[data-category]').forEach(section=>{section.hidden=!!id&&!Array.from(section.querySelectorAll('article[data-modules]')).some(card=>!card.hidden);});
+ document.getElementById('filter-count').textContent='显示 '+visible+' / '+cards.length+' 个图文件'+(visible===0?'；此模块目前没有独立图，详见模块说明。':'');
+ document.getElementById('module-help').href='modules.html'+(id?'#'+id:'');
+});
+</script></main></html>

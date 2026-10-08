@@ -1,0 +1,1770 @@
+{
+  "inventory_date": "2026-10-08 15:22:14",
+  "scope": "Read-only inventory of existing saved models; no new waveform run or model modification",
+  "models": [
+    {
+      "name": "dsss_ad9361_link",
+      "file": "models/dsss_ad9361_link.mdl",
+      "blocks": [
+        {
+          "path": "dsss_ad9361_link/BPSK_Header_100Byte",
+          "name": "BPSK_Header_100Byte",
+          "blockType": "M-S-Function",
+          "inputPorts": 2,
+          "outputPorts": 2,
+          "FunctionName": "dsss_ad9361_sfun",
+          "Parameters": "'frame',dsss_ad9361_cfg"
+        },
+        {
+          "path": "dsss_ad9361_link/FFT1024_DLL_20000point",
+          "name": "FFT1024_DLL_20000point",
+          "blockType": "M-S-Function",
+          "inputPorts": 1,
+          "outputPorts": 3,
+          "FunctionName": "dsss_ad9361_sfun",
+          "Parameters": "'dll',dsss_ad9361_cfg"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_channel_info",
+          "name": "Log_channel_info",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "channel_info"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_costas_info",
+          "name": "Log_costas_info",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "costas_info"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_costas_iq",
+          "name": "Log_costas_iq",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "costas_iq"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_dll_info",
+          "name": "Log_dll_info",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "dll_info"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_dll_prompt",
+          "name": "Log_dll_prompt",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "dll_prompt"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_dll_valid",
+          "name": "Log_dll_valid",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "dll_valid"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_frame_info",
+          "name": "Log_frame_info",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "frame_info"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_payload_bytes",
+          "name": "Log_payload_bytes",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "payload_bytes"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_rx_info",
+          "name": "Log_rx_info",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "rx_info"
+        },
+        {
+          "path": "dsss_ad9361_link/Log_tx_info",
+          "name": "Log_tx_info",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "tx_info"
+        },
+        {
+          "path": "dsss_ad9361_link/Normalization_Costas_raw40",
+          "name": "Normalization_Costas_raw40",
+          "blockType": "M-S-Function",
+          "inputPorts": 2,
+          "outputPorts": 3,
+          "FunctionName": "dsss_ad9361_sfun",
+          "Parameters": "'costas',dsss_ad9361_cfg"
+        },
+        {
+          "path": "dsss_ad9361_link/RX_signed12_interp5_FIR48",
+          "name": "RX_signed12_interp5_FIR48",
+          "blockType": "M-S-Function",
+          "inputPorts": 1,
+          "outputPorts": 2,
+          "FunctionName": "dsss_ad9361_sfun",
+          "Parameters": "'rx',dsss_ad9361_cfg"
+        },
+        {
+          "path": "dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12",
+          "name": "TX_PN1000_FIR201_decimate5_signed12",
+          "blockType": "M-S-Function",
+          "inputPorts": 0,
+          "outputPorts": 2,
+          "FunctionName": "dsss_ad9361_sfun",
+          "Parameters": "'tx',dsss_ad9361_cfg"
+        },
+        {
+          "path": "dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN",
+          "name": "Wireless_70km_CFO_SFO_AWGN",
+          "blockType": "M-S-Function",
+          "inputPorts": 1,
+          "outputPorts": 2,
+          "FunctionName": "dsss_ad9361_sfun",
+          "Parameters": "'channel',dsss_ad9361_cfg"
+        }
+      ]
+    },
+    {
+      "name": "dsss_rtl_comparison",
+      "file": "models/dsss_rtl_comparison.mdl",
+      "blocks": [
+        {
+          "path": "dsss_rtl_comparison/Actual_TDD_RTL",
+          "name": "Actual_TDD_RTL",
+          "blockType": "FromWorkspace",
+          "inputPorts": 0,
+          "outputPorts": 1,
+          "VariableName": "rtl_tdd_actual"
+        },
+        {
+          "path": "dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim",
+          "name": "Actual_Verilog_and_IP_Xsim",
+          "blockType": "FromWorkspace",
+          "inputPorts": 0,
+          "outputPorts": 1,
+          "VariableName": "rtl_actual"
+        },
+        {
+          "path": "dsss_rtl_comparison/Compare_Waveforms",
+          "name": "Compare_Waveforms",
+          "blockType": "Mux",
+          "inputPorts": 2,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_rtl_comparison/Error_Log",
+          "name": "Error_Log",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "rtl_error"
+        },
+        {
+          "path": "dsss_rtl_comparison/Identical_Integer_Stimulus",
+          "name": "Identical_Integer_Stimulus",
+          "blockType": "FromWorkspace",
+          "inputPorts": 0,
+          "outputPorts": 1,
+          "VariableName": "rtl_input"
+        },
+        {
+          "path": "dsss_rtl_comparison/Independent_TDD_Equations",
+          "name": "Independent_TDD_Equations",
+          "blockType": "FromWorkspace",
+          "inputPorts": 0,
+          "outputPorts": 1,
+          "VariableName": "rtl_tdd_expected"
+        },
+        {
+          "path": "dsss_rtl_comparison/Integer_FIR_Reference",
+          "name": "Integer_FIR_Reference",
+          "blockType": "M-S-Function",
+          "inputPorts": 1,
+          "outputPorts": 1,
+          "FunctionName": "dsss_rtl_reference_sfun",
+          "Parameters": "rtl_tx_coeff,rtl_rx_coeff,rtl_interp_coeff,rtl_delay"
+        },
+        {
+          "path": "dsss_rtl_comparison/RTL_minus_Model",
+          "name": "RTL_minus_Model",
+          "blockType": "Sum",
+          "inputPorts": 2,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_rtl_comparison/TDD_Error_Log",
+          "name": "TDD_Error_Log",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "rtl_tdd_error"
+        },
+        {
+          "path": "dsss_rtl_comparison/TDD_RTL_minus_Equations",
+          "name": "TDD_RTL_minus_Equations",
+          "blockType": "Sum",
+          "inputPorts": 2,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_rtl_comparison/Valid_Mask",
+          "name": "Valid_Mask",
+          "blockType": "FromWorkspace",
+          "inputPorts": 0,
+          "outputPorts": 1,
+          "VariableName": "rtl_mask"
+        },
+        {
+          "path": "dsss_rtl_comparison/Valid_Sample_Error",
+          "name": "Valid_Sample_Error",
+          "blockType": "Product",
+          "inputPorts": 2,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_rtl_comparison/Waveform_Log",
+          "name": "Waveform_Log",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "rtl_waves"
+        }
+      ]
+    },
+    {
+      "name": "dsss_wireless_link",
+      "file": "models/dsss_wireless_link.slx",
+      "blocks": [
+        {
+          "path": "dsss_wireless_link/ADC_Bits_DDC_FIR48",
+          "name": "ADC_Bits_DDC_FIR48",
+          "blockType": "M-S-Function",
+          "inputPorts": 1,
+          "outputPorts": 1,
+          "FunctionName": "dsss_wireless_sfun",
+          "Parameters": "'rx',dsss_wireless_cfg"
+        },
+        {
+          "path": "dsss_wireless_link/BPSK_I_Negative",
+          "name": "BPSK_I_Negative",
+          "blockType": "SubSystem",
+          "inputPorts": 1,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_wireless_link/Bit_As_Double",
+          "name": "Bit_As_Double",
+          "blockType": "DataTypeConversion",
+          "inputPorts": 1,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_wireless_link/Costas_I_Q",
+          "name": "Costas_I_Q",
+          "blockType": "ComplexToRealImag",
+          "inputPorts": 1,
+          "outputPorts": 2
+        },
+        {
+          "path": "dsss_wireless_link/End_Q",
+          "name": "End_Q",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/End_channel_info",
+          "name": "End_channel_info",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/End_costas_info",
+          "name": "End_costas_info",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/End_costas_iq",
+          "name": "End_costas_iq",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/End_dll_info",
+          "name": "End_dll_info",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/End_frame_info",
+          "name": "End_frame_info",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/End_payload_bytes",
+          "name": "End_payload_bytes",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/End_tx_info",
+          "name": "End_tx_info",
+          "blockType": "Terminator",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_wireless_link/FFT_Acquisition_DLL_Despread",
+          "name": "FFT_Acquisition_DLL_Despread",
+          "blockType": "M-S-Function",
+          "inputPorts": 1,
+          "outputPorts": 3,
+          "FunctionName": "dsss_wireless_sfun",
+          "Parameters": "'dll',dsss_wireless_cfg"
+        },
+        {
+          "path": "dsss_wireless_link/Header_Polarity_Payload100",
+          "name": "Header_Polarity_Payload100",
+          "blockType": "M-S-Function",
+          "inputPorts": 2,
+          "outputPorts": 2,
+          "FunctionName": "dsss_wireless_sfun",
+          "Parameters": "'frame',dsss_wireless_cfg"
+        },
+        {
+          "path": "dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate",
+          "name": "Normalize_Costas_PI_NCO_Rotate",
+          "blockType": "M-S-Function",
+          "inputPorts": 2,
+          "outputPorts": 3,
+          "FunctionName": "dsss_wireless_sfun",
+          "Parameters": "'costas',dsss_wireless_cfg"
+        },
+        {
+          "path": "dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC",
+          "name": "TX_Frame_DSSS_FIR201_DUC",
+          "blockType": "M-S-Function",
+          "inputPorts": 0,
+          "outputPorts": 2,
+          "FunctionName": "dsss_wireless_sfun",
+          "Parameters": "'tx',dsss_wireless_cfg"
+        },
+        {
+          "path": "dsss_wireless_link/Wireless_70km_Independent_Clocks",
+          "name": "Wireless_70km_Independent_Clocks",
+          "blockType": "M-S-Function",
+          "inputPorts": 1,
+          "outputPorts": 2,
+          "FunctionName": "dsss_wireless_sfun",
+          "Parameters": "'channel',dsss_wireless_cfg"
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ad_tx",
+      "title": "01 发送：组帧、DSSS 扩频、FIR201 与抽取",
+      "group": "ad",
+      "model": "dsss_ad9361_link",
+      "block_paths": [
+        "dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12"
+      ],
+      "inputs": "无数据输入端口；从 dsss_ad9361_cfg 读取帧字节、PN、COE 和发送参数。",
+      "outputs": "端口1：4000×1复数 I/Q，表示50 MSPS、signed12码值；端口2：[当前bit；削顶数量；峰值]。",
+      "purpose": "把148字节帧按位发送，每个数据位乘PN1000完成DSSS/BPSK扩频；进行20相FIR201插值，再每5点取1点，得到AD9361端50 MSPS基带。当前TX Q为零，接收信道旋转后Q可以非零。",
+      "observe": "看TX I时域、发射频谱、削顶统计。码片眼图的采样率要区分物理4点/chip与DSP20点/chip。",
+      "limits": "DSSS与FIR包含在这个S-function中，不是另一个独立DSSS方块；这里只是转换器域参考，没有AD9361模拟射频/PA。",
+      "sources": [
+        "scripts/system/dsss_ad9361_sfun.m",
+        "scripts/system/dsss_ad9361_step.m"
+      ],
+      "logs": "Log_tx_info → tx_info；完整TX片段由MATLAB参考运行器保存到r.waveforms.txIQ。",
+      "tune": "PN1000；12.5 Mchip/s；12.5 kbit/s；FIR201；TX_SHIFT默认3；帧长94.72 ms。"
+    },
+    {
+      "id": "ad_channel",
+      "title": "02 信道：70 km、频偏、采样钟差与噪声",
+      "group": "ad",
+      "model": "dsss_ad9361_link",
+      "block_paths": [
+        "dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN"
+      ],
+      "inputs": "端口1：4000点发送复数I/Q。",
+      "outputs": "端口1：4000点接收复数I/Q；端口2：[有效信号RMS；每路噪声sigma；I/Q削顶数量]。",
+      "purpose": "用因果分数延迟表示传播，用重采样位置表示采样率差，再叠加载波频偏、初相、接收增益、AWGN与signed12饱和。",
+      "observe": "看RX Q片段、接收码片叠加、信号/噪声RMS、削顶；用不同SNR/CFO/SFO观察后级捕获与收帧。",
+      "limits": "当前新板信道没有实现旧脚本里的多径与随机相噪；70 km是设定传播距离，20 dB等是可调假设。独立参考频差不等于已建立双站共同历元。",
+      "sources": [
+        "scripts/system/dsss_ad9361_sfun.m",
+        "scripts/system/dsss_ad9361_step.m"
+      ],
+      "logs": "Log_channel_info → channel_info；r.waveforms.rxPhysicalIQ是该端口的片段。",
+      "tune": "distance_m、snr_dB、extraCfoHz、initialPhase_deg、txReferenceError、rxReferenceError、rxGain、seed。"
+    },
+    {
+      "id": "ad_rx",
+      "title": "03 接收前端：signed12、插值5与FIR48",
+      "group": "ad",
+      "model": "dsss_ad9361_link",
+      "block_paths": [
+        "dsss_ad9361_link/RX_signed12_interp5_FIR48"
+      ],
+      "inputs": "端口1：4000点、50 MSPS接收复数I/Q。",
+      "outputs": "端口1：20000点、250 MSPS DSP复数I/Q；端口2：[插值饱和数量；输出峰值]。",
+      "purpose": "先将signed12码值乘16，再用121抽头Q16滤波器插值5并饱和到signed16，最后分别通过I/Q的48抽头低通与截位回绕。每窗复位FIR48，插值5状态连续。",
+      "observe": "应看插值前后镜像、FIR48输出、增益、群时延与截位误差。目前新板6子图没有直接绘出该模块输出。",
+      "limits": "这是零中频I/Q前端，不需要再加70 MHz数字下变频；端口用double容器实现整数运算，不等于真实RTL总线时序。",
+      "sources": [
+        "scripts/system/dsss_ad9361_sfun.m",
+        "scripts/system/dsss_ad9361_step.m"
+      ],
+      "logs": "Log_rx_info → rx_info；r.waveforms.rxDspIQ有DSP波形片段。",
+      "tune": "interpCoeInt、rxCoeInt、rxWindowReset；实际COE长度121/48。"
+    },
+    {
+      "id": "ad_dll",
+      "title": "04 接收同步：FFT捕获、DLL与DSSS解扩",
+      "group": "ad",
+      "model": "dsss_ad9361_link",
+      "block_paths": [
+        "dsss_ad9361_link/FFT1024_DLL_20000point"
+      ],
+      "inputs": "端口1：每次20000点DSP I/Q。",
+      "outputs": "端口1：复数Prompt；端口2：valid；端口3：[acquired；峰/中值比；积分起点；DLL误差；Early；Late；|Prompt|；速率状态]。",
+      "purpose": "降采样后的1024点FFT相关先找PN粗码相位，再局部细搜；Early/Prompt/Late相关闭环调整积分起点，将1000码片解扩为一个数据符号。",
+      "observe": "解扩星座来自Prompt；DLL误差曲线来自info第4列。进一步应看E/P/L、S曲线、码相位残差和逐窗重捕获。",
+      "limits": "FFT、DLL和积分在一个模块中；当前是功能算法，不是fft_cap_3/code_loop_3的位精确逐拍替代。DLL valid不等于载波锁定或帧校验通过。",
+      "sources": [
+        "scripts/system/dsss_ad9361_sfun.m",
+        "scripts/system/dsss_ad9361_step.m",
+        "scripts/wireless/dsss_wireless_step.m"
+      ],
+      "logs": "Log_dll_prompt → dll_prompt；Log_dll_valid → dll_valid；Log_dll_info → dll_info。",
+      "tune": "acquisitionRatio默认8、acquisitionMinRms默认30；功能DLL Kp=0.6 samples、Ki=0.005 samples。不能直接当作RTL环路带宽。"
+    },
+    {
+      "id": "ad_costas",
+      "title": "05 载波同步：归一化与Costas环",
+      "group": "ad",
+      "model": "dsss_ad9361_link",
+      "block_paths": [
+        "dsss_ad9361_link/Normalization_Costas_raw40"
+      ],
+      "inputs": "端口1：复数Prompt；端口2：DLL valid。",
+      "outputs": "端口1：旋转后的复数符号；端口2：valid；端口3：[鉴相误差；累加相位rad；频偏估计Hz；幅度估计]。",
+      "purpose": "用幅度估计归一化，按sign(I)×Q鉴相，以raw40整数PI/NCO事件算法更新相位并旋转符号，消除载波残余相位与频偏。",
+      "observe": "看Costas前后星座、相位/频偏残差、PI状态。当前橙色点是接收机载荷完成前末200有效符号；圆弧仍含捕获与帧后噪声。",
+      "limits": "归一化目标16384且立即启动；实际RTL归一化有等待/估计/缓存突发。旋转也不是逐拍CORDIC位精确模型；旧理想阶跃图不能替代这个raw40模型。",
+      "sources": [
+        "scripts/system/dsss_ad9361_sfun.m",
+        "scripts/system/dsss_ad9361_step.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/wireless/dsss_costas_integer_update.m",
+        "scripts/system/dsss_costas_lock_metrics.m"
+      ],
+      "logs": "Log_costas_iq → costas_iq；Log_costas_info → costas_info。",
+      "tune": "C1=0x02D152、C2=0x00081A；频率换算包含2^37与80 us事件周期，不能只由C1/C2直接读出Hz带宽。"
+    },
+    {
+      "id": "ad_frame",
+      "title": "06 信息恢复：BPSK判决、帧头与100字节载荷",
+      "group": "ad",
+      "model": "dsss_ad9361_link",
+      "block_paths": [
+        "dsss_ad9361_link/BPSK_Header_100Byte"
+      ],
+      "inputs": "端口1：Costas复数符号；端口2：valid。",
+      "outputs": "端口1：100×1载荷数值数组；端口2：[done；本窗帧数；反相标志；已收载荷bit数；已见符号数]。",
+      "purpose": "以I<0判决比特，识别64 bit固定帧头及其反相形式，纠正极性并收满800 bit载荷。标题中的帧数/BER由运行器把这些字节与已知测试载荷比较得到。",
+      "observe": "看帧头匹配、done脉冲、100字节对照、错误位置和连续帧；done是载荷收满，不是尾字节结束时刻。",
+      "limits": "当前没有CRC、序号、四时间戳绑定；已知载荷零错误不能替代真实报文完整性校验，也不能输出已标定钟差。",
+      "sources": [
+        "scripts/system/dsss_ad9361_sfun.m",
+        "scripts/system/dsss_ad9361_step.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/entrypoints/run_dsss_ad9361_link.m"
+      ],
+      "logs": "Log_payload_bytes → payload_bytes；Log_frame_info → frame_info。",
+      "tune": "帧头FF 08 C6 80 8E 25 C0 C9；载荷100字节；每接收窗重置解析状态。"
+    },
+    {
+      "id": "rtl_stimulus",
+      "title": "07 RTL对照：同一整数激励",
+      "group": "rtl",
+      "model": "dsss_rtl_comparison",
+      "block_paths": [
+        "dsss_rtl_comparison/Identical_Integer_Stimulus"
+      ],
+      "inputs": "From Workspace变量rtl_input。",
+      "outputs": "7路前端测试激励及使能，以4 ns步长重放。",
+      "purpose": "把与Xsim相同的输入送入Simulink整数FIR参考，保证比较使用同一刺激。",
+      "observe": "先核对输入样本、valid与插值使能，再看输出误差。",
+      "limits": "输入是接口测试向量，不是完整70 km接收波形。",
+      "sources": [
+        "scripts/rtl_link/dsss_rtl_load_data.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "rtl_fir",
+      "title": "08 RTL对照：五路整数FIR参考",
+      "group": "rtl",
+      "model": "dsss_rtl_comparison",
+      "block_paths": [
+        "dsss_rtl_comparison/Integer_FIR_Reference"
+      ],
+      "inputs": "7路整数激励/使能；对话框给TX/RX/插值COE与实测流水线延迟。",
+      "outputs": "5路：TX201、RX48-I、RX48-Q、插值5-I、插值5-Q。",
+      "purpose": "每4 ns执行整数卷积、指定截位或饱和，再对齐IP流水线，作为实际RTL前端的参考。",
+      "observe": "看五路有效样本的最大码误差与异常点。当前57824个有效比较点误差为零。",
+      "limits": "覆盖这五路滤波计算，不含完整FFT/DLL/Costas链路。",
+      "sources": [
+        "scripts/rtl_link/dsss_rtl_reference_sfun.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "rtl_actual",
+      "title": "09 RTL对照：真实Xsim/IP输出重放",
+      "group": "rtl",
+      "model": "dsss_rtl_comparison",
+      "block_paths": [
+        "dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim"
+      ],
+      "inputs": "From Workspace变量rtl_actual。",
+      "outputs": "真实Verilog/IP批量仿真的五路输出。",
+      "purpose": "加载Xsim导出的数值轨迹，与同一激励的整数参考比较。",
+      "observe": "总览上排的FIR波形/频谱/码片眼图来自实际RTL前端数据。",
+      "limits": "这是批量导出重放，不是运行中由Simulink直接调用Vivado的实时HDL联仿。",
+      "sources": [
+        "scripts/rtl_link/dsss_rtl_load_data.m",
+        "scripts/rtl_link/render_rtl_findings.py"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "rtl_compare",
+      "title": "10 RTL对照：有效点差分与记录",
+      "group": "rtl",
+      "model": "dsss_rtl_comparison",
+      "block_paths": [
+        "dsss_rtl_comparison/RTL_minus_Model",
+        "dsss_rtl_comparison/Valid_Mask",
+        "dsss_rtl_comparison/Valid_Sample_Error",
+        "dsss_rtl_comparison/Error_Log",
+        "dsss_rtl_comparison/Compare_Waveforms",
+        "dsss_rtl_comparison/Waveform_Log"
+      ],
+      "inputs": "实际输出、参考输出及rtl_mask。",
+      "outputs": "rtl_error有效点误差；rtl_waves参考/实际波形记录。",
+      "purpose": "先求实际减参考，再乘valid掩码，仅统计有定义的输出点；Mux另存两路波形。",
+      "observe": "总览右下是五路最大误差。无效周期、首拍延迟和使能节拍也应单独检查。",
+      "limits": "不能把所有周期的零值或只看柱状图当作全链无误码证据。",
+      "sources": [
+        "scripts/rtl_link/build_dsss_rtl_comparison.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "rtl_tdd",
+      "title": "11 RTL对照：本地时隙公式与实际轨迹",
+      "group": "rtl",
+      "model": "dsss_rtl_comparison",
+      "block_paths": [
+        "dsss_rtl_comparison/Actual_TDD_RTL",
+        "dsss_rtl_comparison/Independent_TDD_Equations",
+        "dsss_rtl_comparison/TDD_RTL_minus_Equations",
+        "dsss_rtl_comparison/TDD_Error_Log"
+      ],
+      "inputs": "实际控制器轨迹rtl_tdd_actual与独立公式rtl_tdd_expected。",
+      "outputs": "8路误差rtl_tdd_error。",
+      "purpose": "逐拍对比slot、主站TX/RX、两站发送请求、RX重启、解调复位和捕获启动。",
+      "observe": "应看复位保持/释放、捕获脉冲及误差；目前有482拍对照数据，尚无该分支独立PNG。",
+      "limits": "测试使用80拍加速时隙，硬件默认25000000拍另有定向测试；此分支不实现双站初始历元协商。",
+      "sources": [
+        "scripts/system/dsss_tdd_compare.m",
+        "scripts/rtl_link/build_dsss_rtl_comparison.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "if_tx",
+      "title": "12 旧发送：DSSS、FIR201与70MHz上变频",
+      "group": "if",
+      "model": "dsss_wireless_link",
+      "block_paths": [
+        "dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC"
+      ],
+      "inputs": "无输入，读取旧配置/帧/PN/COE。",
+      "outputs": "20000点复数解析中频；TX信息。",
+      "purpose": "同样进行DSSS扩频与FIR201，再乘70 MHz数控载波。旧图左上和TX频谱对应这里。",
+      "observe": "对应旧70 MHz总览；与新板视图分开查看。",
+      "limits": "不能把70 MHz DUC直接搬进AD9361零中频模型。",
+      "sources": [
+        "scripts/wireless/dsss_wireless_sfun.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/wireless/plot_dsss_wireless_link.m"
+      ],
+      "logs": "使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。",
+      "tune": ""
+    },
+    {
+      "id": "if_channel",
+      "title": "13 旧信道：独立时钟、中频、噪声和ADC打包",
+      "group": "if",
+      "model": "dsss_wireless_link",
+      "block_paths": [
+        "dsss_wireless_link/Wireless_70km_Independent_Clocks"
+      ],
+      "inputs": "发送解析中频。",
+      "outputs": "20000点实数ADC打包值；信号/噪声、饱和及low12回绕统计。",
+      "purpose": "旧S-function支持因果延迟、采样率差、多径、相噪与噪声；再模拟旧ADC饱和及低12位打包。",
+      "observe": "对应旧70 MHz总览；与新板视图分开查看。",
+      "limits": "旧ADC低12位回绕不等于新AD9361 signed12饱和；旧sim/matlab_link场景图另属独立脚本。",
+      "sources": [
+        "scripts/wireless/dsss_wireless_sfun.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/wireless/plot_dsss_wireless_link.m"
+      ],
+      "logs": "使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。",
+      "tune": ""
+    },
+    {
+      "id": "if_rx",
+      "title": "14 旧接收：70MHz下变频与FIR48",
+      "group": "if",
+      "model": "dsss_wireless_link",
+      "block_paths": [
+        "dsss_wireless_link/ADC_Bits_DDC_FIR48"
+      ],
+      "inputs": "实数ADC打包数据。",
+      "outputs": "20000点复数DDC/FIR48基带。",
+      "purpose": "乘70 MHz正交载波下变频并通过两路FIR48。旧总览右上基带波形与眼图取自这里。",
+      "observe": "对应旧70 MHz总览；与新板视图分开查看。",
+      "limits": "旧图眼图为展示而做相位/时序对齐；展示处理没有反馈给接收机。",
+      "sources": [
+        "scripts/wireless/dsss_wireless_sfun.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/wireless/plot_dsss_wireless_link.m"
+      ],
+      "logs": "使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。",
+      "tune": ""
+    },
+    {
+      "id": "if_dll",
+      "title": "15 旧同步：FFT、DLL与解扩",
+      "group": "if",
+      "model": "dsss_wireless_link",
+      "block_paths": [
+        "dsss_wireless_link/FFT_Acquisition_DLL_Despread"
+      ],
+      "inputs": "20000点旧接收基带。",
+      "outputs": "Prompt、valid、8路DLL信息。",
+      "purpose": "与新模型复用功能捕获/DLL/解扩函数，但没有新板每窗包装与新接收前端。",
+      "observe": "对应旧70 MHz总览；与新板视图分开查看。",
+      "limits": "不能将旧模型的状态连续行为等同于当前每窗复位的AD9361接收。",
+      "sources": [
+        "scripts/wireless/dsss_wireless_sfun.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/wireless/plot_dsss_wireless_link.m"
+      ],
+      "logs": "使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。",
+      "tune": ""
+    },
+    {
+      "id": "if_costas",
+      "title": "16 旧载波：归一化、PI/NCO与旋转",
+      "group": "if",
+      "model": "dsss_wireless_link",
+      "block_paths": [
+        "dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate"
+      ],
+      "inputs": "Prompt及valid。",
+      "outputs": "Costas复数符号、valid、4路环路信息。",
+      "purpose": "旧总览星座和右轴频偏轨迹来自此处的功能事件参考。",
+      "observe": "对应旧70 MHz总览；与新板视图分开查看。",
+      "limits": "它也不是独立脚本生成的旧Costas理想阶跃图，二者不得混称。",
+      "sources": [
+        "scripts/wireless/dsss_wireless_sfun.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/wireless/plot_dsss_wireless_link.m"
+      ],
+      "logs": "使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。",
+      "tune": ""
+    },
+    {
+      "id": "if_frame",
+      "title": "17 旧信息恢复：判决、极性与载荷",
+      "group": "if",
+      "model": "dsss_wireless_link",
+      "block_paths": [
+        "dsss_wireless_link/Costas_I_Q",
+        "dsss_wireless_link/BPSK_I_Negative",
+        "dsss_wireless_link/Bit_As_Double",
+        "dsss_wireless_link/Header_Polarity_Payload100"
+      ],
+      "inputs": "辅助判决块输出的bit与valid。",
+      "outputs": "100字节载荷数组及帧状态。",
+      "purpose": "Costas_I_Q提取I，BPSK_I_Negative执行I<0，Bit_As_Double转类型后送帧头/载荷解析。",
+      "observe": "对应旧70 MHz总览；与新板视图分开查看。",
+      "limits": "旧模型也没有当前工程可用的四时间戳/CRC协议。",
+      "sources": [
+        "scripts/wireless/dsss_wireless_sfun.m",
+        "scripts/wireless/dsss_wireless_step.m",
+        "scripts/wireless/plot_dsss_wireless_link.m"
+      ],
+      "logs": "使用命名信号logsout记录；End_*是Terminator，不是新的信号处理算法。",
+      "tune": ""
+    },
+    {
+      "id": "script_fir",
+      "title": "18 参数脚本：旧FIR系数与幅频图",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "读取旧FIR201/FIR48 COE进行参数分析及绘图；概念上关联发送/接收滤波，但不来自某个Simulink输出端口。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "旧图未包含当前插值5 FIR121；系数响应不等于已验证RTL运行时序。",
+      "sources": [
+        "legacy/sim/matlab_link/link_parameter_analysis.m",
+        "legacy/sim/matlab_link/build_parameter_plots.py"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_costas",
+      "title": "19 参数脚本：旧Costas理想阶跃",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "读取PI常数，以理想线性化响应展示相位误差和频率估计；不是Normalization_Costas_raw40的实际仿真轨迹。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "旧近似自然频率/带宽没有完整纳入当前幅度、更新使能与raw40缩放，不能作为新板环路指标。",
+      "sources": [
+        "legacy/sim/matlab_link/link_parameter_analysis.m",
+        "legacy/sim/matlab_link/build_parameter_plots.py"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_link",
+      "title": "20 历史MATLAB链路：九组信道场景",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "run_link_sim依次调用link_tx → link_channel → link_rx，link_plot绘制中频、PSD、捕获峰、Costas、频偏与DLL六子图。九组历史场景来自这套函数，不是现有SLX/MDL的输出。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "只能作旧方案参考；与新AD9361信道的功能覆盖、ADC处理和验证范围不同。",
+      "sources": [
+        "legacy/sim/matlab_link/run_link_sim.m",
+        "legacy/sim/matlab_link/link_tx.m",
+        "legacy/sim/matlab_link/link_channel.m",
+        "legacy/sim/matlab_link/link_rx.m",
+        "legacy/sim/matlab_link/link_plot.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_time",
+      "title": "21 时间比对脚本与四时间戳示意",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "link_two_way_exchange与link_time_message实现历史双向交换概念模型，build_twoway_diagram绘制时序示意。当前三个Simulink模型均没有四时间戳求钟差模块。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "示意图不证明新板协议、时隙历元、通道标定已落实；新TDD模式旧raw_time_valid保持无效。",
+      "sources": [
+        "legacy/sim/matlab_link/link_two_way_exchange.m",
+        "legacy/sim/matlab_link/link_time_message.m",
+        "legacy/sim/matlab_link/build_twoway_diagram.py"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_ui",
+      "title": "22 历史交互界面截图",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "参数面板/界面截图是展示入口，负责调整参数和调用参考函数；截图本身不是Simulink处理模块。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "界面看起来有环路图，不表示该截图采用当前新板模型或当前参数。",
+      "sources": [
+        "scripts/wireless/open_dsss_classic_dashboard.m",
+        "legacy/sim/matlab_link/link_visualizer_simulate.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_diagram",
+      "title": "23 历史方案框图",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "build_diagram绘制旧数据链路示意，用于解释方案；不是Simulink模型截图或模型结构导出。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "不能用旧ADDA/DDC框图代替当前AD9361零中频结构；新板实际主链见本页A组。",
+      "sources": [
+        "legacy/sim/matlab_link/build_diagram.py"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_backend",
+      "title": "24 RTL后端/解析器独立测试",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "RTL总览左下Costas与中下连续帧来自独立Xsim后端和解析器测试。dsss_rtl_comparison模型中没有Costas或帧解析处理块，这两幅子图由render_rtl_findings读取测试导出绘制。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "后端绕过FFT/DLL并把符号间隔加速到500拍；连续帧解析器测试也不等于完整无线接收链路。",
+      "sources": [
+        "scripts/rtl_link/render_rtl_findings.py",
+        "results/rtl_link/rtl_validation.json"
+      ],
+      "logs": "",
+      "tune": ""
+    }
+  ],
+  "figures": [
+    {
+      "relative_path": "01_发送与接收波形/01_AD9361_单窗波形总览.png",
+      "filename": "01_AD9361_单窗波形总览.png",
+      "status": "当前功能参考",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "左上TX I、右上频谱"
+        },
+        {
+          "id": "ad_channel",
+          "relation": "左上RX Q、右下码片叠加"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "接收前端相关级，本图没有直接画出其输出"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "左中解扩星座、左下DLL误差"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "右中星座与末段相位RMS"
+        },
+        {
+          "id": "ad_frame",
+          "relation": "标题帧数/BER的载荷来源"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "TX I与RX Q时域",
+          "signal": "TX/1实部；Channel/1虚部",
+          "meaning": "比较发送与信道损伤后的接收片段，不是RX FIR48输出。"
+        },
+        {
+          "position": "第1行右",
+          "title": "50 MSPS发送频谱",
+          "signal": "TX/1；r.waveforms.txIQ",
+          "meaning": "发送端扩频/滤波后的基带频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "解扩后星座",
+          "signal": "DLL/1与DLL/2；dll_prompt、dll_valid",
+          "meaning": "码已解扩，载波相位尚未由Costas纠正。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas后星座",
+          "signal": "Costas/1；costas_iq；frame_info限定末段",
+          "meaning": "同时保留捕获瞬态和帧后噪声；橙色仅标出载荷末200符号。"
+        },
+        {
+          "position": "第3行左",
+          "title": "DLL误差",
+          "signal": "DLL/3第4列；dll_info(:,4)",
+          "meaning": "Early/Late归一化误差，不能单凭趋零认定有效帧。"
+        },
+        {
+          "position": "第3行右",
+          "title": "接收码片叠加",
+          "signal": "Channel/1实部；rxPhysicalIQ",
+          "meaning": "未做眼中心对齐；不是解扩后数据符号眼图。"
+        }
+      ],
+      "provenance": "MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。"
+    },
+    {
+      "relative_path": "01_发送与接收波形/02_AD9361_双窗波形与收敛.png",
+      "filename": "02_AD9361_双窗波形与收敛.png",
+      "status": "当前功能参考",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "左上TX I、右上频谱"
+        },
+        {
+          "id": "ad_channel",
+          "relation": "左上RX Q、右下码片叠加"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "接收前端相关级，本图没有直接画出其输出"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "左中解扩星座、左下DLL误差"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "右中星座与末段相位RMS"
+        },
+        {
+          "id": "ad_frame",
+          "relation": "标题帧数/BER的载荷来源"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "TX I与RX Q时域",
+          "signal": "TX/1实部；Channel/1虚部",
+          "meaning": "比较发送与信道损伤后的接收片段，不是RX FIR48输出。"
+        },
+        {
+          "position": "第1行右",
+          "title": "50 MSPS发送频谱",
+          "signal": "TX/1；r.waveforms.txIQ",
+          "meaning": "发送端扩频/滤波后的基带频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "解扩后星座",
+          "signal": "DLL/1与DLL/2；dll_prompt、dll_valid",
+          "meaning": "码已解扩，载波相位尚未由Costas纠正。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas后星座",
+          "signal": "Costas/1；costas_iq；frame_info限定末段",
+          "meaning": "同时保留捕获瞬态和帧后噪声；橙色仅标出载荷末200符号。"
+        },
+        {
+          "position": "第3行左",
+          "title": "DLL误差",
+          "signal": "DLL/3第4列；dll_info(:,4)",
+          "meaning": "Early/Late归一化误差，不能单凭趋零认定有效帧。"
+        },
+        {
+          "position": "第3行右",
+          "title": "接收码片叠加",
+          "signal": "Channel/1实部；rxPhysicalIQ",
+          "meaning": "未做眼中心对齐；不是解扩后数据符号眼图。"
+        }
+      ],
+      "provenance": "MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。"
+    },
+    {
+      "relative_path": "01_发送与接收波形/90_旧70MHz中频_波形总览.png",
+      "filename": "90_旧70MHz中频_波形总览.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "if_tx",
+          "relation": "TX时域/频谱/COE"
+        },
+        {
+          "id": "if_channel",
+          "relation": "ADC中频/频谱"
+        },
+        {
+          "id": "if_rx",
+          "relation": "DDC基带与展示眼图"
+        },
+        {
+          "id": "if_dll",
+          "relation": "DLL误差与眼图对齐参考"
+        },
+        {
+          "id": "if_costas",
+          "relation": "星座与频偏轨迹"
+        },
+        {
+          "id": "if_frame",
+          "relation": "右下收帧/误码统计"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "TX 70 MHz IF",
+          "signal": "TX/1",
+          "meaning": "旧板数字上变频输出。"
+        },
+        {
+          "position": "第1行中",
+          "title": "RX IF/ADC",
+          "signal": "Channel/1",
+          "meaning": "旧ADC低12位打包参考。"
+        },
+        {
+          "position": "第1行右",
+          "title": "DDC/FIR48基带",
+          "signal": "RX/1",
+          "meaning": "下变频后I/Q。"
+        },
+        {
+          "position": "第2行左",
+          "title": "TX/RX中频频谱",
+          "signal": "TX/1、Channel/1",
+          "meaning": "两路同类频谱比较。"
+        },
+        {
+          "position": "第2行中",
+          "title": "FIR201/FIR48响应",
+          "signal": "配置COE参数",
+          "meaning": "参数分析，不是端口时域采样。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas星座",
+          "signal": "Costas/1",
+          "meaning": "旧功能载波环输出。"
+        },
+        {
+          "position": "第3行左",
+          "title": "对齐码片眼图",
+          "signal": "RX/1及DLL相位统计",
+          "meaning": "展示相位/时序对齐不回灌接收算法。"
+        },
+        {
+          "position": "第3行中",
+          "title": "DLL/Costas跟踪",
+          "signal": "DLL info第4列、Costas info第3列",
+          "meaning": "左轴码环误差，右轴估计频偏。"
+        },
+        {
+          "position": "第3行右",
+          "title": "场景/载荷统计",
+          "signal": "配置及Frame输出比较",
+          "meaning": "文字摘要，无独立信号输出曲线。"
+        }
+      ],
+      "provenance": "旧70 MHz Simulink功能模型的同算法参考图；由plot_dsss_wireless_link绘制。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png",
+      "filename": "01_实际RTL_分段验证总览.png",
+      "status": "RTL分段验证",
+      "module_refs": [
+        {
+          "id": "rtl_stimulus",
+          "relation": "前端同一输入"
+        },
+        {
+          "id": "rtl_fir",
+          "relation": "五路整数参考"
+        },
+        {
+          "id": "rtl_actual",
+          "relation": "上排实际RTL波形来源"
+        },
+        {
+          "id": "rtl_compare",
+          "relation": "右下五路有效点误差"
+        },
+        {
+          "id": "script_backend",
+          "relation": "左下/中下：独立RTL测试，非模型内Costas/解析块"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "实际RTL TX FIR201波形",
+          "signal": "Actual_Verilog_and_IP_Xsim对应的TX前端导出",
+          "meaning": "250 MHz DSP测试码值，不是AD9361最终signed12端口。"
+        },
+        {
+          "position": "第1行中",
+          "title": "TX FIR频谱",
+          "signal": "同一前端导出",
+          "meaning": "接口测试输入频谱，不是70 km链路实测。"
+        },
+        {
+          "position": "第1行右",
+          "title": "20点/chip码片眼图",
+          "signal": "同一前端导出",
+          "meaning": "DSP域发送码片，与新板物理4点/chip图不同。"
+        },
+        {
+          "position": "第2行左",
+          "title": "真实归一化+Costas星座",
+          "signal": "独立Xsim backend.csv",
+          "meaning": "没有对应的RTL对照模型Costas块；捕获/DLL绕过。"
+        },
+        {
+          "position": "第2行中",
+          "title": "连续三帧恢复",
+          "signal": "独立帧解析器测试统计",
+          "meaning": "没有对应的RTL对照模型Frame块；不代表连续三帧全链无线验证。"
+        },
+        {
+          "position": "第2行右",
+          "title": "五路最大数值误差",
+          "signal": "Valid_Sample_Error / Error_Log",
+          "meaning": "仅在valid掩码允许的采样点比较。"
+        }
+      ],
+      "provenance": "render_rtl_findings将前端Xsim导出、后端独立测试、连续帧测试与Simulink误差统计组合绘图。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/90_旧中频_参数界面.png",
+      "filename": "90_旧中频_参数界面.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "界面/脚本入口"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "历史交互界面截图；不是某个处理块的独立仿真输出。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/91_旧方案_数据链路框图.png",
+      "filename": "91_旧方案_数据链路框图.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_diagram",
+          "relation": "独立绘图"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "旧方案结构示意，不是Simulink模型截图。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/91_旧方案_数据链路框图.svg",
+      "filename": "91_旧方案_数据链路框图.svg",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_diagram",
+          "relation": "独立绘图"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "旧方案结构示意，不是Simulink模型截图。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/92_旧方案_可视化界面预览.png",
+      "filename": "92_旧方案_可视化界面预览.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "界面/脚本入口"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "历史交互界面截图；不是某个处理块的独立仿真输出。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/93_旧方案_交互仿真截图.png",
+      "filename": "93_旧方案_交互仿真截图.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "界面/脚本入口"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "历史交互界面截图；不是某个处理块的独立仿真输出。"
+    },
+    {
+      "relative_path": "02_FIR与多速率/90_旧方案_FIR系数与幅频响应.png",
+      "filename": "90_旧方案_FIR系数与幅频响应.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_fir",
+          "relation": "真实绘图来源"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "上排",
+          "title": "TX201系数与归一化响应",
+          "signal": "旧TX COE",
+          "meaning": "参数图，不是运行中的滤波输出。"
+        },
+        {
+          "position": "下排",
+          "title": "RX48系数与归一化响应",
+          "signal": "旧RX COE",
+          "meaning": "没有当前插值5滤波器。"
+        }
+      ],
+      "provenance": "独立COE参数分析/绘图脚本，没有一一对应的Simulink输出端口。"
+    },
+    {
+      "relative_path": "05_Costas环/90_旧方案_Costas理想阶跃响应.png",
+      "filename": "90_旧方案_Costas理想阶跃响应.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_costas",
+          "relation": "真实绘图来源"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "上图",
+          "title": "理想相位响应",
+          "signal": "costas_step_response.csv",
+          "meaning": "旧线性近似模型。"
+        },
+        {
+          "position": "下图",
+          "title": "理想频率跟踪",
+          "signal": "同一参数脚本输出",
+          "meaning": "不作为当前raw40环路捕获范围或带宽证据。"
+        }
+      ],
+      "provenance": "独立理想PI阶跃分析；不是当前Simulink Costas块输出。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/90_旧方案_无噪声70km.png",
+      "filename": "90_旧方案_无噪声70km.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/91_旧方案_独立铷钟视距.png",
+      "filename": "91_旧方案_独立铷钟视距.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/92_旧方案_反向独立铷钟.png",
+      "filename": "92_旧方案_反向独立铷钟.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/93_旧方案_示例2点4GHz.png",
+      "filename": "93_旧方案_示例2点4GHz.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/94_旧方案_弱信号70km.png",
+      "filename": "94_旧方案_弱信号70km.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/95_旧方案_多径70km.png",
+      "filename": "95_旧方案_多径70km.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/96_旧方案_频偏压力.png",
+      "filename": "96_旧方案_频偏压力.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/97_旧方案_旧ADC低12位回绕压力.png",
+      "filename": "97_旧方案_旧ADC低12位回绕压力.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/98_旧方案_标称负127dBm假设_非灵敏度验收.png",
+      "filename": "98_旧方案_标称负127dBm假设_非灵敏度验收.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_link",
+          "relation": "TX→信道→RX函数链及link_plot"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "接收70 MHz中频",
+          "signal": "link_channel记录的rxIF",
+          "meaning": "旧接收采样片段。"
+        },
+        {
+          "position": "第1行右",
+          "title": "信号与噪声PSD",
+          "signal": "同一rxIF",
+          "meaning": "带限噪声与中频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "PN捕获相关功率",
+          "signal": "link_rx acquisitionPower",
+          "meaning": "旧脚本捕获结果，不是当前FFT模块端口。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas输出",
+          "signal": "link_rx corrected",
+          "meaning": "包含空闲段，不能只看形状判断锁定。"
+        },
+        {
+          "position": "第3行左",
+          "title": "频偏估计/设定值",
+          "signal": "link_rx cfoHz、channel effectiveCfoHz",
+          "meaning": "旧脚本环路。"
+        },
+        {
+          "position": "第3行右",
+          "title": "DLL时间修正",
+          "signal": "link_rx symbolStart",
+          "meaning": "旧符号起点修正及ADC统计。"
+        }
+      ],
+      "provenance": "独立旧MATLAB链路函数生成；没有与现有Simulink模块的一一输出对应。"
+    },
+    {
+      "relative_path": "10_双向时间比对/90_旧方案_四时间戳交换示意.png",
+      "filename": "90_旧方案_四时间戳交换示意.png",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_time",
+          "relation": "独立协议模型/绘图"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "历史双向时间戳示意图；当前三个Simulink模型均无四时间戳求钟差块。"
+    },
+    {
+      "relative_path": "10_双向时间比对/90_旧方案_四时间戳交换示意.svg",
+      "filename": "90_旧方案_四时间戳交换示意.svg",
+      "status": "历史参考",
+      "module_refs": [
+        {
+          "id": "script_time",
+          "relation": "独立协议模型/绘图"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "历史双向时间戳示意图；当前三个Simulink模型均无四时间戳求钟差块。"
+    }
+  ]
+}
