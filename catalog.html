@@ -99,10 +99,16 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>四阶段迁移工具输出：run_dsss_migration生成实际仿真/系数图，迁移SVG是流程示意，不是模型截图。范围和本次证据见migration.html。</p>
 </details></article>
-<article data-era="current" data-modules="script_ui"><span class="badge">当前功能参数探索界面</span><h3>04_MATLAB可视化调参系统.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/04_MATLAB%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B0%83%E5%8F%82%E7%B3%BB%E7%BB%9F.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/04_MATLAB%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B0%83%E5%8F%82%E7%B3%BB%E7%BB%9F.png" alt="04_MATLAB可视化调参系统.png"></a><p>MATLAB原生界面；传输条件、FIR截止/阶数、Costas C1/C2、码片率与比特率可调。截图来自PN1000/50MSPS/16字节预览，非Simulink块、逐拍RTL或硬件。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<article data-era="current" data-modules="script_ui"><span class="badge">当前功能参数探索界面</span><h3>04_MATLAB可视化调参系统.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/04_MATLAB%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B0%83%E5%8F%82%E7%B3%BB%E7%BB%9F.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/04_MATLAB%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B0%83%E5%8F%82%E7%B3%BB%E7%BB%9F.png" alt="04_MATLAB可视化调参系统.png"></a><p>MATLAB原生V2界面；128项配置及2592项源码/IP/结构/COE审计映射，共2720行。按模块搜索/编辑，区分主波形、独立诊断和仅源码/IP候选。不是Simulink块、真实RTL或硬件。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
 <li><a href="modules.html#script_ui">22 MATLAB可视化调参及历史界面</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。</p>
-<p><strong>参数区 · 信道 / FIR与环路 / 码率</strong><br>交互参数控件<br>修改后重算；Fs=Rc*S、L=Rc/Rb整数检查。</p>
+<p><strong>参数区 · 信道 / 完整代码参数与源码审计 / 码率</strong><br>交互参数控件<br>128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</p>
+<p><strong>视图区 · 实际功能波形和恢复载荷</strong><br>dsss_tuning_simulate真实计算结果<br>不是预录制演示曲线；生产RTL与硬件另验。</p>
+</details></article>
+<article data-era="current" data-modules="script_ui"><span class="badge">当前功能参数探索与独立诊断</span><h3>05_MATLAB完整代码参数_模块分类与来源.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/05_MATLAB%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%8F%82%E6%95%B0_%E6%A8%A1%E5%9D%97%E5%88%86%E7%B1%BB%E4%B8%8E%E6%9D%A5%E6%BA%90.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/05_MATLAB%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%8F%82%E6%95%B0_%E6%A8%A1%E5%9D%97%E5%88%86%E7%B1%BB%E4%B8%8E%E6%9D%A5%E6%BA%90.png" alt="05_MATLAB完整代码参数_模块分类与来源.png"></a><p>MATLAB原生V2完整参数表；截图归一化分类。源码来源与默认、生效模式并列；参数覆盖PN/组帧/整数/归一化/DLL/FFT/时隙/接口/IP。128配置+2592源码映射，非全部已联仿。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_ui">22 MATLAB可视化调参及历史界面</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。</p>
+<p><strong>参数区 · 信道 / 完整代码参数与源码审计 / 码率</strong><br>交互参数控件<br>128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</p>
 <p><strong>视图区 · 实际功能波形和恢复载荷</strong><br>dsss_tuning_simulate真实计算结果<br>不是预录制演示曲线；生产RTL与硬件另验。</p>
 </details></article>
 </div></section>
@@ -340,6 +346,12 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <p><strong>上排 · 时域 / 连续FFT / 量化FIR</strong><br>本次候选实际采样及系数<br>时域可抽点显示；频谱始终来自连续原始样本。</p>
 <p><strong>中排 · Costas前后星座 / 码片眼图</strong><br>接收机解扩及载波环输出<br>颜色表示符号时间；眼图未证明实测裕量。</p>
 <p><strong>下排 · 鉴相 / 频偏估计 / 载荷结果</strong><br>接收机状态及独立测试载荷评分<br>未完成载荷时BER无效，不能计为0；噪声参考固定。</p>
+</details></article>
+<article data-era="current" data-modules="script_ui"><span class="badge">当前功能参数探索与独立诊断</span><h3>02_代码参数_FFT归一化锁定时隙接口诊断.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/02_%E4%BB%A3%E7%A0%81%E5%8F%82%E6%95%B0_FFT%E5%BD%92%E4%B8%80%E5%8C%96%E9%94%81%E5%AE%9A%E6%97%B6%E9%9A%99%E6%8E%A5%E5%8F%A3%E8%AF%8A%E6%96%AD.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/02_%E4%BB%A3%E7%A0%81%E5%8F%82%E6%95%B0_FFT%E5%BD%92%E4%B8%80%E5%8C%96%E9%94%81%E5%AE%9A%E6%97%B6%E9%9A%99%E6%8E%A5%E5%8F%A3%E8%AF%8A%E6%96%AD.png" alt="02_代码参数_FFT归一化锁定时隙接口诊断.png"></a><p>默认PN1000/Fs50MSPS/16B；独立FFT数学相关、功能锁定、归一化时间、原始COE频响、独立插值段及接口预算。非逐拍IP、CDC、LVDS或硬件验收；FFT不串入主帧头接收机。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_ui">22 MATLAB可视化调参及历史界面</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。</p>
+<p><strong>参数区 · 信道 / 完整代码参数与源码审计 / 码率</strong><br>交互参数控件<br>128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</p>
+<p><strong>视图区 · 实际功能波形和恢复载荷</strong><br>dsss_tuning_simulate真实计算结果<br>不是预录制演示曲线；生产RTL与硬件另验。</p>
 </details></article>
 </div></section>
 <section data-category="10" id="c10"><h2>10_双向时间比对</h2><p class="note">新增100字节报文/CRC及合成四时标延迟补偿图；历史示意另标注，仍无标定后的可用硬件钟差。</p><div class="grid">

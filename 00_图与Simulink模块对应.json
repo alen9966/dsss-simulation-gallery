@@ -832,7 +832,7 @@
       "block_paths": [],
       "inputs": "配置、COE、历史MATLAB或Xsim导出。",
       "outputs": "图像/统计/示意，不是Simulink端口。",
-      "purpose": "当前入口open_dsss_wireless_dashboard默认打开参数实验室；传输条件、量化FIR截止/阶数、Costas C1/C2、DLL及Rc/Rb可调，展示时频域、星座、码片/去PN符号眼图和逐字节载荷。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。",
+      "purpose": "当前入口open_dsss_wireless_dashboard默认打开参数实验室；V2扫描实际RTL/IP/COE：128项功能/诊断配置、2592项源码来源映射，共2720行，可分类搜索。覆盖PN/组帧/整数截位/归一化/DLL/FFT/时隙/FIFO/SPI/LVDS候选，展示时频域、星座、眼图、载荷及独立诊断。仅源码/IP项未接入当前波形，编辑后作为未应用候选导出。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。",
       "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
       "limits": "当前内核是自定义Hamming窗FIR、已知帧头相关、功能DLL和raw40 Costas事件运算；与生产FFT1024/FIR201/48/121逐拍实现不同。不克隆三个Simulink模型；候选COE留本地，只有图册公开。旧界面截图仍为历史证据。",
       "sources": [
@@ -2168,9 +2168,9 @@
       "panel_map": [
         {
           "position": "参数区",
-          "title": "信道 / FIR与环路 / 码率",
+          "title": "信道 / 完整代码参数与源码审计 / 码率",
           "signal": "交互参数控件",
-          "meaning": "修改后重算；Fs=Rc*S、L=Rc/Rb整数检查。"
+          "meaning": "128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
         },
         {
           "position": "视图区",
@@ -2212,6 +2212,58 @@
         }
       ],
       "provenance": "dsss_tuning_plot输出当前可配置功能链；量化FIR、因果信道、帧头相关/DLL和raw40 Costas，不是生产RTL验收或Simulink Scope。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/05_MATLAB完整代码参数_模块分类与来源.png",
+      "filename": "05_MATLAB完整代码参数_模块分类与来源.png",
+      "status": "当前功能参数探索与独立诊断",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "参数区",
+          "title": "信道 / 完整代码参数与源码审计 / 码率",
+          "signal": "交互参数控件",
+          "meaning": "128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
+        },
+        {
+          "position": "视图区",
+          "title": "实际功能波形和恢复载荷",
+          "signal": "dsss_tuning_simulate真实计算结果",
+          "meaning": "不是预录制演示曲线；生产RTL与硬件另验。"
+        }
+      ],
+      "provenance": "当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/02_代码参数_FFT归一化锁定时隙接口诊断.png",
+      "filename": "02_代码参数_FFT归一化锁定时隙接口诊断.png",
+      "status": "当前功能参数探索与独立诊断",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "参数区",
+          "title": "信道 / 完整代码参数与源码审计 / 码率",
+          "signal": "交互参数控件",
+          "meaning": "128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
+        },
+        {
+          "position": "视图区",
+          "title": "实际功能波形和恢复载荷",
+          "signal": "dsss_tuning_simulate真实计算结果",
+          "meaning": "不是预录制演示曲线；生产RTL与硬件另验。"
+        }
+      ],
+      "provenance": "当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。"
     }
   ],
   "layout_verification": {

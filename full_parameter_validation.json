@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "checks": [
+    "reference payload recovered",
+    "PN offset and inversion change generated sequence and samples",
+    "TX_SHIFT changes amplitude with fixed noise",
+    "frame/header/payload settings reach decoded payload",
+    "wrong RX header cannot report a decoded frame",
+    "block skip/cal controls actual output count",
+    "normalization output interval and wait change timestamps",
+    "insufficient calibration data produces no normalized output",
+    "decision threshold reaches bit decisions",
+    "DLL spacing/window/initial state affect receiver samples",
+    "FIR output width changes actual samples",
+    "FFT size/scaling affects independent correlation",
+    "FFT threshold changes diagnostic without changing main waveform",
+    "slot role/SPI/FIFO are effective budget controls",
+    "lock/phase statistics use configured criteria",
+    "COE candidates reach independent response and interpolation",
+    "every config key and every source declaration is listed",
+    "candidate IDs fit MATLAB struct field limits",
+    "module search filters the table",
+    "key search resolves one functional control",
+    "table edit actually changes the simulation config",
+    "unbound RTL controls are searchable and honestly labeled",
+    "source-only edit retained without fake waveform binding",
+    "source candidates exported with explicit unapplied status",
+    "production source/IP/COE unchanged"
+  ],
+  "configControls": 128,
+  "sourceCounts": {
+    "RTL": 77,
+    "IP": 2486,
+    "STRUCTURE": 23,
+    "COE": 6
+  },
+  "totalRows": 2720,
+  "rtlValidated": false,
+  "boundary": "Main functional waveforms, independent diagnostics and source-only proposals are explicitly separated."
+}
