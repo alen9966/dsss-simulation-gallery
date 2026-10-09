@@ -23,6 +23,7 @@
     "source basis separates original RTL, AD9361 device chain and pending LVDS",
     "display spectrum uses overlapped short-time power average",
     "live spectrum analyzer accumulated records and waterfall",
+    "UI source is file-level without RTL symbol or line number",
     "FIR characteristic changes immediately without rerunning cached waveform",
     "original COE candidate changes independent response immediately",
     "IP parameters separated from algorithm knobs",
