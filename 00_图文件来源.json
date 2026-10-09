@@ -1515,7 +1515,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "8a0a15ca81a0ec719f3bddb016ecd5616a97003dc9a7b0f7ad909ce2b05d41bc",
+      "decoded_pixel_sha256": "f337c6cf74e1082f560b8f49beea5d8195d9c9e2d781e787f7c045bcaa4a1836",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1548,7 +1548,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "0b2bc708218f5f5eb2b203c6d1804757429173cf22964eee4766286605ea6833",
+      "decoded_pixel_sha256": "02686f71749c27445992fe70d24dba4216eb70b5dfa6127266a24f7b56345bf0",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1581,7 +1581,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "b5f1029f4cd4924e37c25406f7c67197b55fecc266109ab2a1eadbb7145274a6",
+      "decoded_pixel_sha256": "c96c9aa45a786091266877bb78e0e41b0adec25e441a97a5907a3fd22361e7fc",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2137,12 +2137,12 @@
       "source": "project/results/parameter_tuning_v3/node_timing.png",
       "filename": "parameter_tuning_v3_node_timing.png",
       "status": "当前功能候选 / 物理边界明确",
-      "note": "时标统计 / 输出：仅功能码相位均值；射频时间戳、双向钟差与硬件时标另验。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
+      "note": "时标统计 / 输出：载荷BER与时间误差分开显示。标称功能模型含4 ns量化、铷钟白噪声/随机游走和DLL抖动；相邻相关峰压力场景显示整码片跳变及双向半差。跳变概率是可调假设，射频时间戳、双向钟差与硬件时标仍需双机实测标定，不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "10_双向时间比对/parameter_tuning_v3_node_timing.png",
-      "decoded_pixel_sha256": "11915495177c3873ce04f661a33bf81ed18fcdfdbd8e169563327c414d75bb3a",
+      "decoded_pixel_sha256": "64438ab6966ec3fb9892cb5fc29e3a6c714c3a744e78f83dcbc230507656aff3",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2208,7 +2208,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png",
-      "decoded_pixel_sha256": "0b699b0e47727fa3e60f36a4aeaeff7339dbdafc8f3b7126d7d758e5b68794e0",
+      "decoded_pixel_sha256": "a255242c4ad411d31ab88f1aa921b1b8f0b7f06545cb9dd3fc92f809a88d76fa",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2241,7 +2241,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "decoded_pixel_sha256": "026c1048e2a01310f07b79ff7ffadfa85308a8fdd92067d96d89a066e8bc99a0",
+      "decoded_pixel_sha256": "4017dec297ba4a4cc2047a7e2276a78f2d27e9ac0a372f817a912da8af90de13",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2340,7 +2340,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "535c0618a5cb1677f9649f6ca825efde746cfdb28a527204a2a6bb912415f1fd",
+      "decoded_pixel_sha256": "b8a2356f5d6cbd1cd0455ea0bc03e71209b3e2efcec5ce707543201060ce92b2",
       "module_refs": [
         {
           "id": "script_ui",

@@ -2,6 +2,9 @@
   "passed": true,
   "checks": [
     "ASCII launcher runs actual frame",
+    "zero payload BER is separated from nonzero nominal timing error",
+    "adjacent-peak stress produces occasional full-chip slips",
+    "two-way half-difference exposes half-chip steps",
     "all config keys assigned exactly once to understandable nodes",
     "node click txfir",
     "node click txif",
@@ -47,7 +50,7 @@
     "no-signal recommendation rejected"
   ],
   "nodeCount": 17,
-  "configControls": 130,
+  "configControls": 140,
   "pauseSameExecution": true,
   "continuousScope": {
     "segments": 2,
