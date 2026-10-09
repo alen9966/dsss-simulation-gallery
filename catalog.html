@@ -173,14 +173,14 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 </details></article>
 </div></section>
 <section data-category="3" id="c3"><h2>03_FFT捕获</h2><p class="note">尚无独立捕获图。真实IP重捕获已有日志，概率、虚警及完整RTL捕获曲线待补。</p><div class="grid">
-<article data-era="current" data-modules="ad_dll script_capture"><span class="badge">真实FFT配置实验与捕获段回归</span><h3>01_FFT配置漏接_真实IP复现与修复.png</h3><a href="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png" target="_blank"><img loading="lazy" src="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png" alt="01_FFT配置漏接_真实IP复现与修复.png"></a><p>复位后原单拍配置早于ready，FFT/IFFT均漏接；两阶段各两路1024复数输出与厂商位真模型0误差。生产代码改为握手保持，录制20dB/35度/约1Hz的80us输入、门限1/8不变，双次捕获复测；右下是原完整DSP诊断失败，70km/gain0.5/无噪声频偏/门限5000/20。不是完整帧、LVDS或硬件验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<article data-era="current" data-modules="ad_dll script_capture"><span class="badge">真实FFT配置实验与捕获段回归</span><h3>01_FFT配置漏接_真实IP复现与修复.png</h3><a href="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png" target="_blank"><img loading="lazy" src="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png" alt="01_FFT配置漏接_真实IP复现与修复.png"></a><p>复位后原单拍配置早于ready，FFT/IFFT均漏接；两阶段各两路1024复数输出与厂商位真模型0误差。生产代码改为握手保持，录制20dB/35度/约1Hz的80us输入、门限1/8不变，双次捕获复测；右下为完整DSP修复前失败与修复后连续两次命中、1次真实捕获的约600us被动快照，70km/gain0.5/无噪声频偏/门限5000/20。不是完整帧、LVDS或硬件验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
 <li><a href="modules.html#ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</a>：登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="modules.html#script_capture">28 FFT配置：复位握手与真实捕获回归</a>：登记的新图对应模块；场景及信号说明见图注</li>
-</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及修复前完整DSP失败轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。</p>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及同一物理输入下的完整DSP修复前后被动轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。</p>
 <p><strong>左上 · 复位后的配置valid/ready</strong><br>FFT_CONFIG_PROBE实际时钟记录<br>原valid在第3拍，ready第4拍才有效；保持valid后才能握手。</p>
 <p><strong>右上 · 接收配置次数与逐点核对</strong><br>fft_config_results.csv<br>每阶段两路各1024复数输出匹配对应厂商位真模型；原IFFT实际仍是默认正变换。</p>
 <p><strong>左下 · 同一录制波形的捕获峰值</strong><br>capture_events_before_config_fix.csv / capture_events.csv<br>原与修复后使用相同80us周期向量及门限1/8；不是实时完整波形，位置变化不能单独证明码同步精度。</p>
-<p><strong>右下 · 修复前完整DSP捕获判决</strong><br>capture_diag_baseline/capture_diagnostics.csv<br>70km/gain0.5/无噪声频偏，门限5000/20，两次有信号峰值784低于5040；修复后完整链另验。</p>
+<p><strong>右下 · 同一信道下的完整DSP修复前后判决</strong><br>capture_diag_baseline/capture_diagnostics.csv<br>70km/gain0.5/无噪声频偏，静态门限参数5000/20不变；原峰784未过5040，修复后两次超过实际动态门限并输出1次捕获。当前为约600us快照，前缀/整帧另验。</p>
 </details></article>
 </div></section>
 <section data-category="4" id="c4"><h2>04_DLL与解扩</h2><p class="note">DLL误差及解扩星座见01目录的AD9361总览；E/P/L、S曲线等独立图待补。</p><div class="grid">

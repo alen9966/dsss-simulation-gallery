@@ -1322,13 +1322,13 @@
       "source": "project/results/completion/fft_config_repair_validation.png",
       "filename": "01_FFT配置漏接_真实IP复现与修复.png",
       "status": "真实FFT配置实验与捕获段回归",
-      "note": "复位后原单拍配置早于ready，FFT/IFFT均漏接；两阶段各两路1024复数输出与厂商位真模型0误差。生产代码改为握手保持，录制20dB/35度/约1Hz的80us输入、门限1/8不变，双次捕获复测；右下是原完整DSP诊断失败，70km/gain0.5/无噪声频偏/门限5000/20。不是完整帧、LVDS或硬件验收。",
+      "note": "复位后原单拍配置早于ready，FFT/IFFT均漏接；两阶段各两路1024复数输出与厂商位真模型0误差。生产代码改为握手保持，录制20dB/35度/约1Hz的80us输入、门限1/8不变，双次捕获复测；右下为完整DSP修复前失败与修复后连续两次命中、1次真实捕获的约600us被动快照，70km/gain0.5/无噪声频偏/门限5000/20。不是完整帧、LVDS或硬件验收。",
       "requested_module_ids": [
         "ad_dll",
         "script_capture"
       ],
       "relative_path": "03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png",
-      "decoded_pixel_sha256": "169af8393aec3bb2e4e4fc0abe98ded3f7e6bbbf7d71f9934d627287f4a15cd6",
+      "decoded_pixel_sha256": "d1597d2e1c87ad193feab19b318279adf99e5a2242937c8d59732dacc0f97994",
       "module_refs": [
         {
           "id": "ad_dll",
@@ -1360,12 +1360,12 @@
         },
         {
           "position": "右下",
-          "title": "修复前完整DSP捕获判决",
+          "title": "同一信道下的完整DSP修复前后判决",
           "signal": "capture_diag_baseline/capture_diagnostics.csv",
-          "meaning": "70km/gain0.5/无噪声频偏，门限5000/20，两次有信号峰值784低于5040；修复后完整链另验。"
+          "meaning": "70km/gain0.5/无噪声频偏，静态门限参数5000/20不变；原峰784未过5040，修复后两次超过实际动态门限并输出1次捕获。当前为约600us快照，前缀/整帧另验。"
         }
       ],
-      "provenance": "独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及修复前完整DSP失败轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。"
+      "provenance": "独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及同一物理输入下的完整DSP修复前后被动轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。"
     }
   ]
 }

@@ -2145,12 +2145,12 @@
         },
         {
           "position": "右下",
-          "title": "修复前完整DSP捕获判决",
+          "title": "同一信道下的完整DSP修复前后判决",
           "signal": "capture_diag_baseline/capture_diagnostics.csv",
-          "meaning": "70km/gain0.5/无噪声频偏，门限5000/20，两次有信号峰值784低于5040；修复后完整链另验。"
+          "meaning": "70km/gain0.5/无噪声频偏，静态门限参数5000/20不变；原峰784未过5040，修复后两次超过实际动态门限并输出1次捕获。当前为约600us快照，前缀/整帧另验。"
         }
       ],
-      "provenance": "独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及修复前完整DSP失败轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。"
+      "provenance": "独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及同一物理输入下的完整DSP修复前后被动轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。"
     }
   ],
   "layout_verification": {

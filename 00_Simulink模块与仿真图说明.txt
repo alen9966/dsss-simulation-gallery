@@ -600,8 +600,8 @@ D · 独立脚本与展示（非 Simulink 模块）
 右下 | 70km传播与功能传输 | 合成真值 / 功能波形收帧 | 1帧0错且CRC通过；没有实时双站钟差。
 
 图：03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png
-来源：独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及修复前完整DSP失败轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。
+来源：独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及同一物理输入下的完整DSP修复前后被动轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。
 左上 | 复位后的配置valid/ready | FFT_CONFIG_PROBE实际时钟记录 | 原valid在第3拍，ready第4拍才有效；保持valid后才能握手。
 右上 | 接收配置次数与逐点核对 | fft_config_results.csv | 每阶段两路各1024复数输出匹配对应厂商位真模型；原IFFT实际仍是默认正变换。
 左下 | 同一录制波形的捕获峰值 | capture_events_before_config_fix.csv / capture_events.csv | 原与修复后使用相同80us周期向量及门限1/8；不是实时完整波形，位置变化不能单独证明码同步精度。
-右下 | 修复前完整DSP捕获判决 | capture_diag_baseline/capture_diagnostics.csv | 70km/gain0.5/无噪声频偏，门限5000/20，两次有信号峰值784低于5040；修复后完整链另验。
+右下 | 同一信道下的完整DSP修复前后判决 | capture_diag_baseline/capture_diagnostics.csv | 70km/gain0.5/无噪声频偏，静态门限参数5000/20不变；原峰784未过5040，修复后两次超过实际动态门限并输出1次捕获。当前为约600us快照，前缀/整帧另验。
