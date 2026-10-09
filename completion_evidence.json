@@ -158,14 +158,14 @@
   "standardLibraryCrcMatches": true,
   "generatedTopPorts": 87,
   "configuredIps": 66,
-  "sourceFingerprint": "b309c459df634e64fbe3264a09276583c19c655b2dba3db299eb1ac0fdea7107",
+  "sourceFingerprint": "0d7ed87c8d78971b471566fce4f132233df0081798ce1693d77eabe1824a9847",
   "topElaborationDate": "2026-10-09 10:25:37\r",
   "topBlackboxCount": 74,
   "topElaborationRxAutocalEnable": 0,
   "functionalRegressionPassed": true,
   "fullWaveformRtlPassed": false,
   "hardwarePassed": false,
-  "fullWaveformStatus": "Real-IP live TX/channel/RX prefix run started; no acceptance marker yet. Full frame pending.",
+  "fullWaveformStatus": "Original 600000-clock prefix failed with zero captures; FFT config loss reproduced and repaired. Corrected live DSP prefix is separately pending until its marker.",
   "rxHardwareWindowMeasured": false,
   "txCalibrationImplemented": false,
   "rfTimestampSourceImplemented": false,
@@ -176,5 +176,288 @@
     "Functional Costas maximum difference 36 codes",
     "rx_norm P_SKIP timeout counter enable"
   ],
-  "scope": "Executed digital calibration logic, integration reset guard with simulation PHY, optional application codec and synthetic clock estimator. Not RF or hardware timing acceptance."
+  "scope": "Executed digital calibration logic, integration reset guard with simulation PHY, optional application codec and synthetic clock estimator. Not RF or hardware timing acceptance.",
+  "captureConfigRepair": {
+    "date": "2026-10-09T12:21:42",
+    "confirmedCause": "One-cycle FFT/IFFT configuration is asserted at ready=0 after burst reset. Both cores retain default forward direction and schedule2; intended inverse direction and schedule1 are not applied.",
+    "repair": "Hold each config valid/data until its own ready handshake; enter acquisition only after both acknowledgements; saturate config-wait counter.",
+    "fftConfigExperimentPassed": true,
+    "fftConfigExperimentRows": [
+      {
+        "HeldUntilReady": "0",
+        "ForwardHandshakes": "0",
+        "InverseHandshakes": "0",
+        "FirstForwardReady": "4",
+        "FirstInverseReady": "4",
+        "ForwardOutputs": "1024",
+        "InverseOutputs": "1024",
+        "NumericErrors": "0"
+      },
+      {
+        "HeldUntilReady": "1",
+        "ForwardHandshakes": "1",
+        "InverseHandshakes": "1",
+        "FirstForwardReady": "4",
+        "FirstInverseReady": "4",
+        "ForwardOutputs": "1024",
+        "InverseOutputs": "1024",
+        "NumericErrors": "0"
+      }
+    ],
+    "configurationStallControlPassed": true,
+    "configurationStallScope": "Production capture controller with explicit ready boundary and arithmetic stubs; covers extended stall, separate acknowledgements and wait saturation, not transform numerics.",
+    "captureFixture": {
+      "source": "results/ad9361_link/ad9361_link_result.mat",
+      "point": "post interpolation5 and legacy FIR48; frontend excluded",
+      "samples": 20000,
+      "fs": 250000000.0,
+      "snr_dB": 20,
+      "initialPhase_deg": 35,
+      "cfoHz": 1.0000000001,
+      "repetition": "Recorded 80-us waveform repeated; CFO/noise repeat. Not a new full frame or random-trial performance test."
+    },
+    "fftConfigVectorManifest": {
+      "source": "Installed Xilinx FFT v9.1 bit-accurate C model",
+      "generics": {
+        "C_NFFT_MAX": 10,
+        "C_ARCH": 3,
+        "C_HAS_NFFT": 0,
+        "C_USE_FLT_PT": 0,
+        "C_INPUT_WIDTH": 16,
+        "C_TWIDDLE_WIDTH": 16,
+        "C_HAS_SCALING": 1,
+        "C_HAS_BFP": 0,
+        "C_HAS_ROUNDING": 1
+      },
+      "samples": 1024,
+      "impulse": "Q[1]=16384",
+      "cases": [
+        "default forward, schedule2 per stage",
+        "configured forward, schedule1",
+        "configured inverse, schedule1"
+      ],
+      "goldSha256": "90087e038e4850ab2db6ea12e3a4287018b7f73673f8e02df5f604de013a39f4",
+      "scope": "Gold for actual FFT/IFFT reset/configuration experiment; no full receiver acceptance."
+    },
+    "numericReference": "Installed Xilinx FFT v9.1 bit-accurate C model, actual wrapper generics, 1024 Q-impulse samples for each of two IPs in each phase.",
+    "fixedCaptureSegmentPassed": true,
+    "fixedCaptureDetections": [
+      {
+        "Cycle": "65454",
+        "ResetN": "1",
+        "Start": "0",
+        "Capture": "1",
+        "Location": "927",
+        "Peak": "734859364",
+        "ForwardConfigs": "1",
+        "InverseConfigs": "1"
+      },
+      {
+        "Cycle": "145455",
+        "ResetN": "1",
+        "Start": "0",
+        "Capture": "1",
+        "Location": "927",
+        "Peak": "628166845",
+        "ForwardConfigs": "1",
+        "InverseConfigs": "1"
+      }
+    ],
+    "preFixCaptureDetections": [
+      {
+        "Cycle": "65454",
+        "ResetN": "1",
+        "Start": "0",
+        "Capture": "1",
+        "Location": "73",
+        "Peak": "900"
+      },
+      {
+        "Cycle": "145455",
+        "ResetN": "1",
+        "Start": "0",
+        "Capture": "1",
+        "Location": "73",
+        "Peak": "730"
+      }
+    ],
+    "preFixFullPrefix": {
+      "Complete": "0",
+      "PrefixOnly": "1",
+      "Cycles": "600000",
+      "Chips": "28700",
+      "Captures": "0",
+      "Despread": "0",
+      "Normalized": "0",
+      "Costas": "0",
+      "Bytes": "0",
+      "ByteErrors": "0",
+      "LastCount": "0",
+      "CadenceFault": "0",
+      "TxFrames": "0",
+      "Gain": "0.500000",
+      "PhaseDeg": "0.000000",
+      "CfoHz": "0.000000",
+      "NoiseSigmaCodes": "0.000000"
+    },
+    "preFixDiagnosis": {
+      "date": "2026-10-09T12:05:08",
+      "scenario": "capture_diag_baseline",
+      "scenarioFinished": true,
+      "liveObservation": false,
+      "judgements": [
+        {
+          "Cycle": 25485,
+          "Peak": 0,
+          "Location": 0,
+          "Mean": 0,
+          "Threshold": 5000,
+          "Subtract": 4294962296,
+          "CapFlag": 0,
+          "FilteredNonzero": 0,
+          "FilteredMax": 0,
+          "FilteredRms": 0.0,
+          "margin": -5000,
+          "subtractionSigned": -5000,
+          "inputPresent": false,
+          "time_us": 101.94
+        },
+        {
+          "Cycle": 65465,
+          "Peak": 0,
+          "Location": 0,
+          "Mean": 0,
+          "Threshold": 5000,
+          "Subtract": 4294962296,
+          "CapFlag": 0,
+          "FilteredNonzero": 0,
+          "FilteredMax": 0,
+          "FilteredRms": 0.0,
+          "margin": -5000,
+          "subtractionSigned": -5000,
+          "inputPresent": false,
+          "time_us": 261.86
+        },
+        {
+          "Cycle": 105465,
+          "Peak": 784,
+          "Location": 769,
+          "Mean": 2,
+          "Threshold": 5040,
+          "Subtract": 4294963040,
+          "CapFlag": 0,
+          "FilteredNonzero": 20966,
+          "FilteredMax": 27094,
+          "FilteredRms": 6383.066102,
+          "margin": -4256,
+          "subtractionSigned": -4256,
+          "inputPresent": true,
+          "time_us": 421.86
+        },
+        {
+          "Cycle": 145465,
+          "Peak": 784,
+          "Location": 769,
+          "Mean": 2,
+          "Threshold": 5040,
+          "Subtract": 4294963040,
+          "CapFlag": 0,
+          "FilteredNonzero": 60966,
+          "FilteredMax": 27095,
+          "FilteredRms": 9289.988756,
+          "margin": -4256,
+          "subtractionSigned": -4256,
+          "inputPresent": true,
+          "time_us": 581.86
+        }
+      ],
+      "signalPresentJudgements": 2,
+      "waveformSummary": {
+        "Complete": "0",
+        "PrefixOnly": "1",
+        "Cycles": "150000",
+        "Chips": "6200",
+        "Captures": "0",
+        "Despread": "0",
+        "Normalized": "0",
+        "Costas": "0",
+        "Bytes": "0",
+        "ByteErrors": "0",
+        "LastCount": "0",
+        "CadenceFault": "0",
+        "TxFrames": "0",
+        "Gain": "0.500000",
+        "PhaseDeg": "0.000000",
+        "CfoHz": "0.000000",
+        "NoiseSigmaCodes": "0.000000"
+      },
+      "finding": "Observed signal-present decisions all remain below the configured integer-power threshold. This explains those rejections, not the full receiver performance.",
+      "functionalCriterion": "Floating correlation amplitude peak / median >= 8 plus RMS > 30; fine search +/-24 samples.",
+      "rtlCriterion": "Scaled integer correlation power compared with fixed floor + multiplier * integer mean; includes previous-hit flag.",
+      "criteriaEquivalent": false,
+      "fullWaveformRtlPassed": false,
+      "hardwarePassed": false,
+      "scope": "Real TX/channel/interpolation/FIR/FFT-IP hierarchy observation; ideal 70km two-tap fractional delay, gain0.5, no noise/CFO, common simulation sample clock. Not LVDS/FIFO, wireless performance, completed tuning or hardware acceptance."
+    },
+    "fixedFullPrefixFinished": false,
+    "fixedFullPrefixPassed": false,
+    "fixedFullPrefixSummary": [],
+    "fullFrameRtlPassed": false,
+    "hardwarePassed": false,
+    "codeTuningCompleted": false,
+    "compiledSnapshotComparison": {
+      "changedStagedFiles": [
+        "rtl/legacy/fft_cap_3.v",
+        "tb_waveform.v"
+      ],
+      "actualIpFilesUnchanged": true,
+      "physicalChannelArithmeticUnchanged": true,
+      "physicalRuntimeAndThresholdsUnchanged": true,
+      "channelArithmeticSha256": "63b2449d73967815b352b89dd4eaa6996c49ebcb253e07396ee853a2020682f0",
+      "fixedPhysicalParameters": {
+        "GAIN": "0.5",
+        "PHASE_DEG": "0",
+        "CFO_HZ": "0",
+        "NOISE_SIGMA_CODES": "0"
+      },
+      "fixedPrefixOnly": "1",
+      "fixedMaxCycles": "600000",
+      "originalSnapshotSha256": "2d1b77e39cfc8ff5bb0c6063f9e7675ba4b8588ee8bf156936d2d72109254c49",
+      "fixedSnapshotSha256": "8b28d6e520539df155a9eb1882ba15c37ced4ea9beb33b3cf39c1721bb3b7315"
+    },
+    "unchanged": [
+      "PN1000",
+      "COE",
+      "FFT/IFFT intended direction and scaling schedule",
+      "capture thresholds",
+      "channel delay/gain/noise/CFO"
+    ],
+    "sourceFingerprints": {
+      "rtl/legacy/fft_cap_3.v": "80dc25cbd2f3b114cf3d69b892a91d82a7deda9ec6f20105a1d5d9a081c46a6f",
+      "sim/tb_capture.v": "f0f2595d5e26ea2dac500f7fe813bf029129cab25fc6f3f4d08eac505eeda452",
+      "sim/tb_fft_config.v": "3a3a4220ff43e105cc15fe4ca5292fd58940425284f565ffdd7b67c32ac794a6",
+      "sim/vectors/capture_i_init.vh": "7823028d79cac6d2dd1b7ad3c2445d4bcd9cf5caae8b8e275479cb6ad8ccd376",
+      "sim/vectors/capture_q_init.vh": "a74a02ed25ccb7f35e2441d35d0bd4e004ab660dbbb5fa42be39b79032877f1b",
+      "sim/vectors/fft_config_gold_init.vh": "90087e038e4850ab2db6ea12e3a4287018b7f73673f8e02df5f604de013a39f4",
+      "results/fft_config_tests.log": "792d57e8a926f9b5483bf6471378afc9388216f00248999cbfbe15bf297d857c",
+      "sim/tb_tdd.v": "fdb3051b9c2c1c7cef7cc3133375d9c1741b41621eb4509e54f1b8d0540eb4b5",
+      "results/tdd_tests.log": "1de3ce5b28fce1c54b1d59a9f4b9def6dd9e286db0f9c4350156832d17a137f9",
+      "ip/ip_manifest.json": "68e9aff24aa0f2dbe72f6229b8f4cc2b9d9feec50e4a6d6a1c9629286d45058c"
+    },
+    "scope": "FFT reset/config numeric experiment and separately identified recorded-waveform capture regression. Fixed-channel live DSP prefix remains a separate gate; excludes LVDS/FIFO, independent sample clocks, full frame and RF hardware."
+  },
+  "fixedFullPrefixPassed": false,
+  "hardwareBuildFlow": {
+    "date": "2026-10-09",
+    "entry": "fpga_ad9361/ip/build_bitstream.tcl",
+    "tool": "Vivado 2018.3",
+    "syntaxAndArgumentGuardsPassed": true,
+    "actualPartProvided": false,
+    "userXdcProvided": false,
+    "mappedSynthesisPassed": false,
+    "implementationPassed": false,
+    "bitstreamGenerated": false,
+    "hardwarePassed": false,
+    "log": "generated/gallery_qa/build_flow_tools.log"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-08 18:31:47",
-  "source_audit_date": "2026-10-09T09:59:01+08:00",
+  "source_audit_date": "2026-10-09T11:59:27+08:00",
   "legacy_modules_checked": 16,
   "legacy_contract": {
     "preamble": 165,
@@ -32,6 +32,12 @@
       "module": "code_loop_3",
       "changes": [
         "Reset skip flag and default each NCO chip strobe to zero"
+      ]
+    },
+    {
+      "module": "fft_cap_3",
+      "changes": [
+        "Hold FFT/IFFT config valid until each ready handshake; gate acquisition on both acknowledgements; saturate configuration wait counter"
       ]
     },
     {

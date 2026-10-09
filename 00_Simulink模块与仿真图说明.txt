@@ -66,6 +66,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；左中解扩星座、左下DLL误差
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；左中解扩星座、左下DLL误差
 对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -399,6 +400,18 @@ D · 独立脚本与展示（非 Simulink 模块）
 实现：scripts/system/dsss_time_packet.m；scripts/system/dsss_two_way_estimate.m；scripts/entrypoints/run_dsss_time_protocol_validation.m；fpga_ad9361/rtl/dsss_time_packet_tx.v；fpga_ad9361/rtl/dsss_time_packet_rx.v；fpga_ad9361/sim/run_time_packet.ps1
 对应图：10_双向时间比对/01_新报文_CRC_四时标与延迟补偿.png；登记的新图对应模块；场景及信号说明见图注
 
+28 FFT配置：复位握手与真实捕获回归
+
+作用：真实FFT/IFFT IP复现复位后单拍配置漏接，全部复数输出与厂商位真C模型核对；生产配置保持到ready握手后重跑录制波形捕获。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：独立实际IP测试，不是Simulink块或完整接收机；AD9361模型ad_dll只提供算法功能参考，没有逐拍AXI配置接口。完整DSP前缀/整帧/硬件分别验收。
+日志：
+参数：
+实现：fpga_ad9361/rtl/legacy/fft_cap_3.v；fpga_ad9361/sim/tb_fft_config.v；fpga_ad9361/sim/tb_capture.v；rtl_cosim/ad9361/tb_waveform.v；scripts/tools/plot_dsss_fft_config_repair.m
+对应图：03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png；登记的新图对应模块；场景及信号说明见图注
+
 图：01_发送与接收波形/01_AD9361_单窗波形总览.png
 来源：MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。
 第1行左 | TX I与RX Q时域 | TX/1实部；Channel/1虚部 | 比较发送与信道损伤后的接收片段，不是RX FIR48输出。
@@ -585,3 +598,10 @@ D · 独立脚本与展示（非 Simulink 模块）
 右上 | 补偿前后中点钟差 | 相同四时标和已知收发延迟 | 本例消除10ns系统偏置，不是硬件准确度。
 左下 | 格式与异常拒绝 | MATLAB编解码及估计器测试 | RF时标来源与历元协商待实现。
 右下 | 70km传播与功能传输 | 合成真值 / 功能波形收帧 | 1帧0错且CRC通过；没有实时双站钟差。
+
+图：03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png
+来源：独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及修复前完整DSP失败轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。
+左上 | 复位后的配置valid/ready | FFT_CONFIG_PROBE实际时钟记录 | 原valid在第3拍，ready第4拍才有效；保持valid后才能握手。
+右上 | 接收配置次数与逐点核对 | fft_config_results.csv | 每阶段两路各1024复数输出匹配对应厂商位真模型；原IFFT实际仍是默认正变换。
+左下 | 同一录制波形的捕获峰值 | capture_events_before_config_fix.csv / capture_events.csv | 原与修复后使用相同80us周期向量及门限1/8；不是实时完整波形，位置变化不能单独证明码同步精度。
+右下 | 修复前完整DSP捕获判决 | capture_diag_baseline/capture_diagnostics.csv | 70km/gain0.5/无噪声频偏，门限5000/20，两次有信号峰值784低于5040；修复后完整链另验。

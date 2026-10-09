@@ -89,6 +89,7 @@ hilite_system(&#x27;dsss_ad9361_link/RX_signed12_interp5_FIR48&#x27;,&#x27;find&
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 左中解扩星座、左下DLL误差</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 左中解扩星座、左下DLL误差</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png">01_FFT配置漏接_真实IP复现与修复.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -391,6 +392,14 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/01_%E6%96%B0%E6%8A%A5%E6%96%87_CRC_%E5%9B%9B%E6%97%B6%E6%A0%87%E4%B8%8E%E5%BB%B6%E8%BF%9F%E8%A1%A5%E5%81%BF.png">01_新报文_CRC_四时标与延迟补偿.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_time_packet.m；scripts/system/dsss_two_way_estimate.m；scripts/entrypoints/run_dsss_time_protocol_validation.m；fpga_ad9361/rtl/dsss_time_packet_tx.v；fpga_ad9361/rtl/dsss_time_packet_rx.v；fpga_ad9361/sim/run_time_packet.ps1</p>
 </details></article>
+<article id="script_capture"><h3>28 FFT配置：复位握手与真实捕获回归</h3>
+<p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
+<p>真实FFT/IFFT IP复现复位后单拍配置漏接，全部复数输出与厂商位真C模型核对；生产配置保持到ready握手后重跑录制波形捕获。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>独立实际IP测试，不是Simulink块或完整接收机；AD9361模型ad_dll只提供算法功能参考，没有逐拍AXI配置接口。完整DSP前缀/整帧/硬件分别验收。</p>
+<p><strong>对应图：</strong></p><ul class="figlinks">
+<li><a href="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png">01_FFT配置漏接_真实IP复现与修复.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/rtl/legacy/fft_cap_3.v；fpga_ad9361/sim/tb_fft_config.v；fpga_ad9361/sim/tb_capture.v；rtl_cosim/ad9361/tb_waveform.v；scripts/tools/plot_dsss_fft_config_repair.m</p>
+</details></article>
 <h2>三个模型的完整模块清单（含记录与辅助块）</h2>
 <details><summary>dsss_ad9361_link：16个顶层块</summary><table><tr><th>实际块名</th><th>类型 / 输入→输出端口数</th><th>函数或变量</th></tr>
 <tr><td><code>BPSK_Header_100Byte</code></td><td>M-S-Function / 2→2</td><td>dsss_ad9361_sfun；&#x27;frame&#x27;,dsss_ad9361_cfg</td></tr>
@@ -635,6 +644,14 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <tr><td>右上</td><td>补偿前后中点钟差</td><td>相同四时标和已知收发延迟</td><td>本例消除10ns系统偏置，不是硬件准确度。</td></tr>
 <tr><td>左下</td><td>格式与异常拒绝</td><td>MATLAB编解码及估计器测试</td><td>RF时标来源与历元协商待实现。</td></tr>
 <tr><td>右下</td><td>70km传播与功能传输</td><td>合成真值 / 功能波形收帧</td><td>1帧0错且CRC通过；没有实时双站钟差。</td></tr>
+</table>
+</details>
+<details><summary>01_FFT配置漏接_真实IP复现与修复.png</summary><p>独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及修复前完整DSP失败轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>左上</td><td>复位后的配置valid/ready</td><td>FFT_CONFIG_PROBE实际时钟记录</td><td>原valid在第3拍，ready第4拍才有效；保持valid后才能握手。</td></tr>
+<tr><td>右上</td><td>接收配置次数与逐点核对</td><td>fft_config_results.csv</td><td>每阶段两路各1024复数输出匹配对应厂商位真模型；原IFFT实际仍是默认正变换。</td></tr>
+<tr><td>左下</td><td>同一录制波形的捕获峰值</td><td>capture_events_before_config_fix.csv / capture_events.csv</td><td>原与修复后使用相同80us周期向量及门限1/8；不是实时完整波形，位置变化不能单独证明码同步精度。</td></tr>
+<tr><td>右下</td><td>修复前完整DSP捕获判决</td><td>capture_diag_baseline/capture_diagnostics.csv</td><td>70km/gain0.5/无噪声频偏，门限5000/20，两次有信号峰值784低于5040；修复后完整链另验。</td></tr>
 </table>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
