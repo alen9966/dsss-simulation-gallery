@@ -1,0 +1,29 @@
+{
+  "accepted": true,
+  "trialCount": 20,
+  "validations": [
+    {
+      "seed": 2.0261009E+7,
+      "complete": true,
+      "bitErrors": 0,
+      "txClipped": 0,
+      "rxClipped": 0,
+      "passed": true,
+      "message": ""
+    },
+    {
+      "seed": 2.026101E+7,
+      "complete": true,
+      "bitErrors": 0,
+      "txClipped": 0,
+      "rxClipped": 0,
+      "passed": true,
+      "message": ""
+    }
+  ],
+  "noiseVarianceFrozen": true,
+  "rtlValidated": false,
+  "productionApplied": false,
+  "scope": "Best observed functional candidate in bounded coordinate/profile search; not global optimum, measured RF or real-IP acceptance. If complete-frame validation fails, do not automatically apply.",
+  "scenario": "PN1000, Rc12.5M/Rb12.5k/Fs50M, 70km delay, RF5GHz assumed, gain0.5, fixed referenceRMS700/SNR20dB, seed20261009; complete100B validation"
+}

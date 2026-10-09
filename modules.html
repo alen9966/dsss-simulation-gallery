@@ -340,7 +340,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
 <article id="script_ui"><h3>22 MATLAB可视化调参及历史界面</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
-<p>当前入口open_dsss_wireless_dashboard默认打开参数实验室；V2扫描实际RTL/IP/COE：128项功能/诊断配置、2592项源码来源映射，共2720行，可分类搜索。覆盖PN/组帧/整数截位/归一化/DLL/FFT/时隙/FIFO/SPI/LVDS候选，展示时频域、星座、眼图、载荷及独立诊断。仅源码/IP项未接入当前波形，编辑后作为未应用候选导出。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+<p>当前入口open_dsss_wireless_dashboard默认打开参数实验室；当前V3用start_dsss_lab英文入口；点击13个功能/诊断节点，按算法/IP来源筛参数，实时特性/分块信号、暂停恢复、基线/默认恢复、固定环境有限代码搜索。130项配置+2592项源码来源，共2722行；V2保留Mode=v2。节点图册：node_lab.html。覆盖PN/组帧/整数截位/归一化/DLL/FFT/时隙/FIFO/SPI/LVDS候选，展示时频域、星座、眼图、载荷及独立诊断。仅源码/IP项未接入当前波形，编辑后作为未应用候选导出。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
 </table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>当前内核是自定义Hamming窗FIR、已知帧头相关、功能DLL和raw40 Costas事件运算；与生产FFT1024/FIR201/48/121逐拍实现不同。不克隆三个Simulink模型；候选COE留本地，只有图册公开。旧界面截图仍为历史证据。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png">90_旧中频_参数界面.png</a> — 界面/脚本入口</li>
@@ -350,6 +350,25 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/01_%E5%8F%AF%E9%85%8D%E7%BD%AEDSSS_%E6%97%B6%E9%A2%91%E6%98%9F%E5%BA%A7%E7%9C%BC%E5%9B%BE%E4%B8%8E%E8%BD%BD%E8%8D%B7.png">01_可配置DSSS_时频星座眼图与载荷.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/05_MATLAB%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%8F%82%E6%95%B0_%E6%A8%A1%E5%9D%97%E5%88%86%E7%B1%BB%E4%B8%8E%E6%9D%A5%E6%BA%90.png">05_MATLAB完整代码参数_模块分类与来源.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/02_%E4%BB%A3%E7%A0%81%E5%8F%82%E6%95%B0_FFT%E5%BD%92%E4%B8%80%E5%8C%96%E9%94%81%E5%AE%9A%E6%97%B6%E9%9A%99%E6%8E%A5%E5%8F%A3%E8%AF%8A%E6%96%AD.png">02_代码参数_FFT归一化锁定时隙接口诊断.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/06_MATLAB%E8%8A%82%E7%82%B9%E5%AE%9E%E9%AA%8C%E5%AE%A4_%E6%A1%86%E5%9B%BE%E7%82%B9%E5%87%BB%E4%B8%8EFIR%E8%81%94%E5%8A%A8.png">06_MATLAB节点实验室_框图点击与FIR联动.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/07_MATLAB%E8%8A%82%E7%82%B9%E5%AE%9E%E9%AA%8C%E5%AE%A4_Costas%E8%B7%9F%E8%B8%AA%E4%B8%8E%E6%98%9F%E5%BA%A7.png">07_MATLAB节点实验室_Costas跟踪与星座.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/08_MATLAB%E8%8A%82%E7%82%B9%E5%AE%9E%E9%AA%8C%E5%AE%A4_%E5%BD%92%E4%B8%80%E5%8C%96%E5%8F%82%E6%95%B0%E4%B8%8E%E7%94%A8%E9%80%94.png">08_MATLAB节点实验室_归一化参数与用途.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/09_MATLAB%E8%8A%82%E7%82%B9%E5%AE%9E%E9%AA%8C%E5%AE%A4_%E5%85%B3%E9%94%AE%E5%BF%85%E8%A6%81%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%9C%AA%E8%A7%82%E6%B5%8B%E9%A1%B9.png">09_MATLAB节点实验室_关键必要信号与未观测项.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/04_%E8%8A%82%E7%82%B9%E8%A7%82%E6%B5%8B%E7%82%B9_%E5%AE%9E%E9%99%85Costas%E8%BE%93%E5%87%BA%E4%B8%8E%E4%BA%8B%E4%BB%B6%E9%A2%91%E8%B0%B1.png">04_节点观测点_实际Costas输出与事件频谱.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/03_%E5%9B%BA%E5%AE%9A%E7%8E%AF%E5%A2%83_%E4%BB%A3%E7%A0%81%E5%80%99%E9%80%89%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%AE%8C%E6%95%B4%E5%B8%A7%E9%AA%8C%E8%AF%81.png">03_固定环境_代码候选搜索与完整帧验证.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="06_%E5%B8%A7%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%81%A2%E5%A4%8D/01_%E8%8A%82%E7%82%B9%E7%BB%84%E5%B8%A7_BPSK%E5%88%A4%E5%86%B3%E4%B8%8E%E8%BD%BD%E8%8D%B7%E9%80%90%E5%AD%97%E8%8A%82%E6%81%A2%E5%A4%8D.png">01_节点组帧_BPSK判决与载荷逐字节恢复.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/05_%E8%8A%82%E7%82%B9PN_%E5%BA%8F%E5%88%97%E8%87%AA%E7%9B%B8%E5%85%B3%E9%A2%91%E8%B0%B1%E4%B8%8E%E5%8F%91%E9%80%81%E7%A0%81%E5%80%BC.png">05_节点PN_序列自相关频谱与发送码值.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/02_%E8%8A%82%E7%82%B9TX_FIR_%E5%B9%85%E7%9B%B8%E9%A2%91%E5%8F%8C%E5%9F%9FCOE%E4%B8%8E%E8%BE%93%E5%87%BA%E9%A2%91%E8%B0%B1.png">02_节点TX_FIR_幅相频双域COE与输出频谱.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/03_%E8%8A%82%E7%82%B9RX_FIR_%E5%B9%85%E7%9B%B8%E9%A2%91%E5%8F%8C%E5%9F%9FCOE%E4%B8%8E%E8%BE%93%E5%87%BA%E9%A2%91%E8%B0%B1.png">03_节点RX_FIR_幅相频双域COE与输出频谱.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/04_%E8%8A%82%E7%82%B9%E6%97%A0%E7%BA%BF%E4%BF%A1%E9%81%93_ADC%E6%97%B6%E9%A2%91%E6%98%9F%E5%BA%A7%E7%9C%BC%E5%9B%BE%E4%B8%8E%E5%B9%85%E5%BA%A6.png">04_节点无线信道_ADC时频星座眼图与幅度.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="03_FFT%E6%8D%95%E8%8E%B7/02_%E8%8A%82%E7%82%B9%E6%8D%95%E8%8E%B7_%E5%B8%A7%E5%A4%B4%E7%9B%B8%E5%85%B3%E4%B8%8E%E7%8B%AC%E7%AB%8BFFT%E8%AF%8A%E6%96%AD.png">02_节点捕获_帧头相关与独立FFT诊断.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="04_DLL%E4%B8%8E%E8%A7%A3%E6%89%A9/01_%E8%8A%82%E7%82%B9DLL_EarlyPromptLate%E8%AF%AF%E5%B7%AE%E4%B8%8E%E5%AE%9A%E6%97%B6.png">01_节点DLL_EarlyPromptLate误差与定时.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="05_Costas%E7%8E%AF/01_%E8%8A%82%E7%82%B9%E5%BD%92%E4%B8%80%E5%8C%96_%E8%BE%93%E5%85%A5%E4%BC%B0%E8%AE%A1%E8%BE%93%E5%87%BA%E5%B9%85%E5%BA%A6%E4%B8%8E%E6%97%B6%E9%97%B4.png">01_节点归一化_输入估计输出幅度与时间.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="05_Costas%E7%8E%AF/02_%E8%8A%82%E7%82%B9Costas_PI%E9%A2%91%E5%93%8D%E6%98%9F%E5%BA%A7%E9%89%B4%E7%9B%B8%E4%B8%8E%E9%A2%91%E5%81%8F%E8%B7%9F%E8%B8%AA.png">02_节点Costas_PI频响星座鉴相与频偏跟踪.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/04_%E8%8A%82%E7%82%B9%E6%8F%92%E5%80%BC_%E7%8B%AC%E7%AB%8BFIR%E7%B3%BB%E6%95%B0%E5%93%8D%E5%BA%94%E4%B8%8E%E8%BE%93%E5%87%BAPSD.png">04_节点插值_独立FIR系数响应与输出PSD.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="07_%E5%8F%8C%E5%90%91%E6%97%B6%E9%9A%99%E4%B8%8E%E6%8E%A5%E5%8F%A3/03_%E8%8A%82%E7%82%B9%E6%8E%A5%E5%8F%A3_%E6%97%B6%E9%92%9F%E6%97%B6%E9%9A%99FIFO_SPI%E9%A2%84%E7%AE%97.png">03_节点接口_时钟时隙FIFO_SPI预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/02_%E8%8A%82%E7%82%B9%E6%97%B6%E6%A0%87_%E5%8A%9F%E8%83%BD%E7%A0%81%E7%9B%B8%E4%BD%8D%E5%9D%87%E5%80%BC%E4%B8%8E%E5%BE%85%E9%AA%8C%E8%BE%B9%E7%95%8C.png">02_节点时标_功能码相位均值与待验边界.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/10_%E8%8A%82%E7%82%B9%E7%B3%BB%E7%BB%9F_%E7%AE%97%E6%B3%95IP%E5%88%86%E7%B1%BB%E4%B8%8E%E5%85%A8%E9%93%BE%E9%A2%84%E7%AE%97.png">10_节点系统_算法IP分类与全链预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/entrypoints/open_dsss_wireless_dashboard.m；scripts/tuning/open_dsss_tuning_dashboard.m；scripts/tuning/dsss_tuning_simulate.m；scripts/tuning/test_dsss_tuning.m；scripts/wireless/open_dsss_classic_dashboard.m</p>
 </details></article>
 <article id="script_diagram"><h3>23 历史方案框图</h3>
@@ -681,6 +700,120 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
 <tr><td>参数区</td><td>信道 / 完整代码参数与源码审计 / 码率</td><td>交互参数控件</td><td>128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</td></tr>
 <tr><td>视图区</td><td>实际功能波形和恢复载荷</td><td>dsss_tuning_simulate真实计算结果</td><td>不是预录制演示曲线；生产RTL与硬件另验。</td></tr>
+</table>
+</details>
+<details><summary>06_MATLAB节点实验室_框图点击与FIR联动.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>07_MATLAB节点实验室_Costas跟踪与星座.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>08_MATLAB节点实验室_归一化参数与用途.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>09_MATLAB节点实验室_关键必要信号与未观测项.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>04_节点观测点_实际Costas输出与事件频谱.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>03_固定环境_代码候选搜索与完整帧验证.png</summary><p>dsss_tuning_recommend在固定环境/参考噪声下实际搜索代码候选，再用完整100B和不同种子验证；不是全局最优或真实RTL/硬件性能结论。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>搜索</td><td>候选分数与失败</td><td>完整载荷/位错优先，随后削顶/QI残差/抽头代价</td><td>保留全部失败；约束环境/协议，不能改SNR让候选看起来更好。</td></tr>
+<tr><td>验证</td><td>完整100B与不同噪声种子</td><td>实际接收机恢复载荷</td><td>验证失败保留原配置；生产RTL/IP未应用。</td></tr>
+</table>
+</details>
+<details><summary>01_节点组帧_BPSK判决与载荷逐字节恢复.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>05_节点PN_序列自相关频谱与发送码值.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>02_节点TX_FIR_幅相频双域COE与输出频谱.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>03_节点RX_FIR_幅相频双域COE与输出频谱.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>04_节点无线信道_ADC时频星座眼图与幅度.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>02_节点捕获_帧头相关与独立FFT诊断.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>01_节点DLL_EarlyPromptLate误差与定时.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>01_节点归一化_输入估计输出幅度与时间.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>02_节点Costas_PI频响星座鉴相与频偏跟踪.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>04_节点插值_独立FIR系数响应与输出PSD.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>03_节点接口_时钟时隙FIFO_SPI预算.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>02_节点时标_功能码相位均值与待验边界.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
+</table>
+</details>
+<details><summary>10_节点系统_算法IP分类与全链预算.png</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
+<tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
 </table>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
