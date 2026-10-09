@@ -340,7 +340,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
 <article id="script_ui"><h3>22 MATLAB可视化调参及历史界面</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
-<p>当前入口open_dsss_wireless_dashboard默认打开参数实验室；当前V3用start_dsss_lab英文入口；点击13个功能/诊断节点，按算法/IP来源筛参数，实时特性/分块信号、暂停恢复、基线/默认恢复、固定环境有限代码搜索。130项配置+2592项源码来源，共2722行；V2保留Mode=v2。节点图册：node_lab.html。覆盖PN/组帧/整数截位/归一化/DLL/FFT/时隙/FIFO/SPI/LVDS候选，展示时频域、星座、眼图、载荷及独立诊断。仅源码/IP项未接入当前波形，编辑后作为未应用候选导出。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+<p>当前入口open_dsss_wireless_dashboard默认打开参数实验室；V3.2用start_dsss_lab英文入口。点击17个功能/器件/诊断节点，按算法、RTL、IP、COE来源筛选。130项可运行配置和2592项源码/IP/结构来源映射仍完整保留，共2722行；左侧表格默认只显示“当前节点×所选类别”，并非删除参数。支持保持型示波器、重叠短时FFT频谱/瀑布、暂停恢复、基线/默认恢复及固定环境有限代码搜索。V2保留Mode=v2。节点图册与更新日志：node_lab.html。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
 </table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>当前内核是自定义Hamming窗FIR、已知帧头相关、功能DLL和raw40 Costas事件运算；与生产FFT1024/FIR201/48/121逐拍实现不同。不克隆三个Simulink模型；候选COE留本地，只有图册公开。旧界面截图仍为历史证据。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png">90_旧中频_参数界面.png</a> — 界面/脚本入口</li>
@@ -686,7 +686,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details>
 <details><summary>04_MATLAB可视化调参系统.png</summary><p>当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。</p>
 <table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
-<tr><td>参数区</td><td>信道 / 完整代码参数与源码审计 / 码率</td><td>交互参数控件</td><td>128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</td></tr>
+<tr><td>参数区</td><td>信道 / 完整代码参数与源码审计 / 码率</td><td>交互参数控件</td><td>130项可运行配置+2592项RTL/IP/COE来源映射，共2722行；默认按当前节点和类别筛选，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</td></tr>
 <tr><td>视图区</td><td>实际功能波形和恢复载荷</td><td>dsss_tuning_simulate真实计算结果</td><td>不是预录制演示曲线；生产RTL与硬件另验。</td></tr>
 </table>
 </details>
@@ -699,13 +699,13 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details>
 <details><summary>05_MATLAB完整代码参数_模块分类与来源.png</summary><p>当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。</p>
 <table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
-<tr><td>参数区</td><td>信道 / 完整代码参数与源码审计 / 码率</td><td>交互参数控件</td><td>128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</td></tr>
+<tr><td>参数区</td><td>信道 / 完整代码参数与源码审计 / 码率</td><td>交互参数控件</td><td>130项可运行配置+2592项RTL/IP/COE来源映射，共2722行；默认按当前节点和类别筛选，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</td></tr>
 <tr><td>视图区</td><td>实际功能波形和恢复载荷</td><td>dsss_tuning_simulate真实计算结果</td><td>不是预录制演示曲线；生产RTL与硬件另验。</td></tr>
 </table>
 </details>
 <details><summary>02_代码参数_FFT归一化锁定时隙接口诊断.png</summary><p>当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。</p>
 <table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
-<tr><td>参数区</td><td>信道 / 完整代码参数与源码审计 / 码率</td><td>交互参数控件</td><td>128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</td></tr>
+<tr><td>参数区</td><td>信道 / 完整代码参数与源码审计 / 码率</td><td>交互参数控件</td><td>130项可运行配置+2592项RTL/IP/COE来源映射，共2722行；默认按当前节点和类别筛选，修改后重算。Fs=Rc*S、L=Rc/Rb检查。</td></tr>
 <tr><td>视图区</td><td>实际功能波形和恢复载荷</td><td>dsss_tuning_simulate真实计算结果</td><td>不是预录制演示曲线；生产RTL与硬件另验。</td></tr>
 </table>
 </details>

@@ -1389,7 +1389,7 @@
           "position": "参数区",
           "title": "信道 / 完整代码参数与源码审计 / 码率",
           "signal": "交互参数控件",
-          "meaning": "128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
+          "meaning": "130项可运行配置+2592项RTL/IP/COE来源映射，共2722行；默认按当前节点和类别筛选，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
         },
         {
           "position": "视图区",
@@ -1461,7 +1461,7 @@
           "position": "参数区",
           "title": "信道 / 完整代码参数与源码审计 / 码率",
           "signal": "交互参数控件",
-          "meaning": "128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
+          "meaning": "130项可运行配置+2592项RTL/IP/COE来源映射，共2722行；默认按当前节点和类别筛选，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
         },
         {
           "position": "视图区",
@@ -1494,7 +1494,7 @@
           "position": "参数区",
           "title": "信道 / 完整代码参数与源码审计 / 码率",
           "signal": "交互参数控件",
-          "meaning": "128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
+          "meaning": "130项可运行配置+2592项RTL/IP/COE来源映射，共2722行；默认按当前节点和类别筛选，修改后重算。Fs=Rc*S、L=Rc/Rb检查。"
         },
         {
           "position": "视图区",
@@ -1515,7 +1515,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "bb210217927e3e13151351d08dfe973beef79094062c8a9d9007502d31729086",
+      "decoded_pixel_sha256": "e38d1ca54c0ef85db2e03513c8027ffb2cfc81fb2a38746101b22c4a3fb969e2",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1548,7 +1548,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "ddd289c8359821d2e09b6ada4c52e041e150b5b969f47f5c2f21902a48fcddd3",
+      "decoded_pixel_sha256": "c8223de70bf8b934f9e10903750780305e53dbb21013a110da373783dddc492c",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1581,7 +1581,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "e08c34f476d4120f72fe7c63c3176f2452b7b1f8e49a19e8751d51fd2cc769ea",
+      "decoded_pixel_sha256": "58b3a5e62eaf18fb4aeabc641586005c1be952f2e1754a63fb86a0e1cfc50320",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2208,7 +2208,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png",
-      "decoded_pixel_sha256": "f82c82cb0a2e969ad808c9bff79c5436e181cac025712eaad2ded78ee490ee87",
+      "decoded_pixel_sha256": "cdebfe60a92c01fcfa42ac23f5e5a1088902f0459c3faf59dfa742acedd78ae7",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2241,7 +2241,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "decoded_pixel_sha256": "16a7f5155f889af1e8d11a09a8876f42f9e8cec6d2baa08491f1807c8af119e4",
+      "decoded_pixel_sha256": "6d818d72f8213e2a4eef102f54aac8eb3326cf74520061143cbb0648d65ff7d7",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2340,7 +2340,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "951a5295b9bcd38e6b4f8d9eb1bdfec6f74c2540c90ba9b62480b493be783187",
+      "decoded_pixel_sha256": "62afc47b565da6c111618ad79d0b2e8f0cbddabfd1e48af84eec29387adb061c",
       "module_refs": [
         {
           "id": "script_ui",
