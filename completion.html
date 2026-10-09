@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>补齐验证：接口校准与双向时间报文</title><style>body{margin:0;background:#f3f7fc;color:#17354e;font:16px/1.8 "Microsoft YaHei",sans-serif}main{max-width:1160px;margin:auto;padding:28px}h1{line-height:1.4}a{color:#076aa3}nav{display:flex;gap:16px;flex-wrap:wrap}section,.lead{background:white;border:1px solid #d6e2ee;border-radius:12px;padding:22px;margin:22px 0}.boundary{background:#fff4db;padding:15px;border-left:4px solid #d4a13b}.proof{background:#e6f4ee;padding:15px;border-left:4px solid #299875}.flow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.flow span{border:1px solid #bfd2e5;border-radius:6px;padding:8px}figure{margin:25px 0}img{width:100%;height:auto}figcaption{color:#516c82}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ccdce9;padding:10px;text-align:left;vertical-align:top}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf3f8;padding:15px;font:14px/1.8 Consolas,monospace}.tablewrap{overflow:auto}@media(max-width:650px){main{padding:14px}section,.lead{padding:14px}h1{font-size:26px}.tablewrap table{min-width:700px}}</style><main>
+<h1>补齐验证：接口校准与双向时间报文</h1><p>2026-10-09 · XC7Z045 / AD9361 迁移工程 · 软件与数字逻辑证据</p>
+<nav><a href="migration.html">四阶段迁移</a><a href="modules.html">实际模型与模块</a><a href="00_图册索引.html">全部仿真图</a><a href="completion_evidence.json">本次证据数据</a></nav>
+<div class="lead">这个工程把原690T的扩频基带迁移到AD9361。功能模型已经能收回载荷，但到硬件通信还要完成接口校准、真实波形RTL和双站测时。本轮补齐RX扫描及其复位门控、可承载在100字节载荷内的时间报文，并保留尚未通过的验收关卡。<p class="boundary">顺序按用户要求：先补齐未完成项 → 再处理已知模型/代码差异 → 最后固定无线场景调代码参数。当前没有宣称整链RTL、硬件钟差或代码参数优化已完成。</p></div>
+<section id="calibration"><h2>1. RX接口为什么要扫描，并在中心重新检测</h2>
+<p>LVDS采样位置不合适时，即使逻辑能检测到数据，也可能出现PRBS错误或帧错。RX扫描器在io_clk域依次加载0～31档共同IDELAY，等待稳定、完成序列锁定，再检查规定数量的数据。断流和帧错同样判为失败，不能把“没有数据错误计数”误认为无错接收。</p>
+<div class="flow"><span>SPI控制器启用AD9361 RX BIST</span>→<span>32档：稳定 / PRBS锁定 / 检测</span>→<span>最长连续窗口</span>→<span>中心重新检测</span>→<span>退出BIST，完成其余初始化后才置radio_ready</span></div>
+<p>算法不把31档和0档拼成环形窗口。设最长窗口从s开始、宽度为w，选择中心档 s + floor((w−1)/2)。测试中的12～23档窗口宽12，选17档；F000000F有两个4档边界窗口，优先选择较早的0～3档并选1档。中心复测失败仍拒绝放行。</p>
+<p>当前只扫描FPGA共同IDELAY，AD9361内部RX时钟/数据延迟0x006由上层预先固定；尚未做二维全扫描或逐lane偏斜校准。radio顶层新增RX_AUTOCAL_ENABLE参数，默认0维持人工配置；设1时，基带释放条件包含“校准通过且未在扫描”。重扫、取消、IDELAY就绪丢失都会撤销校准有效状态。上层必须处理io_clk域状态跨域，并在RX BIST退出、TX校准和初始化确实完成后置radio_ready。</p>
+<figure><a href="07_%E5%8F%8C%E5%90%91%E6%97%B6%E9%9A%99%E4%B8%8E%E6%8E%A5%E5%8F%A3/02_RX_IDELAY%E6%89%AB%E6%8F%8F_%E9%80%BB%E8%BE%91%E6%95%85%E9%9A%9C%E9%AA%8C%E8%AF%81.png"><img src="07_%E5%8F%8C%E5%90%91%E6%97%B6%E9%9A%99%E4%B8%8E%E6%8E%A5%E5%8F%A3/02_RX_IDELAY%E6%89%AB%E6%8F%8F_%E9%80%BB%E8%BE%91%E6%95%85%E9%9A%9C%E9%AA%8C%E8%AF%81.png" alt="10组人工注入窗口/故障的实际RTL扫描输出；另3项状态测试，共13项通过。星号为中心复测位置；不能据此判断实际PCB有多少档无错窗口。"></a><figcaption>10组人工注入窗口/故障的实际RTL扫描输出；另3项状态测试，共13项通过。星号为中心复测位置；不能据此判断实际PCB有多少档无错窗口。</figcaption></figure>
+<p class="proof">扫描器13项测试通过。radio门控5项通过，包括提前radio_ready、校准后放行、重扫和取消。门控测试使用仿真PHY/时钟/基带边界，只证明真实radio控制逻辑的连接和复位条件，未验证DDR引脚、异步FIFO、DSP或RF。</p>
+<p>PRBS监测使用AD9361专用16位BIST及I/Q重排，并拒绝全零假锁。依据为<a href="https://www.analog.com/en/resources/app-notes/an-1441.html">ADI AN-1441</a>和<a href="https://github.com/analogdevicesinc/hdl/blob/main/library/axi_ad9361/axi_ad9361_rx_pnmon.v">ADI接收PN监测实现</a>。TX方向的0x007数字回环扫描仍待完成，RX扫描不能替代它。</p></section>
+<section id="time"><h2>2. 从收到100字节到可计算钟差，还差什么</h2>
+<p>基带原有64位帧头和100字节载荷，只能判断载荷是否收满。本轮增加可选应用层时间报文：版本、类型、站号、交换序号、两站启动历元、四个uint64本地ps时标、时钟频率和CRC32。空口仍为148字节，PN1000、FIR和12.5 kbit/s数据率不变；报文模块尚未自动接入radio业务载荷。</p>
+<div class="flow"><span>A探测：t1</span>→<span>B接收：t2</span>→<span>B回复：t3</span>→<span>A接收：t4</span>→<span>后续follow-up带齐四时标</span>→<span>绑定序号/历元，补偿延迟，求钟差</span></div>
+<p>发送回复时，远端的t4尚未发生，因此完整四时标不能强行填在当前回复中。后续follow-up或下个200 ms交换周期携带完整记录，按站号、交换序号和两站启动历元关联。CRC检测比特损坏，不提供认证或防重放；uint64 ps约213天回绕，必须在此之前更新历元。</p>
+<p>先把数字时标换到RF参考面：TX时标加发射路径延迟，RX时标减接收路径延迟。设t1/t4来自A、t2/t3来自B，B相对A钟速比为r，则对称传播、已知r条件下：</p>
+<pre>θmid = [(t2 − t1) − (t4 − t3)] / 2          B−A，A交换中点钟差
+θt1  = θmid − (r − 1)(t4 − t1) / 2           折算至A发射时刻
+τmean = [(t4 − t1) − (t3 − t2)/r] / 2        单程平均传播时间</pre>
+<p>本次合成输入：70 km传播、t1时刻钟差500 ns、100 ms回复间隔、钟速差2×10⁻¹⁰，已知收发延迟80/65/90/75 ns。计算得到θt1=499.999977 ns、τmean=233.494866977 μs，舍入误差小于1 ps。未补偿路径延迟时中点钟差为490.010 ns，补偿后为500.010 ns；这10 ns差异来自合成收发延迟，不是收发机实测精度。</p>
+<figure><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/01_%E6%96%B0%E6%8A%A5%E6%96%87_CRC_%E5%9B%9B%E6%97%B6%E6%A0%87%E4%B8%8E%E5%BB%B6%E8%BF%9F%E8%A1%A5%E5%81%BF.png"><img src="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/01_%E6%96%B0%E6%8A%A5%E6%96%87_CRC_%E5%9B%9B%E6%97%B6%E6%A0%87%E4%B8%8E%E5%BB%B6%E8%BF%9F%E8%A1%A5%E5%81%BF.png" alt="合成四时标与功能波形承载：AB−BA路径时延差的一半进入中点钟差；延迟补偿消除本次10 ns系统偏置。图中ps级误差是整数运算测试结果，不能解释为硬件达到ps精度。"></a><figcaption>合成四时标与功能波形承载：AB−BA路径时延差的一半进入中点钟差；延迟补偿消除本次10 ns系统偏置。图中ps级误差是整数运算测试结果，不能解释为硬件达到ps精度。</figcaption></figure>
+<p class="proof">MATLAB编解码、8类异常输入拒绝、一个完整follow-up报文经现有AD9361功能波形收回且CRC通过。该功能传输固定为70 km、5 GHz示例载频、20 dB设定SNR、约1 Hz频偏、35°初相、码值增益0.5、随机种子20261006；这些是仿真假设，不是链路预算或实测。独立Python标准库CRC32也与报文尾字段一致。RTL的16项测试覆盖100字节/CRC逐项一致、背压稳定、uint64时标、CRC损坏、99/101字节帧、11类CRC正确但格式错误的报文拒绝及恢复。</p>
+<p class="boundary">当前slot模式raw_time_valid仍无效。真实RF时标来源、收发延迟标定、两站初始历元协商、独立时钟跟踪尚未接入。合成时标不是接收机实测钟差；无线传播不对称仍会产生半差偏置。</p></section>
+<section id="status"><h2>3. 当前验收状态与下一步</h2><div class="tablewrap"><table><tr><th>项目</th><th>已经得到的证据</th><th>仍需完成</th></tr>
+<tr><td>模型与来源</td><td>新功能回归、双接收窗、现有Simulink联动通过；16个复用RTL及5份原COE来源核对通过。</td><td>解决19个TX启动valid零值、Costas最大36码值差异、rx_norm P_SKIP超时使能。</td></tr>
+<tr><td>模型驱动顶层</td><td>重新导出87端口顶层，66个IP配置；已有690T仿真器件、默认RX_AUTOCAL_ENABLE=0上的接口展开通过，74个加密宏仍为黑盒；自动扫描控制路径由上面的独立门控测试覆盖。</td><td>实际完整FPGA型号确认后映射综合、资源及时序检查；XDC由用户负责。</td></tr>
+<tr><td>真实波形RTL</td><td>已编译实际TX/FIR201 → /5 signed12 → 70 km因果两抽头分数延迟 → 插值5 → 完整RX真实IP测试入口。</td><td>当前前缀运行尚未出现通过标记；整帧100字节验收、连续窗及故障场景仍未通过。测试也未含LVDS/FIFO/独立采样钟。</td></tr>
+<tr><td>硬件初始化/校准</td><td>RX扫描和radio门控有独立逻辑测试；SPI接口已有。</td><td>器件完整初始化/读回、TX扫描、实际RX/TX窗口与回环测试。</td></tr>
+<tr><td>双向测时</td><td>应用编解码、序号/历元绑定估计器及功能传输有证据。</td><td>RF时标、历元协商、频率跟踪、物理标定和硬件验收。</td></tr></table></div>
+<p><strong>代码参数调优的固定原则：</strong>锁定70 km、频偏、接收幅度/SNR、钟速差、多径假设和随机种子；改变TX_SHIFT、FIR整数系数/截位、Costas/DLL整数增益、捕获门限、归一化节拍等代码参数。每个候选保存固定信道指纹及源码/COE/IP指纹，先功能筛选，再实际RTL/IP验证，最后替换正式配置。最终调优还须固定基准噪声方差和通道/模拟增益；改变TX_SHIFT时不能按候选波形RMS重新设定噪声，否则改变了测试条件。当前功能运行器的设定SNR方式只用于覆盖性回归。当前没有完成这项扫描，也不把降低频偏或提高SNR后的接收成功当作代码优化。</p>
+<p>提供的Xilinx-Z-7030.pdf为通用DS191，涵盖多个器件，不足以确认实际核心板封装和速度级。不会据文件名把目标改为Z7030或擅选XC7Z045子型号。</p></section>
+<section id="reproduce"><h2>4. 本地复跑入口</h2><pre>MATLAB：
+setup_dsss_project;
+validate_dsss_workflow;
+run_dsss_time_protocol_validation;
+
+PowerShell：
+.\fpga_ad9361\sim\run_delay_scan.ps1
+.\fpga_ad9361\sim\run_time_packet.ps1
+.\rtl_cosim\ad9361\run_waveform.ps1 -PrefixOnly -MaxCycles 600000 -Scenario prefix_ideal
+
+MATLAB扫描绘图：
+plot_dsss_rx_delay_validation;
+
+Python（安装的运行时）：
+scripts/tools/render_completion_results.py
+
+发布图册：
+.\更新并发布仿真图.ps1</pre>
+<p>前缀入口只要求捕获和至少16个解扩符号；不能算整帧通过。不带PrefixOnly时才要求100字节零错误及一个last。公开仓库只保存图册和解释性证据，完整模型、RTL、IP和原始轨迹仍在本地。</p></section></main></html>

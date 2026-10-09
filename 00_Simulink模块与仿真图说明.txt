@@ -1,5 +1,5 @@
 仿真图与Simulink模块对应说明
-核对日期：2026-10-08 18:31:48（北京时间）
+核对日期：2026-10-09 09:58:07（北京时间）
 一次功能模型执行80 us，内部包含4000物理/20000 DSP样本。不是整链逐周期RTL。
 
 A · 当前 AD9361 功能模型
@@ -29,7 +29,7 @@ dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
 作用：用因果分数延迟表示传播，用重采样位置表示采样率差，再叠加载波频偏、初相、接收增益、AWGN与signed12饱和。
 输入：端口1：4000点发送复数I/Q。
 输出：端口1：4000点接收复数I/Q；端口2：[有效信号RMS；每路噪声sigma；I/Q削顶数量]。
-观察：看RX Q片段、接收码片叠加、信号/噪声RMS、削顶；用不同SNR/CFO/SFO观察后级捕获与收帧。
+观察：看RX Q片段、接收码片叠加、信号/噪声RMS、削顶；场景确认后固定SNR/CFO/SFO，以代码参数候选观察后级捕获与收帧；覆盖性信道测试另行区分。
 边界：当前新板信道没有实现旧脚本里的多径与随机相噪；70 km是设定传播距离，20 dB等是可调假设。独立参考频差不等于已建立双站共同历元。
 日志：Log_channel_info → channel_info；r.waveforms.rxPhysicalIQ是该端口的片段。
 参数：distance_m、snr_dB、extraCfoHz、initialPhase_deg、txReferenceError、rxReferenceError、rxGain、seed。
@@ -87,7 +87,7 @@ dsss_ad9361_link/BPSK_Header_100Byte
 输入：端口1：Costas复数符号；端口2：valid。
 输出：端口1：100×1载荷数值数组；端口2：[done；本窗帧数；反相标志；已收载荷bit数；已见符号数]。
 观察：看帧头匹配、done脉冲、100字节对照、错误位置和连续帧；done是载荷收满，不是尾字节结束时刻。
-边界：当前没有CRC、序号、四时间戳绑定；已知载荷零错误不能替代真实报文完整性校验，也不能输出已标定钟差。
+边界：此基带解帧块本身没有CRC/序号；新增可选100字节时间应用报文及RTL编解码见script_time_protocol，尚未接入radio业务载荷；不能输出已标定钟差。
 日志：Log_payload_bytes → payload_bytes；Log_frame_info → frame_info。
 参数：帧头FF 08 C6 80 8E 25 C0 C9；载荷100字节；每接收窗重置解析状态。
 实现：scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m；scripts/entrypoints/run_dsss_ad9361_link.m
@@ -375,6 +375,30 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/03_实际发送器_PN_FIR201_模型对照.png；登记的新图对应模块；场景及信号说明见图注
 
+26 RX接口：IDELAY扫描及radio复位门控
+
+作用：实际RTL扫描0..31档共同IDELAY，AD9361专用PRBS16锁定及错误检测，最长连续窗口选中心并复测。扫描13项、真实radio控制门控5项测试通过。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：独立RTL测试，不是Simulink块；radio测试使用模拟PHY/时钟/基带边界，尚无实测LVDS眼图。TX方向扫描和完整初始化仍待完成。
+日志：
+参数：
+实现：fpga_ad9361/rtl/ad9361_prbs16_monitor.v；fpga_ad9361/rtl/ad9361_rx_delay_scan.v；fpga_ad9361/rtl/ad9361_dsss_radio.v；fpga_ad9361/sim/run_delay_scan.ps1；scripts/tools/plot_dsss_rx_delay_validation.m
+对应图：07_双向时隙与接口/02_RX_IDELAY扫描_逻辑故障验证.png；登记的新图对应模块；场景及信号说明见图注
+
+27 新应用报文：CRC、历元与四时标计算
+
+作用：100字节DST1报文的MATLAB/RTL编解码、CRC32和背压/异常帧验证；RTL16项包含11类CRC正确的错误格式拒绝；估计器绑定序号/历元、先补偿RF路径延迟，再由四个uint64ps时标计算钟差及平均传播时间。当前AD9361功能波形承载一个完整follow-up。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：独立应用脚本/可选RTL，不是新增Simulink模块；未自动接入radio，无真实RF时标或两站历元协商，合成ps舍入误差不是硬件精度。
+日志：
+参数：
+实现：scripts/system/dsss_time_packet.m；scripts/system/dsss_two_way_estimate.m；scripts/entrypoints/run_dsss_time_protocol_validation.m；fpga_ad9361/rtl/dsss_time_packet_tx.v；fpga_ad9361/rtl/dsss_time_packet_rx.v；fpga_ad9361/sim/run_time_packet.ps1
+对应图：10_双向时间比对/01_新报文_CRC_四时标与延迟补偿.png；登记的新图对应模块；场景及信号说明见图注
+
 图：01_发送与接收波形/01_AD9361_单窗波形总览.png
 来源：MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。
 第1行左 | TX I与RX Q时域 | TX/1实部；Channel/1虚部 | 比较发送与信道损伤后的接收片段，不是RX FIR48输出。
@@ -550,3 +574,14 @@ D · 独立脚本与展示（非 Simulink 模块）
 右上 | 前2000点的未对齐/标定后误差 | 实际RTL减独立参考 | 统计基于160000点；曲线仅显示前2000点，8个A5比特。
 左下 | 参考/5、右移3位与signed12饱和 | 实际FIR样本经参考后处理 vs AD9361功能TX | 后处理不是实际LVDS接口输出。
 右下 | 160000个DSP点对齐误差 | 独立FIR时钟对齐后的250MHz码值 | 全段误差0；不是LVDS/收发整链验收。
+
+图：07_双向时隙与接口/02_RX_IDELAY扫描_逻辑故障验证.png
+来源：plot_dsss_rx_delay_validation读取实际Xsim扫描CSV；PRBS无错窗口由测试平台注入，非硬件测量。
+全图 | 扫描输出无错掩码与中心复测 | delay_scan_cases.csv | 绿色是逻辑检测通过档；红星为复测失败，另外3项状态测试不画掩码。
+
+图：10_双向时间比对/01_新报文_CRC_四时标与延迟补偿.png
+来源：run_dsss_time_protocol_validation输出：合成uint64四时标、已知RF延迟补偿和现有功能波形承载；并非实际Simulink块截图。
+左上 | 不对称导致半差偏置 | asym / offset 合成扫值 | AB−BA延迟差的一半进入钟差；不是硬件路径测量。
+右上 | 补偿前后中点钟差 | 相同四时标和已知收发延迟 | 本例消除10ns系统偏置，不是硬件准确度。
+左下 | 格式与异常拒绝 | MATLAB编解码及估计器测试 | RF时标来源与历元协商待实现。
+右下 | 70km传播与功能传输 | 合成真值 / 功能波形收帧 | 1帧0错且CRC通过；没有实时双站钟差。

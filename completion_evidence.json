@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-09 10:14:29",
+  "rxScanCases": 13,
+  "radioGuardCases": 5,
+  "timeRtlCases": 16,
+  "scanRows": [
+    {
+      "Case": "1",
+      "InjectedGoodMask": "00fff000",
+      "ObservedPassMask": "00fff000",
+      "Passed": "1",
+      "WindowWidth": "12",
+      "SelectedTap": "17",
+      "FailureReason": "0"
+    },
+    {
+      "Case": "2",
+      "InjectedGoodMask": "0003ff1e",
+      "ObservedPassMask": "0003ff1e",
+      "Passed": "1",
+      "WindowWidth": "10",
+      "SelectedTap": "12",
+      "FailureReason": "0"
+    },
+    {
+      "Case": "3",
+      "InjectedGoodMask": "f000000f",
+      "ObservedPassMask": "f000000f",
+      "Passed": "1",
+      "WindowWidth": "4",
+      "SelectedTap": "1",
+      "FailureReason": "0"
+    },
+    {
+      "Case": "4",
+      "InjectedGoodMask": "ffffffff",
+      "ObservedPassMask": "ffffffff",
+      "Passed": "1",
+      "WindowWidth": "32",
+      "SelectedTap": "15",
+      "FailureReason": "0"
+    },
+    {
+      "Case": "5",
+      "InjectedGoodMask": "00000007",
+      "ObservedPassMask": "00000007",
+      "Passed": "0",
+      "WindowWidth": "3",
+      "SelectedTap": "15",
+      "FailureReason": "1"
+    },
+    {
+      "Case": "6",
+      "InjectedGoodMask": "00000000",
+      "ObservedPassMask": "00000000",
+      "Passed": "0",
+      "WindowWidth": "0",
+      "SelectedTap": "15",
+      "FailureReason": "1"
+    },
+    {
+      "Case": "7",
+      "InjectedGoodMask": "ffffffff",
+      "ObservedPassMask": "00000000",
+      "Passed": "0",
+      "WindowWidth": "0",
+      "SelectedTap": "15",
+      "FailureReason": "1"
+    },
+    {
+      "Case": "8",
+      "InjectedGoodMask": "ffffffff",
+      "ObservedPassMask": "00000000",
+      "Passed": "0",
+      "WindowWidth": "0",
+      "SelectedTap": "15",
+      "FailureReason": "1"
+    },
+    {
+      "Case": "9",
+      "InjectedGoodMask": "0000ff00",
+      "ObservedPassMask": "0000ff00",
+      "Passed": "0",
+      "WindowWidth": "8",
+      "SelectedTap": "11",
+      "FailureReason": "2"
+    },
+    {
+      "Case": "10",
+      "InjectedGoodMask": "ffffffff",
+      "ObservedPassMask": "00000000",
+      "Passed": "0",
+      "WindowWidth": "0",
+      "SelectedTap": "11",
+      "FailureReason": "1"
+    }
+  ],
+  "time": {
+    "date": "2026-10-09 10:14:29",
+    "codecRoundTrip": true,
+    "largeEpochUint64": true,
+    "negativeCases": [
+      "CRC bit corruption",
+      "short payload",
+      "wrong sequence",
+      "wrong boot epoch",
+      "uncalibrated stamps",
+      "invalid delay calibration",
+      "large double timestamps",
+      "invalid scalar fields, byte ranges or estimator format"
+    ],
+    "knownClockDifferenceAtT1_ps": 500000,
+    "estimatedClockDifferenceAtT1_ps": 499999.97664968396,
+    "estimatedClockDifferenceMidpoint_ps": 500010,
+    "knownPropagation_ps": 233494866.63870645,
+    "estimatedPropagation_ps": 233494866.97665405,
+    "uncorrectedClockDifferenceMidpoint_ps": 490010,
+    "maxAsymmetryLawError_ps": 0,
+    "transport": {
+      "executed": true,
+      "frames": 1,
+      "bitErrors": 0,
+      "crcPassed": true,
+      "scope": "AD9361 functional waveform transports one complete follow-up packet. Timestamp truth is injected; not live two-station FPGA time measurement.",
+      "parameters": {
+        "distance_m": 70000,
+        "rfHz": 5000000000.0,
+        "snr_dB": 20,
+        "cfoHz": 1.0000000001,
+        "initialPhase_deg": 35,
+        "rxGain": 0.5,
+        "sampleRatio": 1.0000000002,
+        "seed": 20261006.0
+      }
+    },
+    "physicalStampSourceImplemented": false,
+    "twoStationEpochNegotiationImplemented": false,
+    "hardwarePassed": false,
+    "scope": "New optional 100-byte time codec, synthetic calibrated four-stamp arithmetic and functional packet transport. Current radio raw_time_valid remains disabled in slot mode. No live time or hardware accuracy claim."
+  },
+  "timeRtlFormatNegativeCases": {
+    "formatCases": [
+      "magic",
+      "version",
+      "type_zero",
+      "type_four",
+      "reserved_flag_6",
+      "reserved_flag_7",
+      "unit",
+      "destination",
+      "same_station",
+      "zero_clock",
+      "reserved_byte"
+    ],
+    "crcSource": "Python standard library zlib.crc32; recomputed after each format mutation",
+    "scope": "Malformed format with VALID CRC. Tests the format gate independently of CRC rejection."
+  },
+  "standardLibraryCrcMatches": true,
+  "generatedTopPorts": 87,
+  "configuredIps": 66,
+  "sourceFingerprint": "b309c459df634e64fbe3264a09276583c19c655b2dba3db299eb1ac0fdea7107",
+  "topElaborationDate": "2026-10-09 10:25:37\r",
+  "topBlackboxCount": 74,
+  "topElaborationRxAutocalEnable": 0,
+  "functionalRegressionPassed": true,
+  "fullWaveformRtlPassed": false,
+  "hardwarePassed": false,
+  "fullWaveformStatus": "Real-IP live TX/channel/RX prefix run started; no acceptance marker yet. Full frame pending.",
+  "rxHardwareWindowMeasured": false,
+  "txCalibrationImplemented": false,
+  "rfTimestampSourceImplemented": false,
+  "epochNegotiationImplemented": false,
+  "codeParameterSweepCompleted": false,
+  "knownDifferencesPending": [
+    "TX valid startup includes 19 zeros",
+    "Functional Costas maximum difference 36 codes",
+    "rx_norm P_SKIP timeout counter enable"
+  ],
+  "scope": "Executed digital calibration logic, integration reset guard with simulation PHY, optional application codec and synthetic clock estimator. Not RF or hardware timing acceptance."
+}

@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-08",
-  "copied_files": 29,
+  "date": "2026-10-09",
+  "copied_files": 31,
   "original_files_preserved": true,
   "files": [
     {
@@ -1244,6 +1244,78 @@
         }
       ],
       "provenance": "validate_dsss_model_tx读取实际dsss_tx_250/PN/真实FIR201 IP的Xsim输出，记录8000个码片，并按独立FIR延迟和首码片时刻对齐160000个DSP点；不是Scope截图。"
+    },
+    {
+      "category": 7,
+      "source": "project/results/completion/rx_delay_scan_validation.png",
+      "filename": "02_RX_IDELAY扫描_逻辑故障验证.png",
+      "status": "真实RTL逻辑测试，模拟接口边界",
+      "note": "人工注入PRBS无错窗口，扫描器13项及radio复位门控5项测试通过；没有实际PCB窗口、DDR/FIFO或RF测量。默认RX_AUTOCAL_ENABLE=0，设1启用。",
+      "requested_module_ids": [
+        "script_calibration"
+      ],
+      "relative_path": "07_双向时隙与接口/02_RX_IDELAY扫描_逻辑故障验证.png",
+      "decoded_pixel_sha256": "0a2354f674007989100fa7840d3ce671757948e2b8c00a098d89103a1e9bffa8",
+      "module_refs": [
+        {
+          "id": "script_calibration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "全图",
+          "title": "扫描输出无错掩码与中心复测",
+          "signal": "delay_scan_cases.csv",
+          "meaning": "绿色是逻辑检测通过档；红星为复测失败，另外3项状态测试不画掩码。"
+        }
+      ],
+      "provenance": "plot_dsss_rx_delay_validation读取实际Xsim扫描CSV；PRBS无错窗口由测试平台注入，非硬件测量。"
+    },
+    {
+      "category": 10,
+      "source": "project/results/time_protocol/time_protocol_validation.png",
+      "filename": "01_新报文_CRC_四时标与延迟补偿.png",
+      "status": "合成时标计算与当前功能波形承载",
+      "note": "70km、100ms回复、钟差500ns、钟速差2e-10；uint64ps报文及CRC，8类异常拒绝，功能波形1帧0错，RTL16项含逐字节及11类CRC正确的错误格式拒绝。RF时标/历元协商未实现，非硬件钟差精度。",
+      "requested_module_ids": [
+        "script_time_protocol"
+      ],
+      "relative_path": "10_双向时间比对/01_新报文_CRC_四时标与延迟补偿.png",
+      "decoded_pixel_sha256": "56df601fc9b96c3cd529feb55f9fed8cba4cacedb240088184217af9348b219a",
+      "module_refs": [
+        {
+          "id": "script_time_protocol",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "左上",
+          "title": "不对称导致半差偏置",
+          "signal": "asym / offset 合成扫值",
+          "meaning": "AB−BA延迟差的一半进入钟差；不是硬件路径测量。"
+        },
+        {
+          "position": "右上",
+          "title": "补偿前后中点钟差",
+          "signal": "相同四时标和已知收发延迟",
+          "meaning": "本例消除10ns系统偏置，不是硬件准确度。"
+        },
+        {
+          "position": "左下",
+          "title": "格式与异常拒绝",
+          "signal": "MATLAB编解码及估计器测试",
+          "meaning": "RF时标来源与历元协商待实现。"
+        },
+        {
+          "position": "右下",
+          "title": "70km传播与功能传输",
+          "signal": "合成真值 / 功能波形收帧",
+          "meaning": "1帧0错且CRC通过；没有实时双站钟差。"
+        }
+      ],
+      "provenance": "run_dsss_time_protocol_validation输出：合成uint64四时标、已知RF延迟补偿和现有功能波形承载；并非实际Simulink块截图。"
     }
   ]
 }
