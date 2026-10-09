@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "fidelity": "FUNCTIONAL_PARAMETER_EXPLORATION_NOT_RTL_OR_MEASURED",
+  "nominal": {
+    "frameComplete": true,
+    "payloadBitErrors": 0,
+    "payloadBer": 0,
+    "txClippedSamples": 0,
+    "rxClippedComponents": 0,
+    "normalizationClippedComponents": 0,
+    "receiverSymbolCount": 512
+  },
+  "fixedNoiseSigmaCodes": 88.02034007780549,
+  "snrBeforeDb": 12.986589091982243,
+  "snrAfterDb": 6.965858700195281,
+  "firCandidate": {
+    "frameComplete": true,
+    "payloadBitErrors": 0,
+    "payloadBer": 0,
+    "txClippedSamples": 0,
+    "rxClippedComponents": 0,
+    "normalizationClippedComponents": 0,
+    "receiverSymbolCount": 512
+  },
+  "rateCandidate": {
+    "frameComplete": true,
+    "payloadBitErrors": 0,
+    "payloadBer": 0,
+    "txClippedSamples": 0,
+    "rxClippedComponents": 0,
+    "normalizationClippedComponents": 0,
+    "receiverSymbolCount": 512
+  },
+  "costasWithLoop": {
+    "frameComplete": true,
+    "payloadBitErrors": 0,
+    "payloadBer": 0,
+    "txClippedSamples": 0,
+    "rxClippedComponents": 0,
+    "normalizationClippedComponents": 0,
+    "receiverSymbolCount": 512
+  },
+  "costasZeroGains": {
+    "frameComplete": false,
+    "payloadBitErrors": null,
+    "payloadBer": null,
+    "txClippedSamples": 0,
+    "rxClippedComponents": 0,
+    "normalizationClippedComponents": 0,
+    "receiverSymbolCount": 512
+  },
+  "full100Byte": {
+    "frameComplete": true,
+    "payloadBitErrors": 0,
+    "payloadBer": 0,
+    "txClippedSamples": 0,
+    "rxClippedComponents": 0,
+    "normalizationClippedComponents": 0,
+    "receiverSymbolCount": 1184
+  },
+  "noSignal": {
+    "frameComplete": false,
+    "payloadBitErrors": null,
+    "payloadBer": null,
+    "txClippedSamples": 0,
+    "rxClippedComponents": 0,
+    "normalizationClippedComponents": 0,
+    "receiverSymbolCount": 0
+  },
+  "fullFrameDurationMs": 94.72,
+  "rtlValidated": false
+}

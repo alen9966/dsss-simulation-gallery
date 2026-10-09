@@ -826,18 +826,21 @@
     },
     {
       "id": "script_ui",
-      "title": "22 历史交互界面截图",
+      "title": "22 MATLAB可视化调参及历史界面",
       "group": "script",
       "model": null,
       "block_paths": [],
       "inputs": "配置、COE、历史MATLAB或Xsim导出。",
       "outputs": "图像/统计/示意，不是Simulink端口。",
-      "purpose": "参数面板/界面截图是展示入口，负责调整参数和调用参考函数；截图本身不是Simulink处理模块。",
+      "purpose": "当前入口open_dsss_wireless_dashboard默认打开参数实验室；传输条件、量化FIR截止/阶数、Costas C1/C2、DLL及Rc/Rb可调，展示时频域、星座、码片/去PN符号眼图和逐字节载荷。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。",
       "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
-      "limits": "界面看起来有环路图，不表示该截图采用当前新板模型或当前参数。",
+      "limits": "当前内核是自定义Hamming窗FIR、已知帧头相关、功能DLL和raw40 Costas事件运算；与生产FFT1024/FIR201/48/121逐拍实现不同。不克隆三个Simulink模型；候选COE留本地，只有图册公开。旧界面截图仍为历史证据。",
       "sources": [
-        "scripts/wireless/open_dsss_classic_dashboard.m",
-        "legacy/sim/matlab_link/link_visualizer_simulate.m"
+        "scripts/entrypoints/open_dsss_wireless_dashboard.m",
+        "scripts/tuning/open_dsss_tuning_dashboard.m",
+        "scripts/tuning/dsss_tuning_simulate.m",
+        "scripts/tuning/test_dsss_tuning.m",
+        "scripts/wireless/open_dsss_classic_dashboard.m"
       ],
       "logs": "",
       "tune": ""
@@ -2151,6 +2154,64 @@
         }
       ],
       "provenance": "独立Xsim实际FFT/IFFT配置数值实验、生产fft_cap_3录制波形回归以及同一物理输入下的完整DSP修复前后被动轨迹；plot_dsss_fft_config_repair读取真实日志绘图，不是Scope或虚构Simulink模块。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/04_MATLAB可视化调参系统.png",
+      "filename": "04_MATLAB可视化调参系统.png",
+      "status": "当前功能参数探索界面",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "参数区",
+          "title": "信道 / FIR与环路 / 码率",
+          "signal": "交互参数控件",
+          "meaning": "修改后重算；Fs=Rc*S、L=Rc/Rb整数检查。"
+        },
+        {
+          "position": "视图区",
+          "title": "实际功能波形和恢复载荷",
+          "signal": "dsss_tuning_simulate真实计算结果",
+          "meaning": "不是预录制演示曲线；生产RTL与硬件另验。"
+        }
+      ],
+      "provenance": "当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/01_可配置DSSS_时频星座眼图与载荷.png",
+      "filename": "01_可配置DSSS_时频星座眼图与载荷.png",
+      "status": "当前功能参数探索",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "上排",
+          "title": "时域 / 连续FFT / 量化FIR",
+          "signal": "本次候选实际采样及系数",
+          "meaning": "时域可抽点显示；频谱始终来自连续原始样本。"
+        },
+        {
+          "position": "中排",
+          "title": "Costas前后星座 / 码片眼图",
+          "signal": "接收机解扩及载波环输出",
+          "meaning": "颜色表示符号时间；眼图未证明实测裕量。"
+        },
+        {
+          "position": "下排",
+          "title": "鉴相 / 频偏估计 / 载荷结果",
+          "signal": "接收机状态及独立测试载荷评分",
+          "meaning": "未完成载荷时BER无效，不能计为0；噪声参考固定。"
+        }
+      ],
+      "provenance": "dsss_tuning_plot输出当前可配置功能链；量化FIR、因果信道、帧头相关/DLL和raw40 Costas，不是生产RTL验收或Simulink Scope。"
     }
   ],
   "layout_verification": {

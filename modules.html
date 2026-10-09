@@ -338,15 +338,17 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%9B%9B%E6%97%B6%E9%97%B4%E6%88%B3%E4%BA%A4%E6%8D%A2%E7%A4%BA%E6%84%8F.svg">90_旧方案_四时间戳交换示意.svg</a> — 独立协议模型/绘图</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">legacy/sim/matlab_link/link_two_way_exchange.m；legacy/sim/matlab_link/link_time_message.m；legacy/sim/matlab_link/build_twoway_diagram.py</p>
 </details></article>
-<article id="script_ui"><h3>22 历史交互界面截图</h3>
+<article id="script_ui"><h3>22 MATLAB可视化调参及历史界面</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
-<p>参数面板/界面截图是展示入口，负责调整参数和调用参考函数；截图本身不是Simulink处理模块。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
-</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>界面看起来有环路图，不表示该截图采用当前新板模型或当前参数。</p>
+<p>当前入口open_dsss_wireless_dashboard默认打开参数实验室；传输条件、量化FIR截止/阶数、Costas C1/C2、DLL及Rc/Rb可调，展示时频域、星座、码片/去PN符号眼图和逐字节载荷。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>当前内核是自定义Hamming窗FIR、已知帧头相关、功能DLL和raw40 Costas事件运算；与生产FFT1024/FIR201/48/121逐拍实现不同。不克隆三个Simulink模型；候选COE留本地，只有图册公开。旧界面截图仍为历史证据。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png">90_旧中频_参数界面.png</a> — 界面/脚本入口</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/92_%E6%97%A7%E6%96%B9%E6%A1%88_%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2%E9%A2%84%E8%A7%88.png">92_旧方案_可视化界面预览.png</a> — 界面/脚本入口</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/93_%E6%97%A7%E6%96%B9%E6%A1%88_%E4%BA%A4%E4%BA%92%E4%BB%BF%E7%9C%9F%E6%88%AA%E5%9B%BE.png">93_旧方案_交互仿真截图.png</a> — 界面/脚本入口</li>
-</ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/wireless/open_dsss_classic_dashboard.m；legacy/sim/matlab_link/link_visualizer_simulate.m</p>
+<li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/04_MATLAB%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B0%83%E5%8F%82%E7%B3%BB%E7%BB%9F.png">04_MATLAB可视化调参系统.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/01_%E5%8F%AF%E9%85%8D%E7%BD%AEDSSS_%E6%97%B6%E9%A2%91%E6%98%9F%E5%BA%A7%E7%9C%BC%E5%9B%BE%E4%B8%8E%E8%BD%BD%E8%8D%B7.png">01_可配置DSSS_时频星座眼图与载荷.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/entrypoints/open_dsss_wireless_dashboard.m；scripts/tuning/open_dsss_tuning_dashboard.m；scripts/tuning/dsss_tuning_simulate.m；scripts/tuning/test_dsss_tuning.m；scripts/wireless/open_dsss_classic_dashboard.m</p>
 </details></article>
 <article id="script_diagram"><h3>23 历史方案框图</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
@@ -652,6 +654,19 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <tr><td>右上</td><td>接收配置次数与逐点核对</td><td>fft_config_results.csv</td><td>每阶段两路各1024复数输出匹配对应厂商位真模型；原IFFT实际仍是默认正变换。</td></tr>
 <tr><td>左下</td><td>同一录制波形的捕获峰值</td><td>capture_events_before_config_fix.csv / capture_events.csv</td><td>原与修复后使用相同80us周期向量及门限1/8；不是实时完整波形，位置变化不能单独证明码同步精度。</td></tr>
 <tr><td>右下</td><td>同一信道下的完整DSP修复前后判决</td><td>capture_diag_baseline/capture_diagnostics.csv</td><td>70km/gain0.5/无噪声频偏，静态门限参数5000/20不变；原峰784未过5040，修复后两次超过实际动态门限并输出1次捕获。当前为约600us快照，前缀/整帧另验。</td></tr>
+</table>
+</details>
+<details><summary>04_MATLAB可视化调参系统.png</summary><p>当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>参数区</td><td>信道 / FIR与环路 / 码率</td><td>交互参数控件</td><td>修改后重算；Fs=Rc*S、L=Rc/Rb整数检查。</td></tr>
+<tr><td>视图区</td><td>实际功能波形和恢复载荷</td><td>dsss_tuning_simulate真实计算结果</td><td>不是预录制演示曲线；生产RTL与硬件另验。</td></tr>
+</table>
+</details>
+<details><summary>01_可配置DSSS_时频星座眼图与载荷.png</summary><p>dsss_tuning_plot输出当前可配置功能链；量化FIR、因果信道、帧头相关/DLL和raw40 Costas，不是生产RTL验收或Simulink Scope。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>上排</td><td>时域 / 连续FFT / 量化FIR</td><td>本次候选实际采样及系数</td><td>时域可抽点显示；频谱始终来自连续原始样本。</td></tr>
+<tr><td>中排</td><td>Costas前后星座 / 码片眼图</td><td>接收机解扩及载波环输出</td><td>颜色表示符号时间；眼图未证明实测裕量。</td></tr>
+<tr><td>下排</td><td>鉴相 / 频偏估计 / 载荷结果</td><td>接收机状态及独立测试载荷评分</td><td>未完成载荷时BER无效，不能计为0；噪声参考固定。</td></tr>
 </table>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

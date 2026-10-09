@@ -322,19 +322,21 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：10_双向时间比对/90_旧方案_四时间戳交换示意.png；独立协议模型/绘图
 对应图：10_双向时间比对/90_旧方案_四时间戳交换示意.svg；独立协议模型/绘图
 
-22 历史交互界面截图
+22 MATLAB可视化调参及历史界面
 
-作用：参数面板/界面截图是展示入口，负责调整参数和调用参考函数；截图本身不是Simulink处理模块。
+作用：当前入口open_dsss_wireless_dashboard默认打开参数实验室；传输条件、量化FIR截止/阶数、Costas C1/C2、DLL及Rc/Rb可调，展示时频域、星座、码片/去PN符号眼图和逐字节载荷。已验证完整100字节功能帧94.72ms零误码；关闭Costas的对照不能完整解帧。使用说明：00_可视化调参使用说明.txt。
 输入：配置、COE、历史MATLAB或Xsim导出。
 输出：图像/统计/示意，不是Simulink端口。
 观察：对照图的真实产生路径；没有对应块的图不编造模块名。
-边界：界面看起来有环路图，不表示该截图采用当前新板模型或当前参数。
+边界：当前内核是自定义Hamming窗FIR、已知帧头相关、功能DLL和raw40 Costas事件运算；与生产FFT1024/FIR201/48/121逐拍实现不同。不克隆三个Simulink模型；候选COE留本地，只有图册公开。旧界面截图仍为历史证据。
 日志：
 参数：
-实现：scripts/wireless/open_dsss_classic_dashboard.m；legacy/sim/matlab_link/link_visualizer_simulate.m
+实现：scripts/entrypoints/open_dsss_wireless_dashboard.m；scripts/tuning/open_dsss_tuning_dashboard.m；scripts/tuning/dsss_tuning_simulate.m；scripts/tuning/test_dsss_tuning.m；scripts/wireless/open_dsss_classic_dashboard.m
 对应图：00_导航与方案说明/90_旧中频_参数界面.png；界面/脚本入口
 对应图：00_导航与方案说明/92_旧方案_可视化界面预览.png；界面/脚本入口
 对应图：00_导航与方案说明/93_旧方案_交互仿真截图.png；界面/脚本入口
+对应图：00_导航与方案说明/04_MATLAB可视化调参系统.png；登记的新图对应模块；场景及信号说明见图注
+对应图：09_无线性能与鲁棒性/01_可配置DSSS_时频星座眼图与载荷.png；登记的新图对应模块；场景及信号说明见图注
 
 23 历史方案框图
 
@@ -605,3 +607,14 @@ D · 独立脚本与展示（非 Simulink 模块）
 右上 | 接收配置次数与逐点核对 | fft_config_results.csv | 每阶段两路各1024复数输出匹配对应厂商位真模型；原IFFT实际仍是默认正变换。
 左下 | 同一录制波形的捕获峰值 | capture_events_before_config_fix.csv / capture_events.csv | 原与修复后使用相同80us周期向量及门限1/8；不是实时完整波形，位置变化不能单独证明码同步精度。
 右下 | 同一信道下的完整DSP修复前后判决 | capture_diag_baseline/capture_diagnostics.csv | 70km/gain0.5/无噪声频偏，静态门限参数5000/20不变；原峰784未过5040，修复后两次超过实际动态门限并输出1次捕获。当前为约600us快照，前缀/整帧另验。
+
+图：00_导航与方案说明/04_MATLAB可视化调参系统.png
+来源：当前MATLAB原生控件截图，来自open_dsss_tuning_dashboard；独立功能参数探索，非实际Simulink块截图。详细使用说明见00_可视化调参使用说明.txt。
+参数区 | 信道 / FIR与环路 / 码率 | 交互参数控件 | 修改后重算；Fs=Rc*S、L=Rc/Rb整数检查。
+视图区 | 实际功能波形和恢复载荷 | dsss_tuning_simulate真实计算结果 | 不是预录制演示曲线；生产RTL与硬件另验。
+
+图：09_无线性能与鲁棒性/01_可配置DSSS_时频星座眼图与载荷.png
+来源：dsss_tuning_plot输出当前可配置功能链；量化FIR、因果信道、帧头相关/DLL和raw40 Costas，不是生产RTL验收或Simulink Scope。
+上排 | 时域 / 连续FFT / 量化FIR | 本次候选实际采样及系数 | 时域可抽点显示；频谱始终来自连续原始样本。
+中排 | Costas前后星座 / 码片眼图 | 接收机解扩及载波环输出 | 颜色表示符号时间；眼图未证明实测裕量。
+下排 | 鉴相 / 频偏估计 / 载荷结果 | 接收机状态及独立测试载荷评分 | 未完成载荷时BER无效，不能计为0；噪声参考固定。
