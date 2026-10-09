@@ -1,6 +1,6 @@
 {
   "date": "2026-10-09",
-  "copied_files": 56,
+  "copied_files": 62,
   "original_files_preserved": true,
   "files": [
     {
@@ -1507,39 +1507,6 @@
     },
     {
       "category": 0,
-      "source": "project/results/parameter_tuning_v3/node_dashboard.png",
-      "filename": "06_MATLAB节点实验室_框图点击与FIR联动.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "V3实际MATLAB原生界面；英文start_dsss_lab；130项配置+2592项源码映射。点击框图、算法/IP分层、实时特性、阶段/32符号暂停与恢复，真实原始窗口与必要信号。功能图非生产Simulink/RTL。",
-      "requested_module_ids": [
-        "script_ui"
-      ],
-      "relative_path": "00_导航与方案说明/06_MATLAB节点实验室_框图点击与FIR联动.png",
-      "decoded_pixel_sha256": "19a339bcf7a76a91d2b471210824236ffd21bbd756dc2d8326bdcee1dabbcb80",
-      "module_refs": [
-        {
-          "id": "script_ui",
-          "relation": "登记的新图对应模块；场景及信号说明见图注"
-        }
-      ],
-      "panel_map": [
-        {
-          "position": "节点特性",
-          "title": "当前参数→运算/系数→响应",
-          "signal": "选中功能节点的实算特性或独立预算",
-          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
-        },
-        {
-          "position": "观测/参数",
-          "title": "实际缓存波形、来源、生效范围",
-          "signal": "连续原始窗口或符号事件",
-          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
-        }
-      ],
-      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
-    },
-    {
-      "category": 0,
       "source": "project/results/parameter_tuning_v3/node_costas_dashboard.png",
       "filename": "07_MATLAB节点实验室_Costas跟踪与星座.png",
       "status": "当前功能节点 / 独立诊断",
@@ -1548,7 +1515,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "e0231a5ef215bb05bdd091da0cc548247fa778b7b77ce005e58c34eb9f9325d3",
+      "decoded_pixel_sha256": "bb210217927e3e13151351d08dfe973beef79094062c8a9d9007502d31729086",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1581,7 +1548,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "95972dd2d5ec2d15949473030ff94be63469b70a9d7cad0c4dfab8b407dd57fe",
+      "decoded_pixel_sha256": "ddd289c8359821d2e09b6ada4c52e041e150b5b969f47f5c2f21902a48fcddd3",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1614,73 +1581,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "0dba8eee82747eb50561afd42033a27a3771ad3a9cb3b7b5295edd00a64e8cda",
-      "module_refs": [
-        {
-          "id": "script_ui",
-          "relation": "登记的新图对应模块；场景及信号说明见图注"
-        }
-      ],
-      "panel_map": [
-        {
-          "position": "节点特性",
-          "title": "当前参数→运算/系数→响应",
-          "signal": "选中功能节点的实算特性或独立预算",
-          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
-        },
-        {
-          "position": "观测/参数",
-          "title": "实际缓存波形、来源、生效范围",
-          "signal": "连续原始窗口或符号事件",
-          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
-        }
-      ],
-      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
-    },
-    {
-      "category": 1,
-      "source": "project/results/parameter_tuning_v3/node_probe_dashboard.png",
-      "filename": "04_节点观测点_实际Costas输出与事件频谱.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "实际功能Costas符号事件观测：I/Q、事件PSD、星座、幅度；事件无过采样时画符号序列，不虚构数据眼图。ADC连续原始观测可设起点/点数，缓存参数一致性标注。",
-      "requested_module_ids": [
-        "script_ui"
-      ],
-      "relative_path": "01_发送与接收波形/04_节点观测点_实际Costas输出与事件频谱.png",
-      "decoded_pixel_sha256": "2631a531a932d4e89448bd298dff6af17c50db21d980bb7a1356dcd7e9a66554",
-      "module_refs": [
-        {
-          "id": "script_ui",
-          "relation": "登记的新图对应模块；场景及信号说明见图注"
-        }
-      ],
-      "panel_map": [
-        {
-          "position": "节点特性",
-          "title": "当前参数→运算/系数→响应",
-          "signal": "选中功能节点的实算特性或独立预算",
-          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
-        },
-        {
-          "position": "观测/参数",
-          "title": "实际缓存波形、来源、生效范围",
-          "signal": "连续原始窗口或符号事件",
-          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
-        }
-      ],
-      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
-    },
-    {
-      "category": 1,
-      "source": "project/results/parameter_tuning_v3/node_scope_streaming.png",
-      "filename": "05_示波器连续采集_分段波形与不清零趋势.png",
-      "status": "当前功能连续采集 / 非RTL实测",
-      "note": "两段实际功能采集连续运行：绝对时间不清零，噪声更新，并传递DLL/Costas/相噪状态。高速I/Q、频谱、星座和眼图自动显示最新采集段；Prompt等低速状态自动显示连续趋势。每段仍重新捕获报文，不等同生产RTL逐拍流或AD9361实测。",
-      "requested_module_ids": [
-        "script_ui"
-      ],
-      "relative_path": "01_发送与接收波形/05_示波器连续采集_分段波形与不清零趋势.png",
-      "decoded_pixel_sha256": "e3f3a11f67b48c96d3d3b9333d4fe6f9f2a1a42c8865dcfdbae660b66745744d",
+      "decoded_pixel_sha256": "e08c34f476d4120f72fe7c63c3176f2452b7b1f8e49a19e8751d51fd2cc769ea",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1739,13 +1640,13 @@
     {
       "category": 6,
       "source": "project/results/parameter_tuning_v3/node_frame.png",
-      "filename": "01_节点组帧_BPSK判决与载荷逐字节恢复.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "TX/RX载荷、实际接收比特、I判决输入与门限、帧结构、收齐/错误统计；当前16B功能预览，无CRC/RF时戳验收。",
+      "filename": "parameter_tuning_v3_node_frame.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "组帧 / 判决：字节 → 帧头/载荷 → BPSK判决；帧未收齐，通信未完成。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "06_帧同步与信息恢复/01_节点组帧_BPSK判决与载荷逐字节恢复.png",
+      "relative_path": "06_帧同步与信息恢复/parameter_tuning_v3_node_frame.png",
       "decoded_pixel_sha256": "dfbaa7c6333a7b8a9586248c06e466e732c8bcf740169bed165ae6d32cf2ee99",
       "module_refs": [
         {
@@ -1772,14 +1673,14 @@
     {
       "category": 1,
       "source": "project/results/parameter_tuning_v3/node_pn.png",
-      "filename": "05_节点PN_序列自相关频谱与发送码值.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "实际PN1000及偏移/反相设置、自相关、chip域PSD与运行TX码值，Fs=Rc*S、L=Rc/Rb；L改变须重建相关ROM/IP。",
+      "filename": "parameter_tuning_v3_node_pn.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "PN / 扩频：Rc/Rb决定扩频因子；PN相关和码片节拍必须一致。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "01_发送与接收波形/05_节点PN_序列自相关频谱与发送码值.png",
-      "decoded_pixel_sha256": "cb8dcb16e9527000a5d69b07673a0ceab57ac4dfbc239da5c9e2cc5234fc4186",
+      "relative_path": "01_发送与接收波形/parameter_tuning_v3_node_pn.png",
+      "decoded_pixel_sha256": "6627e4cdc022e6605046d28a364bf04a5b9ce08bef0d2282d9888d5d60f3b5f1",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1805,14 +1706,14 @@
     {
       "category": 2,
       "source": "project/results/parameter_tuning_v3/node_txfir.png",
-      "filename": "02_节点TX_FIR_幅相频双域COE与输出频谱.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "自定义Hamming窗64阶10MHz/Q16.15候选，实际量化幅频、可用幅度相频、整数抽头、原始/候选COE独立DSP频响与连续输出/PSD；非生产FIR201 IP。",
+      "filename": "parameter_tuning_v3_node_txfir.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "成型 / 插值 FIR：当前波形为可调复基带成型FIR；原工程是 tx_intp20 的插值20 FIR，二者尚未宣称逐拍等价。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "02_FIR与多速率/02_节点TX_FIR_幅相频双域COE与输出频谱.png",
-      "decoded_pixel_sha256": "ff3e1bc651d2444a77904ce04571e13d3f608f058050ba7f399daf0a54e9cc20",
+      "relative_path": "02_FIR与多速率/parameter_tuning_v3_node_txfir.png",
+      "decoded_pixel_sha256": "829703ad6b3ad924d0109cd27f5fe1f6e6efd8d54369545e48ba2f5d43c4b4e2",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1836,16 +1737,49 @@
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
     },
     {
-      "category": 2,
-      "source": "project/results/parameter_tuning_v3/node_rxfir.png",
-      "filename": "03_节点RX_FIR_幅相频双域COE与输出频谱.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "自定义64阶10MHz/Q16.15接收滤波，幅相频/整数COE/原始候选DSP频响/原始窗口/PSD；非生产RX48逐拍IP。",
+      "category": 7,
+      "source": "project/results/parameter_tuning_v3/node_txif.png",
+      "filename": "parameter_tuning_v3_node_txif.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "量化 / CDC / LVDS TX：复数样本定点化，经FIFO/CDC送入LVDS DDR PHY；当前功能波形只覆盖量化，真实valid/跨时钟待RTL与硬件观测。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "02_FIR与多速率/03_节点RX_FIR_幅相频双域COE与输出频谱.png",
-      "decoded_pixel_sha256": "dca8e0257f45290e304a38ca9effafe59ed330f49508d6385dc9f35403428421",
+      "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_txif.png",
+      "decoded_pixel_sha256": "b2241c2ac1456e4ef0969f3c601891adf57c4cafa054af2457348b3f85cbc268",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 7,
+      "source": "project/results/parameter_tuning_v3/node_txrf.png",
+      "filename": "parameter_tuning_v3_node_txrf.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "AD9361 TX FIR/HB / DAC / RF：AD9361内部TX FIR、半带插值、DAC、模拟低通和IQ上变频；例程给出配置顺序，当前MATLAB没有晶体管级DAC/RF模型。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_txrf.png",
+      "decoded_pixel_sha256": "41b247c2aa2f8ec7cb71f9c9a08924babbbb465fd400d07f8da4afcb478f23f9",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1871,14 +1805,113 @@
     {
       "category": 9,
       "source": "project/results/parameter_tuning_v3/node_channel.png",
-      "filename": "04_节点无线信道_ADC时频星座眼图与幅度.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "70km时延、RF5GHz假设、gain0.5、独立参考钟±0.1ppb、固定参考噪声；实际连续ADC窗口、PSD/星座/幅度/2chip眼图。20W不直接等于接收电平；非70km实测。",
+      "filename": "parameter_tuning_v3_node_channel.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "无线信道：独立钟差、传播时延、AWGN、单回波和相噪；接收电平仍是独立假设，20 W未形成完整链路预算。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "09_无线性能与鲁棒性/04_节点无线信道_ADC时频星座眼图与幅度.png",
-      "decoded_pixel_sha256": "adc450c5e4b3c63dac92354bf0c1d821584796f03c6a457055de3a09e16e5569",
+      "relative_path": "09_无线性能与鲁棒性/parameter_tuning_v3_node_channel.png",
+      "decoded_pixel_sha256": "59581fac4b605fcd76079129455db07aea5aaa719610b2413e64aece96d87dc8",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 7,
+      "source": "project/results/parameter_tuning_v3/node_rxrf.png",
+      "filename": "parameter_tuning_v3_node_rxrf.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "AD9361 RF / ADC / RX FIR/HB：模拟下变频、抗混叠、ADC、半带抽取和RX FIR后输出数字I/Q；当前模型等效为信道后量化，内部滤波尚未按最终profile固化。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_rxrf.png",
+      "decoded_pixel_sha256": "a6d36793933d80d14bb5a3217baa223bb0a65ee057008ad5a89498a94d2e7252",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 7,
+      "source": "project/results/parameter_tuning_v3/node_rxif.png",
+      "filename": "parameter_tuning_v3_node_rxif.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "LVDS RX / IDELAY / CDC：LVDS DDR解串、帧字判定、延时扫描及跨时钟；CMOS例程只参考I/Q边沿顺序，不能替代底板LVDS验证。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_rxif.png",
+      "decoded_pixel_sha256": "26bd0113e5a06c83b37ce26ab549709329c20e0f7ce425a9f274572e923f0bc9",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 2,
+      "source": "project/results/parameter_tuning_v3/node_rxfir.png",
+      "filename": "parameter_tuning_v3_node_rxfir.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "RX FIR：抗噪声与保留码片带宽需要平衡；过窄会改变相关峰和定时。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "02_FIR与多速率/parameter_tuning_v3_node_rxfir.png",
+      "decoded_pixel_sha256": "a3150fb4bd2e3c8589b7117a4dae29043e32e841adbfac4a504baea821f46874",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1904,13 +1937,13 @@
     {
       "category": 3,
       "source": "project/results/parameter_tuning_v3/node_capture.png",
-      "filename": "02_节点捕获_帧头相关与独立FFT诊断.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "主链已知帧头相关与独立数学FFT功率/门限/窗口/配置分别显示；不是实际FFT位真模型，也不宣称连续两次捕获通过。",
+      "filename": "parameter_tuning_v3_node_capture.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "捕获 / FFT诊断：主链使用已知帧头相关；FFT是独立单窗诊断，不能证明真实IP连续捕获。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "03_FFT捕获/02_节点捕获_帧头相关与独立FFT诊断.png",
+      "relative_path": "03_FFT捕获/parameter_tuning_v3_node_capture.png",
       "decoded_pixel_sha256": "54a4bf4007b40e53c88a480263b8ce7f99af145f6654e1aace641ca24d5d9bad",
       "module_refs": [
         {
@@ -1937,13 +1970,13 @@
     {
       "category": 4,
       "source": "project/results/parameter_tuning_v3/node_dll.png",
-      "filename": "01_节点DLL_EarlyPromptLate误差与定时.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "功能Early/Prompt/Late幅度、Early/Late鉴别误差、采样点修正、解扩星座；功能Kp/Ki不是原始raw32 RTL C1/C2或逐拍码环验收。",
+      "filename": "parameter_tuning_v3_node_dll.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "DLL / 解扩：Early/Prompt/Late → 定时修正 → prompt；丢失码相位会使后续同步无效。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "04_DLL与解扩/01_节点DLL_EarlyPromptLate误差与定时.png",
+      "relative_path": "04_DLL与解扩/parameter_tuning_v3_node_dll.png",
       "decoded_pixel_sha256": "ac1629f34c97083e084669d6e4e10201ef02f930f322f0c63676a2975caa7970",
       "module_refs": [
         {
@@ -1970,13 +2003,13 @@
     {
       "category": 5,
       "source": "project/results/parameter_tuning_v3/node_norm.png",
-      "filename": "01_节点归一化_输入估计输出幅度与时间.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "EMA默认与分块功能参考的幅度、估计、归一化I/Q、输出时间及配置；当前P_SKIP超时/缓存FSM差异不冒充已修复。",
+      "filename": "parameter_tuning_v3_node_norm.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "归一化：EMA或跳过/统计/释放参考；幅度与输出事件影响Costas鉴相增益。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "05_Costas环/01_节点归一化_输入估计输出幅度与时间.png",
+      "relative_path": "05_Costas环/parameter_tuning_v3_node_norm.png",
       "decoded_pixel_sha256": "dba985aa3a5f1171a6fc3f112fe7c9a857c5a79cccbceeb4db83180294b22edf",
       "module_refs": [
         {
@@ -2003,13 +2036,13 @@
     {
       "category": 5,
       "source": "project/results/parameter_tuning_v3/node_costas.png",
-      "filename": "02_节点Costas_PI频响星座鉴相与频偏跟踪.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "raw40整符号事件更新：PI控制器增益、归一化前后星座、频偏、鉴相、相位状态；控制器不是闭环带宽，真值仅对照，CORDIC/流水线另验。",
+      "filename": "parameter_tuning_v3_node_costas.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "Costas / 载波同步：sign(I)×Q → raw40 PI/NCO → 旋转星座；观察跟踪而非强制锁定。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "05_Costas环/02_节点Costas_PI频响星座鉴相与频偏跟踪.png",
+      "relative_path": "05_Costas环/parameter_tuning_v3_node_costas.png",
       "decoded_pixel_sha256": "f24fef5898adf567aa1e32d6473bcb0d00c2c54fd38948868cfc0327c9617f8a",
       "module_refs": [
         {
@@ -2036,14 +2069,14 @@
     {
       "category": 2,
       "source": "project/results/parameter_tuning_v3/node_interp.png",
-      "filename": "04_节点插值_独立FIR系数响应与输出PSD.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "插值5、候选120阶/20MHz/Q18.16功能段、整数候选、DSP输出/PSD；不串入当前物理采样率主接收链，非原121tap真实IP位真验证。",
+      "filename": "parameter_tuning_v3_node_interp.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "插值 / 多速率：50MSPS到DSP的独立段参考；不串入本功能主接收机。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "02_FIR与多速率/04_节点插值_独立FIR系数响应与输出PSD.png",
-      "decoded_pixel_sha256": "5d1d39f5142b58ce1e2c751e6de612a5584ae237cb5915d0babcf902e745264f",
+      "relative_path": "02_FIR与多速率/parameter_tuning_v3_node_interp.png",
+      "decoded_pixel_sha256": "f9e815647d0f90a6528a1d0ce4acc3f6069623151622a2f552c503a6727ccb58",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2069,14 +2102,14 @@
     {
       "category": 7,
       "source": "project/results/parameter_tuning_v3/node_interface.png",
-      "filename": "03_节点接口_时钟时隙FIFO_SPI预算.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "帧/保护/100ms每方向时隙、Fs50/DSP250/LVDS100/IDELAY200MHz、FIFO16/1024与SPI12.5MHz预算；不等同真实CDC、LVDS、tap窗口/AD9361初始化。",
+      "filename": "parameter_tuning_v3_node_interface.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "时钟 / 接口 / TDD：时隙/吞吐/SPI/FIFO/tap扫描预算；实际CDC和LVDS valid未观测。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "07_双向时隙与接口/03_节点接口_时钟时隙FIFO_SPI预算.png",
-      "decoded_pixel_sha256": "2e15b93fea49ef6a1a9fe6c05e45f45ff7b88502446392558e5267ba07302314",
+      "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_interface.png",
+      "decoded_pixel_sha256": "a161843f5436b582cb81eead4922d4288a877f97aed4cfc86135c17e7cd96c27",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2102,14 +2135,14 @@
     {
       "category": 10,
       "source": "project/results/parameter_tuning_v3/node_timing.png",
-      "filename": "02_节点时标_功能码相位均值与待验边界.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "功能码相位跳过100、累加512及时间/接口预算；16B预览不足统计窗口时均值NaN。不存在已验收RF时间戳或硬件钟差。",
+      "filename": "parameter_tuning_v3_node_timing.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "时标统计 / 输出：仅功能码相位均值；射频时间戳、双向钟差与硬件时标另验。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "10_双向时间比对/02_节点时标_功能码相位均值与待验边界.png",
-      "decoded_pixel_sha256": "16dd54f4e72ffedc49f70a61d4f533fa61b6f9f55c90ebade78b1361b636e8c1",
+      "relative_path": "10_双向时间比对/parameter_tuning_v3_node_timing.png",
+      "decoded_pixel_sha256": "11915495177c3873ce04f661a33bf81ed18fcdfdbd8e169563327c414d75bb3a",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2135,14 +2168,179 @@
     {
       "category": 0,
       "source": "project/results/parameter_tuning_v3/node_system.png",
-      "filename": "10_节点系统_算法IP分类与全链预算.png",
-      "status": "当前功能节点 / 独立诊断",
-      "note": "功能节点分类、时钟/FIFO/时隙预算和码相位，配合关键必要信号表阅读；完整RTL/硬件以及算法候选应用分别验收。",
+      "filename": "parameter_tuning_v3_node_system.png",
+      "status": "当前功能候选 / 物理边界明确",
+      "note": "全部参数 / 关键门：查看所有参数归属、必要条件与未接入的真实RTL/硬件信号。 依据类别见节点实验室；不冒充完整RTL或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "00_导航与方案说明/10_节点系统_算法IP分类与全链预算.png",
-      "decoded_pixel_sha256": "0709f26835d49a88806cafce99cb8ce777e6c42a65b5b25092232f2c6ff4c2ae",
+      "relative_path": "00_导航与方案说明/parameter_tuning_v3_node_system.png",
+      "decoded_pixel_sha256": "dce038e2fa32c0c748373a90645d733a5ef51afa122e7c93e59dcaec8630bf1e",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/parameter_tuning_v3/node_dashboard.png",
+      "filename": "MATLAB节点实验室V3.2_完整AD9361链路框图.png",
+      "status": "当前功能实验界面",
+      "note": "补齐成型/插值FIR、量化/CDC/LVDS、AD9361 TX FIR/HB/DAC/RF、RX RF/ADC/FIR/HB及LVDS接收边界。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png",
+      "decoded_pixel_sha256": "f82c82cb0a2e969ad808c9bff79c5436e181cac025712eaad2ded78ee490ee87",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 9,
+      "source": "project/results/parameter_tuning_v3/node_probe_dashboard.png",
+      "filename": "MATLAB节点实验室V3.2_节点观测.png",
+      "status": "当前功能观测",
+      "note": "节点实际信号、星座、眼图与短时频谱；非硬件测量。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
+      "decoded_pixel_sha256": "16a7f5155f889af1e8d11a09a8876f42f9e8cec6d2baa08491f1807c8af119e4",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 9,
+      "source": "project/results/parameter_tuning_v3/node_scope_streaming.png",
+      "filename": "MATLAB节点实验室V3.2_保持型示波器与流式频谱.png",
+      "status": "当前功能观测",
+      "note": "固定长度示波器记录保持；2048点Hann、50%重叠、功率平均和频谱瀑布。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_保持型示波器与流式频谱.png",
+      "decoded_pixel_sha256": "9640d3c6654cb06edf4f12358675950a5b48a8f4e3bf73d1abc98a2a8fe76cb5",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 5,
+      "source": "project/results/parameter_tuning_v3/node_trend_continuous.png",
+      "filename": "MATLAB节点实验室V3.2_环路连续趋势.png",
+      "status": "当前功能观测",
+      "note": "Prompt/DLL/Costas等低速状态沿绝对时间累计，停止继续不清零。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "05_Costas环/MATLAB节点实验室V3.2_环路连续趋势.png",
+      "decoded_pixel_sha256": "85814bd524a75df1105761520fed5bc878502d227829d09bf3c486c54690d1fa",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/parameter_tuning_v3/node_source_basis.png",
+      "filename": "MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
+      "status": "工程依据审计",
+      "note": "区分原Vivado RTL、AD9361例程、当前功能模型和待板级验证项目，不公开私有源码。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
+      "decoded_pixel_sha256": "951a5295b9bcd38e6b4f8d9eb1bdfec6f74c2540c90ba9b62480b493be783187",
       "module_refs": [
         {
           "id": "script_ui",

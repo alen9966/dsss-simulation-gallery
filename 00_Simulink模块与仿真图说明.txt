@@ -339,26 +339,32 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：09_无线性能与鲁棒性/01_可配置DSSS_时频星座眼图与载荷.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/05_MATLAB完整代码参数_模块分类与来源.png；登记的新图对应模块；场景及信号说明见图注
 对应图：09_无线性能与鲁棒性/02_代码参数_FFT归一化锁定时隙接口诊断.png；登记的新图对应模块；场景及信号说明见图注
-对应图：00_导航与方案说明/06_MATLAB节点实验室_框图点击与FIR联动.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png；登记的新图对应模块；场景及信号说明见图注
-对应图：01_发送与接收波形/04_节点观测点_实际Costas输出与事件频谱.png；登记的新图对应模块；场景及信号说明见图注
-对应图：01_发送与接收波形/05_示波器连续采集_分段波形与不清零趋势.png；登记的新图对应模块；场景及信号说明见图注
 对应图：09_无线性能与鲁棒性/03_固定环境_代码候选搜索与完整帧验证.png；登记的新图对应模块；场景及信号说明见图注
-对应图：06_帧同步与信息恢复/01_节点组帧_BPSK判决与载荷逐字节恢复.png；登记的新图对应模块；场景及信号说明见图注
-对应图：01_发送与接收波形/05_节点PN_序列自相关频谱与发送码值.png；登记的新图对应模块；场景及信号说明见图注
-对应图：02_FIR与多速率/02_节点TX_FIR_幅相频双域COE与输出频谱.png；登记的新图对应模块；场景及信号说明见图注
-对应图：02_FIR与多速率/03_节点RX_FIR_幅相频双域COE与输出频谱.png；登记的新图对应模块；场景及信号说明见图注
-对应图：09_无线性能与鲁棒性/04_节点无线信道_ADC时频星座眼图与幅度.png；登记的新图对应模块；场景及信号说明见图注
-对应图：03_FFT捕获/02_节点捕获_帧头相关与独立FFT诊断.png；登记的新图对应模块；场景及信号说明见图注
-对应图：04_DLL与解扩/01_节点DLL_EarlyPromptLate误差与定时.png；登记的新图对应模块；场景及信号说明见图注
-对应图：05_Costas环/01_节点归一化_输入估计输出幅度与时间.png；登记的新图对应模块；场景及信号说明见图注
-对应图：05_Costas环/02_节点Costas_PI频响星座鉴相与频偏跟踪.png；登记的新图对应模块；场景及信号说明见图注
-对应图：02_FIR与多速率/04_节点插值_独立FIR系数响应与输出PSD.png；登记的新图对应模块；场景及信号说明见图注
-对应图：07_双向时隙与接口/03_节点接口_时钟时隙FIFO_SPI预算.png；登记的新图对应模块；场景及信号说明见图注
-对应图：10_双向时间比对/02_节点时标_功能码相位均值与待验边界.png；登记的新图对应模块；场景及信号说明见图注
-对应图：00_导航与方案说明/10_节点系统_算法IP分类与全链预算.png；登记的新图对应模块；场景及信号说明见图注
+对应图：06_帧同步与信息恢复/parameter_tuning_v3_node_frame.png；登记的新图对应模块；场景及信号说明见图注
+对应图：01_发送与接收波形/parameter_tuning_v3_node_pn.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/parameter_tuning_v3_node_txfir.png；登记的新图对应模块；场景及信号说明见图注
+对应图：07_双向时隙与接口/parameter_tuning_v3_node_txif.png；登记的新图对应模块；场景及信号说明见图注
+对应图：07_双向时隙与接口/parameter_tuning_v3_node_txrf.png；登记的新图对应模块；场景及信号说明见图注
+对应图：09_无线性能与鲁棒性/parameter_tuning_v3_node_channel.png；登记的新图对应模块；场景及信号说明见图注
+对应图：07_双向时隙与接口/parameter_tuning_v3_node_rxrf.png；登记的新图对应模块；场景及信号说明见图注
+对应图：07_双向时隙与接口/parameter_tuning_v3_node_rxif.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/parameter_tuning_v3_node_rxfir.png；登记的新图对应模块；场景及信号说明见图注
+对应图：03_FFT捕获/parameter_tuning_v3_node_capture.png；登记的新图对应模块；场景及信号说明见图注
+对应图：04_DLL与解扩/parameter_tuning_v3_node_dll.png；登记的新图对应模块；场景及信号说明见图注
+对应图：05_Costas环/parameter_tuning_v3_node_norm.png；登记的新图对应模块；场景及信号说明见图注
+对应图：05_Costas环/parameter_tuning_v3_node_costas.png；登记的新图对应模块；场景及信号说明见图注
+对应图：02_FIR与多速率/parameter_tuning_v3_node_interp.png；登记的新图对应模块；场景及信号说明见图注
+对应图：07_双向时隙与接口/parameter_tuning_v3_node_interface.png；登记的新图对应模块；场景及信号说明见图注
+对应图：10_双向时间比对/parameter_tuning_v3_node_timing.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/parameter_tuning_v3_node_system.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png；登记的新图对应模块；场景及信号说明见图注
+对应图：09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png；登记的新图对应模块；场景及信号说明见图注
+对应图：09_无线性能与鲁棒性/MATLAB节点实验室V3.2_保持型示波器与流式频谱.png；登记的新图对应模块；场景及信号说明见图注
+对应图：05_Costas环/MATLAB节点实验室V3.2_环路连续趋势.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png；登记的新图对应模块；场景及信号说明见图注
 
 23 历史方案框图
 
@@ -651,11 +657,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 参数区 | 信道 / 完整代码参数与源码审计 / 码率 | 交互参数控件 | 128项配置+2592项源码映射；波形/独立诊断/仅候选分类，修改后重算。Fs=Rc*S、L=Rc/Rb检查。
 视图区 | 实际功能波形和恢复载荷 | dsss_tuning_simulate真实计算结果 | 不是预录制演示曲线；生产RTL与硬件另验。
 
-图：00_导航与方案说明/06_MATLAB节点实验室_框图点击与FIR联动.png
-来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
-节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
-观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
-
 图：00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
@@ -671,82 +672,117 @@ D · 独立脚本与展示（非 Simulink 模块）
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：01_发送与接收波形/04_节点观测点_实际Costas输出与事件频谱.png
-来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
-节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
-观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
-
-图：01_发送与接收波形/05_示波器连续采集_分段波形与不清零趋势.png
-来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
-节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
-观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
-
 图：09_无线性能与鲁棒性/03_固定环境_代码候选搜索与完整帧验证.png
 来源：dsss_tuning_recommend在固定环境/参考噪声下实际搜索代码候选，再用完整100B和不同种子验证；不是全局最优或真实RTL/硬件性能结论。
 搜索 | 候选分数与失败 | 完整载荷/位错优先，随后削顶/QI残差/抽头代价 | 保留全部失败；约束环境/协议，不能改SNR让候选看起来更好。
 验证 | 完整100B与不同噪声种子 | 实际接收机恢复载荷 | 验证失败保留原配置；生产RTL/IP未应用。
 
-图：06_帧同步与信息恢复/01_节点组帧_BPSK判决与载荷逐字节恢复.png
+图：06_帧同步与信息恢复/parameter_tuning_v3_node_frame.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：01_发送与接收波形/05_节点PN_序列自相关频谱与发送码值.png
+图：01_发送与接收波形/parameter_tuning_v3_node_pn.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：02_FIR与多速率/02_节点TX_FIR_幅相频双域COE与输出频谱.png
+图：02_FIR与多速率/parameter_tuning_v3_node_txfir.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：02_FIR与多速率/03_节点RX_FIR_幅相频双域COE与输出频谱.png
+图：07_双向时隙与接口/parameter_tuning_v3_node_txif.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：09_无线性能与鲁棒性/04_节点无线信道_ADC时频星座眼图与幅度.png
+图：07_双向时隙与接口/parameter_tuning_v3_node_txrf.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：03_FFT捕获/02_节点捕获_帧头相关与独立FFT诊断.png
+图：09_无线性能与鲁棒性/parameter_tuning_v3_node_channel.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：04_DLL与解扩/01_节点DLL_EarlyPromptLate误差与定时.png
+图：07_双向时隙与接口/parameter_tuning_v3_node_rxrf.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：05_Costas环/01_节点归一化_输入估计输出幅度与时间.png
+图：07_双向时隙与接口/parameter_tuning_v3_node_rxif.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：05_Costas环/02_节点Costas_PI频响星座鉴相与频偏跟踪.png
+图：02_FIR与多速率/parameter_tuning_v3_node_rxfir.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：02_FIR与多速率/04_节点插值_独立FIR系数响应与输出PSD.png
+图：03_FFT捕获/parameter_tuning_v3_node_capture.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：07_双向时隙与接口/03_节点接口_时钟时隙FIFO_SPI预算.png
+图：04_DLL与解扩/parameter_tuning_v3_node_dll.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：10_双向时间比对/02_节点时标_功能码相位均值与待验边界.png
+图：05_Costas环/parameter_tuning_v3_node_norm.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
 
-图：00_导航与方案说明/10_节点系统_算法IP分类与全链预算.png
+图：05_Costas环/parameter_tuning_v3_node_costas.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：02_FIR与多速率/parameter_tuning_v3_node_interp.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：07_双向时隙与接口/parameter_tuning_v3_node_interface.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：10_双向时间比对/parameter_tuning_v3_node_timing.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：00_导航与方案说明/parameter_tuning_v3_node_system.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：09_无线性能与鲁棒性/MATLAB节点实验室V3.2_保持型示波器与流式频谱.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：05_Costas环/MATLAB节点实验室V3.2_环路连续趋势.png
+来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
+节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
+观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。

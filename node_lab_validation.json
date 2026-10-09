@@ -4,18 +4,25 @@
     "ASCII launcher runs actual frame",
     "all config keys assigned exactly once to understandable nodes",
     "node click txfir",
+    "node click txif",
+    "node click txrf",
+    "node click channel",
+    "node click rxrf",
+    "node click rxif",
     "node click rxfir",
     "node click costas",
     "node click dll",
     "node click norm",
     "node click pn",
-    "node click channel",
     "node click capture",
     "node click frame",
     "node click interp",
     "node click interface",
     "node click timing",
     "node click system",
+    "source basis separates original RTL, AD9361 device chain and pending LVDS",
+    "display spectrum uses overlapped short-time power average",
+    "live spectrum analyzer accumulated records and waterfall",
     "FIR characteristic changes immediately without rerunning cached waveform",
     "original COE candidate changes independent response immediately",
     "IP parameters separated from algorithm knobs",
@@ -38,7 +45,7 @@
     "search holds environment/noise fixed",
     "no-signal recommendation rejected"
   ],
-  "nodeCount": 13,
+  "nodeCount": 17,
   "configControls": 130,
   "pauseSameExecution": true,
   "continuousScope": {
@@ -48,6 +55,12 @@
     "timeReset": false,
     "automaticDisplayPolicy": true
   },
+  "streamingSpectrum": {
+    "method": "OVERLAPPED_SHORT_TIME_POWER_AVERAGE",
+    "records": 15,
+    "waterfallRows": 15
+  },
+  "sourceBasisRows": 15,
   "unobservedHardwareNotPassed": true,
   "rtlValidated": false
 }
