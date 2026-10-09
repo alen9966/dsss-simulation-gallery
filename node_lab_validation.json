@@ -28,6 +28,10 @@
     "edited parameters queued for next frame while paused",
     "queued code parameters applied next frame",
     "continuous execution stop returns and retains previous result",
+    "scope stream keeps absolute time and receiver state",
+    "stop and resume continues timeline without clearing",
+    "symbol-rate node uses one cumulative trend line",
+    "high-rate node uses latest oscilloscope segment with absolute time",
     "invalid input preserves prior result",
     "one-click defaults recover invalid configuration",
     "one-click environment recommendation corrects code and validates full frame",
@@ -37,6 +41,13 @@
   "nodeCount": 13,
   "configControls": 130,
   "pauseSameExecution": true,
+  "continuousScope": {
+    "segments": 2,
+    "endSeconds": 0.1037315,
+    "stateCarried": true,
+    "timeReset": false,
+    "automaticDisplayPolicy": true
+  },
   "unobservedHardwareNotPassed": true,
   "rtlValidated": false
 }

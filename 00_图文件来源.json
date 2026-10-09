@@ -1,6 +1,6 @@
 {
   "date": "2026-10-09",
-  "copied_files": 55,
+  "copied_files": 56,
   "original_files_preserved": true,
   "files": [
     {
@@ -1648,6 +1648,39 @@
       ],
       "relative_path": "01_发送与接收波形/04_节点观测点_实际Costas输出与事件频谱.png",
       "decoded_pixel_sha256": "2631a531a932d4e89448bd298dff6af17c50db21d980bb7a1356dcd7e9a66554",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 1,
+      "source": "project/results/parameter_tuning_v3/node_scope_streaming.png",
+      "filename": "05_示波器连续采集_分段波形与不清零趋势.png",
+      "status": "当前功能连续采集 / 非RTL实测",
+      "note": "两段实际功能采集连续运行：绝对时间不清零，噪声更新，并传递DLL/Costas/相噪状态。高速I/Q、频谱、星座和眼图自动显示最新采集段；Prompt等低速状态自动显示连续趋势。每段仍重新捕获报文，不等同生产RTL逐拍流或AD9361实测。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "01_发送与接收波形/05_示波器连续采集_分段波形与不清零趋势.png",
+      "decoded_pixel_sha256": "e3f3a11f67b48c96d3d3b9333d4fe6f9f2a1a42c8865dcfdbae660b66745744d",
       "module_refs": [
         {
           "id": "script_ui",

@@ -1,0 +1,13 @@
+{
+  "fidelity": "FUNCTIONAL_SCOPE_STREAM_NOT_RTL_OR_MEASURED",
+  "segments": 2,
+  "endSeconds": 0.0845315,
+  "timeReset": false,
+  "receiverStateCarried": true,
+  "highRatePolicy": "latest acquisition segment",
+  "lowRatePolicy": "continuous trend line",
+  "trendPoints": 832,
+  "historyPointLimit": 200000,
+  "payloadBytesReceived": 8,
+  "failedFrames": 0
+}

@@ -2396,6 +2396,32 @@
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
     },
     {
+      "relative_path": "01_发送与接收波形/05_示波器连续采集_分段波形与不清零趋势.png",
+      "filename": "05_示波器连续采集_分段波形与不清零趋势.png",
+      "status": "当前功能连续采集 / 非RTL实测",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
       "relative_path": "09_无线性能与鲁棒性/03_固定环境_代码候选搜索与完整帧验证.png",
       "filename": "03_固定环境_代码候选搜索与完整帧验证.png",
       "status": "当前功能节点 / 独立诊断",
