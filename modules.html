@@ -97,7 +97,7 @@ hilite_system(&#x27;dsss_ad9361_link/RX_signed12_interp5_FIR48&#x27;,&#x27;find&
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png">01_FFT配置漏接_真实IP复现与修复.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/08_%E9%98%B6%E6%AE%B507_RX%E5%89%8D%E7%AB%AF_FIR_FFT%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">08_阶段07_RX前端_FIR_FFT相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
-<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/09_%E9%98%B6%E6%AE%B508_%E7%9C%9F%E5%AE%9EDLL_100ms%E8%B7%9F%E8%B8%AA%E4%B8%8E%E6%94%B6%E6%95%9B.png">09_阶段08_真实DLL_100ms跟踪与收敛.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/09_%E9%98%B6%E6%AE%B508_%E7%9C%9F%E5%AE%9EDLL_%E5%89%8D8ms%E9%94%81%E5%AE%9A%E4%B8%8E%E7%9B%B8%E4%BD%8D%E6%89%AB%E6%8F%8F.png">09_阶段08_真实DLL_前8ms锁定与相位扫描.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -417,7 +417,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/06_%E9%98%B6%E6%AE%B504_TX_CDC_AD9361_LVDS%E6%95%B0%E5%AD%97%E7%8E%AF%E5%9B%9E.png">06_阶段04_TX_CDC_AD9361_LVDS数字环回.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/07_%E9%98%B6%E6%AE%B506_%E7%9C%9F%E5%AE%9ERX_FIR_IP_%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94%E4%B8%8E%E5%B8%A6%E5%AE%BD.png">07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/08_%E9%98%B6%E6%AE%B507_RX%E5%89%8D%E7%AB%AF_FIR_FFT%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">08_阶段07_RX前端_FIR_FFT相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
-<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/09_%E9%98%B6%E6%AE%B508_%E7%9C%9F%E5%AE%9EDLL_100ms%E8%B7%9F%E8%B8%AA%E4%B8%8E%E6%94%B6%E6%95%9B.png">09_阶段08_真实DLL_100ms跟踪与收敛.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/09_%E9%98%B6%E6%AE%B508_%E7%9C%9F%E5%AE%9EDLL_%E5%89%8D8ms%E9%94%81%E5%AE%9A%E4%B8%8E%E7%9B%B8%E4%BD%8D%E6%89%AB%E6%8F%8F.png">09_阶段08_真实DLL_前8ms锁定与相位扫描.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/entrypoints/run_dsss_migration.m；scripts/tools/audit_dsss_migration.py；scripts/tools/export_dsss_ad9361_model.m；scripts/tools/validate_dsss_model_tx.m；rtl_cosim/ad9361/tb_model_tx.v；fpga_ad9361/tools/build_from_simulink.py</p>
 </details></article>
 <article id="script_calibration"><h3>26 RX接口：IDELAY扫描及radio复位门控</h3>
@@ -889,6 +889,6 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details>
 <details><summary>08_阶段07_RX前端_FIR_FFT相关捕获.png</summary><p>已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。</p>
 </details>
-<details><summary>09_阶段08_真实DLL_100ms跟踪与收敛.png</summary><p>已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及全部生成IP完成-160 ns至+160 ns输入相位扫描，测得最佳交接点-8个250MHz时钟（-32 ns），Prompt=2.40024e8且Early=Late=1.20144e8。原测试边界+14拍偏差22拍（88 ns）；改用实测交接点后完成100 ms、100次积分，末10 ms平均归一化误差0.0002，Prompt/Early/Late均值为2.39976e8/1.20024e8/1.19976e8。在线全链已到首个DLL输出，07→08端到端相位交接仍需单独验收；不是AD9361/PCB实测。</p>
+<details><summary>09_阶段08_真实DLL_前8ms锁定与相位扫描.png</summary><p>已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及全部生成IP完成-160 ns至+160 ns输入相位扫描，最佳交接点-8个250MHz时钟（-32 ns）。原测试边界+14拍偏差22拍（88 ns）；改用实测交接点后100次积分严格间隔20000拍。注意20000拍@250MHz=80 us，100次仅覆盖8 ms；末0.8 ms平均归一化误差0.0002。完整100 ms时隙应有1250次结果，且07→08端到端交接仍待验收；不是AD9361/PCB实测。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

@@ -3035,9 +3035,9 @@
       "provenance": "已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。"
     },
     {
-      "relative_path": "08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_100ms跟踪与收敛.png",
-      "filename": "09_阶段08_真实DLL_100ms跟踪与收敛.png",
-      "status": "真实RTL/IP：100 ms锁定PASS；端到端交接待验收",
+      "relative_path": "08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_前8ms锁定与相位扫描.png",
+      "filename": "09_阶段08_真实DLL_前8ms锁定与相位扫描.png",
+      "status": "真实RTL/IP：前8 ms锁定PASS；100 ms全时隙待跑",
       "module_refs": [
         {
           "id": "ad_dll",
@@ -3049,7 +3049,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及全部生成IP完成-160 ns至+160 ns输入相位扫描，测得最佳交接点-8个250MHz时钟（-32 ns），Prompt=2.40024e8且Early=Late=1.20144e8。原测试边界+14拍偏差22拍（88 ns）；改用实测交接点后完成100 ms、100次积分，末10 ms平均归一化误差0.0002，Prompt/Early/Late均值为2.39976e8/1.20024e8/1.19976e8。在线全链已到首个DLL输出，07→08端到端相位交接仍需单独验收；不是AD9361/PCB实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及全部生成IP完成-160 ns至+160 ns输入相位扫描，最佳交接点-8个250MHz时钟（-32 ns）。原测试边界+14拍偏差22拍（88 ns）；改用实测交接点后100次积分严格间隔20000拍。注意20000拍@250MHz=80 us，100次仅覆盖8 ms；末0.8 ms平均归一化误差0.0002。完整100 ms时隙应有1250次结果，且07→08端到端交接仍待验收；不是AD9361/PCB实测。"
     }
   ],
   "layout_verification": {
