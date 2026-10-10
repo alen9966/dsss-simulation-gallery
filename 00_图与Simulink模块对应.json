@@ -3012,6 +3012,27 @@
         }
       ],
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png",
+      "filename": "08_阶段07_RX前端_FIR_FFT相关捕获.png",
+      "status": "真实RTL/IP串联：PASS；输入为功能信道向量",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。"
     }
   ],
   "layout_verification": {

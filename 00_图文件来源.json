@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "copied_files": 66,
+  "copied_files": 67,
   "original_files_preserved": true,
   "files": [
     {
@@ -2467,6 +2467,36 @@
         }
       ],
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage07_rx_frontend_capture.png",
+      "filename": "08_阶段07_RX前端_FIR_FFT相关捕获.png",
+      "status": "真实RTL/IP串联：PASS；输入为功能信道向量",
+      "note": "4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。",
+      "requested_module_ids": [
+        "ad_rx",
+        "ad_dll",
+        "script_migration"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png",
+      "decoded_pixel_sha256": "cee237fd45607fab124a458756d4b9340d15a5dd40d380111052c05a925abcac",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。"
     }
   ]
 }

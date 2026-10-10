@@ -57,6 +57,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -72,6 +73,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；左中解扩星座、左下DLL误差
 对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 对应图：03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -414,6 +416,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/05_阶段03_TX量化_CDC_FIFO_DAC节拍.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png；登记的新图对应模块；场景及信号说明见图注
 
 26 RX接口：IDELAY扫描及radio复位门控
 
@@ -807,3 +810,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png
+来源：已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。

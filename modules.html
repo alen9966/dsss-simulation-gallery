@@ -78,6 +78,7 @@ hilite_system(&#x27;dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN&#x27;,&#x27;find
 <li><a href="02_FIR%E4%B8%8E%E5%A4%9A%E9%80%9F%E7%8E%87/01_%E8%BF%81%E7%A7%BB_TX201_RX48_%E6%8F%92%E5%80%BC5_FIR121.png">01_迁移_TX201_RX48_插值5_FIR121.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/06_%E9%98%B6%E6%AE%B504_TX_CDC_AD9361_LVDS%E6%95%B0%E5%AD%97%E7%8E%AF%E5%9B%9E.png">06_阶段04_TX_CDC_AD9361_LVDS数字环回.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/07_%E9%98%B6%E6%AE%B506_%E7%9C%9F%E5%AE%9ERX_FIR_IP_%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94%E4%B8%8E%E5%B8%A6%E5%AE%BD.png">07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/08_%E9%98%B6%E6%AE%B507_RX%E5%89%8D%E7%AB%AF_FIR_FFT%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">08_阶段07_RX前端_FIR_FFT相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -95,6 +96,7 @@ hilite_system(&#x27;dsss_ad9361_link/RX_signed12_interp5_FIR48&#x27;,&#x27;find&
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 左中解扩星座、左下DLL误差</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="03_FFT%E6%8D%95%E8%8E%B7/01_FFT%E9%85%8D%E7%BD%AE%E6%BC%8F%E6%8E%A5_%E7%9C%9F%E5%AE%9EIP%E5%A4%8D%E7%8E%B0%E4%B8%8E%E4%BF%AE%E5%A4%8D.png">01_FFT配置漏接_真实IP复现与修复.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/08_%E9%98%B6%E6%AE%B507_RX%E5%89%8D%E7%AB%AF_FIR_FFT%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">08_阶段07_RX前端_FIR_FFT相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -413,6 +415,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/05_%E9%98%B6%E6%AE%B503_TX%E9%87%8F%E5%8C%96_CDC_FIFO_DAC%E8%8A%82%E6%8B%8D.png">05_阶段03_TX量化_CDC_FIFO_DAC节拍.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/06_%E9%98%B6%E6%AE%B504_TX_CDC_AD9361_LVDS%E6%95%B0%E5%AD%97%E7%8E%AF%E5%9B%9E.png">06_阶段04_TX_CDC_AD9361_LVDS数字环回.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/07_%E9%98%B6%E6%AE%B506_%E7%9C%9F%E5%AE%9ERX_FIR_IP_%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94%E4%B8%8E%E5%B8%A6%E5%AE%BD.png">07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/08_%E9%98%B6%E6%AE%B507_RX%E5%89%8D%E7%AB%AF_FIR_FFT%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">08_阶段07_RX前端_FIR_FFT相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/entrypoints/run_dsss_migration.m；scripts/tools/audit_dsss_migration.py；scripts/tools/export_dsss_ad9361_model.m；scripts/tools/validate_dsss_model_tx.m；rtl_cosim/ad9361/tb_model_tx.v；fpga_ad9361/tools/build_from_simulink.py</p>
 </details></article>
 <article id="script_calibration"><h3>26 RX接口：IDELAY扫描及radio复位门控</h3>
@@ -881,5 +884,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <tr><td>节点特性</td><td>当前参数→运算/系数→响应</td><td>选中功能节点的实算特性或独立预算</td><td>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</td></tr>
 <tr><td>观测/参数</td><td>实际缓存波形、来源、生效范围</td><td>连续原始窗口或符号事件</td><td>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</td></tr>
 </table>
+</details>
+<details><summary>08_阶段07_RX前端_FIR_FFT相关捕获.png</summary><p>已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
