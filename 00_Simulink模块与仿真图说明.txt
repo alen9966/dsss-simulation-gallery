@@ -77,6 +77,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_前8ms锁定与相位扫描.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/12_阶段12_真实码相位时标与80ns跳变.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -108,6 +109,7 @@ dsss_ad9361_link/BPSK_Header_100Byte
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；标题帧数/BER的载荷来源
 对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/11_阶段10_真实Costas_BPSK与100字节解帧.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/12_阶段12_真实码相位时标与80ns跳变.png；登记的新图对应模块；场景及信号说明见图注
 
 B · 实际 RTL 导出对照模型
 模型文件：models/dsss_rtl_comparison.mdl；4 ns重放Xsim导出并运行整数参考。后端Costas和帧测试另在D组说明。
@@ -426,6 +428,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_前8ms锁定与相位扫描.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/10_阶段09_真实归一化_FIFO与TDD时序.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/11_阶段10_真实Costas_BPSK与100字节解帧.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/12_阶段12_真实码相位时标与80ns跳变.png；登记的新图对应模块；场景及信号说明见图注
 
 26 RX接口：IDELAY扫描及radio复位门控
 
@@ -831,3 +834,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/11_阶段10_真实Costas_BPSK与100字节解帧.png
 来源：已按登记信息关联模块；具体场景及信号说明：按每符号20000个250MHz时钟的生产节拍生成1184个Prompt事件，覆盖94.72ms，注入35度初相和1Hz频偏。真实rx_norm及8个IP、costas_loop_v2及CORDIC/定点PI/NCO IP、BPSK判决、帧头识别和串并转换串联；逻辑25.2ms后|Q/I|持续低于1%，末50点均值0.000244，末点相位误差小于0.1度；命中1次帧头并恢复100字节，0字节错、last=1。捕获和DLL在本段旁路，归一化FIFO的完整1250点跨100ms风险仍未解除。
+
+图：08_MATLAB_Simulink_RTL对照/12_阶段12_真实码相位时标与80ns跳变.png
+来源：已按登记信息关联模块；具体场景及信号说明：真实code_phase_est2及FIFO/累加IP对512个code_gap=15求平均，Q16输出983040；再送入两套真实time_diff_cal算术IP。仅将cap_loc由100改为101，时标由88060000ps变为88140000ps，严格相差80ns，确认实现中每个捕获位置格就是80ns。该段证明换算路径和敏感度，不证明实测相关峰为何在相邻格之间切换；阶段07理想向量的两次捕获均为929，实板仍需记录峰顶、次峰与门限。
