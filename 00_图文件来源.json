@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "copied_files": 74,
+  "copied_files": 76,
   "original_files_preserved": true,
   "files": [
     {
@@ -2722,6 +2722,56 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：固定工程记录的20,000点复数输入和生产cap_corr_i/q_3.coe，仅扫描rx_deci的20个250MHz抽取相位。第3拍(12ns)到第4拍(16ns)时，整数相关峰由928跳到927；time_diff_cal按cap_loc×80,000ps换算，因此输出正好变化-80ns。静态审计另发现RX PPS在user_clk域生成后直接送入fmc1_adc_clk域，已改为在fmc1_adc_clk域同步。该结果复现机制并定位当前CDC缺陷；没有历史故障时的ILA记录，不能冒充对当次硬件事件的逐拍回放。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
+      "filename": "experiment_selector_01_end_to_end.png",
+      "status": "交互界面：功能模型导航",
+      "note": "DSSS仿真实验系统V4.0入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "requested_module_ids": [
+        "script_ui"
+      ],
+      "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
+      "decoded_pixel_sha256": "d6949aa21257bca41e460e5f386c1746c4dadbe7ea5c04f44e9d694a50712bc2",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.0入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/parameter_tuning_v3/experiment_selector_80ns.png",
+      "filename": "16_阶段16_80ns诊断独立实验入口.png",
+      "status": "记录向量+生产COE诊断入口",
+      "note": "独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_rx",
+        "ad_dll"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
+      "decoded_pixel_sha256": "07420edf222b3058a41b835cd52f879bb2f7031579260f34937e1a20fd3e534b",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。"
     }
   ]
 }

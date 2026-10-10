@@ -62,6 +62,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：08_MATLAB_Simulink_RTL对照/11_阶段10_真实Costas_BPSK与100字节解帧.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/13_阶段13_TDD双站时隙与帧内处理余量.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -81,6 +82,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_前8ms锁定与相位扫描.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/12_阶段12_真实码相位时标与80ns跳变.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -388,6 +390,8 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：09_无线性能与鲁棒性/MATLAB节点实验室V3.2_保持型示波器与流式频谱.png；登记的新图对应模块；场景及信号说明见图注
 对应图：05_Costas环/MATLAB节点实验室V3.2_环路连续趋势.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/experiment_selector_01_end_to_end.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png；登记的新图对应模块；场景及信号说明见图注
 
 23 历史方案框图
 
@@ -858,3 +862,9 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png
 来源：已按登记信息关联模块；具体场景及信号说明：固定工程记录的20,000点复数输入和生产cap_corr_i/q_3.coe，仅扫描rx_deci的20个250MHz抽取相位。第3拍(12ns)到第4拍(16ns)时，整数相关峰由928跳到927；time_diff_cal按cap_loc×80,000ps换算，因此输出正好变化-80ns。静态审计另发现RX PPS在user_clk域生成后直接送入fmc1_adc_clk域，已改为在fmc1_adc_clk域同步。该结果复现机制并定位当前CDC缺陷；没有历史故障时的ILA记录，不能冒充对当次硬件事件的逐拍回放。
+
+图：00_导航与方案说明/experiment_selector_01_end_to_end.png
+来源：已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.0入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。
+
+图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png
+来源：已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。
