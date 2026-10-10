@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "copied_files": 69,
+  "copied_files": 70,
   "original_files_preserved": true,
   "files": [
     {
@@ -2552,6 +2552,41 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：真实rx_norm和8个生成IP完成681入/681出，输入3000/12000/6000对应输出均值4110/16441/8220，比例与符号正确。生产参数每80 us一个结果，80次跳过加500次标定约46.4 ms；输入停止后还等待200 us，再以1 us/样本回放FIFO。100 ms时隙的1250点约在100.2至101.45 ms输出，TDD换向必须保留RX链或改成流式归一化。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage10_costas_frame.png",
+      "filename": "11_阶段10_真实Costas_BPSK与100字节解帧.png",
+      "status": "真实RTL/IP单帧：PASS；TDD连续窗待验收",
+      "note": "按每符号20000个250MHz时钟的生产节拍生成1184个Prompt事件，覆盖94.72ms，注入35度初相和1Hz频偏。真实rx_norm及8个IP、costas_loop_v2及CORDIC/定点PI/NCO IP、BPSK判决、帧头识别和串并转换串联；逻辑25.2ms后|Q/I|持续低于1%，末50点均值0.000244，末点相位误差小于0.1度；命中1次帧头并恢复100字节，0字节错、last=1。捕获和DLL在本段旁路，归一化FIFO的完整1250点跨100ms风险仍未解除。",
+      "requested_module_ids": [
+        "ad_rx",
+        "ad_costas",
+        "ad_frame",
+        "script_migration"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/11_阶段10_真实Costas_BPSK与100字节解帧.png",
+      "decoded_pixel_sha256": "04937d27a7359489863a5d76f71c4e0c7edad0d1717d2a981e598cd6823b25d7",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_frame",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：按每符号20000个250MHz时钟的生产节拍生成1184个Prompt事件，覆盖94.72ms，注入35度初相和1Hz频偏。真实rx_norm及8个IP、costas_loop_v2及CORDIC/定点PI/NCO IP、BPSK判决、帧头识别和串并转换串联；逻辑25.2ms后|Q/I|持续低于1%，末50点均值0.000244，末点相位误差小于0.1度；命中1次帧头并恢复100字节，0字节错、last=1。捕获和DLL在本段旁路，归一化FIFO的完整1250点跨100ms风险仍未解除。"
     }
   ]
 }
