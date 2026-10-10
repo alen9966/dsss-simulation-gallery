@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "copied_files": 76,
+  "copied_files": 77,
   "original_files_preserved": true,
   "files": [
     {
@@ -2705,7 +2705,7 @@
         "script_migration"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png",
-      "decoded_pixel_sha256": "2a8949d8cd745f80159cf430a6a5a7ff7f6317a2b608375a96da643bbdfda67c",
+      "decoded_pixel_sha256": "70daf114126f9e2241ad131009d3d4c96aaf7e4aa6a36c82ed0465aa779e0068",
       "module_refs": [
         {
           "id": "ad_rx",
@@ -2772,6 +2772,36 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/parameter_tuning_v3/experiment_v4_sync_detail.png",
+      "filename": "experiment_selector_02_sync_detail_v4.png",
+      "status": "V4分组详细页：功能模型导航",
+      "note": "V4同步环路专项详细页，只显示RX FIR、FFT捕获、DLL、归一化、Costas、判决与时标节点；不再回到V3.3全节点框图。运行仍是功能模型，真实RTL分段和硬件测量边界保持独立。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_dll",
+        "ad_costas"
+      ],
+      "relative_path": "00_导航与方案说明/experiment_selector_02_sync_detail_v4.png",
+      "decoded_pixel_sha256": "ae3925c178863ecad1ed6f0a96244dbdc0c17ba82241039d2d826fbc1715636f",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：V4同步环路专项详细页，只显示RX FIR、FFT捕获、DLL、归一化、Costas、判决与时标节点；不再回到V3.3全节点框图。运行仍是功能模型，真实RTL分段和硬件测量边界保持独立。"
     }
   ]
 }

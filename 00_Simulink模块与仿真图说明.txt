@@ -83,6 +83,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：08_MATLAB_Simulink_RTL对照/12_阶段12_真实码相位时标与80ns跳变.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/experiment_selector_02_sync_detail_v4.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -100,6 +101,7 @@ dsss_ad9361_link/Normalization_Costas_raw40
 对应图：08_MATLAB_Simulink_RTL对照/10_阶段09_真实归一化_FIFO与TDD时序.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/11_阶段10_真实Costas_BPSK与100字节解帧.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/13_阶段13_TDD双站时隙与帧内处理余量.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/experiment_selector_02_sync_detail_v4.png；登记的新图对应模块；场景及信号说明见图注
 
 06 信息恢复：BPSK判决、帧头与100字节载荷
 dsss_ad9361_link/BPSK_Header_100Byte
@@ -392,6 +394,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/experiment_selector_01_end_to_end.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/experiment_selector_02_sync_detail_v4.png；登记的新图对应模块；场景及信号说明见图注
 
 23 历史方案框图
 
@@ -868,3 +871,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png
 来源：已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。
+
+图：00_导航与方案说明/experiment_selector_02_sync_detail_v4.png
+来源：已按登记信息关联模块；具体场景及信号说明：V4同步环路专项详细页，只显示RX FIR、FFT捕获、DLL、归一化、Costas、判决与时标节点；不再回到V3.3全节点框图。运行仍是功能模型，真实RTL分段和硬件测量边界保持独立。
