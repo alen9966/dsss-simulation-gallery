@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "copied_files": 72,
+  "copied_files": 73,
   "original_files_preserved": true,
   "files": [
     {
@@ -2657,6 +2657,41 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：真实dsss_tdd_scheduler与RX burst control重跑通过：两站角色互补，默认250MHz下25,000,000拍为100ms方向时隙、200ms往复周期，本地epoch门控、RX重启、漏发和TX跨时隙保护均通过。与阶段10真实后端证据合并后，1184符号帧输入94.72ms，100字节0错，末字节在95.987308ms输出，距换向还有4.012692ms。控制轨迹使用80拍加速遍历，测试台另行直接断言生产边界；捕获/DLL在线串联、双台站全波形和四时标交换尚未完成。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage14a_time_packet.png",
+      "filename": "14_阶段14A_四时标报文RTL与系统闭环缺口.png",
+      "status": "真实四时标报文RTL：PASS；双台站时标闭环待接通",
+      "note": "真实dsss_time_packet_tx/rx在Vivado 2018.3重跑通过：100字节MATLAB黄金向量与RTL逐字节及CRC一致，支持TX背压和4个64位ps时标；坏CRC、短/长包、11种有效CRC但格式非法报文均拒绝，解析器可恢复。该codec尚未接入payload/TDD状态机；TDD模式raw_time_valid固定为0，tx_start_clock不是RF标定时标，因此只能证明报文容器，不能证明钟差闭环。",
+      "requested_module_ids": [
+        "ad_frame",
+        "rtl_tdd",
+        "script_time_protocol",
+        "script_migration"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/14_阶段14A_四时标报文RTL与系统闭环缺口.png",
+      "decoded_pixel_sha256": "16bd511124b429e28b1b65dadeb44a4c97a68d64a37fa0018fb3e6d2483ca6be",
+      "module_refs": [
+        {
+          "id": "ad_frame",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_time_protocol",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实dsss_time_packet_tx/rx在Vivado 2018.3重跑通过：100字节MATLAB黄金向量与RTL逐字节及CRC一致，支持TX背压和4个64位ps时标；坏CRC、短/长包、11种有效CRC但格式非法报文均拒绝，解析器可恢复。该codec尚未接入payload/TDD状态机；TDD模式raw_time_valid固定为0，tx_start_clock不是RF标定时标，因此只能证明报文容器，不能证明钟差闭环。"
     }
   ]
 }
