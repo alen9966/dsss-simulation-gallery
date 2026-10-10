@@ -58,6 +58,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/10_阶段09_真实归一化_FIFO与TDD时序.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -89,6 +90,7 @@ dsss_ad9361_link/Normalization_Costas_raw40
 对应图：01_发送与接收波形/01_AD9361_单窗波形总览.png；右中星座与末段相位RMS
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；右中星座与末段相位RMS
 对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/10_阶段09_真实归一化_FIFO与TDD时序.png；登记的新图对应模块；场景及信号说明见图注
 
 06 信息恢复：BPSK判决、帧头与100字节载荷
 dsss_ad9361_link/BPSK_Header_100Byte
@@ -419,6 +421,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/08_阶段07_RX前端_FIR_FFT相关捕获.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_前8ms锁定与相位扫描.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/10_阶段09_真实归一化_FIFO与TDD时序.png；登记的新图对应模块；场景及信号说明见图注
 
 26 RX接口：IDELAY扫描及radio复位门控
 
@@ -818,3 +821,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_前8ms锁定与相位扫描.png
 来源：已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及全部生成IP完成-160 ns至+160 ns输入相位扫描，最佳交接点-8个250MHz时钟（-32 ns）。原测试边界+14拍偏差22拍（88 ns）；改用实测交接点后100次积分严格间隔20000拍。注意20000拍@250MHz=80 us，100次仅覆盖8 ms；末0.8 ms平均归一化误差0.0002。完整100 ms时隙应有1250次结果，且07→08端到端交接仍待验收；不是AD9361/PCB实测。
+
+图：08_MATLAB_Simulink_RTL对照/10_阶段09_真实归一化_FIFO与TDD时序.png
+来源：已按登记信息关联模块；具体场景及信号说明：真实rx_norm和8个生成IP完成681入/681出，输入3000/12000/6000对应输出均值4110/16441/8220，比例与符号正确。生产参数每80 us一个结果，80次跳过加500次标定约46.4 ms；输入停止后还等待200 us，再以1 us/样本回放FIFO。100 ms时隙的1250点约在100.2至101.45 ms输出，TDD换向必须保留RX链或改成流式归一化。

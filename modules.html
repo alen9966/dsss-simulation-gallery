@@ -79,6 +79,7 @@ hilite_system(&#x27;dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN&#x27;,&#x27;find
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/06_%E9%98%B6%E6%AE%B504_TX_CDC_AD9361_LVDS%E6%95%B0%E5%AD%97%E7%8E%AF%E5%9B%9E.png">06_阶段04_TX_CDC_AD9361_LVDS数字环回.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/07_%E9%98%B6%E6%AE%B506_%E7%9C%9F%E5%AE%9ERX_FIR_IP_%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94%E4%B8%8E%E5%B8%A6%E5%AE%BD.png">07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/08_%E9%98%B6%E6%AE%B507_RX%E5%89%8D%E7%AB%AF_FIR_FFT%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">08_阶段07_RX前端_FIR_FFT相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/10_%E9%98%B6%E6%AE%B509_%E7%9C%9F%E5%AE%9E%E5%BD%92%E4%B8%80%E5%8C%96_FIFO%E4%B8%8ETDD%E6%97%B6%E5%BA%8F.png">10_阶段09_真实归一化_FIFO与TDD时序.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -114,6 +115,7 @@ hilite_system(&#x27;dsss_ad9361_link/FFT1024_DLL_20000point&#x27;,&#x27;find&#x2
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 右中星座与末段相位RMS</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 右中星座与末段相位RMS</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/10_%E9%98%B6%E6%AE%B509_%E7%9C%9F%E5%AE%9E%E5%BD%92%E4%B8%80%E5%8C%96_FIFO%E4%B8%8ETDD%E6%97%B6%E5%BA%8F.png">10_阶段09_真实归一化_FIFO与TDD时序.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/dsss_costas_integer_update.m；scripts/system/dsss_costas_lock_metrics.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -418,6 +420,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/07_%E9%98%B6%E6%AE%B506_%E7%9C%9F%E5%AE%9ERX_FIR_IP_%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94%E4%B8%8E%E5%B8%A6%E5%AE%BD.png">07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/08_%E9%98%B6%E6%AE%B507_RX%E5%89%8D%E7%AB%AF_FIR_FFT%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">08_阶段07_RX前端_FIR_FFT相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/09_%E9%98%B6%E6%AE%B508_%E7%9C%9F%E5%AE%9EDLL_%E5%89%8D8ms%E9%94%81%E5%AE%9A%E4%B8%8E%E7%9B%B8%E4%BD%8D%E6%89%AB%E6%8F%8F.png">09_阶段08_真实DLL_前8ms锁定与相位扫描.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/10_%E9%98%B6%E6%AE%B509_%E7%9C%9F%E5%AE%9E%E5%BD%92%E4%B8%80%E5%8C%96_FIFO%E4%B8%8ETDD%E6%97%B6%E5%BA%8F.png">10_阶段09_真实归一化_FIFO与TDD时序.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/entrypoints/run_dsss_migration.m；scripts/tools/audit_dsss_migration.py；scripts/tools/export_dsss_ad9361_model.m；scripts/tools/validate_dsss_model_tx.m；rtl_cosim/ad9361/tb_model_tx.v；fpga_ad9361/tools/build_from_simulink.py</p>
 </details></article>
 <article id="script_calibration"><h3>26 RX接口：IDELAY扫描及radio复位门控</h3>
@@ -890,5 +893,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <details><summary>08_阶段07_RX前端_FIR_FFT相关捕获.png</summary><p>已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。</p>
 </details>
 <details><summary>09_阶段08_真实DLL_前8ms锁定与相位扫描.png</summary><p>已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及全部生成IP完成-160 ns至+160 ns输入相位扫描，最佳交接点-8个250MHz时钟（-32 ns）。原测试边界+14拍偏差22拍（88 ns）；改用实测交接点后100次积分严格间隔20000拍。注意20000拍@250MHz=80 us，100次仅覆盖8 ms；末0.8 ms平均归一化误差0.0002。完整100 ms时隙应有1250次结果，且07→08端到端交接仍待验收；不是AD9361/PCB实测。</p>
+</details>
+<details><summary>10_阶段09_真实归一化_FIFO与TDD时序.png</summary><p>已按登记信息关联模块；具体场景及信号说明：真实rx_norm和8个生成IP完成681入/681出，输入3000/12000/6000对应输出均值4110/16441/8220，比例与符号正确。生产参数每80 us一个结果，80次跳过加500次标定约46.4 ms；输入停止后还等待200 us，再以1 us/样本回放FIFO。100 ms时隙的1250点约在100.2至101.45 ms输出，TDD换向必须保留RX链或改成流式归一化。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
