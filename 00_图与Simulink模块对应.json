@@ -2111,6 +2111,23 @@
       "provenance": "已按登记信息关联模块；具体场景及信号说明：生产参数dsss_tx_250.v、FIR201 IP、12位量化、XPM异步FIFO和ad9361_lvds_1r1t.v发送/接收串联。1000组标记后I/Q逐点一致，帧错误为0；返回采样时钟相位2.5ns、传播占位0.5ns。这是RTL数字证据，实板仍需IDELAY扫描、眼图和AD9361联调。"
     },
     {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png",
+      "filename": "07_阶段06_真实RX_FIR_IP_冲激响应与带宽.png",
+      "status": "真实RTL/IP：PASS；参数适用性待确认",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：ddc_hb_filter.v与Vivado FIR Compiler真实IP仿真：250MHz连续valid、220点无X、I/Q一致，固定点冲激响应48个非零抽头且完全对称，包装器截位[30:15]。已修正POR计数器阻塞赋值竞争。实测-3dB带宽约58.0MHz，相对12.5Mcps信号过宽，需与AD9361内部FIR/HB联合确认；不是硬件测量。"
+    },
+    {
       "relative_path": "07_双向时隙与接口/02_RX_IDELAY扫描_逻辑故障验证.png",
       "filename": "02_RX_IDELAY扫描_逻辑故障验证.png",
       "status": "真实RTL逻辑测试，模拟接口边界",
