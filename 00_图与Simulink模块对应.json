@@ -2073,6 +2073,23 @@
       "provenance": "已按登记信息关联模块；具体场景及信号说明：dsss_tx_250.v生产配置动态验证：PN1000、1000码片/bit、20个250MHz时钟/码片、25000拍RF前保护，检查2200个码片并记录4096个真实201抽头FIR Compiler输出；另有加速参数两帧148字节状态机测试。只证明发送段，不代表RX、无线链路或硬件验收。"
     },
     {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/05_阶段03_TX量化_CDC_FIFO_DAC节拍.png",
+      "filename": "05_阶段03_TX量化_CDC_FIFO_DAC节拍.png",
+      "status": "真实RTL串联段 + XPM FIFO：PASS",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v、真实FIR201 IP、顶层相同的右移/12位饱和与iq_clock_bridge.v串联；250MHz写入、100MHz接口、50MSPS读出，7000点逐样本0误差，1997个非零样本，FIFO驻留时间固定418ns且无溢出欠载。尚未包含LVDS引脚、接收链或硬件。"
+    },
+    {
       "relative_path": "07_双向时隙与接口/02_RX_IDELAY扫描_逻辑故障验证.png",
       "filename": "02_RX_IDELAY扫描_逻辑故障验证.png",
       "status": "真实RTL逻辑测试，模拟接口边界",

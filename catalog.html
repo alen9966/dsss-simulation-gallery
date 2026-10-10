@@ -377,6 +377,11 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：dsss_tx_250.v生产配置动态验证：PN1000、1000码片/bit、20个250MHz时钟/码片、25000拍RF前保护，检查2200个码片并记录4096个真实201抽头FIR Compiler输出；另有加速参数两帧148字节状态机测试。只证明发送段，不代表RX、无线链路或硬件验收。</p>
 </details></article>
+<article data-era="current" data-modules="ad_tx script_migration"><span class="badge">真实RTL串联段 + XPM FIFO：PASS</span><h3>05_阶段03_TX量化_CDC_FIFO_DAC节拍.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/05_%E9%98%B6%E6%AE%B503_TX%E9%87%8F%E5%8C%96_CDC_FIFO_DAC%E8%8A%82%E6%8B%8D.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/05_%E9%98%B6%E6%AE%B503_TX%E9%87%8F%E5%8C%96_CDC_FIFO_DAC%E8%8A%82%E6%8B%8D.png" alt="05_阶段03_TX量化_CDC_FIFO_DAC节拍.png"></a><p>实际dsss_tx_250.v、真实FIR201 IP、顶层相同的右移/12位饱和与iq_clock_bridge.v串联；250MHz写入、100MHz接口、50MSPS读出，7000点逐样本0误差，1997个非零样本，FIFO驻留时间固定418ns且无溢出欠载。尚未包含LVDS引脚、接收链或硬件。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v、真实FIR201 IP、顶层相同的右移/12位饱和与iq_clock_bridge.v串联；250MHz写入、100MHz接口、50MSPS读出，7000点逐样本0误差，1997个非零样本，FIFO驻留时间固定418ns且无溢出欠载。尚未包含LVDS引脚、接收链或硬件。</p>
+</details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">当前MATLAB可视化参数探索：自定义FIR、Costas、码率与信道；与历史旧方案场景分开。功能探索不等于真实RTL或70km无线性能验收。</p><div class="grid">
 <article data-era="historical" data-modules="script_link"><span class="badge old">历史参考</span><h3>90_旧方案_无噪声70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" alt="90_旧方案_无噪声70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
