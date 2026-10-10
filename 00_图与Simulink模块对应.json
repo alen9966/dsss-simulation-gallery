@@ -3037,7 +3037,7 @@
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_100ms跟踪与收敛.png",
       "filename": "09_阶段08_真实DLL_100ms跟踪与收敛.png",
-      "status": "真实RTL/IP：100 ms运行PASS；锁定判据未达标",
+      "status": "真实RTL/IP：100 ms锁定PASS；端到端交接待验收",
       "module_refs": [
         {
           "id": "ad_dll",
@@ -3049,7 +3049,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及生成的PN ROM、累加/平方/开方/除法/环路滤波/NCO IP完成100 ms、100次积分，节拍严格为20000个250MHz时钟；末10 ms平均归一化鉴相误差0.2000，未达到0.05候选锁定判据。输入是独立生成的理想对齐PN流；全链在线诊断另已到达首个DLL输出，不属于AD9361/PCB实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及全部生成IP完成-160 ns至+160 ns输入相位扫描，测得最佳交接点-8个250MHz时钟（-32 ns），Prompt=2.40024e8且Early=Late=1.20144e8。原测试边界+14拍偏差22拍（88 ns）；改用实测交接点后完成100 ms、100次积分，末10 ms平均归一化误差0.0002，Prompt/Early/Late均值为2.39976e8/1.20024e8/1.19976e8。在线全链已到首个DLL输出，07→08端到端相位交接仍需单独验收；不是AD9361/PCB实测。"
     }
   ],
   "layout_verification": {
