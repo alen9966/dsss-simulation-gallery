@@ -10,7 +10,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 .module-links{font-size:14px;padding-left:18px}.module-links li{margin:7px 0}.filters{background:white;padding:14px;border-radius:8px;border:1px solid #dae2ec}.filters select{max-width:100%;padding:7px;font:inherit}.module-button{display:inline-block;padding:8px 16px;background:#075fa7;color:white;border-radius:6px;text-decoration:none}.panel-note{font-size:14px}.panel-note summary{cursor:pointer;color:#075fa7}
 .old,.pending{background:#fff0d5;color:#7c4a09}.note{color:#536476}section{margin-top:36px}
 </style><main><h1>完整图册</h1>
-<p>2026-10-09 · XC7Z045 + AD9361 · 已有图分类副本</p>
+<p>2026-10-10 · XC7Z045 + AD9361 · 已有图分类副本</p>
 <p><a href="00_图册索引.html">← 返回成果精选</a> · <a href="https://alen9966.github.io/dsss-simulation-gallery/">在线首页</a> · <a href="https://github.com/alen9966/dsss-simulation-gallery">GitHub仓库</a></p>
 <p class="note">按模块或证据类型查图；点击原图放大，展开图注可查取数节点。历史参考单独筛选，不代表新板验证。</p>
 <p><a href="migration.html">工程主线</a> · <a href="modules.html">模型与模块</a> · <a href="completion.html">近期补齐详情</a></p>
@@ -371,6 +371,11 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <p><strong>右上 · 前2000点的未对齐/标定后误差</strong><br>实际RTL减独立参考<br>统计基于160000点；曲线仅显示前2000点，8个A5比特。</p>
 <p><strong>左下 · 参考/5、右移3位与signed12饱和</strong><br>实际FIR样本经参考后处理 vs AD9361功能TX<br>后处理不是实际LVDS接口输出。</p>
 <p><strong>右下 · 160000个DSP点对齐误差</strong><br>独立FIR时钟对齐后的250MHz码值<br>全段误差0；不是LVDS/收发整链验收。</p>
+</details></article>
+<article data-era="current" data-modules="ad_tx script_migration"><span class="badge">真实RTL段 + 真实Vivado FIR IP：PASS</span><h3>04_阶段01_生产参数发送链_PN1000_FIR201.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/04_%E9%98%B6%E6%AE%B501_%E7%94%9F%E4%BA%A7%E5%8F%82%E6%95%B0%E5%8F%91%E9%80%81%E9%93%BE_PN1000_FIR201.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/04_%E9%98%B6%E6%AE%B501_%E7%94%9F%E4%BA%A7%E5%8F%82%E6%95%B0%E5%8F%91%E9%80%81%E9%93%BE_PN1000_FIR201.png" alt="04_阶段01_生产参数发送链_PN1000_FIR201.png"></a><p>dsss_tx_250.v生产配置动态验证：PN1000、1000码片/bit、20个250MHz时钟/码片、25000拍RF前保护，检查2200个码片并记录4096个真实201抽头FIR Compiler输出；另有加速参数两帧148字节状态机测试。只证明发送段，不代表RX、无线链路或硬件验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#script_migration">25 四阶段迁移与模型驱动交付</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：dsss_tx_250.v生产配置动态验证：PN1000、1000码片/bit、20个250MHz时钟/码片、25000拍RF前保护，检查2200个码片并记录4096个真实201抽头FIR Compiler输出；另有加速参数两帧148字节状态机测试。只证明发送段，不代表RX、无线链路或硬件验收。</p>
 </details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">当前MATLAB可视化参数探索：自定义FIR、Costas、码率与信道；与历史旧方案场景分开。功能探索不等于真实RTL或70km无线性能验收。</p><div class="grid">

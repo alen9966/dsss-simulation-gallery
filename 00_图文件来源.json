@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-09",
-  "copied_files": 62,
+  "date": "2026-10-10",
+  "copied_files": 63,
   "original_files_preserved": true,
   "files": [
     {
@@ -1244,6 +1244,31 @@
         }
       ],
       "provenance": "validate_dsss_model_tx读取实际dsss_tx_250/PN/真实FIR201 IP的Xsim输出，记录8000个码片，并按独立FIR延迟和首码片时刻对齐160000个DSP点；不是Scope截图。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage01_tx_production.png",
+      "filename": "04_阶段01_生产参数发送链_PN1000_FIR201.png",
+      "status": "真实RTL段 + 真实Vivado FIR IP：PASS",
+      "note": "dsss_tx_250.v生产配置动态验证：PN1000、1000码片/bit、20个250MHz时钟/码片、25000拍RF前保护，检查2200个码片并记录4096个真实201抽头FIR Compiler输出；另有加速参数两帧148字节状态机测试。只证明发送段，不代表RX、无线链路或硬件验收。",
+      "requested_module_ids": [
+        "ad_tx",
+        "script_migration"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/04_阶段01_生产参数发送链_PN1000_FIR201.png",
+      "decoded_pixel_sha256": "4d9ac1bbf0226fcb44205a4b431e627b5756c71cf362265122a419c06e6781e2",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：dsss_tx_250.v生产配置动态验证：PN1000、1000码片/bit、20个250MHz时钟/码片、25000拍RF前保护，检查2200个码片并记录4096个真实201抽头FIR Compiler输出；另有加速参数两帧148字节状态机测试。只证明发送段，不代表RX、无线链路或硬件验收。"
     },
     {
       "category": 7,
