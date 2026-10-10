@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "copied_files": 71,
+  "copied_files": 72,
   "original_files_preserved": true,
   "files": [
     {
@@ -2617,6 +2617,46 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：真实code_phase_est2及FIFO/累加IP对512个code_gap=15求平均，Q16输出983040；再送入两套真实time_diff_cal算术IP。仅将cap_loc由100改为101，时标由88060000ps变为88140000ps，严格相差80ns，确认实现中每个捕获位置格就是80ns。该段证明换算路径和敏感度，不证明实测相关峰为何在相邻格之间切换；阶段07理想向量的两次捕获均为929，实板仍需记录峰顶、次峰与门限。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage13_tdd_budget.png",
+      "filename": "13_阶段13_TDD双站时隙与帧内处理余量.png",
+      "status": "真实TDD控制RTL：PASS；当前单帧余量4.013 ms",
+      "note": "真实dsss_tdd_scheduler与RX burst control重跑通过：两站角色互补，默认250MHz下25,000,000拍为100ms方向时隙、200ms往复周期，本地epoch门控、RX重启、漏发和TX跨时隙保护均通过。与阶段10真实后端证据合并后，1184符号帧输入94.72ms，100字节0错，末字节在95.987308ms输出，距换向还有4.012692ms。控制轨迹使用80拍加速遍历，测试台另行直接断言生产边界；捕获/DLL在线串联、双台站全波形和四时标交换尚未完成。",
+      "requested_module_ids": [
+        "rtl_tdd",
+        "ad_rx",
+        "ad_costas",
+        "ad_frame",
+        "script_migration"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/13_阶段13_TDD双站时隙与帧内处理余量.png",
+      "decoded_pixel_sha256": "33f1b9d03adf86a3ebcda7036f59ad81b7c6200354fb1d2b58a0fcef846efa8b",
+      "module_refs": [
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_frame",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实dsss_tdd_scheduler与RX burst control重跑通过：两站角色互补，默认250MHz下25,000,000拍为100ms方向时隙、200ms往复周期，本地epoch门控、RX重启、漏发和TX跨时隙保护均通过。与阶段10真实后端证据合并后，1184符号帧输入94.72ms，100字节0错，末字节在95.987308ms输出，距换向还有4.012692ms。控制轨迹使用80拍加速遍历，测试台另行直接断言生产边界；捕获/DLL在线串联、双台站全波形和四时标交换尚未完成。"
     }
   ]
 }
