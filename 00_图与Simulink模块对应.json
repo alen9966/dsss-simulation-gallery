@@ -3033,6 +3033,23 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：4000点50MSPS功能信道接收向量依次进入真实complex_interp5、ddc_hb_filter/FIR Compiler、rx_deci和fft_cap_3/FFT/IFFT相关IP。两次独立复位捕获位置均为929，峰值4171060和3586932，每轮FFT/IFFT配置各握手一次，插值节拍错误0；输入不是AD9361或PCB实测。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/09_阶段08_真实DLL_100ms跟踪与收敛.png",
+      "filename": "09_阶段08_真实DLL_100ms跟踪与收敛.png",
+      "status": "真实RTL/IP：100 ms运行PASS；锁定判据未达标",
+      "module_refs": [
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实code_loop_3及生成的PN ROM、累加/平方/开方/除法/环路滤波/NCO IP完成100 ms、100次积分，节拍严格为20000个250MHz时钟；末10 ms平均归一化鉴相误差0.2000，未达到0.05候选锁定判据。输入是独立生成的理想对齐PN流；全链在线诊断另已到达首个DLL输出，不属于AD9361/PCB实测。"
     }
   ],
   "layout_verification": {
