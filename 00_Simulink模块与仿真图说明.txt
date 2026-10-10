@@ -25,6 +25,7 @@ dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12
 对应图：08_MATLAB_Simulink_RTL对照/03_实际发送器_PN_FIR201_模型对照.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/04_阶段01_生产参数发送链_PN1000_FIR201.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/05_阶段03_TX量化_CDC_FIFO_DAC节拍.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png；登记的新图对应模块；场景及信号说明见图注
 
 02 信道：70 km、频偏、采样钟差与噪声
 dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
@@ -54,6 +55,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：01_发送与接收波形/02_AD9361_双窗波形与收敛.png；接收前端相关级，本图没有直接画出其输出
 对应图：00_导航与方案说明/01_AD9361_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -409,6 +411,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/03_实际发送器_PN_FIR201_模型对照.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/04_阶段01_生产参数发送链_PN1000_FIR201.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/05_阶段03_TX量化_CDC_FIFO_DAC节拍.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png；登记的新图对应模块；场景及信号说明见图注
 
 26 RX接口：IDELAY扫描及radio复位门控
 
@@ -627,6 +630,9 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/05_阶段03_TX量化_CDC_FIFO_DAC节拍.png
 来源：已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v、真实FIR201 IP、顶层相同的右移/12位饱和与iq_clock_bridge.v串联；250MHz写入、100MHz接口、50MSPS读出，7000点逐样本0误差，1997个非零样本，FIFO驻留时间固定418ns且无溢出欠载。尚未包含LVDS引脚、接收链或硬件。
+
+图：08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png
+来源：已按登记信息关联模块；具体场景及信号说明：生产参数dsss_tx_250.v、FIR201 IP、12位量化、XPM异步FIFO和ad9361_lvds_1r1t.v发送/接收串联。1000组标记后I/Q逐点一致，帧错误为0；返回采样时钟相位2.5ns、传播占位0.5ns。这是RTL数字证据，实板仍需IDELAY扫描、眼图和AD9361联调。
 
 图：07_双向时隙与接口/02_RX_IDELAY扫描_逻辑故障验证.png
 来源：plot_dsss_rx_delay_validation读取实际Xsim扫描CSV；PRBS无错窗口由测试平台注入，非硬件测量。

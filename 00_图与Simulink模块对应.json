@@ -2090,6 +2090,27 @@
       "provenance": "已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v、真实FIR201 IP、顶层相同的右移/12位饱和与iq_clock_bridge.v串联；250MHz写入、100MHz接口、50MSPS读出，7000点逐样本0误差，1997个非零样本，FIFO驻留时间固定418ns且无溢出欠载。尚未包含LVDS引脚、接收链或硬件。"
     },
     {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/06_阶段04_TX_CDC_AD9361_LVDS数字环回.png",
+      "filename": "06_阶段04_TX_CDC_AD9361_LVDS数字环回.png",
+      "status": "真实RTL数字串联：PASS；板级待测",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_migration",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：生产参数dsss_tx_250.v、FIR201 IP、12位量化、XPM异步FIFO和ad9361_lvds_1r1t.v发送/接收串联。1000组标记后I/Q逐点一致，帧错误为0；返回采样时钟相位2.5ns、传播占位0.5ns。这是RTL数字证据，实板仍需IDELAY扫描、眼图和AD9361联调。"
+    },
+    {
       "relative_path": "07_双向时隙与接口/02_RX_IDELAY扫描_逻辑故障验证.png",
       "filename": "02_RX_IDELAY扫描_逻辑故障验证.png",
       "status": "真实RTL逻辑测试，模拟接口边界",
