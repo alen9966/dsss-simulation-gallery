@@ -13,7 +13,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <p>2026-10-12 · XC7Z045 + AD9361 · 已有图分类副本</p>
 <p><a href="00_图册索引.html">← 返回成果精选</a> · <a href="https://alen9966.github.io/dsss-simulation-gallery/">在线首页</a> · <a href="https://github.com/alen9966/dsss-simulation-gallery">GitHub仓库</a></p>
 <p class="note">按模块或证据类型查图；点击原图放大，展开图注可查取数节点。历史参考单独筛选，不代表新板验证。</p>
-<p><a href="migration.html">工程主线</a> · <a href="modules.html">模型与模块</a> · <a href="completion.html">近期补齐详情</a></p>
+<p><a href="migration.html">工程主线</a> · <a href="modules.html">模型与模块</a> · <a href="precision_evidence.html">时间精度证据链</a> · <a href="completion.html">近期补齐详情</a></p>
 <details><summary>按目录跳转 / 出图计划与来源</summary><p><a href="00_完整60项仿真图清单.txt">60项出图计划</a> · <a href="00_先看这里.txt">目录说明</a> · <a href="00_图文件来源.json">图源记录</a></p><nav>
 <a href="#c0">00_导航与方案说明</a>
 <a href="#c1">01_发送与接收波形</a>
@@ -156,6 +156,13 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</a>：登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：V4同步环路专项详细页，只显示RX FIR、FFT捕获、DLL、归一化、Costas、判决与时标节点；不再回到V3.3全节点框图。运行仍是功能模型，真实RTL分段和硬件测量边界保持独立。</p>
+</details></article>
+<article data-era="current" data-modules="script_time ad_dll ad_costas rtl_tdd"><span class="badge">工程证据索引 / 非新增性能结论</span><h3>11_时间精度数据证据链.svg</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/11_%E6%97%B6%E9%97%B4%E7%B2%BE%E5%BA%A6%E6%95%B0%E6%8D%AE%E8%AF%81%E6%8D%AE%E9%93%BE.svg" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/11_%E6%97%B6%E9%97%B4%E7%B2%BE%E5%BA%A6%E6%95%B0%E6%8D%AE%E8%AF%81%E6%8D%AE%E9%93%BE.svg" alt="11_时间精度数据证据链.svg"></a><p>将4 ns时钟、80 ns码片、100 ms时隙、512次码环平均、载波相位码值比例、当前MATLAB几ns模型和待验证的整机几百ps分级追溯。算术分辨率不等于测量精度；几百ps仍需ARM融合实现及PPS/TIC原始实测记录。详见precision_evidence.html。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_time">21 时间比对脚本与四时间戳示意</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#rtl_tdd">11 RTL对照：本地时隙公式与实际轨迹</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：将4 ns时钟、80 ns码片、100 ms时隙、512次码环平均、载波相位码值比例、当前MATLAB几ns模型和待验证的整机几百ps分级追溯。算术分辨率不等于测量精度；几百ps仍需ARM融合实现及PPS/TIC原始实测记录。详见precision_evidence.html。</p>
 </details></article>
 </div></section>
 <section data-category="1" id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">

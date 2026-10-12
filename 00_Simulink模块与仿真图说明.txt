@@ -94,6 +94,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：08_MATLAB_Simulink_RTL对照/20_V4_8_K3A参数与FFT峰简明诊断.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/21_V4_8_K3A参数连续时标滑窗.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/22_K3A铷钟报告参数接入对比.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/11_时间精度数据证据链.svg；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -112,6 +113,7 @@ dsss_ad9361_link/Normalization_Costas_raw40
 对应图：08_MATLAB_Simulink_RTL对照/11_阶段10_真实Costas_BPSK与100字节解帧.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/13_阶段13_TDD双站时隙与帧内处理余量.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/experiment_selector_02_sync_detail_v4.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/11_时间精度数据证据链.svg；登记的新图对应模块；场景及信号说明见图注
 
 06 信息恢复：BPSK判决、帧头与100字节载荷
 dsss_ad9361_link/BPSK_Header_100Byte
@@ -209,6 +211,7 @@ dsss_rtl_comparison/TDD_Error_Log
 对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/13_阶段13_TDD双站时隙与帧内处理余量.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/14_阶段14A_四时标报文RTL与系统闭环缺口.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/11_时间精度数据证据链.svg；登记的新图对应模块；场景及信号说明见图注
 
 C · 旧 70 MHz 中频参考模型
 模型文件：models/dsss_wireless_link.slx；旧70 MHz中频基准，保留参考。
@@ -358,6 +361,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 实现：legacy/sim/matlab_link/link_two_way_exchange.m；legacy/sim/matlab_link/link_time_message.m；legacy/sim/matlab_link/build_twoway_diagram.py
 对应图：10_双向时间比对/90_旧方案_四时间戳交换示意.png；独立协议模型/绘图
 对应图：10_双向时间比对/90_旧方案_四时间戳交换示意.svg；独立协议模型/绘图
+对应图：00_导航与方案说明/11_时间精度数据证据链.svg；登记的新图对应模块；场景及信号说明见图注
 
 22 MATLAB可视化调参及历史界面
 
@@ -909,3 +913,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/22_K3A铷钟报告参数接入对比.png
 来源：已按登记信息关联模块；具体场景及信号说明：对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。
+
+图：00_导航与方案说明/11_时间精度数据证据链.svg
+来源：已按登记信息关联模块；具体场景及信号说明：将4 ns时钟、80 ns码片、100 ms时隙、512次码环平均、载波相位码值比例、当前MATLAB几ns模型和待验证的整机几百ps分级追溯。算术分辨率不等于测量精度；几百ps仍需ARM融合实现及PPS/TIC原始实测记录。详见precision_evidence.html。

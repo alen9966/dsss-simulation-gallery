@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="825" viewBox="0 0 1600 825">
+<rect width="1600" height="825" fill="#f5f7fa"/>
+<rect x="42" y="35" width="1516" height="755" rx="16" fill="#fff" stroke="#d7e1eb"/>
+<text x="78" y="88" font-family="Microsoft YaHei,Arial" font-size="34" font-weight="700" fill="#17324d">时间精度数据证据链</text>
+<text x="78" y="126" font-family="Microsoft YaHei,Arial" font-size="20" fill="#587086">每个数字标明来源与边界；RTL数值分辨率不能替代整机实测精度</text>
+<rect x="62" y="140" width="1476" height="50" rx="8" fill="#173f68"/>
+<text x="78" y="173" font-family="Microsoft YaHei,Arial" font-size="19" font-weight="700" fill="#fff">关键数字</text>
+<text x="350" y="173" font-family="Microsoft YaHei,Arial" font-size="19" font-weight="700" fill="#fff">证据等级</text>
+<text x="590" y="173" font-family="Microsoft YaHei,Arial" font-size="19" font-weight="700" fill="#fff">直接来源</text>
+<text x="1160" y="173" font-family="Microsoft YaHei,Arial" font-size="19" font-weight="700" fill="#fff">解释边界</text>
+<rect x="62" y="166" width="1476" height="70" fill="#fbfcfe"/>
+<text x="78" y="207" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">250 MHz / 4 ns</text>
+<rect x="340" y="180" width="190" height="34" rx="17" fill="#dcecff"/>
+<text x="435" y="204" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">RTL事实</text>
+<text x="590" y="206" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">fmc1_fmc107g.xdc + MW_BiDir_Transceiver_Top.v</text>
+<text x="1160" y="206" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">时钟周期，不等于整机精度</text>
+<rect x="62" y="236" width="1476" height="70" fill="#f3f7fa"/>
+<text x="78" y="277" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">80 ns / chip</text>
+<rect x="340" y="250" width="190" height="34" rx="17" fill="#dcecff"/>
+<text x="435" y="274" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">RTL事实+计算</text>
+<text x="590" y="276" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">code_loop_3.v: PHASE_INC_1M=214748365</text>
+<text x="1160" y="276" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">250 MHz下约20拍/码片</text>
+<rect x="62" y="306" width="1476" height="70" fill="#fbfcfe"/>
+<text x="78" y="347" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">100 ms / 方向</text>
+<rect x="340" y="320" width="190" height="34" rx="17" fill="#dcecff"/>
+<text x="435" y="344" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">RTL事实+计算</text>
+<text x="590" y="346" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">tdd_ctrl.v: SLOT_LEN_VAL=25,000,000</text>
+<text x="1160" y="346" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">25,000,000 × 4 ns</text>
+<rect x="62" y="376" width="1476" height="70" fill="#f3f7fa"/>
+<text x="78" y="417" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">95 ms 发射帧</text>
+<rect x="340" y="390" width="190" height="34" rx="17" fill="#dcecff"/>
+<text x="435" y="414" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">RTL事实+计算</text>
+<text x="590" y="416" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">tx_phy_framing.v: RF_FRAME_LEN_VAL=23,750,000</text>
+<text x="1160" y="416" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">23,750,000 × 4 ns</text>
+<rect x="62" y="446" width="1476" height="70" fill="#fbfcfe"/>
+<text x="78" y="487" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">512次码环平均</text>
+<rect x="340" y="460" width="190" height="34" rx="17" fill="#dcecff"/>
+<text x="435" y="484" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">RTL事实</text>
+<text x="590" y="486" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">code_phase_est2.v: ACCUM_VAL=512</text>
+<text x="1160" y="486" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">7.8125 ps仅是算术量化步进</text>
+<rect x="62" y="516" width="1476" height="70" fill="#f3f7fa"/>
+<text x="78" y="557" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">0.2775 ps/相位码</text>
+<rect x="340" y="530" width="190" height="34" rx="17" fill="#dcecff"/>
+<text x="435" y="554" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">RTL常数计算</text>
+<text x="590" y="556" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">carrier_phase_est.v: 14,286 ps / 51,472</text>
+<text x="1160" y="556" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">不可直接当作测量精度</text>
+<rect x="62" y="586" width="1476" height="70" fill="#fbfcfe"/>
+<text x="78" y="627" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">当前MATLAB几ns</text>
+<rect x="340" y="600" width="190" height="34" rx="17" fill="#fff0c9"/>
+<text x="435" y="624" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">功能模型</text>
+<text x="590" y="626" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">dsss_timing_error_model.m</text>
+<text x="1160" y="626" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">含4 ns量化与2 ns DLL假设</text>
+<rect x="62" y="656" width="1476" height="70" fill="#f3f7fa"/>
+<text x="78" y="697" font-family="Microsoft YaHei,Arial" font-size="20" font-weight="700" fill="#19344d">整机几百ps</text>
+<rect x="340" y="670" width="190" height="34" rx="17" fill="#ffe0de"/>
+<text x="435" y="694" text-anchor="middle" font-family="Microsoft YaHei,Arial" font-size="16" font-weight="700" fill="#284d70">待实测证据</text>
+<text x="590" y="696" font-family="Consolas,Microsoft YaHei" font-size="17" fill="#263d52">需PPS/TIC原始记录 + ARM融合实现</text>
+<text x="1160" y="696" font-family="Microsoft YaHei,Arial" font-size="17" fill="#52677b">当前公开材料不能独立证明</text>
+<text x="78" y="773" font-family="Microsoft YaHei,Arial" font-size="16" fill="#6a7e91">证据等级：代码事实 ＞ 由常数可复算 ＞ RTL分段仿真 ＞ 功能模型/假设 ＞ 待硬件或ARM闭环确认</text>
+</svg>
