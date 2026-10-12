@@ -1620,7 +1620,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "f337c6cf74e1082f560b8f49beea5d8195d9c9e2d781e787f7c045bcaa4a1836",
+      "decoded_pixel_sha256": "1b724fb448d9790eca72b8ecf536dd385472df44f50ef030a8a3644e2ba661a8",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1653,7 +1653,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "02686f71749c27445992fe70d24dba4216eb70b5dfa6127266a24f7b56345bf0",
+      "decoded_pixel_sha256": "1f5267e98c6ee0ae4d272aad64d7459c8402211ec8172a5a35e6cfc4c71c4f99",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1686,7 +1686,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "c96c9aa45a786091266877bb78e0e41b0adec25e441a97a5907a3fd22361e7fc",
+      "decoded_pixel_sha256": "4b3789bb40a98a7106df0a63fa1c1cf025f34958fd2929777359e918504780c7",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2247,7 +2247,7 @@
         "script_ui"
       ],
       "relative_path": "10_双向时间比对/parameter_tuning_v3_node_timing.png",
-      "decoded_pixel_sha256": "64438ab6966ec3fb9892cb5fc29e3a6c714c3a744e78f83dcbc230507656aff3",
+      "decoded_pixel_sha256": "100bc28f4f572e8ba3c0c7bf37137070e767282bf7947ca868840911747322d1",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2313,7 +2313,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png",
-      "decoded_pixel_sha256": "a255242c4ad411d31ab88f1aa921b1b8f0b7f06545cb9dd3fc92f809a88d76fa",
+      "decoded_pixel_sha256": "82a56c365be6b38e38e4b8856bd5be33377b4165f6a2faf6c3a8e541d2efa467",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2346,7 +2346,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "decoded_pixel_sha256": "4017dec297ba4a4cc2047a7e2276a78f2d27e9ac0a372f817a912da8af90de13",
+      "decoded_pixel_sha256": "bcb3f1d3b67ddd78872ccca8311876416906eaab3ba2b7ab1cbd81047fe0d2f9",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2445,7 +2445,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "b8a2356f5d6cbd1cd0455ea0bc03e71209b3e2efcec5ce707543201060ce92b2",
+      "decoded_pixel_sha256": "05807e86ea2ca0430770b3d691952261d47006a1ec2bf38bb466dd8a043686b0",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.2入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.3入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "622fb1483bc5ffa678d15b5ed2599ac2726c4d83ce83123b011eff31bca04c8d",
+      "decoded_pixel_sha256": "1b1ddd1fca50e1d8da47123a014b0ac25f0de015a51f5293b70dc78e5a56d2db",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.2入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.3入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "3c4b3eb41993b6fa315615badd4cbe43b3d3e77e9cd7c9969c181ab062594144",
+      "decoded_pixel_sha256": "01a35aac05b543f1221a778b7e10594d83e01de2ba3e4954a1c1e4b5ed9fdde5",
       "module_refs": [
         {
           "id": "script_ui",
