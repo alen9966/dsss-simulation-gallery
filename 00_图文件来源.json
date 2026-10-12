@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "copied_files": 81,
+  "copied_files": 82,
   "original_files_preserved": true,
   "files": [
     {
@@ -1620,7 +1620,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "1b724fb448d9790eca72b8ecf536dd385472df44f50ef030a8a3644e2ba661a8",
+      "decoded_pixel_sha256": "6159f99b0843e76774ebd24ce0d322ab5cfbeb6c5e9cd02c02fc09871ef5fbc6",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1653,7 +1653,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "1f5267e98c6ee0ae4d272aad64d7459c8402211ec8172a5a35e6cfc4c71c4f99",
+      "decoded_pixel_sha256": "63b66a7ccce9ddf8ed8215515e0709c9f6d0b9ad11985133b747f25d303154dc",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1686,7 +1686,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "4b3789bb40a98a7106df0a63fa1c1cf025f34958fd2929777359e918504780c7",
+      "decoded_pixel_sha256": "8131d7d280c578bb4c0498468f426a4a03f995147e0d080ff901ccf467636010",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2247,7 +2247,7 @@
         "script_ui"
       ],
       "relative_path": "10_双向时间比对/parameter_tuning_v3_node_timing.png",
-      "decoded_pixel_sha256": "6f0339173cea3731346d545e04b78faabbd81c771b1c2fc55112fdecb2e8b69c",
+      "decoded_pixel_sha256": "7be5471ba5c0db6d5a2d29975f341c712fc87a8eea447dd57c256cce25a4b4d3",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2313,7 +2313,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png",
-      "decoded_pixel_sha256": "82a56c365be6b38e38e4b8856bd5be33377b4165f6a2faf6c3a8e541d2efa467",
+      "decoded_pixel_sha256": "6390ac2052be606809e274bb75f42678aacc8d1b33e212fd8b668209aebfd051",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2346,7 +2346,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "decoded_pixel_sha256": "bcb3f1d3b67ddd78872ccca8311876416906eaab3ba2b7ab1cbd81047fe0d2f9",
+      "decoded_pixel_sha256": "5dfc6736c6f6091606d6c412c19454856fd2a6a01f57b917e49d4a7ca4e60f9b",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2445,7 +2445,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "05807e86ea2ca0430770b3d691952261d47006a1ec2bf38bb466dd8a043686b0",
+      "decoded_pixel_sha256": "02e018449eabc479a86e19e7c0074907b6864404c221fb0864bb7b0f20935c74",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.4入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.5入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "447a188d29ad67293d05de34534d70c1e7b89d99d5c32f8b0b074d01d009e2b1",
+      "decoded_pixel_sha256": "42b36a8537e613cf8bea0cbd39ca09fea3015136f21a202c1d01748c85905b1a",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.4入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.5入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "344c57ad7cc959cdba08c4c270905fdecdcc0a287b2dca5edae550e5804dee9a",
+      "decoded_pixel_sha256": "fda8d5f7372c4bb1c8dc871c183ea323535c4c7203910f6cf4f22a06b23131d1",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2896,16 +2896,16 @@
     {
       "category": 8,
       "source": "project/results/parameter_tuning_v3/timing80_guard_compare_dashboard.png",
-      "filename": "20_V4_4_80ns保护前后对照界面.png",
-      "status": "V4.4时标调参界面：保护前后双图对照",
-      "note": "详细调参页将故障注入原始候选、未保护最终输出和峰值保护后最终输出明确分开。左图为未保护+80 ns，右图为候选+80 ns但保护输出0 ns。",
+      "filename": "20_V4_5_80ns四条时间曲线对照界面.png",
+      "status": "V4.5时标界面：无保护/有保护的单向与双向时间曲线",
+      "note": "时标页不再使用单次柱状A/B作为主观测。四条时间曲线分别是：无保护原始单向候选、无保护双向钟差误差、保护后单向最终输出、保护后双向钟差误差。单段截图显示窗口内行为；连续滚动验证另见21_V4_5图。",
       "requested_module_ids": [
         "script_ui",
         "ad_rx",
         "ad_dll"
       ],
-      "relative_path": "08_MATLAB_Simulink_RTL对照/20_V4_4_80ns保护前后对照界面.png",
-      "decoded_pixel_sha256": "539da5bc8eda4cb6cbb9606a67a15c2526daf5a2050a4e26ad816027d5ffa868",
+      "relative_path": "08_MATLAB_Simulink_RTL对照/20_V4_5_80ns四条时间曲线对照界面.png",
+      "decoded_pixel_sha256": "0e7d5d355d4de2f87de8a637680a55542259496e37c94e21b26d49bb386d68b7",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2921,7 +2921,37 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：详细调参页将故障注入原始候选、未保护最终输出和峰值保护后最终输出明确分开。左图为未保护+80 ns，右图为候选+80 ns但保护输出0 ns。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：时标页不再使用单次柱状A/B作为主观测。四条时间曲线分别是：无保护原始单向候选、无保护双向钟差误差、保护后单向最终输出、保护后双向钟差误差。单段截图显示窗口内行为；连续滚动验证另见21_V4_5图。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/parameter_tuning_v3/timing80_continuous_scope.png",
+      "filename": "21_V4_5_连续时标滑动窗口.png",
+      "status": "V4.5连续采集：时标累计超过100 s，显示最近51.2 s",
+      "note": "两个连续采集段后时标模型累计102.4 s，时间轴不清零；界面像示波器一样仅显示最近51.2 s窗口。六幅图分别显示标称误差/分布、无保护原始单向候选、无保护双向误差、保护后单向输出和保护后双向误差。属于功能时标模型，非硬件实测。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_dll",
+        "script_capture"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/21_V4_5_连续时标滑动窗口.png",
+      "decoded_pixel_sha256": "08bd0ce46e7c45e910512e1f917e3c4d41bf2c69b6f3cadddfbe347a2c3d64fa",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：两个连续采集段后时标模型累计102.4 s，时间轴不清零；界面像示波器一样仅显示最近51.2 s窗口。六幅图分别显示标称误差/分布、无保护原始单向候选、无保护双向误差、保护后单向输出和保护后双向误差。属于功能时标模型，非硬件实测。"
     }
   ]
 }
