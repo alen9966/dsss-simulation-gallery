@@ -3204,12 +3204,12 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.0入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
       "filename": "16_阶段16_80ns诊断独立实验入口.png",
-      "status": "记录向量+生产COE诊断入口",
+      "status": "V4.1：记录向量机制复现 + 真实RTL/IP波形回波入口",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3225,7 +3225,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：偶发80 ns诊断框图把记录I/Q相位扫描和真实RTL/IP波形回波实验分开。阶段15复现抽取相位引起的相邻峰切换；阶段17把延迟80 ns回波送入完整生产RX捕获链。两者均不是历史故障ILA或射频硬件实测。"
     },
     {
       "relative_path": "00_导航与方案说明/experiment_selector_02_sync_detail_v4.png",
@@ -3247,6 +3247,27 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：V4同步环路专项详细页，只显示RX FIR、FFT捕获、DLL、归一化、Costas、判决与时标节点；不再回到V3.3全节点框图。运行仍是功能模型，真实RTL分段和硬件测量边界保持独立。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/17_阶段17_真实RTL波形回波相邻峰跳变.png",
+      "filename": "17_阶段17_真实RTL波形回波相邻峰跳变.png",
+      "status": "真实RTL/IP波形回波：PASS；功能矢量，非硬件实测",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：50 MSPS功能物理I/Q叠加延迟80 ns、幅度4.0的确定性回波，经过真实complex_interp5、生产ddc_hb_fir、rx_deci以及fft_cap_3和生成FFT/IFFT/相关ROM/算术IP后，cap_loc相对无回波阶段7基准跳至相邻格，time_diff_cal对应80 ns。本结果证明波形与真实RTL/IP能够产生整码片跳变；输入不是RF硬件采样，也不是历史故障ILA。"
     }
   ],
   "layout_verification": {

@@ -63,6 +63,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：08_MATLAB_Simulink_RTL对照/13_阶段13_TDD双站时隙与帧内处理余量.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/17_阶段17_真实RTL波形回波相邻峰跳变.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -84,6 +85,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/experiment_selector_02_sync_detail_v4.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/17_阶段17_真实RTL波形回波相邻峰跳变.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -484,6 +486,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 参数：
 实现：fpga_ad9361/rtl/legacy/fft_cap_3.v；fpga_ad9361/sim/tb_fft_config.v；fpga_ad9361/sim/tb_capture.v；rtl_cosim/ad9361/tb_waveform.v；scripts/tools/plot_dsss_fft_config_repair.m
 对应图：03_FFT捕获/01_FFT配置漏接_真实IP复现与修复.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/17_阶段17_真实RTL波形回波相邻峰跳变.png；登记的新图对应模块；场景及信号说明见图注
 
 图：01_发送与接收波形/01_AD9361_单窗波形总览.png
 来源：MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。
@@ -867,10 +870,13 @@ D · 独立脚本与展示（非 Simulink 模块）
 来源：已按登记信息关联模块；具体场景及信号说明：固定工程记录的20,000点复数输入和生产cap_corr_i/q_3.coe，仅扫描rx_deci的20个250MHz抽取相位。第3拍(12ns)到第4拍(16ns)时，整数相关峰由928跳到927；time_diff_cal按cap_loc×80,000ps换算，因此输出正好变化-80ns。静态审计另发现RX PPS在user_clk域生成后直接送入fmc1_adc_clk域，已改为在fmc1_adc_clk域同步。该结果复现机制并定位当前CDC缺陷；没有历史故障时的ILA记录，不能冒充对当次硬件事件的逐拍回放。
 
 图：00_导航与方案说明/experiment_selector_01_end_to_end.png
-来源：已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.0入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。
+来源：已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。
 
 图：08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png
-来源：已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。
+来源：已按登记信息关联模块；具体场景及信号说明：偶发80 ns诊断框图把记录I/Q相位扫描和真实RTL/IP波形回波实验分开。阶段15复现抽取相位引起的相邻峰切换；阶段17把延迟80 ns回波送入完整生产RX捕获链。两者均不是历史故障ILA或射频硬件实测。
 
 图：00_导航与方案说明/experiment_selector_02_sync_detail_v4.png
 来源：已按登记信息关联模块；具体场景及信号说明：V4同步环路专项详细页，只显示RX FIR、FFT捕获、DLL、归一化、Costas、判决与时标节点；不再回到V3.3全节点框图。运行仍是功能模型，真实RTL分段和硬件测量边界保持独立。
+
+图：08_MATLAB_Simulink_RTL对照/17_阶段17_真实RTL波形回波相邻峰跳变.png
+来源：已按登记信息关联模块；具体场景及信号说明：50 MSPS功能物理I/Q叠加延迟80 ns、幅度4.0的确定性回波，经过真实complex_interp5、生产ddc_hb_fir、rx_deci以及fft_cap_3和生成FFT/IFFT/相关ROM/算术IP后，cap_loc相对无回波阶段7基准跳至相邻格，time_diff_cal对应80 ns。本结果证明波形与真实RTL/IP能够产生整码片跳变；输入不是RF硬件采样，也不是历史故障ILA。

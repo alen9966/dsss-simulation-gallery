@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "copied_files": 77,
+  "copied_files": 78,
   "original_files_preserved": true,
   "files": [
     {
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.0入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "936f227f5c423295aa1d892a98915af5bb374a8faf8c8af1635268b023dcf092",
+      "decoded_pixel_sha256": "a6dfcb28a5606d47e4a6c8a4175e2ea8cd0041a5eaeedd3c5b610f43e3f5734e",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,21 +2741,21 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.0入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
       "source": "project/results/parameter_tuning_v3/experiment_selector_80ns.png",
       "filename": "16_阶段16_80ns诊断独立实验入口.png",
-      "status": "记录向量+生产COE诊断入口",
-      "note": "独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。",
+      "status": "V4.1：记录向量机制复现 + 真实RTL/IP波形回波入口",
+      "note": "偶发80 ns诊断框图把记录I/Q相位扫描和真实RTL/IP波形回波实验分开。阶段15复现抽取相位引起的相邻峰切换；阶段17把延迟80 ns回波送入完整生产RX捕获链。两者均不是历史故障ILA或射频硬件实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_rx",
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "20cb2e8039a34a93009f18637da582310f9d530cd3fcf73de524a73feff64e73",
+      "decoded_pixel_sha256": "84b97ec304eabe8384ef56d0441e091c98343f40ad0f056a3c1516cadf2e1f46",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2771,7 +2771,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：偶发80 ns诊断框图把记录I/Q相位扫描和真实RTL/IP波形回波实验分开。阶段15复现抽取相位引起的相邻峰切换；阶段17把延迟80 ns回波送入完整生产RX捕获链。两者均不是历史故障ILA或射频硬件实测。"
     },
     {
       "category": 0,
@@ -2802,6 +2802,36 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：V4同步环路专项详细页，只显示RX FIR、FFT捕获、DLL、归一化、Costas、判决与时标节点；不再回到V3.3全节点框图。运行仍是功能模型，真实RTL分段和硬件测量边界保持独立。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage17_waveform_adjacent_peak.png",
+      "filename": "17_阶段17_真实RTL波形回波相邻峰跳变.png",
+      "status": "真实RTL/IP波形回波：PASS；功能矢量，非硬件实测",
+      "note": "50 MSPS功能物理I/Q叠加延迟80 ns、幅度4.0的确定性回波，经过真实complex_interp5、生产ddc_hb_fir、rx_deci以及fft_cap_3和生成FFT/IFFT/相关ROM/算术IP后，cap_loc相对无回波阶段7基准跳至相邻格，time_diff_cal对应80 ns。本结果证明波形与真实RTL/IP能够产生整码片跳变；输入不是RF硬件采样，也不是历史故障ILA。",
+      "requested_module_ids": [
+        "ad_rx",
+        "ad_dll",
+        "script_capture"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/17_阶段17_真实RTL波形回波相邻峰跳变.png",
+      "decoded_pixel_sha256": "9530ef38de9c31aae968655f51f5a0fe21d3abf1b3a2c95fae79193a48920327",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：50 MSPS功能物理I/Q叠加延迟80 ns、幅度4.0的确定性回波，经过真实complex_interp5、生产ddc_hb_fir、rx_deci以及fft_cap_3和生成FFT/IFFT/相关ROM/算术IP后，cap_loc相对无回波阶段7基准跳至相邻格，time_diff_cal对应80 ns。本结果证明波形与真实RTL/IP能够产生整码片跳变；输入不是RF硬件采样，也不是历史故障ILA。"
     }
   ]
 }
