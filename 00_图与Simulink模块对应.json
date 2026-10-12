@@ -3418,7 +3418,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：新增carrier_phase_fine_estimator、precision_timestamp_fuser和dsss_two_way_offset_avg。Xsim验证跨越0/2π的相位样本先解缠后平均，3 ns码时间误差被细相位校正，16次双向交换对注入350 ps钟差输出350 ps，坏交换不进入平均；XC7Z030全顶层RTL展开0错误。该结果是确定性RTL单元/分段验证，不是AD9361模拟通道、70 km链路、PPS边沿或整机200 ps验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：新增码NCO残差观测与码片内时间换算、carrier_phase_fine_estimator、precision_timestamp_fuser和dsss_two_way_offset_avg，并把精测信号引出到96端口模型顶层。Xsim验证半码片/四分之一码片残差、跨越0/2π的相位样本解缠平均、3 ns粗时间校正、16次双向交换对注入350 ps钟差输出350 ps且坏交换不进入平均；XC7Z030全顶层RTL展开0错误，既有66个IP的模型顶层展开0错误。该结果是确定性RTL单元/分段验证，不是AD9361模拟通道、70 km链路、PPS边沿或整机200 ps验收。"
     },
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/24_几百ps同步误差预算_实测铷钟与工程分配.png",

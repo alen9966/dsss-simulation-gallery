@@ -8,7 +8,7 @@
 <div class="step"><strong>01 · 原工程来源</strong><p class="metric">16 个 RTL</p><p>按声明修改核对；5份原COE一致</p></div>
 <div class="step"><strong>02 · 旧方案模型</strong><p class="metric">1 帧 / 0 位错</p><p>本次运行原70 MHz功能基线</p></div>
 <div class="step"><strong>03 · AD9361 模型</strong><p class="metric">2 个接收窗</p><p>功能双窗回归与Simulink一致</p></div>
-<div class="step"><strong>04 · 新 Vivado</strong><p class="metric">92 个端口</p><p>模型导出顶层；分段测试和展开核验</p></div>
+<div class="step"><strong>04 · 新 Vivado</strong><p class="metric">96 个端口</p><p>模型导出顶层；分段测试和展开核验</p></div>
 </div><section id="flow"><h2>1. 四阶段之间分别传递什么</h2><p>箭头代表有依据的工程迁移；每一级都必须保留输入、输出、参数来源与验证边界。</p>
 <div><button data-zoom="1">适合宽度</button><button data-zoom="2">放大2倍</button><button data-zoom="3">放大3倍</button></div><div class="flowview"><img id="migration-flow" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/03_%E5%9B%9B%E9%98%B6%E6%AE%B5%E8%BF%81%E7%A7%BB%E4%B8%BB%E7%BA%BF.svg" alt="四阶段迁移主线及验证关卡"></div><p class="muted">这是迁移流程示意。下列三个模型图来自实际 Simulink 导出。</p>
 <div class="tablewrap"><table><tr><th>阶段</th><th>实际文件</th><th>传给下一阶段的内容</th><th>已验证与边界</th></tr>
@@ -58,7 +58,7 @@
 <tr><td>真实IP FIR</td><td>五路共57,824个有效点，误差0</td><td>重新编译/执行Xsim，再运行RTL对照模型；有效位掩码及延迟对齐后比较。</td></tr>
 <tr><td>真实RTL后端</td><td>20,000时钟/符号；100字节，0字节错</td><td>1184个符号事件，80 μs正常输入节拍；绕过RF、前端、FFT/DLL，不等同完整无线链。</td></tr>
 <tr><td>真实解帧</td><td>3帧无复位，每帧100字节，0字节错</td><td>20,000时钟/输入比特；第3帧反极性测试。未包含CRC。</td></tr>
-<tr><td>模型导出与代码</td><td>92端口顶层，66个IP配置</td><td>模型导出后生成集成壳层并校验COE；算法RTL复用/适配。</td></tr>
+<tr><td>模型导出与代码</td><td>96端口顶层，66个IP配置</td><td>模型导出后生成集成壳层并校验COE；算法RTL复用/适配。</td></tr>
 <tr><td>Vivado展开</td><td>模型生成顶层及IP接口展开通过</td><td>使用已有690T仿真项目；74个加密IP底层宏仍为黑盒。行为由单独Xsim分段测试核验；非XC7Z045映射综合、时序或布局布线。</td></tr>
 </table></div><p class="boundary">当前功能Costas与真实RTL输出最大相差 36 码值。这项差异被保留并报告：两者采用不同归一化启动/缓冲、量化和旋转方式，不能把“FIR误差0”扩展为“整链定点误差0”。</p><details><summary>查看16个复用模块及声明修改</summary><div class="tablewrap"><table><tr><th>模块</th><th>原工程位置</th><th>适配位置</th><th>声明修改</th></tr>
 <tr><td><code>bpsk_demod</code></td><td><code>fm7vx690t2wmodule.srcs/sources_1/phy_rx/rtl/bpsk_demod.v</code></td><td><code>rtl\legacy\bpsk_demod.v</code></td><td>原样保留；本次审计一致。</td></tr>
