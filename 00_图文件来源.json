@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "copied_files": 79,
+  "copied_files": 81,
   "original_files_preserved": true,
   "files": [
     {
@@ -2247,7 +2247,7 @@
         "script_ui"
       ],
       "relative_path": "10_双向时间比对/parameter_tuning_v3_node_timing.png",
-      "decoded_pixel_sha256": "100bc28f4f572e8ba3c0c7bf37137070e767282bf7947ca868840911747322d1",
+      "decoded_pixel_sha256": "6f0339173cea3731346d545e04b78faabbd81c771b1c2fc55112fdecb2e8b69c",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.3入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.4入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "1b1ddd1fca50e1d8da47123a014b0ac25f0de015a51f5293b70dc78e5a56d2db",
+      "decoded_pixel_sha256": "447a188d29ad67293d05de34534d70c1e7b89d99d5c32f8b0b074d01d009e2b1",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.3入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.4入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "01a35aac05b543f1221a778b7e10594d83e01de2ba3e4954a1c1e4b5ed9fdde5",
+      "decoded_pixel_sha256": "344c57ad7cc959cdba08c4c270905fdecdcc0a287b2dca5edae550e5804dee9a",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2862,6 +2862,66 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：阶段18验证可综合保护状态机：单次相邻峰拒绝，连续5次候选受控切换，显式重捕获重新确认。1536组录制向量功能扫描中原始位置变化890次、相邻跳变457次，单帧保护后输出跳变0次。阶段19通过生产RX FIR/抽取/FFT/IFFT/相关ROM/算术IP得到原始cap_loc=930（+80 ns），保护后保持929（0 ns），告警和拒绝计数有效。本图不是硬件实测；保护尚未接入生产dsss_rx_250顶层，fft_cap_3尚未输出次峰/最早可信峰信息。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage19_peak_guard_ab_comparison.png",
+      "filename": "19_阶段17_19_80ns峰值保护前后对比.png",
+      "status": "真实RTL/IP功能激励：未保护+80 ns，保护后0 ns",
+      "note": "对照A使用阶段17生产RX FIR/抽取/FFT-IFFT/相关IP，相邻峰误选使最终结果由929跳到930，对应+80 ns。对照B使用阶段19同一捕获链加capture_peak_guard，原始候选仍为930/+80 ns，确认位置保持929，最终输出0 ns，valid=0、alarm=1、rejected=1。非硬件实测，生产顶层接入待完成。",
+      "requested_module_ids": [
+        "ad_rx",
+        "ad_dll",
+        "script_capture"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/19_阶段17_19_80ns峰值保护前后对比.png",
+      "decoded_pixel_sha256": "09f5a31f8d763d08d8f24ed7a73576212dc51bc63fcee390fb2204ca87bd62b2",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：对照A使用阶段17生产RX FIR/抽取/FFT-IFFT/相关IP，相邻峰误选使最终结果由929跳到930，对应+80 ns。对照B使用阶段19同一捕获链加capture_peak_guard，原始候选仍为930/+80 ns，确认位置保持929，最终输出0 ns，valid=0、alarm=1、rejected=1。非硬件实测，生产顶层接入待完成。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/parameter_tuning_v3/timing80_guard_compare_dashboard.png",
+      "filename": "20_V4_4_80ns保护前后对照界面.png",
+      "status": "V4.4时标调参界面：保护前后双图对照",
+      "note": "详细调参页将故障注入原始候选、未保护最终输出和峰值保护后最终输出明确分开。左图为未保护+80 ns，右图为候选+80 ns但保护输出0 ns。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_rx",
+        "ad_dll"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/20_V4_4_80ns保护前后对照界面.png",
+      "decoded_pixel_sha256": "539da5bc8eda4cb6cbb9606a67a15c2526daf5a2050a4e26ad816027d5ffa868",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：详细调参页将故障注入原始候选、未保护最终输出和峰值保护后最终输出明确分开。左图为未保护+80 ns，右图为候选+80 ns但保护输出0 ns。"
     }
   ]
 }
