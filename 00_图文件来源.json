@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-10-12",
   "copied_files": 77,
   "original_files_preserved": true,
   "files": [
@@ -2705,7 +2705,7 @@
         "script_migration"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/15_阶段15_偶发80ns_抽取相位复现.png",
-      "decoded_pixel_sha256": "70daf114126f9e2241ad131009d3d4c96aaf7e4aa6a36c82ed0465aa779e0068",
+      "decoded_pixel_sha256": "044325d66cb6880a104bb627362e2835ba111a64b72edc4e7de65b81a9666e19",
       "module_refs": [
         {
           "id": "ad_rx",
@@ -2733,7 +2733,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "d6949aa21257bca41e460e5f386c1746c4dadbe7ea5c04f44e9d694a50712bc2",
+      "decoded_pixel_sha256": "936f227f5c423295aa1d892a98915af5bb374a8faf8c8af1635268b023dcf092",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "07420edf222b3058a41b835cd52f879bb2f7031579260f34937e1a20fd3e534b",
+      "decoded_pixel_sha256": "20cb2e8039a34a93009f18637da582310f9d530cd3fcf73de524a73feff64e73",
       "module_refs": [
         {
           "id": "script_ui",
