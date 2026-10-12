@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "copied_files": 82,
+  "copied_files": 83,
   "original_files_preserved": true,
   "files": [
     {
@@ -1515,7 +1515,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/01_可配置DSSS_时频星座眼图与载荷.png",
-      "decoded_pixel_sha256": "d0ca2b4ef3b9f4842c1a558ab6731d0f277bdf60a3f8253b107843a5632f868e",
+      "decoded_pixel_sha256": "0de48a108df72352595f474219103084955ef772eb566659a7def5a0a38b83a1",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1620,7 +1620,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "b5201793f5f31fdc5134e75cede6fdc5f43475baea0a3afdabd991554047c2b8",
+      "decoded_pixel_sha256": "c527a80622175cb7480123d2854afeaedaf3f95841d0252092918def54ad9e26",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1653,7 +1653,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "3950d10bf9c6a42032212d81bd7a3004d60925cd4717e5f5bcb1944f8eb120f0",
+      "decoded_pixel_sha256": "d2c87f58e42cda91702455761f843f7ecf56cc8f447a4c3d1188498589cb9812",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1686,7 +1686,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "71e1cdd42a9bde234f9c5ea88807ebcebba3fe30b87a6b9684d947f7ccdf50e4",
+      "decoded_pixel_sha256": "2d496b68625b3ed2d6e82f67e5b4b3c820865d414bc5316a13e0ef29071487de",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1752,7 +1752,7 @@
         "script_ui"
       ],
       "relative_path": "06_帧同步与信息恢复/parameter_tuning_v3_node_frame.png",
-      "decoded_pixel_sha256": "dfbaa7c6333a7b8a9586248c06e466e732c8bcf740169bed165ae6d32cf2ee99",
+      "decoded_pixel_sha256": "8e1bd66220617d2064903cf852557eae57772cc1d0c739a2dab5e7c98da7db88",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1917,7 +1917,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/parameter_tuning_v3_node_channel.png",
-      "decoded_pixel_sha256": "59581fac4b605fcd76079129455db07aea5aaa719610b2413e64aece96d87dc8",
+      "decoded_pixel_sha256": "92718291e5ac44a619b4624d3dd6e93d682c0fc4f0a478fad1da8c08460faaf7",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1950,7 +1950,7 @@
         "script_ui"
       ],
       "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_rxrf.png",
-      "decoded_pixel_sha256": "a6d36793933d80d14bb5a3217baa223bb0a65ee057008ad5a89498a94d2e7252",
+      "decoded_pixel_sha256": "445220f400a82e971dd866e8cf5d21188f6968224d638985d7c84392cb33b6f6",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2016,7 +2016,7 @@
         "script_ui"
       ],
       "relative_path": "02_FIR与多速率/parameter_tuning_v3_node_rxfir.png",
-      "decoded_pixel_sha256": "a3150fb4bd2e3c8589b7117a4dae29043e32e841adbfac4a504baea821f46874",
+      "decoded_pixel_sha256": "803e3e9e5d65b41ab9996f5c7cb5076013abe2a07061c3c225e64361f89c3e16",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2049,7 +2049,7 @@
         "script_ui"
       ],
       "relative_path": "03_FFT捕获/parameter_tuning_v3_node_capture.png",
-      "decoded_pixel_sha256": "54a4bf4007b40e53c88a480263b8ce7f99af145f6654e1aace641ca24d5d9bad",
+      "decoded_pixel_sha256": "f1a67ea81c8a0b20003a3daaa18f649a29bf32bb93cd009ac13bf57c172c5e96",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2082,7 +2082,7 @@
         "script_ui"
       ],
       "relative_path": "04_DLL与解扩/parameter_tuning_v3_node_dll.png",
-      "decoded_pixel_sha256": "ac1629f34c97083e084669d6e4e10201ef02f930f322f0c63676a2975caa7970",
+      "decoded_pixel_sha256": "2a22544e447eebc4e6eed424343e1c62686c047be1e147b95ec3d57f265a5bd0",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2115,7 +2115,7 @@
         "script_ui"
       ],
       "relative_path": "05_Costas环/parameter_tuning_v3_node_norm.png",
-      "decoded_pixel_sha256": "dba985aa3a5f1171a6fc3f112fe7c9a857c5a79cccbceeb4db83180294b22edf",
+      "decoded_pixel_sha256": "3563e5833c4606c425a44450c66483eb237a759d2ac2bd2d590cbcd66e218bb6",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2148,7 +2148,7 @@
         "script_ui"
       ],
       "relative_path": "05_Costas环/parameter_tuning_v3_node_costas.png",
-      "decoded_pixel_sha256": "f24fef5898adf567aa1e32d6473bcb0d00c2c54fd38948868cfc0327c9617f8a",
+      "decoded_pixel_sha256": "93784ae7158548f9607b9bf7aac4ada0dad75e8ac8dc46892b63adc6fff58860",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2181,7 +2181,7 @@
         "script_ui"
       ],
       "relative_path": "02_FIR与多速率/parameter_tuning_v3_node_interp.png",
-      "decoded_pixel_sha256": "f9e815647d0f90a6528a1d0ce4acc3f6069623151622a2f552c503a6727ccb58",
+      "decoded_pixel_sha256": "6681a4baac091d0a9063081263d14dac5370b7f3ef9f8d7a887c9fb595790bbb",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2214,7 +2214,7 @@
         "script_ui"
       ],
       "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_interface.png",
-      "decoded_pixel_sha256": "a161843f5436b582cb81eead4922d4288a877f97aed4cfc86135c17e7cd96c27",
+      "decoded_pixel_sha256": "0479e5c22eb106c42e8f3b4eb39e3a8446431d394548133f1539e5b7e83b2808",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2247,7 +2247,7 @@
         "script_ui"
       ],
       "relative_path": "10_双向时间比对/parameter_tuning_v3_node_timing.png",
-      "decoded_pixel_sha256": "46b5668613a88fa39d24e21d93b61873b25194a1225baa974ba165df5e191cfa",
+      "decoded_pixel_sha256": "3ff20f7524cad0ffbe375da7c92d2a9b97904ec07b9f5ed629ec215a929758a5",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2280,7 +2280,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/parameter_tuning_v3_node_system.png",
-      "decoded_pixel_sha256": "dce038e2fa32c0c748373a90645d733a5ef51afa122e7c93e59dcaec8630bf1e",
+      "decoded_pixel_sha256": "7ae2b902cd5e125f2cacd623b08c00983b0d98e736fc47d658f66423050fa78b",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2313,7 +2313,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png",
-      "decoded_pixel_sha256": "76737a23abff5eba59ac1d0631aac872fee164568d3924ec937ce8da1d920427",
+      "decoded_pixel_sha256": "3e852fcbee6b028fcee53fc35a4a5f1ae2716b2df911f978443b028021d1bc7a",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2346,7 +2346,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "decoded_pixel_sha256": "32878e9fe12580c5938fce6864c90b12e55039efb176bc8ed8cd5490d835bb5a",
+      "decoded_pixel_sha256": "214d73db91e1973fa24374cdc12fa7390ef52af9cb6d2543eae5bdc6c7b88875",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2445,7 +2445,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "6ff2c20c485740fdb103993eb1f8627ea444c96d2bbeed0c9ff57a7ca12d6322",
+      "decoded_pixel_sha256": "fedc35c997394d4768fa601549ebc9090148ac89c287430d17b4ee8f519a9635",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.7入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.8入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "4fe70199da89b0bfc0186aaedf9967a6423d9b72df0a9bbcfa028ee4f7659127",
+      "decoded_pixel_sha256": "16fb0254d48df9337c5cc4fc5aa7b32c471945539b84fda6a3bbcfeadbe2720c",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.7入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.8入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "dbef834c5273331abd7e198c364c2d64a61834b25a67d5d296c281f53682a4d7",
+      "decoded_pixel_sha256": "d4e7cde1b83703366a09d842a51968983886ca914bd65360a809f94ffadcca67",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2896,16 +2896,16 @@
     {
       "category": 8,
       "source": "project/results/parameter_tuning_v3/timing80_guard_compare_dashboard.png",
-      "filename": "20_V4_7_误差来源与FFT峰简明诊断.png",
-      "status": "V4.7简明诊断：误差来源、FFT双峰、双向±40 ns与保护结果",
-      "note": "六区布局直接区分：铷钟/DLL/量化造成的几纳秒误差、FFT相邻峰误选造成的80 ns、单方向误选经双向半差形成的±40 ns，以及保护后的残余误差。",
+      "filename": "20_V4_8_K3A参数与FFT峰简明诊断.png",
+      "status": "V4.8简明诊断：K3A报告参数、FFT双峰、双向±40 ns与保护结果",
+      "note": "六区布局区分：K3A报告换算的铷钟项、仍待实测的DLL/量化误差、FFT相邻峰误选造成的80 ns，以及峰值保护后的双向结果。功能模型，不是硬件验收。",
       "requested_module_ids": [
         "script_ui",
         "ad_rx",
         "ad_dll"
       ],
-      "relative_path": "08_MATLAB_Simulink_RTL对照/20_V4_7_误差来源与FFT峰简明诊断.png",
-      "decoded_pixel_sha256": "4e74bb1c84e235bada5bb1922fc37a5e71f6a4fd077bf4c5a533d4377da9be92",
+      "relative_path": "08_MATLAB_Simulink_RTL对照/20_V4_8_K3A参数与FFT峰简明诊断.png",
+      "decoded_pixel_sha256": "bfcc50b03369a5e11e83b3e3285982f704effe747c05fb6df1064668af041e48",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2921,21 +2921,21 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：六区布局直接区分：铷钟/DLL/量化造成的几纳秒误差、FFT相邻峰误选造成的80 ns、单方向误选经双向半差形成的±40 ns，以及保护后的残余误差。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：六区布局区分：K3A报告换算的铷钟项、仍待实测的DLL/量化误差、FFT相邻峰误选造成的80 ns，以及峰值保护后的双向结果。功能模型，不是硬件验收。"
     },
     {
       "category": 8,
       "source": "project/results/parameter_tuning_v3/timing80_continuous_scope.png",
-      "filename": "21_V4_7_连续时标简明滑窗.png",
-      "status": "V4.7连续采集：简明误差来源、FFT峰与保护前后双向结果",
-      "note": "连续时间轴保持滑动；只显示理解原因所需的FFT双峰、两个方向候选、无保护双向±40 ns和保护后结果，避免重复单向曲线造成混乱。",
+      "filename": "21_V4_8_K3A参数连续时标滑窗.png",
+      "status": "V4.8连续采集：K3A报告参数下的FFT峰与保护前后双向结果",
+      "note": "连续滑窗采用两台K3A报告频率准确度作为默认参考钟频差；相邻峰压力场景仍为功能注入，保护结果仍待双机硬件验证。",
       "requested_module_ids": [
         "script_ui",
         "ad_dll",
         "script_capture"
       ],
-      "relative_path": "08_MATLAB_Simulink_RTL对照/21_V4_7_连续时标简明滑窗.png",
-      "decoded_pixel_sha256": "5b6b0d15cecc16b650055a27a309cc5c3b03a694652f9c3a71383aa60655e91e",
+      "relative_path": "08_MATLAB_Simulink_RTL对照/21_V4_8_K3A参数连续时标滑窗.png",
+      "decoded_pixel_sha256": "b536325daec84520826aeed43b31ae9bc204bfece657140517a55e47e9971622",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2951,7 +2951,32 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：连续时间轴保持滑动；只显示理解原因所需的FFT双峰、两个方向候选、无保护双向±40 ns和保护后结果，避免重复单向曲线造成混乱。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：连续滑窗采用两台K3A报告频率准确度作为默认参考钟频差；相邻峰压力场景仍为功能注入，保护结果仍待双机硬件验证。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/parameter_tuning_v3/rubidium_k3a_report_calibration.png",
+      "filename": "22_K3A铷钟报告参数接入对比.png",
+      "status": "功能参数标定：两台K3A报告值替换临时钟差假设",
+      "note": "对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_dll"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/22_K3A铷钟报告参数接入对比.png",
+      "decoded_pixel_sha256": "4e317ae61c0dfc5c25ee6486ede37d513bc06908be2555156df674ff2957c17d",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。"
     }
   ]
 }
