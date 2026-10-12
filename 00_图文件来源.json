@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "copied_files": 78,
+  "copied_files": 79,
   "original_files_preserved": true,
   "files": [
     {
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.2入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "a6dfcb28a5606d47e4a6c8a4175e2ea8cd0041a5eaeedd3c5b610f43e3f5734e",
+      "decoded_pixel_sha256": "622fb1483bc5ffa678d15b5ed2599ac2726c4d83ce83123b011eff31bca04c8d",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,21 +2741,21 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.2入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
       "source": "project/results/parameter_tuning_v3/experiment_selector_80ns.png",
       "filename": "16_阶段16_80ns诊断独立实验入口.png",
-      "status": "V4.1：记录向量机制复现 + 真实RTL/IP波形回波入口",
-      "note": "偶发80 ns诊断框图把记录I/Q相位扫描和真实RTL/IP波形回波实验分开。阶段15复现抽取相位引起的相邻峰切换；阶段17把延迟80 ns回波送入完整生产RX捕获链。两者均不是历史故障ILA或射频硬件实测。",
+      "status": "记录向量+生产COE诊断入口",
+      "note": "独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。",
       "requested_module_ids": [
         "script_ui",
         "ad_rx",
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "84b97ec304eabe8384ef56d0441e091c98343f40ad0f056a3c1516cadf2e1f46",
+      "decoded_pixel_sha256": "3c4b3eb41993b6fa315615badd4cbe43b3d3e77e9cd7c9969c181ab062594144",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2771,7 +2771,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：偶发80 ns诊断框图把记录I/Q相位扫描和真实RTL/IP波形回波实验分开。阶段15复现抽取相位引起的相邻峰切换；阶段17把延迟80 ns回波送入完整生产RX捕获链。两者均不是历史故障ILA或射频硬件实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。"
     },
     {
       "category": 0,
@@ -2832,6 +2832,36 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：50 MSPS功能物理I/Q叠加延迟80 ns、幅度4.0的确定性回波，经过真实complex_interp5、生产ddc_hb_fir、rx_deci以及fft_cap_3和生成FFT/IFFT/相关ROM/算术IP后，cap_loc相对无回波阶段7基准跳至相邻格，time_diff_cal对应80 ns。本结果证明波形与真实RTL/IP能够产生整码片跳变；输入不是RF硬件采样，也不是历史故障ILA。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage19_peak_guard_solution.png",
+      "filename": "18_阶段18_19_相邻峰保护消除80ns跳变.png",
+      "status": "峰值保护RTL+真实捕获链：PASS；生产顶层接入待完成",
+      "note": "阶段18验证可综合保护状态机：单次相邻峰拒绝，连续5次候选受控切换，显式重捕获重新确认。1536组录制向量功能扫描中原始位置变化890次、相邻跳变457次，单帧保护后输出跳变0次。阶段19通过生产RX FIR/抽取/FFT/IFFT/相关ROM/算术IP得到原始cap_loc=930（+80 ns），保护后保持929（0 ns），告警和拒绝计数有效。本图不是硬件实测；保护尚未接入生产dsss_rx_250顶层，fft_cap_3尚未输出次峰/最早可信峰信息。",
+      "requested_module_ids": [
+        "ad_rx",
+        "ad_dll",
+        "script_capture"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/18_阶段18_19_相邻峰保护消除80ns跳变.png",
+      "decoded_pixel_sha256": "3dc72ce9b6e90a3f08d03cdbdd935f5b4567ce04283b87db4eb52af6a12cb28e",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：阶段18验证可综合保护状态机：单次相邻峰拒绝，连续5次候选受控切换，显式重捕获重新确认。1536组录制向量功能扫描中原始位置变化890次、相邻跳变457次，单帧保护后输出跳变0次。阶段19通过生产RX FIR/抽取/FFT/IFFT/相关ROM/算术IP得到原始cap_loc=930（+80 ns），保护后保持929（0 ns），告警和拒绝计数有效。本图不是硬件实测；保护尚未接入生产dsss_rx_250顶层，fft_cap_3尚未输出次峰/最早可信峰信息。"
     }
   ]
 }
