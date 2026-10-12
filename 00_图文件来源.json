@@ -1620,7 +1620,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "a42db5b2f3c677683a8e1c2de17d1de16a8c61d14a4e414cf964c73bee008605",
+      "decoded_pixel_sha256": "b5201793f5f31fdc5134e75cede6fdc5f43475baea0a3afdabd991554047c2b8",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1653,7 +1653,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "b9399a2a3c161c33b59dc0aa2f66a9a167f09f97145fae0a012973dfa3b14e3c",
+      "decoded_pixel_sha256": "3950d10bf9c6a42032212d81bd7a3004d60925cd4717e5f5bcb1944f8eb120f0",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1686,7 +1686,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "fc64e9a7b2897d82965ad3009b6e06e112399a78e34d1c44549553658f326e02",
+      "decoded_pixel_sha256": "71e1cdd42a9bde234f9c5ea88807ebcebba3fe30b87a6b9684d947f7ccdf50e4",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2247,7 +2247,7 @@
         "script_ui"
       ],
       "relative_path": "10_双向时间比对/parameter_tuning_v3_node_timing.png",
-      "decoded_pixel_sha256": "b4e20e1ceb5179f10ff253debbd234d94dbf4adba988b1f0c6658843d9b9140c",
+      "decoded_pixel_sha256": "46b5668613a88fa39d24e21d93b61873b25194a1225baa974ba165df5e191cfa",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2313,7 +2313,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_完整AD9361链路框图.png",
-      "decoded_pixel_sha256": "ceb92752e7a3ab3903cead7e7567756dd78e201d001bc3cc2152a1eb17a6bfe1",
+      "decoded_pixel_sha256": "76737a23abff5eba59ac1d0631aac872fee164568d3924ec937ce8da1d920427",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2346,7 +2346,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "decoded_pixel_sha256": "8d09a986e08b99ed638dc6fd02533089f9e99eb8b13d8b3c2e1052447dcd92e4",
+      "decoded_pixel_sha256": "32878e9fe12580c5938fce6864c90b12e55039efb176bc8ed8cd5490d835bb5a",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2445,7 +2445,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "bd7c62d235dad9d19b9d09d5d6669567d5e0885d9658b69e207c8cdc92e393c3",
+      "decoded_pixel_sha256": "6ff2c20c485740fdb103993eb1f8627ea444c96d2bbeed0c9ff57a7ca12d6322",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.6入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.7入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "225d4ffa00e344907dea1bb42f099e3746b8cc4af7489b418b7f50d709814b84",
+      "decoded_pixel_sha256": "4fe70199da89b0bfc0186aaedf9967a6423d9b72df0a9bbcfa028ee4f7659127",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.6入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.7入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "c3cc49e806a79053102cd7a20f19940a0025dccdba397d45e60e441f4cd1fb29",
+      "decoded_pixel_sha256": "dbef834c5273331abd7e198c364c2d64a61834b25a67d5d296c281f53682a4d7",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2896,16 +2896,16 @@
     {
       "category": 8,
       "source": "project/results/parameter_tuning_v3/timing80_guard_compare_dashboard.png",
-      "filename": "20_V4_6_FFT峰与双向80ns保护诊断.png",
-      "status": "V4.6时标诊断：FFT相邻峰、双方向候选、保护前后单双向误差",
-      "note": "同页显示FFT相关峰原因图、A→B/B→A原始候选和保护后位置。双向钟差=(A→B-B→A)/2，因此仅一个方向错80 ns会形成±40 ns；锁定态保护输出不接受相邻整码片。",
+      "filename": "20_V4_7_误差来源与FFT峰简明诊断.png",
+      "status": "V4.7简明诊断：误差来源、FFT双峰、双向±40 ns与保护结果",
+      "note": "六区布局直接区分：铷钟/DLL/量化造成的几纳秒误差、FFT相邻峰误选造成的80 ns、单方向误选经双向半差形成的±40 ns，以及保护后的残余误差。",
       "requested_module_ids": [
         "script_ui",
         "ad_rx",
         "ad_dll"
       ],
-      "relative_path": "08_MATLAB_Simulink_RTL对照/20_V4_6_FFT峰与双向80ns保护诊断.png",
-      "decoded_pixel_sha256": "4f3878dc9c19959fbc7a74f4ebc82b0bf463cec42238613acde4b76e10dcf076",
+      "relative_path": "08_MATLAB_Simulink_RTL对照/20_V4_7_误差来源与FFT峰简明诊断.png",
+      "decoded_pixel_sha256": "4e74bb1c84e235bada5bb1922fc37a5e71f6a4fd077bf4c5a533d4377da9be92",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2921,21 +2921,21 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：同页显示FFT相关峰原因图、A→B/B→A原始候选和保护后位置。双向钟差=(A→B-B→A)/2，因此仅一个方向错80 ns会形成±40 ns；锁定态保护输出不接受相邻整码片。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：六区布局直接区分：铷钟/DLL/量化造成的几纳秒误差、FFT相邻峰误选造成的80 ns、单方向误选经双向半差形成的±40 ns，以及保护后的残余误差。"
     },
     {
       "category": 8,
       "source": "project/results/parameter_tuning_v3/timing80_continuous_scope.png",
-      "filename": "21_V4_6_连续时标FFT峰与保护滑窗.png",
-      "status": "V4.6连续采集：累计时间滑窗、FFT峰竞争与锁定态保护",
-      "note": "连续两段累计超过100 s；显示FFT直接峰/延迟一整码片回波峰、两个方向原始候选、无保护双向±40 ns以及保护后结果。锁定态只报警并请求重捕获，不把相邻峰直接送入时标。",
+      "filename": "21_V4_7_连续时标简明滑窗.png",
+      "status": "V4.7连续采集：简明误差来源、FFT峰与保护前后双向结果",
+      "note": "连续时间轴保持滑动；只显示理解原因所需的FFT双峰、两个方向候选、无保护双向±40 ns和保护后结果，避免重复单向曲线造成混乱。",
       "requested_module_ids": [
         "script_ui",
         "ad_dll",
         "script_capture"
       ],
-      "relative_path": "08_MATLAB_Simulink_RTL对照/21_V4_6_连续时标FFT峰与保护滑窗.png",
-      "decoded_pixel_sha256": "abf615768db48584f01ac7b442855b0c1615b2b1ba91295254723884a2a193c2",
+      "relative_path": "08_MATLAB_Simulink_RTL对照/21_V4_7_连续时标简明滑窗.png",
+      "decoded_pixel_sha256": "5b6b0d15cecc16b650055a27a309cc5c3b03a694652f9c3a71383aa60655e91e",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2951,7 +2951,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：连续两段累计超过100 s；显示FFT直接峰/延迟一整码片回波峰、两个方向原始候选、无保护双向±40 ns以及保护后结果。锁定态只报警并请求重捕获，不把相邻峰直接送入时标。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：连续时间轴保持滑动；只显示理解原因所需的FFT双峰、两个方向候选、无保护双向±40 ns和保护后结果，避免重复单向曲线造成混乱。"
     }
   ]
 }
