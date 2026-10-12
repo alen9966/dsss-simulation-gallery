@@ -1,7 +1,7 @@
 {
   "passed": true,
   "checks": [
-    "ASCII launcher runs actual frame",
+    "detailed node dashboard runs actual frame",
     "zero payload BER is separated from nonzero nominal timing error",
     "adjacent-peak stress produces occasional full-chip slips",
     "two-way half-difference exposes half-chip steps",
