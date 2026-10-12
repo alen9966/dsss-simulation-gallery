@@ -3394,6 +3394,112 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：将4 ns时钟、80 ns码片、100 ms时隙、512次码环平均、载波相位码值比例、当前MATLAB几ns模型和待验证的整机几百ps分级追溯。算术分辨率不等于测量精度；几百ps仍需ARM融合实现及PPS/TIC原始实测记录。详见precision_evidence.html。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/23_阶段20_几百ps精测RTL链路.png",
+      "filename": "23_阶段20_几百ps精测RTL链路.png",
+      "status": "真实可综合RTL分段：跨周平均、粗细融合、四时间戳双向计算PASS",
+      "module_refs": [
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_time",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：新增carrier_phase_fine_estimator、precision_timestamp_fuser和dsss_two_way_offset_avg。Xsim验证跨越0/2π的相位样本先解缠后平均，3 ns码时间误差被细相位校正，16次双向交换对注入350 ps钟差输出350 ps，坏交换不进入平均；XC7Z030全顶层RTL展开0错误。该结果是确定性RTL单元/分段验证，不是AD9361模拟通道、70 km链路、PPS边沿或整机200 ps验收。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/24_几百ps同步误差预算_实测铷钟与工程分配.png",
+      "filename": "24_几百ps同步误差预算_实测铷钟与工程分配.png",
+      "status": "MATLAB预算模型：铷钟为实测输入，其余为明示工程分配；非硬件验收",
+      "module_refs": [
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_time",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：两台报告实测频率准确度2.5e-12与6.0e-12保守换算：100 ms相对漂移0.85 ps，500 ms为4.25 ps。图中129.6 ps为相位随机80 ps/单时间戳、16次双向平均、相位/群时延标定80 ps、路径不对称100 ps等明示分配的RSS预算；这些AD9361和信道项尚待同轴、双机与70 km实测替换。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_image26_8068251e.png",
+      "filename": "80_新成果待归类_image26_8068251e.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_image34_8b5db097.png",
+      "filename": "80_新成果待归类_image34_8b5db097.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_image35_9ef6f6f4.png",
+      "filename": "80_新成果待归类_image35_9ef6f6f4.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_image49_34f5f9e3.jpeg",
+      "filename": "80_新成果待归类_image49_34f5f9e3.jpeg",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_image49_2f2422fe.png",
+      "filename": "80_新成果待归类_image49_2f2422fe.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_image50_9a042307.jpeg",
+      "filename": "80_新成果待归类_image50_9a042307.jpeg",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_image50_6a42d832.png",
+      "filename": "80_新成果待归类_image50_6a42d832.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
     }
   ],
   "layout_verification": {
