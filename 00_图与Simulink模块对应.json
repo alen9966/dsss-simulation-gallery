@@ -3444,62 +3444,6 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：两台报告实测频率准确度2.5e-12与6.0e-12保守换算：100 ms相对漂移0.85 ps，500 ms为4.25 ps。图中129.6 ps为相位随机80 ps/单时间戳、16次双向平均、相位/群时延标定80 ps、路径不对称100 ps等明示分配的RSS预算；这些AD9361和信道项尚待同轴、双机与70 km实测替换。"
-    },
-    {
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image26_8068251e.png",
-      "filename": "80_新成果待归类_image26_8068251e.png",
-      "status": "待确认",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image34_8b5db097.png",
-      "filename": "80_新成果待归类_image34_8b5db097.png",
-      "status": "待确认",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image35_9ef6f6f4.png",
-      "filename": "80_新成果待归类_image35_9ef6f6f4.png",
-      "status": "待确认",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image49_34f5f9e3.jpeg",
-      "filename": "80_新成果待归类_image49_34f5f9e3.jpeg",
-      "status": "待确认",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image49_2f2422fe.png",
-      "filename": "80_新成果待归类_image49_2f2422fe.png",
-      "status": "待确认",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image50_9a042307.jpeg",
-      "filename": "80_新成果待归类_image50_9a042307.jpeg",
-      "status": "待确认",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image50_6a42d832.png",
-      "filename": "80_新成果待归类_image50_6a42d832.png",
-      "status": "待确认",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
     }
   ],
   "layout_verification": {

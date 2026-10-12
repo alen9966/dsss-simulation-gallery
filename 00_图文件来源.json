@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "copied_files": 93,
+  "copied_files": 86,
   "original_files_preserved": true,
   "files": [
     {
@@ -3081,90 +3081,6 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：两台报告实测频率准确度2.5e-12与6.0e-12保守换算：100 ms相对漂移0.85 ps，500 ms为4.25 ps。图中129.6 ps为相位随机80 ps/单时间戳、16次双向平均、相位/群时延标定80 ps、路径不对称100 ps等明示分配的RSS预算；这些AD9361和信道项尚待同轴、双机与70 km实测替换。"
-    },
-    {
-      "category": 0,
-      "source": "project/results/precision_docx_media/image26.png",
-      "filename": "80_新成果待归类_image26_8068251e.png",
-      "status": "待确认",
-      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image26_8068251e.png",
-      "decoded_pixel_sha256": "48a5cc7180fc229c3682d49430e58f40b96ad7bafed308680c0087d258be5f30",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "category": 0,
-      "source": "project/results/precision_docx_media/image34.png",
-      "filename": "80_新成果待归类_image34_8b5db097.png",
-      "status": "待确认",
-      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image34_8b5db097.png",
-      "decoded_pixel_sha256": "c1ae88e69d2941ce6227cecfe8472a11bc0254998713bcf38c757d9e07f99091",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "category": 0,
-      "source": "project/results/precision_docx_media/image35.png",
-      "filename": "80_新成果待归类_image35_9ef6f6f4.png",
-      "status": "待确认",
-      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image35_9ef6f6f4.png",
-      "decoded_pixel_sha256": "25cb302017d81c2edd9ed1e7dd8995aa0133018529396c14eee5f0a2f9670d42",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "category": 0,
-      "source": "project/results/precision_docx_media/image49.jpeg",
-      "filename": "80_新成果待归类_image49_34f5f9e3.jpeg",
-      "status": "待确认",
-      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image49_34f5f9e3.jpeg",
-      "decoded_pixel_sha256": "5df2be4b82a448ae225f4aff4477a020f36fcf9bbdb3b81d38c8982518fd3500",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "category": 0,
-      "source": "project/results/precision_docx_media/image49.png",
-      "filename": "80_新成果待归类_image49_2f2422fe.png",
-      "status": "待确认",
-      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image49_2f2422fe.png",
-      "decoded_pixel_sha256": "5df2be4b82a448ae225f4aff4477a020f36fcf9bbdb3b81d38c8982518fd3500",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "category": 0,
-      "source": "project/results/precision_docx_media/image50.jpeg",
-      "filename": "80_新成果待归类_image50_9a042307.jpeg",
-      "status": "待确认",
-      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image50_9a042307.jpeg",
-      "decoded_pixel_sha256": "4723191b183f60ef0a2fac254f994f6aa1b259fb97fd4c7b43837ae3f5bf25c4",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
-    },
-    {
-      "category": 0,
-      "source": "project/results/precision_docx_media/image50.png",
-      "filename": "80_新成果待归类_image50_6a42d832.png",
-      "status": "待确认",
-      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
-      "relative_path": "00_导航与方案说明/80_新成果待归类_image50_6a42d832.png",
-      "decoded_pixel_sha256": "4723191b183f60ef0a2fac254f994f6aa1b259fb97fd4c7b43837ae3f5bf25c4",
-      "module_refs": [],
-      "panel_map": [],
-      "provenance": "待补充图与模块对应关系。"
     }
   ]
 }
