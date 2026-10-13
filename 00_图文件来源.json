@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "copied_files": 91,
+  "copied_files": 92,
   "original_files_preserved": true,
   "files": [
     {
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.10入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.11入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "d5fd130c4c2cc8468c1fd2a981b56c9037235a7a349a9dc874871743bba43fbd",
+      "decoded_pixel_sha256": "fe5cfdd002ba46156c9fb5a6b18efbcc89b2296a7ee8a96f8a436eb30ff53449",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.10入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.11入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "eaff0bb8924666e80c47d7482ecd9915bec25e497e8cca8801c9bc41a99f91c4",
+      "decoded_pixel_sha256": "a5c9732fdafc6cf7ad4933aa27fd61733811997b93b8ca00b521f8c47ed7bc05",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3087,7 +3087,7 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_precision.png",
       "filename": "experiment_selector_06_precision.png",
       "status": "真实RTL段+工程预算入口",
-      "note": "DSSS仿真实验系统V4.10几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
+      "note": "DSSS仿真实验系统V4.11几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_dll",
@@ -3095,7 +3095,7 @@
         "script_time_protocol"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_06_precision.png",
-      "decoded_pixel_sha256": "82ee50c7ed34ef91b74d0237c95c78868140a060d6d8c950182ef3be2445fca6",
+      "decoded_pixel_sha256": "c2035d8e52ec77ff4e624658a833f4c54a087329f6516e055363c459347064de",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3115,7 +3115,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.10几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.11几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
     },
     {
       "category": 0,
@@ -3182,7 +3182,7 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_impaired_sync.png",
       "filename": "experiment_selector_07_impaired_sync.png",
       "status": "功能波形闭环入口",
-      "note": "DSSS仿真实验系统V4.10新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。",
+      "note": "DSSS仿真实验系统V4.11新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_channel",
@@ -3191,7 +3191,7 @@
         "ad_rx"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_07_impaired_sync.png",
-      "decoded_pixel_sha256": "011c6c0dfd3759e46dc03685b7aedb7b5cd828e46f801f4436d54d651b1b43fd",
+      "decoded_pixel_sha256": "8ec08655d6a80e945e8903be89884b79cf9caeb9a6cfa41ac88c46261ca629b4",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3215,7 +3215,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.10新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.11新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
     },
     {
       "category": 10,
@@ -3251,6 +3251,36 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：固定随机种子功能实验：70 km传播、实际输入SNR 12.52 dB、80 ns/0.32幅度/115度复回波、35 ps采样白抖动、3 ps/sqrt(s)慢游、相噪和35 Hz附加CFO同时作用。接收端串入功能DLL和整数Costas；捕获峰0.943，16字节载荷BER=0，DLL稳态码相位修正波动RMS 0.0153 ns。采样抖动通过分数插值实现；结果不是完整RTL逐拍、AD9361孔径抖动实测或70 km外场验收。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage22_fft_correlation_peak_real.png",
+      "filename": "22_真实RTL_FFT相关峰误选_80ns.png",
+      "status": "真实RTL/IP段PASS；可控80 ns多径激励；不是硬件实测",
+      "note": "50 MSPS物理I/Q叠加延迟1码片（80 ns）、幅度4.0的可控回波，经过实际complex_interp5、生产RX FIR、rx_deci及生成的FFT/IFFT/相关ROM/平方求和IP。图中导出fft_cap_3全局最大值选择器实际使用的最终1024点相关功率：位置929功率32116325，位置930功率58203045，RTL选择930，因此相对基准产生+1 chip=+80 ns。本结果证明该机制能够造成80 ns跳变；它不是现场ILA回放，不能单独证明现场故障必由多径引起。严格术语为延迟多径候选相关峰，不等同于PN本征旁瓣。",
+      "requested_module_ids": [
+        "ad_rx",
+        "ad_dll",
+        "script_capture"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/22_真实RTL_FFT相关峰误选_80ns.png",
+      "decoded_pixel_sha256": "def26b8c93483c15fd031b232e35efad0e20fb4c7834d590dd3b93cb6cbc735d",
+      "module_refs": [
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：50 MSPS物理I/Q叠加延迟1码片（80 ns）、幅度4.0的可控回波，经过实际complex_interp5、生产RX FIR、rx_deci及生成的FFT/IFFT/相关ROM/平方求和IP。图中导出fft_cap_3全局最大值选择器实际使用的最终1024点相关功率：位置929功率32116325，位置930功率58203045，RTL选择930，因此相对基准产生+1 chip=+80 ns。本结果证明该机制能够造成80 ns跳变；它不是现场ILA回放，不能单独证明现场故障必由多径引起。严格术语为延迟多径候选相关峰，不等同于PN本征旁瓣。"
     }
   ]
 }
