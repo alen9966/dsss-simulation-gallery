@@ -45,6 +45,7 @@ dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
 对应图：00_导航与方案说明/experiment_selector_07_impaired_sync.png；登记的新图对应模块；场景及信号说明见图注
 对应图：10_双向时间比对/03_非理想信道_DLL_Costas闭环.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/23_衰落与随机噪声_FFT相邻峰竞争.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 
 03 接收前端：signed12、插值5与FIR48
 dsss_ad9361_link/RX_signed12_interp5_FIR48
@@ -77,6 +78,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：10_双向时间比对/03_非理想信道_DLL_Costas闭环.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/22_真实RTL_FFT相关峰误选_80ns.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/23_衰落与随机噪声_FFT相邻峰竞争.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -115,6 +117,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：10_双向时间比对/03_非理想信道_DLL_Costas闭环.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/22_真实RTL_FFT相关峰误选_80ns.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/23_衰落与随机噪声_FFT相邻峰竞争.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -242,6 +245,7 @@ dsss_rtl_comparison/TDD_Error_Log
 对应图：08_MATLAB_Simulink_RTL对照/23_阶段20_几百ps精测RTL链路.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/24_几百ps同步误差预算_实测铷钟与工程分配.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/25_九类非理想因素联合精度预算.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 
 C · 旧 70 MHz 中频参考模型
 模型文件：models/dsss_wireless_link.slx；旧70 MHz中频基准，保留参考。
@@ -528,6 +532,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/25_九类非理想因素联合精度预算.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/experiment_selector_06_precision.png；登记的新图对应模块；场景及信号说明见图注
 对应图：00_导航与方案说明/experiment_06_monte_carlo_budget_lab.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 
 28 FFT配置：复位握手与真实捕获回归
 
@@ -546,6 +551,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/21_V4_8_K3A参数连续时标滑窗.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/22_真实RTL_FFT相关峰误选_80ns.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/23_衰落与随机噪声_FFT相邻峰竞争.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 
 图：01_发送与接收波形/01_AD9361_单窗波形总览.png
 来源：MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。
@@ -987,3 +993,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/23_衰落与随机噪声_FFT相邻峰竞争.png
 来源：已按登记信息关联模块；具体场景及信号说明：记录的20,000点接收前端向量作为基准，每100 ms独立加入AWGN，并让直达径、80 ns回波的幅度和回波相位按相关慢过程变化。默认固定随机种子下运行512次，自动识别功能链基准峰928和相邻峰929，相邻峰反超97次；保护后整数码片输出保持不跳。每次FFT/IFFT相关使用生产cap_corr_i/q_3.coe。衰落和噪声是功能模型，不是512次逐拍RTL/IP，也不是70 km硬件实测；Stage17/22为真实RTL/IP锚点。
+
+图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png
+来源：已按登记信息关联模块；具体场景及信号说明：相关峰竞争直接读取Stage23的512次衰落/AWGN重复捕获数据：原始相邻峰反超97次，峰值保护后有效整码片跳变0次。数字链路以Stage15固定波形+真实rx_deci/FFT/time_diff_cal得到的±80 ns因果为幅度锚点，分别注入rx_deci相位、PN历元、FIFO重复、CDC帧号、PPS历元和远端序号6类错配；原始输出6次整码片跳变，历元一致性保护后有效跳变0次。两类故障合并时原始80 ns级事件100次，双保护后有效输出0次。故障时刻是可控注入，不是历史现场ILA。

@@ -3648,6 +3648,39 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：记录的20,000点接收前端向量作为基准，每100 ms独立加入AWGN，并让直达径、80 ns回波的幅度和回波相位按相关慢过程变化。默认固定随机种子下运行512次，自动识别功能链基准峰928和相邻峰929，相邻峰反超97次；保护后整数码片输出保持不跳。每次FFT/IFFT相关使用生产cap_corr_i/q_3.coe。衰落和噪声是功能模型，不是512次逐拍RTL/IP，也不是70 km硬件实测；Stage17/22为真实RTL/IP锚点。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png",
+      "filename": "26_相关峰保护与历元一致性保护对照.png",
+      "status": "双机理功能对照PASS；Stage15/23作因果锚点；待集成RTL与双板ILA验证",
+      "module_refs": [
+        {
+          "id": "ad_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_time_protocol",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：相关峰竞争直接读取Stage23的512次衰落/AWGN重复捕获数据：原始相邻峰反超97次，峰值保护后有效整码片跳变0次。数字链路以Stage15固定波形+真实rx_deci/FFT/time_diff_cal得到的±80 ns因果为幅度锚点，分别注入rx_deci相位、PN历元、FIFO重复、CDC帧号、PPS历元和远端序号6类错配；原始输出6次整码片跳变，历元一致性保护后有效跳变0次。两类故障合并时原始80 ns级事件100次，双保护后有效输出0次。故障时刻是可控注入，不是历史现场ILA。"
     }
   ],
   "layout_verification": {
