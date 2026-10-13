@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "copied_files": 92,
+  "copied_files": 93,
   "original_files_preserved": true,
   "files": [
     {
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.11入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.12入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "fe5cfdd002ba46156c9fb5a6b18efbcc89b2296a7ee8a96f8a436eb30ff53449",
+      "decoded_pixel_sha256": "cc5acbb064328fa9a57ef302735b097cff87dc990fb876bb6bc0858ef370a369",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.11入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.12入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "a5c9732fdafc6cf7ad4933aa27fd61733811997b93b8ca00b521f8c47ed7bc05",
+      "decoded_pixel_sha256": "58515903710f23f079737cc5a9142483f67b0d73219821d8d71b1550e19ee009",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3087,7 +3087,7 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_precision.png",
       "filename": "experiment_selector_06_precision.png",
       "status": "真实RTL段+工程预算入口",
-      "note": "DSSS仿真实验系统V4.11几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
+      "note": "DSSS仿真实验系统V4.12几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_dll",
@@ -3095,7 +3095,7 @@
         "script_time_protocol"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_06_precision.png",
-      "decoded_pixel_sha256": "c2035d8e52ec77ff4e624658a833f4c54a087329f6516e055363c459347064de",
+      "decoded_pixel_sha256": "d76845fd29aacb09bd1bd440ea951a8b964803c1b03faf3783094ffa16ba95ab",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3115,7 +3115,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.11几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.12几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
     },
     {
       "category": 0,
@@ -3182,7 +3182,7 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_impaired_sync.png",
       "filename": "experiment_selector_07_impaired_sync.png",
       "status": "功能波形闭环入口",
-      "note": "DSSS仿真实验系统V4.11新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。",
+      "note": "DSSS仿真实验系统V4.12新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_channel",
@@ -3191,7 +3191,7 @@
         "ad_rx"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_07_impaired_sync.png",
-      "decoded_pixel_sha256": "8ec08655d6a80e945e8903be89884b79cf9caeb9a6cfa41ac88c46261ca629b4",
+      "decoded_pixel_sha256": "9f4db6526d2d07feba7cfc0250acaed025f6c66f18951f5728387fe79f844962",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3215,7 +3215,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.11新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.12新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
     },
     {
       "category": 10,
@@ -3281,6 +3281,41 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：50 MSPS物理I/Q叠加延迟1码片（80 ns）、幅度4.0的可控回波，经过实际complex_interp5、生产RX FIR、rx_deci及生成的FFT/IFFT/相关ROM/平方求和IP。图中导出fft_cap_3全局最大值选择器实际使用的最终1024点相关功率：位置929功率32116325，位置930功率58203045，RTL选择930，因此相对基准产生+1 chip=+80 ns。本结果证明该机制能够造成80 ns跳变；它不是现场ILA回放，不能单独证明现场故障必由多径引起。严格术语为延迟多径候选相关峰，不等同于PN本征旁瓣。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rtl_stepwise/rtl_stage23_fading_noise_fft_peak_competition.png",
+      "filename": "23_衰落与随机噪声_FFT相邻峰竞争.png",
+      "status": "功能统计PASS：生产相关COE下的慢衰落、随机相位与AWGN重复捕获；RTL/IP定点锚点另列",
+      "note": "记录的20,000点接收前端向量作为基准，每100 ms独立加入AWGN，并让直达径、80 ns回波的幅度和回波相位按相关慢过程变化。默认固定随机种子下运行512次，自动识别功能链基准峰928和相邻峰929，相邻峰反超97次；保护后整数码片输出保持不跳。每次FFT/IFFT相关使用生产cap_corr_i/q_3.coe。衰落和噪声是功能模型，不是512次逐拍RTL/IP，也不是70 km硬件实测；Stage17/22为真实RTL/IP锚点。",
+      "requested_module_ids": [
+        "ad_channel",
+        "ad_rx",
+        "ad_dll",
+        "script_capture"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/23_衰落与随机噪声_FFT相邻峰竞争.png",
+      "decoded_pixel_sha256": "ba07d6e2e94bc15108939964fe7682feae091cb15f627e8768e0aea7e7491803",
+      "module_refs": [
+        {
+          "id": "ad_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：记录的20,000点接收前端向量作为基准，每100 ms独立加入AWGN，并让直达径、80 ns回波的幅度和回波相位按相关慢过程变化。默认固定随机种子下运行512次，自动识别功能链基准峰928和相邻峰929，相邻峰反超97次；保护后整数码片输出保持不跳。每次FFT/IFFT相关使用生产cap_corr_i/q_3.coe。衰落和噪声是功能模型，不是512次逐拍RTL/IP，也不是70 km硬件实测；Stage17/22为真实RTL/IP锚点。"
     }
   ]
 }
