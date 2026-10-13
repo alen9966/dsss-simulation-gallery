@@ -43,6 +43,7 @@
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/04_%E9%98%B6%E6%AE%B501_%E7%94%9F%E4%BA%A7%E5%8F%82%E6%95%B0%E5%8F%91%E9%80%81%E9%93%BE_PN1000_FIR201.png">04_阶段01_生产参数发送链_PN1000_FIR201.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/05_%E9%98%B6%E6%AE%B503_TX%E9%87%8F%E5%8C%96_CDC_FIFO_DAC%E8%8A%82%E6%8B%8D.png">05_阶段03_TX量化_CDC_FIFO_DAC节拍.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/06_%E9%98%B6%E6%AE%B504_TX_CDC_AD9361_LVDS%E6%95%B0%E5%AD%97%E7%8E%AF%E5%9B%9E.png">06_阶段04_TX_CDC_AD9361_LVDS数字环回.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/25_%E4%B9%9D%E7%B1%BB%E9%9D%9E%E7%90%86%E6%83%B3%E5%9B%A0%E7%B4%A0%E8%81%94%E5%90%88%E7%B2%BE%E5%BA%A6%E9%A2%84%E7%AE%97.png">25_九类非理想因素联合精度预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -59,6 +60,7 @@ hilite_system(&#x27;dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12&#x27;,&
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png">01_AD9361_单窗波形总览.png</a> — 左上RX Q、右下码片叠加</li>
 <li><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/02_AD9361_%E5%8F%8C%E7%AA%97%E6%B3%A2%E5%BD%A2%E4%B8%8E%E6%94%B6%E6%95%9B.png">02_AD9361_双窗波形与收敛.png</a> — 左上RX Q、右下码片叠加</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/01_AD9361_Simulink%E5%AE%9E%E9%99%85%E6%A8%A1%E5%9E%8B.png">01_AD9361_Simulink实际模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/25_%E4%B9%9D%E7%B1%BB%E9%9D%9E%E7%90%86%E6%83%B3%E5%9B%A0%E7%B4%A0%E8%81%94%E5%90%88%E7%B2%BE%E5%BA%A6%E9%A2%84%E7%AE%97.png">25_九类非理想因素联合精度预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_selector_07_impaired_sync.png">experiment_selector_07_impaired_sync.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/03_%E9%9D%9E%E7%90%86%E6%83%B3%E4%BF%A1%E9%81%93_DLL_Costas%E9%97%AD%E7%8E%AF.png">03_非理想信道_DLL_Costas闭环.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/23_%E8%A1%B0%E8%90%BD%E4%B8%8E%E9%9A%8F%E6%9C%BA%E5%99%AA%E5%A3%B0_FFT%E7%9B%B8%E9%82%BB%E5%B3%B0%E7%AB%9E%E4%BA%89.png">23_衰落与随机噪声_FFT相邻峰竞争.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
@@ -91,6 +93,7 @@ hilite_system(&#x27;dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN&#x27;,&#x27;find
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/18_%E9%98%B6%E6%AE%B518_19_%E7%9B%B8%E9%82%BB%E5%B3%B0%E4%BF%9D%E6%8A%A4%E6%B6%88%E9%99%A480ns%E8%B7%B3%E5%8F%98.png">18_阶段18_19_相邻峰保护消除80ns跳变.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/19_%E9%98%B6%E6%AE%B517_19_80ns%E5%B3%B0%E5%80%BC%E4%BF%9D%E6%8A%A4%E5%89%8D%E5%90%8E%E5%AF%B9%E6%AF%94.png">19_阶段17_19_80ns峰值保护前后对比.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/20_V4_8_K3A%E5%8F%82%E6%95%B0%E4%B8%8EFFT%E5%B3%B0%E7%AE%80%E6%98%8E%E8%AF%8A%E6%96%AD.png">20_V4_8_K3A参数与FFT峰简明诊断.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/25_%E4%B9%9D%E7%B1%BB%E9%9D%9E%E7%90%86%E6%83%B3%E5%9B%A0%E7%B4%A0%E8%81%94%E5%90%88%E7%B2%BE%E5%BA%A6%E9%A2%84%E7%AE%97.png">25_九类非理想因素联合精度预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_selector_07_impaired_sync.png">experiment_selector_07_impaired_sync.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/03_%E9%9D%9E%E7%90%86%E6%83%B3%E4%BF%A1%E9%81%93_DLL_Costas%E9%97%AD%E7%8E%AF.png">03_非理想信道_DLL_Costas闭环.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/22_%E7%9C%9F%E5%AE%9ERTL_FFT%E7%9B%B8%E5%85%B3%E5%B3%B0%E8%AF%AF%E9%80%89_80ns.png">22_真实RTL_FFT相关峰误选_80ns.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
@@ -127,6 +130,7 @@ hilite_system(&#x27;dsss_ad9361_link/RX_signed12_interp5_FIR48&#x27;,&#x27;find&
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/11_%E6%97%B6%E9%97%B4%E7%B2%BE%E5%BA%A6%E6%95%B0%E6%8D%AE%E8%AF%81%E6%8D%AE%E9%93%BE.svg">11_时间精度数据证据链.svg</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/23_%E9%98%B6%E6%AE%B520_%E5%87%A0%E7%99%BEps%E7%B2%BE%E6%B5%8BRTL%E9%93%BE%E8%B7%AF.png">23_阶段20_几百ps精测RTL链路.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/24_%E5%87%A0%E7%99%BEps%E5%90%8C%E6%AD%A5%E8%AF%AF%E5%B7%AE%E9%A2%84%E7%AE%97_%E5%AE%9E%E6%B5%8B%E9%93%B7%E9%92%9F%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%88%86%E9%85%8D.png">24_几百ps同步误差预算_实测铷钟与工程分配.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/25_%E4%B9%9D%E7%B1%BB%E9%9D%9E%E7%90%86%E6%83%B3%E5%9B%A0%E7%B4%A0%E8%81%94%E5%90%88%E7%B2%BE%E5%BA%A6%E9%A2%84%E7%AE%97.png">25_九类非理想因素联合精度预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_selector_06_precision.png">experiment_selector_06_precision.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_06_monte_carlo_budget_lab.png">experiment_06_monte_carlo_budget_lab.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="04_DLL%E4%B8%8E%E8%A7%A3%E6%89%A9/02_%E7%9C%9F%E5%AE%9ERTL%E7%A0%81%E7%8E%AF_4ns%E8%8A%82%E6%8B%8D%E4%B8%8E8ps%E7%90%86%E6%83%B3%E6%AE%8B%E5%B7%AE.png">02_真实RTL码环_4ns节拍与8ps理想残差.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
@@ -157,6 +161,7 @@ hilite_system(&#x27;dsss_ad9361_link/FFT1024_DLL_20000point&#x27;,&#x27;find&#x2
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/11_%E6%97%B6%E9%97%B4%E7%B2%BE%E5%BA%A6%E6%95%B0%E6%8D%AE%E8%AF%81%E6%8D%AE%E9%93%BE.svg">11_时间精度数据证据链.svg</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/23_%E9%98%B6%E6%AE%B520_%E5%87%A0%E7%99%BEps%E7%B2%BE%E6%B5%8BRTL%E9%93%BE%E8%B7%AF.png">23_阶段20_几百ps精测RTL链路.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/24_%E5%87%A0%E7%99%BEps%E5%90%8C%E6%AD%A5%E8%AF%AF%E5%B7%AE%E9%A2%84%E7%AE%97_%E5%AE%9E%E6%B5%8B%E9%93%B7%E9%92%9F%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%88%86%E9%85%8D.png">24_几百ps同步误差预算_实测铷钟与工程分配.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/25_%E4%B9%9D%E7%B1%BB%E9%9D%9E%E7%90%86%E6%83%B3%E5%9B%A0%E7%B4%A0%E8%81%94%E5%90%88%E7%B2%BE%E5%BA%A6%E9%A2%84%E7%AE%97.png">25_九类非理想因素联合精度预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_selector_06_precision.png">experiment_selector_06_precision.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_06_monte_carlo_budget_lab.png">experiment_06_monte_carlo_budget_lab.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_selector_07_impaired_sync.png">experiment_selector_07_impaired_sync.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
@@ -261,6 +266,7 @@ hilite_system(&#x27;dsss_rtl_comparison/RTL_minus_Model&#x27;,&#x27;find&#x27;);
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/11_%E6%97%B6%E9%97%B4%E7%B2%BE%E5%BA%A6%E6%95%B0%E6%8D%AE%E8%AF%81%E6%8D%AE%E9%93%BE.svg">11_时间精度数据证据链.svg</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/23_%E9%98%B6%E6%AE%B520_%E5%87%A0%E7%99%BEps%E7%B2%BE%E6%B5%8BRTL%E9%93%BE%E8%B7%AF.png">23_阶段20_几百ps精测RTL链路.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/24_%E5%87%A0%E7%99%BEps%E5%90%8C%E6%AD%A5%E8%AF%AF%E5%B7%AE%E9%A2%84%E7%AE%97_%E5%AE%9E%E6%B5%8B%E9%93%B7%E9%92%9F%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%88%86%E9%85%8D.png">24_几百ps同步误差预算_实测铷钟与工程分配.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/25_%E4%B9%9D%E7%B1%BB%E9%9D%9E%E7%90%86%E6%83%B3%E5%9B%A0%E7%B4%A0%E8%81%94%E5%90%88%E7%B2%BE%E5%BA%A6%E9%A2%84%E7%AE%97.png">25_九类非理想因素联合精度预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_tdd_compare.m；scripts/rtl_link/build_dsss_rtl_comparison.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_rtl_comparison.mdl&#x27;);
@@ -510,6 +516,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="10_%E5%8F%8C%E5%90%91%E6%97%B6%E9%97%B4%E6%AF%94%E5%AF%B9/01_%E6%96%B0%E6%8A%A5%E6%96%87_CRC_%E5%9B%9B%E6%97%B6%E6%A0%87%E4%B8%8E%E5%BB%B6%E8%BF%9F%E8%A1%A5%E5%81%BF.png">01_新报文_CRC_四时标与延迟补偿.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/14_%E9%98%B6%E6%AE%B514A_%E5%9B%9B%E6%97%B6%E6%A0%87%E6%8A%A5%E6%96%87RTL%E4%B8%8E%E7%B3%BB%E7%BB%9F%E9%97%AD%E7%8E%AF%E7%BC%BA%E5%8F%A3.png">14_阶段14A_四时标报文RTL与系统闭环缺口.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/25_%E4%B9%9D%E7%B1%BB%E9%9D%9E%E7%90%86%E6%83%B3%E5%9B%A0%E7%B4%A0%E8%81%94%E5%90%88%E7%B2%BE%E5%BA%A6%E9%A2%84%E7%AE%97.png">25_九类非理想因素联合精度预算.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_selector_06_precision.png">experiment_selector_06_precision.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/experiment_06_monte_carlo_budget_lab.png">experiment_06_monte_carlo_budget_lab.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_time_packet.m；scripts/system/dsss_two_way_estimate.m；scripts/entrypoints/run_dsss_time_protocol_validation.m；fpga_ad9361/rtl/dsss_time_packet_tx.v；fpga_ad9361/rtl/dsss_time_packet_rx.v；fpga_ad9361/sim/run_time_packet.ps1</p>
@@ -1010,6 +1017,8 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <details><summary>23_阶段20_几百ps精测RTL链路.png</summary><p>已按登记信息关联模块；具体场景及信号说明：新增码NCO残差观测与码片内时间换算、carrier_phase_fine_estimator、precision_timestamp_fuser和dsss_two_way_offset_avg，并把精测信号引出到96端口模型顶层。Xsim验证半码片/四分之一码片残差、跨越0/2π的相位样本解缠平均、3 ns粗时间校正、16次双向交换对注入350 ps钟差输出350 ps且坏交换不进入平均；XC7Z030全顶层RTL展开0错误，既有66个IP的模型顶层展开0错误。该结果是确定性RTL单元/分段验证，不是AD9361模拟通道、70 km链路、PPS边沿或整机200 ps验收。</p>
 </details>
 <details><summary>24_几百ps同步误差预算_实测铷钟与工程分配.png</summary><p>已按登记信息关联模块；具体场景及信号说明：两台报告实测频率准确度2.5e-12与6.0e-12保守换算：100 ms相对漂移0.85 ps，500 ms为4.25 ps。图中129.6 ps为相位随机80 ps/单时间戳、16次双向平均、相位/群时延标定80 ps、路径不对称100 ps等明示分配的RSS预算；这些AD9361和信道项尚待同轴、双机与70 km实测替换。</p>
+</details>
+<details><summary>25_九类非理想因素联合精度预算.png</summary><p>已按登记信息关联模块；具体场景及信号说明：将AD9361 ADC/DAC与模拟滤波、热噪声与12位量化、70 km慢衰落、多径保护后残差、采样钟抖动/慢游、两台铷钟、Costas环残差、PPS同步和PCB/硬件标定残差分成9项。在明示校准后分配下，单次RSS 130.8 ps，16次交换后RSS 113.2 ps，100000次Monte Carlo RMS 113.7 ps，92.12%落在±200 ps，95%绝对误差223.2 ps。波形交叉证据为SNR 12.52 dB、DLL波动15.30 ps和BER=0；但AD9361群时延、天线增益/NF、PPS和PCB数值仍是工程假设，不是70 km硬件验收。</p>
 </details>
 <details><summary>experiment_selector_06_precision.png</summary><p>已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.12几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。</p>
 </details>

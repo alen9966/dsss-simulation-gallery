@@ -3446,6 +3446,43 @@
       "provenance": "已按登记信息关联模块；具体场景及信号说明：两台报告实测频率准确度2.5e-12与6.0e-12保守换算：100 ms相对漂移0.85 ps，500 ms为4.25 ps。图中129.6 ps为相位随机80 ps/单时间戳、16次双向平均、相位/群时延标定80 ps、路径不对称100 ps等明示分配的RSS预算；这些AD9361和信道项尚待同轴、双机与70 km实测替换。"
     },
     {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/25_九类非理想因素联合精度预算.png",
+      "filename": "25_九类非理想因素联合精度预算.png",
+      "status": "MATLAB联合预算：校准后RMS 113.7 ps；硬件参数待实测替换",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_time_protocol",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：将AD9361 ADC/DAC与模拟滤波、热噪声与12位量化、70 km慢衰落、多径保护后残差、采样钟抖动/慢游、两台铷钟、Costas环残差、PPS同步和PCB/硬件标定残差分成9项。在明示校准后分配下，单次RSS 130.8 ps，16次交换后RSS 113.2 ps，100000次Monte Carlo RMS 113.7 ps，92.12%落在±200 ps，95%绝对误差223.2 ps。波形交叉证据为SNR 12.52 dB、DLL波动15.30 ps和BER=0；但AD9361群时延、天线增益/NF、PPS和PCB数值仍是工程假设，不是70 km硬件验收。"
+    },
+    {
       "relative_path": "00_导航与方案说明/experiment_selector_06_precision.png",
       "filename": "experiment_selector_06_precision.png",
       "status": "真实RTL段+工程预算入口",
