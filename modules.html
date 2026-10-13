@@ -971,7 +971,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details>
 <details><summary>15_阶段15_偶发80ns_抽取相位复现.png</summary><p>已按登记信息关联模块；具体场景及信号说明：固定工程记录的20,000点复数输入和生产cap_corr_i/q_3.coe，仅扫描rx_deci的20个250MHz抽取相位。第3拍(12ns)到第4拍(16ns)时，整数相关峰由928跳到927；time_diff_cal按cap_loc×80,000ps换算，因此输出正好变化-80ns。静态审计另发现RX PPS在user_clk域生成后直接送入fmc1_adc_clk域，已改为在fmc1_adc_clk域同步。该结果复现机制并定位当前CDC缺陷；没有历史故障时的ILA记录，不能冒充对当次硬件事件的逐拍回放。</p>
 </details>
-<details><summary>experiment_selector_01_end_to_end.png</summary><p>已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。</p>
+<details><summary>experiment_selector_01_end_to_end.png</summary><p>已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9.2入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。</p>
 </details>
 <details><summary>16_阶段16_80ns诊断独立实验入口.png</summary><p>已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。</p>
 </details>
@@ -995,7 +995,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details>
 <details><summary>24_几百ps同步误差预算_实测铷钟与工程分配.png</summary><p>已按登记信息关联模块；具体场景及信号说明：两台报告实测频率准确度2.5e-12与6.0e-12保守换算：100 ms相对漂移0.85 ps，500 ms为4.25 ps。图中129.6 ps为相位随机80 ps/单时间戳、16次双向平均、相位/群时延标定80 ps、路径不对称100 ps等明示分配的RSS预算；这些AD9361和信道项尚待同轴、双机与70 km实测替换。</p>
 </details>
-<details><summary>experiment_selector_06_precision.png</summary><p>已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9.1新增几百ps精测实验。码NCO残差、Costas细相位、粗细融合和四时间戳节点运行Stage 20真实RTL；预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。</p>
+<details><summary>experiment_selector_06_precision.png</summary><p>已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9.2几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。</p>
 </details>
 <details><summary>experiment_06_monte_carlo_budget_lab.png</summary><p>已按登记信息关联模块；具体场景及信号说明：几百ps精测实验的独立预算页。可修改时隙、码环平均、双向交换平均、载波时间戳、标定残差、路径不对称和试验次数；直接显示误差分项、随机分布、200 ps达标比例及敏感度边界。铷钟来自报告，其余为工程分配，非硬件实测。</p>
 </details>
