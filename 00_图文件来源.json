@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "copied_files": 87,
+  "copied_files": 88,
   "original_files_preserved": true,
   "files": [
     {
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.9入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.9.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "a02a9baf89acf670fe97dc8206f350c61a726acbac2edc63546ef121a263baf2",
+      "decoded_pixel_sha256": "44f3b8a4dd7226dda007d540bef97fe94a3bd9c705e3a38604a023e6e216d445",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "78eaf7792c5f331da143f865500ede53cec0ee6a1940a9c554ad7f4be331be42",
+      "decoded_pixel_sha256": "dc30d2b8cb180ab53b21f5e7e823a1032dd7e8e834f724660dbead7ca0ffbaec",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3060,7 +3060,7 @@
         "rtl_tdd"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/24_几百ps同步误差预算_实测铷钟与工程分配.png",
-      "decoded_pixel_sha256": "bf0602368193c4375e820335fe1dab9904725560a093f0d274132be94bcdf660",
+      "decoded_pixel_sha256": "ec634e14ee4db2c706a878ac2e8bc54b24bfbad525e51ff23a0e974006409a69",
       "module_refs": [
         {
           "id": "ad_dll",
@@ -3087,7 +3087,7 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_precision.png",
       "filename": "experiment_selector_06_precision.png",
       "status": "真实RTL段+工程预算入口",
-      "note": "DSSS仿真实验系统V4.9新增几百ps精测实验。码NCO残差、Costas细相位、粗细融合和四时间戳节点运行Stage 20真实RTL；预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
+      "note": "DSSS仿真实验系统V4.9.1新增几百ps精测实验。码NCO残差、Costas细相位、粗细融合和四时间戳节点运行Stage 20真实RTL；预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_dll",
@@ -3095,7 +3095,7 @@
         "script_time_protocol"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_06_precision.png",
-      "decoded_pixel_sha256": "4aa98f2fe734e057943e5a70770bd17d0c7e6d341501c9840c1af7154be56866",
+      "decoded_pixel_sha256": "f41915c697c3e6f540cd050716cbe4e77c6bc7847109b75ad231fe4a50a20b75",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3115,7 +3115,42 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9新增几百ps精测实验。码NCO残差、Costas细相位、粗细融合和四时间戳节点运行Stage 20真实RTL；预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.9.1新增几百ps精测实验。码NCO残差、Costas细相位、粗细融合和四时间戳节点运行Stage 20真实RTL；预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/precision_sync/precision_sync_budget_lab.png",
+      "filename": "experiment_06_monte_carlo_budget_lab.png",
+      "status": "交互界面：Monte Carlo误差预算",
+      "note": "几百ps精测实验的独立预算页。可修改时隙、码环平均、双向交换平均、载波时间戳、标定残差、路径不对称和试验次数；直接显示误差分项、随机分布、200 ps达标比例及敏感度边界。铷钟来自报告，其余为工程分配，非硬件实测。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_dll",
+        "ad_costas",
+        "script_time_protocol"
+      ],
+      "relative_path": "00_导航与方案说明/experiment_06_monte_carlo_budget_lab.png",
+      "decoded_pixel_sha256": "e8934331de3468b89cf08cb03ab4251ac4916edeb3b102008a0ef84a2e33ab45",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_time_protocol",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：几百ps精测实验的独立预算页。可修改时隙、码环平均、双向交换平均、载波时间戳、标定残差、路径不对称和试验次数；直接显示误差分项、随机分布、200 ps达标比例及敏感度边界。铷钟来自报告，其余为工程分配，非硬件实测。"
     }
   ]
 }
