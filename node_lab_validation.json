@@ -50,7 +50,7 @@
     "no-signal recommendation rejected"
   ],
   "nodeCount": 17,
-  "configControls": 140,
+  "configControls": 142,
   "pauseSameExecution": true,
   "continuousScope": {
     "segments": 2,

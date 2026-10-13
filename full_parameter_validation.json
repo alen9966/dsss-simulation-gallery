@@ -27,14 +27,14 @@
     "source candidates exported with explicit unapplied status",
     "production source/IP/COE unchanged"
   ],
-  "configControls": 140,
+  "configControls": 142,
   "sourceCounts": {
     "RTL": 77,
     "IP": 2486,
     "STRUCTURE": 23,
     "COE": 6
   },
-  "totalRows": 2732,
+  "totalRows": 2734,
   "rtlValidated": false,
   "boundary": "Main functional waveforms, independent diagnostics and source-only proposals are explicitly separated."
 }
