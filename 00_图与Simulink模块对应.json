@@ -3889,6 +3889,23 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：Xsim实际559条记录、55.8 us。验证初始化声明不能绕过参数确认、运行中改参拒绝、SPI忙时不覆盖、DSP停止/恢复时的参数及快照握手。INIT_DONE与MISO为受控测试输入；未仿真真实AD9361初始化或RF、DLL/Costas精度。来源rtl/board/*.v和sim/board/tb_dsss_board_control.v；由MATLAB plot_dsss_board_control画图，不是新增Simulink模型模块。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/30_AD9361_顶层校准与失锁恢复_真实RTL.png",
+      "filename": "30_AD9361_顶层校准与失锁恢复_真实RTL.png",
+      "status": "真实板级顶层RTL接入：16项通过；受控异常注入，非整链/硬件验收",
+      "module_refs": [
+        {
+          "id": "rtl_actual",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：Vivado Xsim 2018.3，988条实际记录，98.7 us；本次控制20项、顶层16项、抽头扫描13项、radio校准接入5项通过，另有TDD控制测试通过。展示RUN不能绕过校准、校准中止、MMCM锁定指示失效、重锁后须重新校准的受控恢复。真实板级/控制/SPI/CDC/PRBS扫描；VIO、LVDS PHY、MMCM及通信内核为替代模型；失锁用force locked=0注入，RF许可检查含强制内部请求。TDD另用80拍加速及25,000,000拍边界定向测试，不是100 ms整链I/Q运行。不证明无线通信、DLL/Costas精度或双站PPS同步。图来自plot_dsss_board_top_regression.m，原始日志/逐项检查/源码SHA256保存在fpga_ad9361/results/board_top，不是新增Simulink模块。"
     }
   ],
   "layout_verification": {

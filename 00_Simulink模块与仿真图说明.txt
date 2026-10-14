@@ -219,6 +219,7 @@ dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；上排实际RTL波形来源
 对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/29_AD9361_板级顶层控制_真实RTL.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/30_AD9361_顶层校准与失锁恢复_真实RTL.png；登记的新图对应模块；场景及信号说明见图注
 
 10 RTL对照：有效点差分与记录
 dsss_rtl_comparison/RTL_minus_Model
@@ -260,6 +261,7 @@ dsss_rtl_comparison/TDD_Error_Log
 对应图：08_MATLAB_Simulink_RTL对照/25_九类非理想因素联合精度预算.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/29_AD9361_板级顶层控制_真实RTL.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/30_AD9361_顶层校准与失锁恢复_真实RTL.png；登记的新图对应模块；场景及信号说明见图注
 
 C · 旧 70 MHz 中频参考模型
 模型文件：models/dsss_wireless_link.slx；旧70 MHz中频基准，保留参考。
@@ -1047,3 +1049,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/29_AD9361_板级顶层控制_真实RTL.png
 来源：已按登记信息关联模块；具体场景及信号说明：Xsim实际559条记录、55.8 us。验证初始化声明不能绕过参数确认、运行中改参拒绝、SPI忙时不覆盖、DSP停止/恢复时的参数及快照握手。INIT_DONE与MISO为受控测试输入；未仿真真实AD9361初始化或RF、DLL/Costas精度。来源rtl/board/*.v和sim/board/tb_dsss_board_control.v；由MATLAB plot_dsss_board_control画图，不是新增Simulink模型模块。
+
+图：08_MATLAB_Simulink_RTL对照/30_AD9361_顶层校准与失锁恢复_真实RTL.png
+来源：已按登记信息关联模块；具体场景及信号说明：Vivado Xsim 2018.3，988条实际记录，98.7 us；本次控制20项、顶层16项、抽头扫描13项、radio校准接入5项通过，另有TDD控制测试通过。展示RUN不能绕过校准、校准中止、MMCM锁定指示失效、重锁后须重新校准的受控恢复。真实板级/控制/SPI/CDC/PRBS扫描；VIO、LVDS PHY、MMCM及通信内核为替代模型；失锁用force locked=0注入，RF许可检查含强制内部请求。TDD另用80拍加速及25,000,000拍边界定向测试，不是100 ms整链I/Q运行。不证明无线通信、DLL/Costas精度或双站PPS同步。图来自plot_dsss_board_top_regression.m，原始日志/逐项检查/源码SHA256保存在fpga_ad9361/results/board_top，不是新增Simulink模块。
