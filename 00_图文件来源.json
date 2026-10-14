@@ -1,6 +1,6 @@
 {
   "date": "2026-10-14",
-  "copied_files": 98,
+  "copied_files": 101,
   "original_files_preserved": true,
   "files": [
     {
@@ -1620,7 +1620,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "cecde6a3511b0ed3867a3703ce17f7bcc3347564a7856d3859c241cdf14991a0",
+      "decoded_pixel_sha256": "5da7e0fac7a9208a248aba1e9b4c7ed8d452f15df47543132802e8323e884683",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1653,7 +1653,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "30a123771d1e509da2ebbb274f5a4f312182729e382092a30797721b85d43ea0",
+      "decoded_pixel_sha256": "353e94afe9fc14c33040caf5f915a25366e38fc71e9d9fb97d1420b56ff73758",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1686,7 +1686,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "fb75729c8159cdd9019fbdecb89051230178873182782b804ed0cb47c3d89148",
+      "decoded_pixel_sha256": "f67294345b09e9618c312ab54419e8bf5944e9bfcff6c70d868692a3e514eec2",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1752,7 +1752,7 @@
         "script_ui"
       ],
       "relative_path": "06_帧同步与信息恢复/parameter_tuning_v3_node_frame.png",
-      "decoded_pixel_sha256": "33fdf6ee4683f3deaf774e849daaa46c47935fd5fbee2675aeaee8d206f89821",
+      "decoded_pixel_sha256": "7f01e5ddff0255a4da2f483a12e50be70e140c5b34110781aaa595f97216036a",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2082,7 +2082,7 @@
         "script_ui"
       ],
       "relative_path": "04_DLL与解扩/parameter_tuning_v3_node_dll.png",
-      "decoded_pixel_sha256": "e88e18e6f7f752bd2eedb19017b5f2b755560e10bcebb376c1de35844e1fed70",
+      "decoded_pixel_sha256": "5c68d8c2e60a8c43b25c3f9bec90b2cba26f88148256dd872fdc323d4a4e9dce",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2115,7 +2115,7 @@
         "script_ui"
       ],
       "relative_path": "05_Costas环/parameter_tuning_v3_node_norm.png",
-      "decoded_pixel_sha256": "5cc395be472247cd115117bbd21884ac48822ac6892d78fb36cdd59916dfc523",
+      "decoded_pixel_sha256": "ac81049c53e2fb42185952dfb4ac2f403dcecf1edc301e9735f15e4d47088103",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2148,7 +2148,7 @@
         "script_ui"
       ],
       "relative_path": "05_Costas环/parameter_tuning_v3_node_costas.png",
-      "decoded_pixel_sha256": "8558c7be5b1af19400752e68c929699d84ac7627e632afd55aab240412f73ad7",
+      "decoded_pixel_sha256": "38a0c3d27279673935b7c810caf47382400e72899559c830e2797783e020674d",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2214,7 +2214,7 @@
         "script_ui"
       ],
       "relative_path": "07_双向时隙与接口/parameter_tuning_v3_node_interface.png",
-      "decoded_pixel_sha256": "bd6a6ed27b4e376dd1a516f4da5a63bb1161668a16800533ca598605397e85cb",
+      "decoded_pixel_sha256": "24e07fc7b1e9e0ae2e62106f92b9baf79872c0f669578216b653050bcf0cd5f0",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2280,7 +2280,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/parameter_tuning_v3_node_system.png",
-      "decoded_pixel_sha256": "71a61caada6db0211f4db319e02596541e36b3f75f09683cb75931ac672faba0",
+      "decoded_pixel_sha256": "6c5be5fef0138089ac9a2780c5d213526cd4eed7dbb55c8e79ce53ec8b789b43",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2306,14 +2306,14 @@
     {
       "category": 0,
       "source": "project/results/parameter_tuning_v3/node_dashboard.png",
-      "filename": "MATLAB节点实验室V4.15.1_连续窗口与参数总览.png",
+      "filename": "MATLAB节点实验室V4.16_连续窗口与参数总览.png",
       "status": "当前工程评审界面：功能模型导航",
-      "note": "V4.15.1真实MATLAB界面：DLL/Costas/归一化/判决趋势使用累计时间和可调滚动窗口；FIR/ADC显示最新采集记录。59个节点独立映射，保护专项有专用页面；功能模型不等同硬件测量。",
+      "note": "V4.16真实MATLAB界面：DLL/Costas/归一化/判决趋势使用累计时间和可调滚动窗口；FIR/ADC显示最新采集记录。59个节点独立映射，保护专项有专用页面；功能模型不等同硬件测量。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.15.1_连续窗口与参数总览.png",
-      "decoded_pixel_sha256": "3c5cf2ff991e575e20667fafa6075458108c4f5e4d75274af2d8e6bce0f77610",
+      "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.16_连续窗口与参数总览.png",
+      "decoded_pixel_sha256": "4270d15ca7e12bddc44d5c47526e44249edbd45a992c107aa01fe13dced4437d",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2339,14 +2339,14 @@
     {
       "category": 9,
       "source": "project/results/parameter_tuning_v3/node_probe_dashboard.png",
-      "filename": "MATLAB节点实验室V4.15.1_节点观测.png",
+      "filename": "MATLAB节点实验室V4.16_节点观测.png",
       "status": "当前功能观测",
       "note": "节点实际信号、星座、眼图与短时频谱；非硬件测量。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V4.15.1_节点观测.png",
-      "decoded_pixel_sha256": "e5c84bdbf00f0465141ba8dc250ec231dc36e841a126e32756ae5759cae24d56",
+      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V4.16_节点观测.png",
+      "decoded_pixel_sha256": "572425eb5dbc4551822941e88cedfa38671fa5fb2f3a954470e5c180bc99b263",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2373,7 +2373,7 @@
       "category": 9,
       "source": "project/results/parameter_tuning_v3/node_scope_streaming.png",
       "filename": "MATLAB节点实验室V4.15.1_保持型示波器与流式频谱.png",
-      "status": "当前功能观测",
+      "status": "V4.15.1 历史界面显示参考",
       "note": "V4.15.1真实MATLAB界面：保持上一完整记录；2048点Hann窗、50%重叠，最近64条记录滚动功率平均。旧记录保留独立采样率和绝对时间。截图为1 MHz码率/10 kbps/4字节功能场景，不是现场仪器测量。",
       "requested_module_ids": [
         "script_ui"
@@ -2406,7 +2406,7 @@
       "category": 5,
       "source": "project/results/parameter_tuning_v3/node_trend_continuous.png",
       "filename": "MATLAB节点实验室V4.15.1_环路连续趋势.png",
-      "status": "当前功能观测",
+      "status": "V4.15.1 历史界面显示参考",
       "note": "V4.15.1真实MATLAB连续Costas功能趋势：跨段累计时间，停止后继续保留时间及连续模式。截图为1 MHz码率/10 kbps/4字节功能场景；修改速率时独立时标时钟保持，DLL/Costas按新速率重新初始化。",
       "requested_module_ids": [
         "script_ui"
@@ -2438,14 +2438,14 @@
     {
       "category": 0,
       "source": "project/results/parameter_tuning_v3/node_source_basis.png",
-      "filename": "MATLAB节点实验室V4.15.1_仿真依据与待确认边界.png",
+      "filename": "MATLAB节点实验室V4.16_仿真依据与待确认边界.png",
       "status": "工程依据审计",
       "note": "区分原Vivado RTL、AD9361例程、当前功能模型和待板级验证项目，不公开私有源码。",
       "requested_module_ids": [
         "script_ui"
       ],
-      "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.15.1_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "516e2f33a7e6541f5b7bb8b076a7eac8481336d60bed0d63f08d6676875082f3",
+      "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.16_仿真依据与待确认边界.png",
+      "decoded_pixel_sha256": "df68513a46a661225b5f8719907e01829d544d5cb8955d277f6c340d1cad6aaa",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.15.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.16入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "131c5d321cbe7d389ce7e3403375a70d60ffea65010442ff12e3bb30793bb928",
+      "decoded_pixel_sha256": "8e17660714c000a15afaa0aa9d0232dc697c735e5e7ccbcc228e7b33ff1866a3",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.16入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "d49001232d46f194a6f396883d9d2c9e22f82ea8c71b15a373dafb8f7868d0e5",
+      "decoded_pixel_sha256": "4c55f26eab85b6f8e161b7bbf81973f131dd9b1cc666c0e798abca84e43418b7",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3137,7 +3137,7 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_precision.png",
       "filename": "experiment_selector_06_precision.png",
       "status": "真实RTL段+工程预算入口",
-      "note": "DSSS仿真实验系统V4.15.1几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
+      "note": "DSSS仿真实验系统V4.16几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_dll",
@@ -3145,7 +3145,7 @@
         "script_time_protocol"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_06_precision.png",
-      "decoded_pixel_sha256": "9a1768b4e6ea59e3e8d8ac4108c9ef797d86068377172dcfd777e06f95bd54ee",
+      "decoded_pixel_sha256": "9a50495a89d9ce94462e8f9e000d287ca376ff665a0e7246388e2211ad1d61af",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3165,7 +3165,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15.1几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.16几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
     },
     {
       "category": 0,
@@ -3232,7 +3232,7 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_impaired_sync.png",
       "filename": "experiment_selector_07_impaired_sync.png",
       "status": "功能波形闭环入口",
-      "note": "DSSS仿真实验系统V4.15.1新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。",
+      "note": "DSSS仿真实验系统V4.16新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。",
       "requested_module_ids": [
         "script_ui",
         "ad_channel",
@@ -3241,7 +3241,7 @@
         "ad_rx"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_07_impaired_sync.png",
-      "decoded_pixel_sha256": "ec02c6534d44ea1cd79efb9e693e706a6a316a94c46a684e5e74713b30773d4c",
+      "decoded_pixel_sha256": "8a3fa5218692709d52949f3df5ddfc770bda44c20488afed11beb6fc2b93604d",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3265,7 +3265,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15.1新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.16新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
     },
     {
       "category": 10,
@@ -3416,7 +3416,7 @@
       "category": 0,
       "source": "project/results/parameter_tuning_v3/experiment_selector_guard.png",
       "filename": "experiment_selector_08_guard_compare.png",
-      "status": "V4.15.1功能连续实验 / 非硬件实测",
+      "status": "V4.16功能连续实验 / 非硬件实测",
       "note": "08专用保护实验导航：三个入口各自打开相关峰、历元错位或双保护页面。",
       "requested_module_ids": [
         "script_ui",
@@ -3424,7 +3424,7 @@
         "ad_dll"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_08_guard_compare.png",
-      "decoded_pixel_sha256": "3b08cfa6422949e70f36d0fed71f5ef0f3acb43e07807f44e3573735b6b23348",
+      "decoded_pixel_sha256": "bc2645dba7e18f88cf01b55fdac6422537d7c3690d1d97ddd017a3e43f96be52",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3446,7 +3446,7 @@
       "category": 8,
       "source": "project/results/parameter_tuning_v3/node_guard_scope_start.png",
       "filename": "27_双保护连续实验_起始窗口.png",
-      "status": "V4.15.1功能连续实验 / 非硬件实测",
+      "status": "V4.16功能连续实验 / 非硬件实测",
       "note": "同一状态流的起始窗口：记录I/Q+生产COE逐次FFT相关，噪声、衰落和数字身份故障为受控功能模型。",
       "requested_module_ids": [
         "script_ui",
@@ -3454,7 +3454,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/27_双保护连续实验_起始窗口.png",
-      "decoded_pixel_sha256": "7a4e1d4ea4a4b485fe1e7b8a322e42309442b5222dd9c410b8a4762231c2568f",
+      "decoded_pixel_sha256": "5e9cc54e67a38858b2a39060426fb658d8af28fea5e3f049c2756bc7ae1c1eca",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3489,7 +3489,7 @@
       "category": 8,
       "source": "project/results/parameter_tuning_v3/node_guard_scope_running.png",
       "filename": "28_双保护连续实验_滚动到64秒.png",
-      "status": "V4.15.1功能连续实验 / 非硬件实测",
+      "status": "V4.16功能连续实验 / 非硬件实测",
       "note": "同一连续状态流运行640次捕获至64秒，显示最近20秒窗口；时间未归零，随机噪声、衰落、身份及保护状态跨段保持。",
       "requested_module_ids": [
         "script_ui",
@@ -3497,7 +3497,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/28_双保护连续实验_滚动到64秒.png",
-      "decoded_pixel_sha256": "a348d0c5ddb1291af169d4893c46659f25650934a5dead7a0d2893c546ba0d4f",
+      "decoded_pixel_sha256": "22eabf89163a402e2664c6527c1fb143c4e5d61b381260d1d5820e223ea6c0e8",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3509,6 +3509,135 @@
         },
         {
           "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/parameter_tuning_v3/node_timing_tunable_v416.png",
+      "filename": "29_V4.16_80ns调参实验室恢复.png",
+      "status": "V4.16 MATLAB运行中功能验证",
+      "note": "05恢复完整时标参数实验室；手动三次采集推动累计时间，真实RTL历史证据由总控单独按钮查看。时标图仍是独立功能统计，不宣称来自实际波形RTL时标。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_dll",
+        "ad_costas"
+      ],
+      "relative_path": "00_导航与方案说明/29_V4.16_80ns调参实验室恢复.png",
+      "decoded_pixel_sha256": "3004c2a4ce8ddbc9129b0b59d732ae8ef24f3eca0a4b79461e7ca081291cbad9",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 5,
+      "source": "project/results/parameter_tuning_v3/node_live_dll_in_progress.png",
+      "filename": "04_V4.16_DLL计算中_历史与新符号连续显示.png",
+      "status": "V4.16 MATLAB运行中功能验证",
+      "note": "截图在第三条采集记录的DLL计算中取得，保留前两条记录并追加本段新Prompt符号；1 MHz码率/10 kbps/4字节，DLL关闭作显示时轴检查；不是码环精度验收。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_dll",
+        "ad_costas"
+      ],
+      "relative_path": "05_Costas环/04_V4.16_DLL计算中_历史与新符号连续显示.png",
+      "decoded_pixel_sha256": "bd36f2ecf62472129a028a52f54843d5acf584161609a0d48147979c1e173752",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "节点特性",
+          "title": "当前参数→运算/系数→响应",
+          "signal": "选中功能节点的实算特性或独立预算",
+          "meaning": "FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。"
+        },
+        {
+          "position": "观测/参数",
+          "title": "实际缓存波形、来源、生效范围",
+          "signal": "连续原始窗口或符号事件",
+          "meaning": "暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。"
+        }
+      ],
+      "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 5,
+      "source": "project/results/parameter_tuning_v3/node_live_costas_in_progress.png",
+      "filename": "05_V4.16_Costas计算中_时间轴不回跳.png",
+      "status": "V4.16 MATLAB运行中功能验证",
+      "note": "截图在第三条采集记录的Costas计算中取得；符号携带自己绝对时间，历史与新计算值共同显示。1 MHz码率/10 kbps/4字节功能模型，非完整RTL或硬件测量。",
+      "requested_module_ids": [
+        "script_ui",
+        "ad_dll",
+        "ad_costas"
+      ],
+      "relative_path": "05_Costas环/05_V4.16_Costas计算中_时间轴不回跳.png",
+      "decoded_pixel_sha256": "0663de7f241d3d05c006aa28deeec732b4dfa38a3dc40c9f473d18942f57c18b",
+      "module_refs": [
+        {
+          "id": "script_ui",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
           "relation": "登记的新图对应模块；场景及信号说明见图注"
         }
       ],

@@ -53,8 +53,8 @@
   "configControls": 142,
   "pauseSameExecution": true,
   "continuousScope": {
-    "segments": 2,
-    "endSeconds": 0.1037315,
+    "segments": 9,
+    "endSeconds": 0.46679974999999996,
     "stateCarried": true,
     "timeReset": false,
     "automaticDisplayPolicy": true

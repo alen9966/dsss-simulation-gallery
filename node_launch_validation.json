@@ -1,31 +1,31 @@
 {
-  "version": "V4.15.1",
+  "version": "V4.16",
   "passed": true,
   "date": "2026-10-14",
-  "coldOpenSeconds": 1.4658085,
-  "reusedOpenSeconds": 0.0217831,
+  "coldOpenSeconds": 1.2732562,
+  "reusedOpenSeconds": 0.0223478,
   "startup": {
-    "seconds": 1.335403,
+    "seconds": 1.1491605,
     "stages": [
       {
         "stage": "加载工程路径与默认配置",
-        "seconds": 0.0021032
+        "seconds": 0.0014052
       },
       {
         "stage": "创建节点窗口",
-        "seconds": 0.007226
+        "seconds": 0.0054831
       },
       {
         "stage": "构建框图和操作区",
-        "seconds": 0.0749331
+        "seconds": 0.0734842
       },
       {
         "stage": "加载参数表并绘制所选节点",
-        "seconds": 0.5878876
+        "seconds": 0.5047703
       },
       {
         "stage": "节点实验室已就绪",
-        "seconds": 1.326962
+        "seconds": 1.1396155
       }
     ],
     "initialNode": "txfir"
