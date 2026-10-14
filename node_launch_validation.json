@@ -1,0 +1,40 @@
+{
+  "version": "V4.14.1",
+  "passed": true,
+  "date": "2026-10-14",
+  "coldOpenSeconds": 3.487213,
+  "reusedOpenSeconds": 0.0244031,
+  "startup": {
+    "seconds": 2.4757837,
+    "stages": [
+      {
+        "stage": "加载工程路径与默认配置",
+        "seconds": 0.0189276
+      },
+      {
+        "stage": "创建节点窗口",
+        "seconds": 0.0601328
+      },
+      {
+        "stage": "构建框图和操作区",
+        "seconds": 0.2705677
+      },
+      {
+        "stage": "加载参数表并绘制所选节点",
+        "seconds": 1.2816271
+      },
+      {
+        "stage": "节点实验室已就绪",
+        "seconds": 2.4189131
+      }
+    ],
+    "initialNode": "timing"
+  },
+  "actualButtonCallback": true,
+  "reusedSameWindow": true,
+  "noAutomaticSimulation": true,
+  "staleVersionWindowNotReused": true,
+  "reentrantOpenBlocked": true,
+  "removedGlobalToolboxRefreshFromUi": true,
+  "pendingHardwareValidation": true
+}

@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "copied_files": 95,
   "original_files_preserved": true,
   "files": [
@@ -1620,7 +1620,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/07_MATLAB节点实验室_Costas跟踪与星座.png",
-      "decoded_pixel_sha256": "ab762bbaa5c7bab08fc8333aa8c676ff4fc593516b0d7c4280a448dce38e57d2",
+      "decoded_pixel_sha256": "6f9e9f2b89a75d87ec7a7e6ba99607b6380aaead77b018902bcacb4d979af404",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1653,7 +1653,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/08_MATLAB节点实验室_归一化参数与用途.png",
-      "decoded_pixel_sha256": "94859aef3f7a18e6f1bf7a85815d4aa8f83d4d53b5ae81a174adaf5517b367b6",
+      "decoded_pixel_sha256": "72e304aed8d7891881786bd7f9cfe93ed5344d32a9419a197940209eada2fdb8",
       "module_refs": [
         {
           "id": "script_ui",
@@ -1686,7 +1686,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/09_MATLAB节点实验室_关键必要信号与未观测项.png",
-      "decoded_pixel_sha256": "7f72b2d7eafcf7e3aba1d31547cbd33c6b19f31c6bbac4e706408cf976cf628f",
+      "decoded_pixel_sha256": "417ea44f874315aa3eaf4cb42cf32355e70cc6f32f2198aeb80295cd5abe94a8",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2308,12 +2308,12 @@
       "source": "project/results/parameter_tuning_v3/node_dashboard.png",
       "filename": "MATLAB节点实验室V4.14_工程评审总览.png",
       "status": "当前工程评审界面：功能模型导航",
-      "note": "V4.14按技术评审顺序重排：顶部固定显示评审专题、当前节点证据和下一验收关；中部保留完整AD9361数据链；操作区按运行、参数、证据分组。截图来自实际MATLAB功能实验，不代表完整RTL逐拍或硬件验收。",
+      "note": "V4.14.1按技术评审顺序重排：顶部固定显示评审专题、当前节点证据和下一验收关；中部保留完整AD9361数据链；操作区按运行、参数、证据分组。截图来自实际MATLAB功能实验，不代表完整RTL逐拍或硬件验收。 2026-10-14启动修订：界面入口跳过全局工具箱缓存刷新、直接选择初始节点、显示分阶段计时；实际按钮及47项功能回归通过。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.14_工程评审总览.png",
-      "decoded_pixel_sha256": "7bdeb55fd5b91e23c9a14da8075edc3a94eb100bde4d7fae8aadc64707c158d7",
+      "decoded_pixel_sha256": "1504fdb2c288fbbf7e3cc5379451fe6e09a41ca58fd3250eaf94f69658b5b852",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2346,7 +2346,7 @@
         "script_ui"
       ],
       "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "decoded_pixel_sha256": "23efe45d8d2e539a8c3e9666a81c12368d7f7c633b22ebcb44a1fc0f646a3343",
+      "decoded_pixel_sha256": "ee240c169fa2bcfb31764edb1d928ebfd19aec49e5a73bb445486638b76c1a4b",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2445,7 +2445,7 @@
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "decoded_pixel_sha256": "921b7f6c508796776f940aa1bbdc58eaac80a9db44158312f6c7aa56cc06bd6f",
+      "decoded_pixel_sha256": "feac804cffe4050a812326ea376c550cf396241417220d2131e84109eb68280e",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2728,12 +2728,12 @@
       "source": "project/results/parameter_tuning_v3/experiment_selector_end_to_end.png",
       "filename": "experiment_selector_01_end_to_end.png",
       "status": "交互界面：功能模型导航",
-      "note": "DSSS仿真实验系统V4.14入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。",
+      "note": "DSSS仿真实验系统V4.14.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。 2026-10-14启动修订：界面入口跳过全局工具箱缓存刷新、直接选择初始节点、显示分阶段计时；实际按钮及47项功能回归通过。",
       "requested_module_ids": [
         "script_ui"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_01_end_to_end.png",
-      "decoded_pixel_sha256": "3a0d06a1ddfdbd02f25fb8c9754ae59299ab7c35215185690a7941f8e790abce",
+      "decoded_pixel_sha256": "201d5e75c93e3a64be46b84b165761cafae679066a55a03a3047644e78937dcf",
       "module_refs": [
         {
           "id": "script_ui",
@@ -2741,7 +2741,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.14入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.14.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。 2026-10-14启动修订：界面入口跳过全局工具箱缓存刷新、直接选择初始节点、显示分阶段计时；实际按钮及47项功能回归通过。"
     },
     {
       "category": 8,
@@ -2755,7 +2755,7 @@
         "ad_dll"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
-      "decoded_pixel_sha256": "f397fd17d1bd1035ca041a42734dc41118ad8d33040f5cd5ca90d1c06abb2d73",
+      "decoded_pixel_sha256": "18c86a0c2839b391abf1e8aae4960fc5f0652d3988a2569e28bc6c95f6b5e9aa",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3145,7 +3145,7 @@
         "script_time_protocol"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_06_precision.png",
-      "decoded_pixel_sha256": "0213c3d77b54ee3a13474f6359b82538a984409f196c57d24838c1b7a2f2534a",
+      "decoded_pixel_sha256": "5135f88223b9216c24b4b58e2d208e5078c0fb9ed78fbfdb3249424af6f8261a",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3241,7 +3241,7 @@
         "ad_rx"
       ],
       "relative_path": "00_导航与方案说明/experiment_selector_07_impaired_sync.png",
-      "decoded_pixel_sha256": "252ce7bf9cb6dd4a2e3079b7c9fdec2ae5ad19e1c7b5b4f6946bd2bdd4ce66df",
+      "decoded_pixel_sha256": "3b644966156c863a19e3453ba13d788f13f912d09bc8e11b1729f84aba547554",
       "module_refs": [
         {
           "id": "script_ui",
