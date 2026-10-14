@@ -1,0 +1,420 @@
+{
+  "version": "V4.15",
+  "groupCount": 8,
+  "nodeCount": 59,
+  "nodes": [
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "组帧/BPSK",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "算法"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "PN扩频",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "算法+ROM"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "成型FIR",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "滤波/IP"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "AD9361 TX",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "器件"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "70 km信道",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "环境假设"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "AD9361 RX",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "器件"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "RX匹配FIR",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "滤波/IP"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "捕获/DLL/Costas",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "同步算法"
+    },
+    {
+      "experiment": "01 端到端DSSS通信",
+      "node": "判决/解帧",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "算法"
+    },
+    {
+      "experiment": "02 同步环路专项",
+      "node": "RX匹配FIR",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "滤波/IP"
+    },
+    {
+      "experiment": "02 同步环路专项",
+      "node": "FFT相关捕获",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "原RTL算法"
+    },
+    {
+      "experiment": "02 同步环路专项",
+      "node": "DLL/解扩",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "原RTL算法"
+    },
+    {
+      "experiment": "02 同步环路专项",
+      "node": "归一化",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "原RTL算法"
+    },
+    {
+      "experiment": "02 同步环路专项",
+      "node": "Costas环",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "原RTL算法"
+    },
+    {
+      "experiment": "02 同步环路专项",
+      "node": "判决/解帧",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "算法"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "FPGA成型FIR",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "功能/IP候选"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "量化/CDC",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "适配RTL"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "LVDS DDR TX",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "待板验"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "AD9361 DAC/RF",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "器件"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "AD9361 RF/ADC",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "器件"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "LVDS DDR RX",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "待板验"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "CDC/匹配FIR",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "适配RTL+IP"
+    },
+    {
+      "experiment": "03 AD9361收发接口",
+      "node": "SPI/TDD/时钟",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "控制预算"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "TX DSSS",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_tx.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "TX桥接链",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_tx_bridge_chain.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "LVDS回环",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_tx_lvds_loop.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "RX FIR",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_rx_fir_real.ps1",
+      "evidence": "真实RTL+IP"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "捕获前端",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_capture_frontend.ps1",
+      "evidence": "真实RTL+IP"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "DLL跟踪",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_dll_tracking_real.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "归一化",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_rx_norm_real.ps1",
+      "evidence": "真实RTL+IP"
+    },
+    {
+      "experiment": "04 RTL逐级验证",
+      "node": "码相位/时标",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_stage12_code_time_real.ps1",
+      "evidence": "真实RTL+IP"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "记录I/Q向量",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:analyze_capture_phase_80ns",
+      "evidence": "工程记录"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "rx_deci相位0..19",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:analyze_capture_phase_80ns",
+      "evidence": "RTL机制"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "生产捕获COE",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:analyze_capture_phase_80ns",
+      "evidence": "生产系数"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "整数峰选择",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:analyze_capture_phase_80ns",
+      "evidence": "RTL算法"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "time_diff_cal",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:analyze_capture_phase_80ns",
+      "evidence": "真实算式"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "结果与边界",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:analyze_capture_phase_80ns",
+      "evidence": "诊断结论"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "FFT相关峰误选（80 ns）",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_adjacent_peak_waveform_real.ps1",
+      "evidence": "真实RTL+IP"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "衰落+随机噪声峰竞争",
+      "view": "专用连续保护实验",
+      "runner": "MATLAB:run_fading_noise_fft_peak_competition_v2",
+      "evidence": "功能统计+生产COE"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "80ns峰值保护实验",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_guarded_waveform_real.ps1",
+      "evidence": "真实RTL+IP"
+    },
+    {
+      "experiment": "05 偶发80 ns诊断",
+      "node": "峰值+历元双保护对照",
+      "view": "专用连续保护实验",
+      "runner": "MATLAB:run_peak_epoch_guard_comparison",
+      "evidence": "功能对照+RTL锚点"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "码环精度：重跑RTL",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:run_dll_precision_rtl",
+      "evidence": "真实RTL+IP"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "码环精度：重算/查看",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:plot_rtl_stage21_dll_precision",
+      "evidence": "真实RTL结果"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "码NCO残差",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_stage20_precision_sync.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "Costas细相位",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_stage20_precision_sync.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "粗细时间融合",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_stage20_precision_sync.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "四时间戳双向钟差",
+      "view": "节点专属结果与重跑",
+      "runner": "PS1:run_stage20_precision_sync.ps1",
+      "evidence": "真实RTL"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "Monte Carlo误差预算",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:run_precision_sync_budget",
+      "evidence": "MATLAB预算"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "九类非理想联合",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:run_nine_impairment_precision_budget",
+      "evidence": "MATLAB联合预算"
+    },
+    {
+      "experiment": "06 几百ps精测与误差预算",
+      "node": "验收边界",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "证据说明"
+    },
+    {
+      "experiment": "07 非理想DLL+Costas闭环",
+      "node": "AWGN噪声",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "环境功能模型"
+    },
+    {
+      "experiment": "07 非理想DLL+Costas闭环",
+      "node": "80 ns多径",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "环境功能模型"
+    },
+    {
+      "experiment": "07 非理想DLL+Costas闭环",
+      "node": "采样时钟误差",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "新增功能模型"
+    },
+    {
+      "experiment": "07 非理想DLL+Costas闭环",
+      "node": "DLL码环",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "功能闭环"
+    },
+    {
+      "experiment": "07 非理想DLL+Costas闭环",
+      "node": "Costas载波环",
+      "view": "参数与波形",
+      "runner": "",
+      "evidence": "整数功能闭环"
+    },
+    {
+      "experiment": "07 非理想DLL+Costas闭环",
+      "node": "闭环结果",
+      "view": "节点专属结果与重跑",
+      "runner": "MATLAB:run_impaired_sync_closed_loop",
+      "evidence": "功能仿真"
+    },
+    {
+      "experiment": "08 峰值与历元保护：连续对照",
+      "node": "相关峰竞争 → 峰值保护",
+      "view": "专用连续保护实验",
+      "runner": "",
+      "evidence": "功能逐次FFT"
+    },
+    {
+      "experiment": "08 峰值与历元保护：连续对照",
+      "node": "数字错位 → 历元保护",
+      "view": "专用连续保护实验",
+      "runner": "",
+      "evidence": "受控数字故障"
+    },
+    {
+      "experiment": "08 峰值与历元保护：连续对照",
+      "node": "两类故障 → 双保护对照",
+      "view": "专用连续保护实验",
+      "runner": "",
+      "evidence": "功能对照+RTL锚点"
+    }
+  ]
+}
