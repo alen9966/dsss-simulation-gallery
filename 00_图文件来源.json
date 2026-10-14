@@ -1,6 +1,6 @@
 {
   "date": "2026-10-14",
-  "copied_files": 101,
+  "copied_files": 102,
   "original_files_preserved": true,
   "files": [
     {
@@ -3656,6 +3656,31 @@
         }
       ],
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/board_top/board_top_control_validation.png",
+      "filename": "29_AD9361_板级顶层控制_真实RTL.png",
+      "status": "真实板级控制/CDC/SPI RTL片段：20项检查通过；非整链/硬件验收",
+      "note": "Xsim实际559条记录、55.8 us。验证初始化声明不能绕过参数确认、运行中改参拒绝、SPI忙时不覆盖、DSP停止/恢复时的参数及快照握手。INIT_DONE与MISO为受控测试输入；未仿真真实AD9361初始化或RF、DLL/Costas精度。来源rtl/board/*.v和sim/board/tb_dsss_board_control.v；由MATLAB plot_dsss_board_control画图，不是新增Simulink模型模块。",
+      "requested_module_ids": [
+        "rtl_actual",
+        "rtl_tdd"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/29_AD9361_板级顶层控制_真实RTL.png",
+      "decoded_pixel_sha256": "8390c91b033005596fdb546f0342110d0eeb19182ca6328ceb4659f928ba6e9a",
+      "module_refs": [
+        {
+          "id": "rtl_actual",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "rtl_tdd",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：Xsim实际559条记录、55.8 us。验证初始化声明不能绕过参数确认、运行中改参拒绝、SPI忙时不覆盖、DSP停止/恢复时的参数及快照握手。INIT_DONE与MISO为受控测试输入；未仿真真实AD9361初始化或RF、DLL/Costas精度。来源rtl/board/*.v和sim/board/tb_dsss_board_control.v；由MATLAB plot_dsss_board_control画图，不是新增Simulink模型模块。"
     }
   ]
 }

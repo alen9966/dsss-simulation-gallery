@@ -218,6 +218,7 @@ dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim
 实现：scripts/rtl_link/dsss_rtl_load_data.m；scripts/rtl_link/render_rtl_findings.py
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；上排实际RTL波形来源
 对应图：08_MATLAB_Simulink_RTL对照/01_RTL对照_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/29_AD9361_板级顶层控制_真实RTL.png；登记的新图对应模块；场景及信号说明见图注
 
 10 RTL对照：有效点差分与记录
 dsss_rtl_comparison/RTL_minus_Model
@@ -258,6 +259,7 @@ dsss_rtl_comparison/TDD_Error_Log
 对应图：08_MATLAB_Simulink_RTL对照/24_几百ps同步误差预算_实测铷钟与工程分配.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/25_九类非理想因素联合精度预算.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/29_AD9361_板级顶层控制_真实RTL.png；登记的新图对应模块；场景及信号说明见图注
 
 C · 旧 70 MHz 中频参考模型
 模型文件：models/dsss_wireless_link.slx；旧70 MHz中频基准，保留参考。
@@ -1042,3 +1044,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 来源：当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。
 节点特性 | 当前参数→运算/系数→响应 | 选中功能节点的实算特性或独立预算 | FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。
 观测/参数 | 实际缓存波形、来源、生效范围 | 连续原始窗口或符号事件 | 暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。
+
+图：08_MATLAB_Simulink_RTL对照/29_AD9361_板级顶层控制_真实RTL.png
+来源：已按登记信息关联模块；具体场景及信号说明：Xsim实际559条记录、55.8 us。验证初始化声明不能绕过参数确认、运行中改参拒绝、SPI忙时不覆盖、DSP停止/恢复时的参数及快照握手。INIT_DONE与MISO为受控测试输入；未仿真真实AD9361初始化或RF、DLL/Costas精度。来源rtl/board/*.v和sim/board/tb_dsss_board_control.v；由MATLAB plot_dsss_board_control画图，不是新增Simulink模型模块。
