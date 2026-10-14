@@ -286,8 +286,5 @@
   "routeCount": 59,
   "guardTimeSeconds": 51.200000000000458,
   "finiteRtlEvidenceNotReplayedAsLive": true,
-  "functionalContinuousStatePreserved": true,
-  "actualDiagramClicks": 59,
-  "actualContinuousTimerPauseResumeStop": true,
-  "publicBrowserNodesTested": 17
+  "functionalContinuousStatePreserved": true
 }

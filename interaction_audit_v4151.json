@@ -1,0 +1,32 @@
+{
+  "version": "V4.15.1",
+  "passed": true,
+  "date": "2026-10-14",
+  "checks": [
+    "unchecking continuous acquisition stops the timer",
+    "unchecked run acquires exactly one new record",
+    "disabled peak guard really exposes raw values in its own plot",
+    "disabled epoch guard really exposes digital fault values",
+    "disabled guards do not request a peak reacquisition",
+    "invalid multi-field update restores every old parameter",
+    "invalid seed/infinity/boolean rejected",
+    "invalid seed/infinity/boolean rejected",
+    "invalid seed/infinity/boolean rejected",
+    "history truncation does not reset cumulative counters",
+    "large echo peak stays visible",
+    "large timing error is not clipped to old 180ns limits",
+    "epoch-only mode has no unintended fading echo",
+    "scenario switch updates the window title",
+    "evidence view does not report a failed runner as success",
+    "primary run reuses the edited parameter window",
+    "primary run respects edited code parameters",
+    "code-rate edit keeps the independent timing clock forward",
+    "retained waveform keeps its absolute time while next frame is running",
+    "spectrum uses bounded rolling averaging",
+    "stop keeps the selected continuous acquisition mode",
+    "run after stop continues the absolute clock",
+    "Monte Carlo invalid inputs propagate a failed status"
+  ],
+  "checkCount": 23,
+  "classification": "MATLAB UI interaction regression; not new RF performance evidence"
+}

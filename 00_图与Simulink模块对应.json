@@ -2884,8 +2884,8 @@
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
     },
     {
-      "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.15_连续窗口与参数总览.png",
-      "filename": "MATLAB节点实验室V4.15_连续窗口与参数总览.png",
+      "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.15.1_连续窗口与参数总览.png",
+      "filename": "MATLAB节点实验室V4.15.1_连续窗口与参数总览.png",
       "status": "当前工程评审界面：功能模型导航",
       "module_refs": [
         {
@@ -2910,8 +2910,8 @@
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
     },
     {
-      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_节点观测.png",
-      "filename": "MATLAB节点实验室V3.2_节点观测.png",
+      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V4.15.1_节点观测.png",
+      "filename": "MATLAB节点实验室V4.15.1_节点观测.png",
       "status": "当前功能观测",
       "module_refs": [
         {
@@ -2936,8 +2936,8 @@
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
     },
     {
-      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V3.2_保持型示波器与流式频谱.png",
-      "filename": "MATLAB节点实验室V3.2_保持型示波器与流式频谱.png",
+      "relative_path": "09_无线性能与鲁棒性/MATLAB节点实验室V4.15.1_保持型示波器与流式频谱.png",
+      "filename": "MATLAB节点实验室V4.15.1_保持型示波器与流式频谱.png",
       "status": "当前功能观测",
       "module_refs": [
         {
@@ -2962,8 +2962,8 @@
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
     },
     {
-      "relative_path": "05_Costas环/MATLAB节点实验室V3.2_环路连续趋势.png",
-      "filename": "MATLAB节点实验室V3.2_环路连续趋势.png",
+      "relative_path": "05_Costas环/MATLAB节点实验室V4.15.1_环路连续趋势.png",
+      "filename": "MATLAB节点实验室V4.15.1_环路连续趋势.png",
       "status": "当前功能观测",
       "module_refs": [
         {
@@ -2988,8 +2988,8 @@
       "provenance": "当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。"
     },
     {
-      "relative_path": "00_导航与方案说明/MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
-      "filename": "MATLAB节点实验室V3.2_仿真依据与待确认边界.png",
+      "relative_path": "00_导航与方案说明/MATLAB节点实验室V4.15.1_仿真依据与待确认边界.png",
+      "filename": "MATLAB节点实验室V4.15.1_仿真依据与待确认边界.png",
       "status": "工程依据审计",
       "module_refs": [
         {
@@ -3204,7 +3204,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15.1入口。先选择仿真内容，再显示该内容的独立框图；端到端图用于进入现有参数调节、示波器、频谱、眼图和星座图。该图是功能仿真导航界面，不代表完整RTL逐拍或硬件验收。"
     },
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/16_阶段16_80ns诊断独立实验入口.png",
@@ -3225,7 +3225,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：V4.15的05诊断入口包含20相位RTL因果、实际FFT峰、随机峰竞争及峰值/历元双保护。各节点打开专属结果或参数页，双保护直接打开独立连续调参页；历史现场ILA仍未获得。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：独立的偶发80ns诊断框图：记录I/Q向量、rx_deci 20相位、生产相关COE、整数峰选择和time_diff_cal分开显示。点击运行直接执行阶段15确定性复现；已复现机制，但没有历史故障ILA，不能冒充当次硬件事件回放。"
     },
     {
       "relative_path": "00_导航与方案说明/experiment_selector_02_sync_detail_v4.png",
@@ -3505,7 +3505,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15.1几百ps精测实验新增两个码环入口：重跑真实RTL/IP会依次执行鉴相S曲线与DLL跟踪，重算/查看只读取现有RTL CSV并立即生成8 ps理想残差图；其余节点验证Stage 20，预算节点运行MATLAB Monte Carlo。350 ps是测试平台注入量，约130 ps是工程预算，均明确区别于AD9361整机与70 km外场实测。"
     },
     {
       "relative_path": "00_导航与方案说明/experiment_06_monte_carlo_budget_lab.png",
@@ -3576,7 +3576,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：DSSS仿真实验系统V4.15.1新增非理想同步闭环。固定场景同时包含AWGN、80 ns复回波、独立参考钟、35 ps采样白抖动、慢游、相噪、DLL与整数Costas。该入口运行完整功能波形接收链并输出九宫格；采样抖动是插值模型，不是完整RTL逐拍或AD9361/70 km硬件实测。"
     },
     {
       "relative_path": "10_双向时间比对/03_非理想信道_DLL_Costas闭环.png",
@@ -3685,7 +3685,7 @@
     {
       "relative_path": "00_导航与方案说明/experiment_selector_08_guard_compare.png",
       "filename": "experiment_selector_08_guard_compare.png",
-      "status": "V4.15功能连续实验 / 非硬件实测",
+      "status": "V4.15.1功能连续实验 / 非硬件实测",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3706,7 +3706,7 @@
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/27_双保护连续实验_起始窗口.png",
       "filename": "27_双保护连续实验_起始窗口.png",
-      "status": "V4.15功能连续实验 / 非硬件实测",
+      "status": "V4.15.1功能连续实验 / 非硬件实测",
       "module_refs": [
         {
           "id": "script_ui",
@@ -3740,7 +3740,7 @@
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/28_双保护连续实验_滚动到64秒.png",
       "filename": "28_双保护连续实验_滚动到64秒.png",
-      "status": "V4.15功能连续实验 / 非硬件实测",
+      "status": "V4.15.1功能连续实验 / 非硬件实测",
       "module_refs": [
         {
           "id": "script_ui",
