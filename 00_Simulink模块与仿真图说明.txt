@@ -1,5 +1,5 @@
 仿真图与Simulink模块对应说明
-核对日期：2026-10-09 09:58:07（北京时间）
+核对日期：2026-10-15 19:05:46（北京时间）
 一次功能模型执行80 us，内部包含4000物理/20000 DSP样本。不是整链逐周期RTL。
 
 A · 当前 AD9361 功能模型
@@ -591,6 +591,64 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/23_衰落与随机噪声_FFT相邻峰竞争.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/26_相关峰保护与历元一致性保护对照.png；登记的新图对应模块；场景及信号说明见图注
 
+E · 官方 AD9361 器件收发台架
+模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。
+实际模型框图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png
+models/dsss_ad9361_official.slx实际顶层结构，由MATLAB直接导出。入口open_ad9361_simulink.m；功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF传播延迟与固定衰减、官方RX RF/ADC/HB/FIR，配TX/RX I/Q Scope与officialRx日志。DAC200MHz/ADC400MHz，用户FIR旁路假设、理想公共LO、2GHz RF、-80dB固定衰减，默认20us不加传播延迟；100ms模式在200MSPS RF路径增加70km/c取整延迟46699点。模拟带宽与器件默认噪声/非线性未实物标定，无外加AWGN/多径/衰落/独立铷钟。该台架没有在线DLL/Costas/解帧；完整通信功能参考仍为原dsss_ad9361_link.mdl。与脚本短测的I/Q一致性及长模式初始化单独记录；长模式不等于完整载荷验收。不发布官方模型/IP源，仅展示顶层截图。 新MATLAB进程重新加载并运行20us，1001点与既有脚本的I/Q最大差值0；100ms仅验证输入长度及46699点延迟配置。长模式Scope使用1ms滑动窗口、Scroll绝对时间，不循环播放缓存波形；启动器再次调用时保留正在运行的模型参数。原三个模型名称与功能保留，新增的是器件物理链台架。
+
+E1 功能级 DSSS 激励
+dsss_ad9361_official/Project_IQ
+作用：使用dsss_ad9361_step的组帧、PN1000、FIR201、抽取及12位量化结果；DSP逐采样源播放，不是HDL协同仿真。
+输入：按当前StopTime自动生成的项目功能TX数据。
+输出：50 MSPS归一化复数I/Q。
+观察：双击Scope_TX_IQ查看输入的I/Q。
+边界：不是实时运行的TX RTL；不包含AD9361模拟器件。
+日志：
+参数：默认20us；100ms模式用open_ad9361_simulink('packet')打开。
+实现：open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m
+对应图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png；登记的新图对应模块；场景及信号说明见图注
+
+E2 官方 AD9361 TX / RX 器件模型
+dsss_ad9361_official/TX
+dsss_ad9361_official/RX
+dsss_ad9361_official/Ideal_LO
+作用：连接官方TX的FIR/HB/DAC/RF与官方RX的RF/ADC/HB/FIR。右键查看封装内部可以看实际器件模型结构。
+输入：TX接功能级基带，RX接射频复包络；理想外部LO。
+输出：官方RX输出码值，写入officialRx。
+观察：Scope_RX_IQ看输出；TX和RX的掩码对话框查看器件配置。
+边界：50MSPS，DAC200MHz，ADC400MHz；用户FIR按旁路假设，默认噪声/非线性未标定。不是FPGA逐拍或板级实测。
+日志：Received_IQ → officialRx（SimulationOutput / To Workspace）
+参数：RF/LO默认2GHz；滤波带宽仍为候选规格。
+实现：open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m
+对应图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png；登记的新图对应模块；场景及信号说明见图注
+
+E3 RF传播与衰减
+dsss_ad9361_official/RF_Propagation_Delay
+dsss_ad9361_official/Channel
+作用：短测不加传播延迟；StopTime>1ms时增加70km/c，在200MSPS RF路径上取整为46699点。固定幅度1e-4等于-80dB。
+输入：官方TX的200MSPS RF复包络。
+输出：延迟和衰减后的RF复包络。
+观察：查看RF_Propagation_Delay与Channel参数；benchInfo给出时延取整误差。
+边界：不是70km实测链路预算；没有额外衰落、多径、外加AWGN或独立铷钟LO。不是几百ps精度验收。
+日志：
+参数：Channel增益可在块参数中改；短测与100ms模式的传播条件明确分开。
+实现：open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m
+对应图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png；登记的新图对应模块；场景及信号说明见图注
+
+E4 示波器与数据导出
+dsss_ad9361_official/Scope_TX_IQ
+dsss_ad9361_official/Scope_RX_IQ
+dsss_ad9361_official/Received_IQ
+作用：双击Scope后点击Run；默认20us用于通路观察，不把短测当完整报文。
+输入：TX输入、官方RX输出的I/Q。
+输出：两个可打开的Scope与officialRx时序数据。
+观察：先看I/Q是否连续、有无饱和或启动瞬态。
+边界：本台架不含在线DLL/Costas/帧解析；完整功能接收机仍在A组模型中，完整官方报文另行验收。
+日志：officialRx为50MSPS原始复数输出；没有推定为时间同步结果。
+参数：
+实现：open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m
+对应图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png；登记的新图对应模块；场景及信号说明见图注
+
 图：01_发送与接收波形/01_AD9361_单窗波形总览.png
 来源：MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。
 第1行左 | TX I与RX Q时域 | TX/1实部；Channel/1虚部 | 比较发送与信道损伤后的接收片段，不是RX FIR48输出。
@@ -1095,3 +1153,6 @@ D · 独立脚本与展示（非 Simulink 模块）
 
 图：08_MATLAB_Simulink_RTL对照/37_官方AD9361模型_当前代码时钟链短测.png
 来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15官方ad9361_tx/ad9361_rx模型scratch串联；当前control/ad9361_link_profile.h时钟链：I/Q50MSPS，TX DAC200MHz，RX ADC400MHz，BBPLL800MHz。官方固定HB+一阶单位用户FIR旁路假设；模拟带宽候选规格8/12.5MHz不是已部署配置。项目功能TX输入、RF2GHz、固定幅度增益1e-4(-80dB)、理想外部LO，无70km延迟/额外CFO/多径/外加白噪声；默认器件噪声非线性未标定。1001点达到20us且有有效输出；频谱为相对峰值，不是仪器dBm；起始尖峰保留。管理员解密返回124个标准MATLAB文件，经内容和原生SHA核对、备份恢复后重新运行。源run_official_ad9361_chain.m；plot_official_ad9361_signal_path.m画图；不是新Simulink交付模型，也不代表真实RTL整帧、实板或测时精度通过。
+
+图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png
+来源：MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。

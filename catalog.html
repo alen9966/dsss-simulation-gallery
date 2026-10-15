@@ -27,6 +27,10 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <a href="#c9">09_无线性能与鲁棒性</a>
 <a href="#c10">10_双向时间比对</a>
 </nav></details><div class="filters"><label for="scope-filter">证据范围：</label><select id="scope-filter"><option value="current">当前工程</option><option value="historical">历史参考</option><option value="">全部收录</option></select> <label for="module-filter">按模块筛选图片：</label><select id="module-filter"><option value="">全部图片</option>
+<option value="official_source">E1 功能级 DSSS 激励</option>
+<option value="official_device">E2 官方 AD9361 TX / RX 器件模型</option>
+<option value="official_channel">E3 RF传播与衰减</option>
+<option value="official_observe">E4 示波器与数据导出</option>
 <option value="ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</option>
 <option value="ad_channel">02 信道：70 km、频偏、采样钟差与噪声</option>
 <option value="ad_rx">03 接收前端：signed12、插值5与FIR48</option>
@@ -199,6 +203,13 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
 <p><strong>节点特性 · 当前参数→运算/系数→响应</strong><br>选中功能节点的实算特性或独立预算<br>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</p>
 <p><strong>观测/参数 · 实际缓存波形、来源、生效范围</strong><br>连续原始窗口或符号事件<br>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</p>
+</details></article>
+<article data-era="current" data-modules="official_source official_device official_channel official_observe"><span class="badge">真实可运行Simulink器件台架：20us/1001点与脚本差值0；非整帧或实板验收</span><h3>21_官方AD9361_器件收发Simulink模型.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" alt="21_官方AD9361_器件收发Simulink模型.png"></a><p>models/dsss_ad9361_official.slx实际顶层结构，由MATLAB直接导出。入口open_ad9361_simulink.m；功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF传播延迟与固定衰减、官方RX RF/ADC/HB/FIR，配TX/RX I/Q Scope与officialRx日志。DAC200MHz/ADC400MHz，用户FIR旁路假设、理想公共LO、2GHz RF、-80dB固定衰减，默认20us不加传播延迟；100ms模式在200MSPS RF路径增加70km/c取整延迟46699点。模拟带宽与器件默认噪声/非线性未实物标定，无外加AWGN/多径/衰落/独立铷钟。该台架没有在线DLL/Costas/解帧；完整通信功能参考仍为原dsss_ad9361_link.mdl。与脚本短测的I/Q一致性及长模式初始化单独记录；长模式不等于完整载荷验收。不发布官方模型/IP源，仅展示顶层截图。 新MATLAB进程重新加载并运行20us，1001点与既有脚本的I/Q最大差值0；100ms仅验证输入长度及46699点延迟配置。长模式Scope使用1ms滑动窗口、Scroll绝对时间，不循环播放缓存波形；启动器再次调用时保留正在运行的模型参数。原三个模型名称与功能保留，新增的是器件物理链台架。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#official_source">E1 功能级 DSSS 激励</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#official_device">E2 官方 AD9361 TX / RX 器件模型</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#official_channel">E3 RF传播与衰减</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#official_observe">E4 示波器与数据导出</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
 </details></article>
 </div></section>
 <section data-category="1" id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">

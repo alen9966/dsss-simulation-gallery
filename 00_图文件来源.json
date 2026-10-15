@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "copied_files": 110,
+  "copied_files": 111,
   "original_files_preserved": true,
   "files": [
     {
@@ -3928,6 +3928,41 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-15官方ad9361_tx/ad9361_rx模型scratch串联；当前control/ad9361_link_profile.h时钟链：I/Q50MSPS，TX DAC200MHz，RX ADC400MHz，BBPLL800MHz。官方固定HB+一阶单位用户FIR旁路假设；模拟带宽候选规格8/12.5MHz不是已部署配置。项目功能TX输入、RF2GHz、固定幅度增益1e-4(-80dB)、理想外部LO，无70km延迟/额外CFO/多径/外加白噪声；默认器件噪声非线性未标定。1001点达到20us且有有效输出；频谱为相对峰值，不是仪器dBm；起始尖峰保留。管理员解密返回124个标准MATLAB文件，经内容和原生SHA核对、备份恢复后重新运行。源run_official_ad9361_chain.m；plot_official_ad9361_signal_path.m画图；不是新Simulink交付模型，也不代表真实RTL整帧、实板或测时精度通过。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/model_diagrams/ad9361_official_model.png",
+      "filename": "21_官方AD9361_器件收发Simulink模型.png",
+      "status": "真实可运行Simulink器件台架：20us/1001点与脚本差值0；非整帧或实板验收",
+      "note": "models/dsss_ad9361_official.slx实际顶层结构，由MATLAB直接导出。入口open_ad9361_simulink.m；功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF传播延迟与固定衰减、官方RX RF/ADC/HB/FIR，配TX/RX I/Q Scope与officialRx日志。DAC200MHz/ADC400MHz，用户FIR旁路假设、理想公共LO、2GHz RF、-80dB固定衰减，默认20us不加传播延迟；100ms模式在200MSPS RF路径增加70km/c取整延迟46699点。模拟带宽与器件默认噪声/非线性未实物标定，无外加AWGN/多径/衰落/独立铷钟。该台架没有在线DLL/Costas/解帧；完整通信功能参考仍为原dsss_ad9361_link.mdl。与脚本短测的I/Q一致性及长模式初始化单独记录；长模式不等于完整载荷验收。不发布官方模型/IP源，仅展示顶层截图。 新MATLAB进程重新加载并运行20us，1001点与既有脚本的I/Q最大差值0；100ms仅验证输入长度及46699点延迟配置。长模式Scope使用1ms滑动窗口、Scroll绝对时间，不循环播放缓存波形；启动器再次调用时保留正在运行的模型参数。原三个模型名称与功能保留，新增的是器件物理链台架。",
+      "requested_module_ids": [
+        "official_source",
+        "official_device",
+        "official_channel",
+        "official_observe"
+      ],
+      "relative_path": "00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png",
+      "decoded_pixel_sha256": "10e210b412fabe3bd3e8070308cab6813b485319252a72445871502f069aee2a",
+      "module_refs": [
+        {
+          "id": "official_source",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_device",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_observe",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-10-09 09:58:07",
+  "inventory_date": "2026-10-15 19:05:46",
   "scope": "Read-only inventory of existing saved models; no new waveform run or model modification",
   "models": [
     {
@@ -385,9 +385,182 @@
           "Parameters": "'channel',dsss_wireless_cfg"
         }
       ]
+    },
+    {
+      "name": "dsss_ad9361_official",
+      "file": "models/dsss_ad9361_official.slx",
+      "blocks": [
+        {
+          "path": "dsss_ad9361_official/Channel",
+          "name": "Channel",
+          "blockType": "Gain",
+          "inputPorts": 1,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_ad9361_official/Ideal_LO",
+          "name": "Ideal_LO",
+          "blockType": "Constant",
+          "inputPorts": 0,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_ad9361_official/Project_IQ",
+          "name": "Project_IQ",
+          "blockType": "SubSystem",
+          "inputPorts": 0,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_ad9361_official/RF_Propagation_Delay",
+          "name": "RF_Propagation_Delay",
+          "blockType": "Delay",
+          "inputPorts": 1,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_ad9361_official/RX",
+          "name": "RX",
+          "blockType": "SubSystem",
+          "inputPorts": 2,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_ad9361_official/RX_IQ_Components",
+          "name": "RX_IQ_Components",
+          "blockType": "ComplexToRealImag",
+          "inputPorts": 1,
+          "outputPorts": 2
+        },
+        {
+          "path": "dsss_ad9361_official/Received_IQ",
+          "name": "Received_IQ",
+          "blockType": "ToWorkspace",
+          "inputPorts": 1,
+          "outputPorts": 0,
+          "VariableName": "officialRx"
+        },
+        {
+          "path": "dsss_ad9361_official/Scope_RX_IQ",
+          "name": "Scope_RX_IQ",
+          "blockType": "Scope",
+          "inputPorts": 2,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_ad9361_official/Scope_TX_IQ",
+          "name": "Scope_TX_IQ",
+          "blockType": "Scope",
+          "inputPorts": 2,
+          "outputPorts": 0
+        },
+        {
+          "path": "dsss_ad9361_official/TX",
+          "name": "TX",
+          "blockType": "SubSystem",
+          "inputPorts": 2,
+          "outputPorts": 1
+        },
+        {
+          "path": "dsss_ad9361_official/TX_IQ_Components",
+          "name": "TX_IQ_Components",
+          "blockType": "ComplexToRealImag",
+          "inputPorts": 1,
+          "outputPorts": 2
+        }
+      ]
     }
   ],
   "modules": [
+    {
+      "id": "official_source",
+      "title": "E1 功能级 DSSS 激励",
+      "group": "official",
+      "model": "dsss_ad9361_official",
+      "block_paths": [
+        "dsss_ad9361_official/Project_IQ"
+      ],
+      "inputs": "按当前StopTime自动生成的项目功能TX数据。",
+      "outputs": "50 MSPS归一化复数I/Q。",
+      "purpose": "使用dsss_ad9361_step的组帧、PN1000、FIR201、抽取及12位量化结果；DSP逐采样源播放，不是HDL协同仿真。",
+      "observe": "双击Scope_TX_IQ查看输入的I/Q。",
+      "limits": "不是实时运行的TX RTL；不包含AD9361模拟器件。",
+      "sources": [
+        "open_ad9361_simulink.m",
+        "fpga_ad9361/tools/run_official_ad9361_chain.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m"
+      ],
+      "logs": "",
+      "tune": "默认20us；100ms模式用open_ad9361_simulink('packet')打开。"
+    },
+    {
+      "id": "official_device",
+      "title": "E2 官方 AD9361 TX / RX 器件模型",
+      "group": "official",
+      "model": "dsss_ad9361_official",
+      "block_paths": [
+        "dsss_ad9361_official/TX",
+        "dsss_ad9361_official/RX",
+        "dsss_ad9361_official/Ideal_LO"
+      ],
+      "inputs": "TX接功能级基带，RX接射频复包络；理想外部LO。",
+      "outputs": "官方RX输出码值，写入officialRx。",
+      "purpose": "连接官方TX的FIR/HB/DAC/RF与官方RX的RF/ADC/HB/FIR。右键查看封装内部可以看实际器件模型结构。",
+      "observe": "Scope_RX_IQ看输出；TX和RX的掩码对话框查看器件配置。",
+      "limits": "50MSPS，DAC200MHz，ADC400MHz；用户FIR按旁路假设，默认噪声/非线性未标定。不是FPGA逐拍或板级实测。",
+      "sources": [
+        "open_ad9361_simulink.m",
+        "fpga_ad9361/tools/run_official_ad9361_chain.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m"
+      ],
+      "logs": "Received_IQ → officialRx（SimulationOutput / To Workspace）",
+      "tune": "RF/LO默认2GHz；滤波带宽仍为候选规格。"
+    },
+    {
+      "id": "official_channel",
+      "title": "E3 RF传播与衰减",
+      "group": "official",
+      "model": "dsss_ad9361_official",
+      "block_paths": [
+        "dsss_ad9361_official/RF_Propagation_Delay",
+        "dsss_ad9361_official/Channel"
+      ],
+      "inputs": "官方TX的200MSPS RF复包络。",
+      "outputs": "延迟和衰减后的RF复包络。",
+      "purpose": "短测不加传播延迟；StopTime>1ms时增加70km/c，在200MSPS RF路径上取整为46699点。固定幅度1e-4等于-80dB。",
+      "observe": "查看RF_Propagation_Delay与Channel参数；benchInfo给出时延取整误差。",
+      "limits": "不是70km实测链路预算；没有额外衰落、多径、外加AWGN或独立铷钟LO。不是几百ps精度验收。",
+      "sources": [
+        "open_ad9361_simulink.m",
+        "fpga_ad9361/tools/run_official_ad9361_chain.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m"
+      ],
+      "logs": "",
+      "tune": "Channel增益可在块参数中改；短测与100ms模式的传播条件明确分开。"
+    },
+    {
+      "id": "official_observe",
+      "title": "E4 示波器与数据导出",
+      "group": "official",
+      "model": "dsss_ad9361_official",
+      "block_paths": [
+        "dsss_ad9361_official/Scope_TX_IQ",
+        "dsss_ad9361_official/Scope_RX_IQ",
+        "dsss_ad9361_official/Received_IQ"
+      ],
+      "inputs": "TX输入、官方RX输出的I/Q。",
+      "outputs": "两个可打开的Scope与officialRx时序数据。",
+      "purpose": "双击Scope后点击Run；默认20us用于通路观察，不把短测当完整报文。",
+      "observe": "先看I/Q是否连续、有无饱和或启动瞬态。",
+      "limits": "本台架不含在线DLL/Costas/帧解析；完整功能接收机仍在A组模型中，完整官方报文另行验收。",
+      "sources": [
+        "open_ad9361_simulink.m",
+        "fpga_ad9361/tools/run_official_ad9361_chain.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m"
+      ],
+      "logs": "officialRx为50MSPS原始复数输出；没有推定为时间同步结果。",
+      "tune": ""
+    },
     {
       "id": "ad_tx",
       "title": "01 发送：组帧、DSSS 扩频、FIR201 与抽取",
@@ -4070,10 +4243,35 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-15官方ad9361_tx/ad9361_rx模型scratch串联；当前control/ad9361_link_profile.h时钟链：I/Q50MSPS，TX DAC200MHz，RX ADC400MHz，BBPLL800MHz。官方固定HB+一阶单位用户FIR旁路假设；模拟带宽候选规格8/12.5MHz不是已部署配置。项目功能TX输入、RF2GHz、固定幅度增益1e-4(-80dB)、理想外部LO，无70km延迟/额外CFO/多径/外加白噪声；默认器件噪声非线性未标定。1001点达到20us且有有效输出；频谱为相对峰值，不是仪器dBm；起始尖峰保留。管理员解密返回124个标准MATLAB文件，经内容和原生SHA核对、备份恢复后重新运行。源run_official_ad9361_chain.m；plot_official_ad9361_signal_path.m画图；不是新Simulink交付模型，也不代表真实RTL整帧、实板或测时精度通过。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png",
+      "filename": "21_官方AD9361_器件收发Simulink模型.png",
+      "status": "真实可运行Simulink器件台架：20us/1001点与脚本差值0；非整帧或实板验收",
+      "module_refs": [
+        {
+          "id": "official_source",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_device",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_observe",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。"
     }
   ],
   "layout_verification": {
-    "date": "2026-10-08 16:03:17",
+    "date": "2026-10-15 19:05:44",
     "passed": true,
     "scope": "Actual Simulink diagrams; layout only. Block parameters, solver, edges and port logging checked unchanged. Compilation passed; numerical regression recorded separately.",
     "models": [
@@ -4097,6 +4295,13 @@
         "edges": 18,
         "unchangedGraph": true,
         "image": "wireless_if_model.png"
+      },
+      {
+        "name": "dsss_ad9361_official",
+        "blocks": 11,
+        "edges": 13,
+        "unchangedGraph": true,
+        "image": "ad9361_official_model.png"
       }
     ]
   }
