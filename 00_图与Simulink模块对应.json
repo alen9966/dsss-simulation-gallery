@@ -3927,6 +3927,27 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-14本次新日志：当前DSSS_BPSK_TXRX工程生成的FIR201 IP，与生产TX/12位量化/XPM桥接/UNISIM LVDS DDR发送和接收串联；17:59:14结束，1000对标记后I/Q逐位一致，帧错误0。DSP250MHz/接口100MHz/IQ50MSPS。独立测试含插值滤波919个随机复数输出、SPI mode0/24位读写、桥接128点及受控欠载、LVDS RX64/TX67对；DLL NCO仅控制边界，算术IP为占位。2.5ns返回时钟相移和0.5ns传播是台架假设；图时间轴是标记对齐后的20ns/点。不是真实AD9361 ADC/DAC/RF、完整载荷帧、实板眼图或精密钟差验收。官方支持包已装且库可加载，但实际运行受本机MATLAB文件读取及解密权限问题阻碍；XDC按用户要求继续暂停。图来自plot_ad9361_interface_regression.m；原始日志、CSV及当前IP/源码指纹保留在results/ad9361_interface_20261014，不是新增Simulink模块。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/32_AD9361_TX两路差分反接_RTL补偿对照.png",
+      "filename": "32_AD9361_TX两路差分反接_RTL补偿对照.png",
+      "status": "真实RTL/UNISIM数字接口片段：负对照与补偿通过；非实板或STA验收",
+      "module_refs": [
+        {
+          "id": "rtl_actual",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-15用户确认PCB TX D4/D5 P/N实物反接。三组同激励、实际ODDR/OBUFDS/IBUFDS与显式PCB接线模型：正常接线0/67错，反接未补偿67/67错（两段6bit形成12bit异或0xC30），掩码110000补偿后0/67错；各组另验64对独立RX、DDR/复位。当前新工程真实FIR201 IP+TX+XPM桥接+LVDS+PCB反接模型回环1000对I/Q逐位一致；BPSK Q=0，动态非零Q由独立PHY对照覆盖。底板顶层17项边界检查包含补偿参数传递，其他PHY/MMCM/core边界显式模拟。引脚展开46/46通过，pins/timing XDC启用，非专用时钟绕行保持禁用；不是完整映射综合、布局布线、实板眼图、AD9361 RF、整帧或测时精度验收。图由plot_tx_lane_polarity.m读取实际Xsim CSV生成；来源ad9361_lvds_1r1t.v、ad9361_dsss_radio.v、DSSS_BPSK_TXRX_top.v；不是新增Simulink模块。"
     }
   ],
   "layout_verification": {
