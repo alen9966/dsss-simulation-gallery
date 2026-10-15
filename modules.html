@@ -2,9 +2,9 @@
 <title>仿真图与Simulink模块对应</title><style>body{margin:0;background:#f3f6fa;color:#1b2e45;font:16px/1.75 "Microsoft YaHei",sans-serif}main{max-width:1240px;margin:auto;padding:28px}a{color:#075fa7}h1{margin:0}h2{margin-top:40px}h3{margin:4px 0 12px}article{background:white;border:1px solid #dae2ec;border-radius:12px;padding:22px;margin:20px 0;scroll-margin-top:16px}code{font:14px/1.6 Consolas,monospace;overflow-wrap:anywhere;background:#eff4f8;padding:2px 4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eff4f8;padding:12px;font:14px/1.7 Consolas,monospace}table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}td,th{border:1px solid #dae2ec;padding:9px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#eef4fa}nav a,.button{display:inline-block;margin:4px 9px 4px 0;padding:6px 12px;background:#e3edf7;border-radius:6px;text-decoration:none}.note{color:#536476}.scope{background:#fff4dc;padding:12px;border-left:4px solid #d39c32}.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.chain a{background:white;border:1px solid #b8cfe3;border-radius:8px;padding:12px}.figlinks li{margin:8px 0}summary{cursor:pointer;color:#075fa7}.model-diagram{margin:20px 0;padding:18px;background:white;border:1px solid #b8cfe3;border-radius:12px}.diagram-viewport{overflow:auto;border:1px solid #d8e2ee;background:white;max-height:760px}.diagram-viewport img{display:block;width:100%;max-width:none;height:auto}.diagram-toolbar button{cursor:pointer;border:0;border-radius:6px;padding:8px 14px;margin:4px;color:#075fa7;background:#e3edf7}.diagram-toolbar a{margin-left:10px}.groupnote{background:#e8f1fb;padding:16px;border-radius:8px}@media(max-width:650px){main{padding:14px}article{padding:14px}table{display:block;overflow:auto}}</style><main>
 <h1>仿真图 ↔ Simulink 模块</h1><p>按实际模块查找对应图片、端口和观察方法。</p>
 <nav><a href="completion.html">本轮校准与报文验证</a><a href="migration.html">四阶段迁移与验证</a><a href="00_图册索引.html">成果精选</a><a href="catalog.html">完整图册</a><a href="00_Simulink模块与仿真图说明.txt">文字说明</a><a href="00_图与Simulink模块对应.json">完整对应数据</a></nav>
-<p class="note">核对日期：2026-10-15 19:05:46（北京时间）。已用MATLAB读取4个现有模型；实际模型框图已导出，主链、有效信号和日志连线已整理；图中所有块名与下方清单一致。</p>
+<p class="note">核对日期：2026-10-15 19:35:05（北京时间）。已用MATLAB读取4个现有模型；实际模型框图已导出，主链、有效信号和日志连线已整理；图中所有块名与下方清单一致。</p>
 <p class="scope">当前主模型是6个Level-2 MATLAB S-function。一次模型执行为80 us，内部处理4000个50 MSPS样本或20000个250 MSPS样本；不是把Simulink步长设为4 ns的整链RTL仿真。S-function端口使用double容器表达整数码值。图由脚本绘制，不能一律称为Simulink Scope截图。</p>
-<p class="groupnote">布局核验：2026-10-15 19:05:44（北京时间），3个模型共57个块、60个输入连接；参数、连接关系和日志设置检查一致，三个模型均编译通过。数值回归另见各类仿真证据，模型图本身不代表硬件验证。</p>
+<p class="groupnote">布局核验：2026-10-15 19:35:03（北京时间），3个模型共59个块、61个输入连接；参数、连接关系和日志设置检查一致，三个模型均编译通过。数值回归另见各类仿真证据，模型图本身不代表硬件验证。</p>
 <nav>
 <a href="#group-ad">A · 当前 AD9361 功能模型</a>
 <a href="#group-rtl">B · 实际 RTL 导出对照模型</a>
@@ -582,16 +582,17 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
 <h2 id="group-official">E · 官方 AD9361 器件收发台架</h2>
 <p class="groupnote">模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。</p>
-<section class="model-diagram" id="diagram-official"><h3>实际 Simulink 模型框图</h3><p>models/dsss_ad9361_official.slx实际顶层结构，由MATLAB直接导出。入口open_ad9361_simulink.m；功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF传播延迟与固定衰减、官方RX RF/ADC/HB/FIR，配TX/RX I/Q Scope与officialRx日志。DAC200MHz/ADC400MHz，用户FIR旁路假设、理想公共LO、2GHz RF、-80dB固定衰减，默认20us不加传播延迟；100ms模式在200MSPS RF路径增加70km/c取整延迟46699点。模拟带宽与器件默认噪声/非线性未实物标定，无外加AWGN/多径/衰落/独立铷钟。该台架没有在线DLL/Costas/解帧；完整通信功能参考仍为原dsss_ad9361_link.mdl。与脚本短测的I/Q一致性及长模式初始化单独记录；长模式不等于完整载荷验收。不发布官方模型/IP源，仅展示顶层截图。 新MATLAB进程重新加载并运行20us，1001点与既有脚本的I/Q最大差值0；100ms仅验证输入长度及46699点延迟配置。长模式Scope使用1ms滑动窗口、Scroll绝对时间，不循环播放缓存波形；启动器再次调用时保留正在运行的模型参数。原三个模型名称与功能保留，新增的是器件物理链台架。</p><div class="diagram-toolbar"><button type="button" data-diagram="official" data-zoom="1">适合宽度</button><button type="button" data-diagram="official" data-zoom="2">放大 2 倍</button><button type="button" data-diagram="official" data-zoom="3">放大 3 倍</button><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" target="_blank" rel="noopener">打开高清原图 / 下载</a></div><p class="note">放大后可横向滚动查看。模型中的S-function内部算法解释见各模块卡片。</p><div class="diagram-viewport"><img id="image-official" loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" alt="E · 官方 AD9361 器件收发台架实际模块及连线"></div></section>
+<section class="model-diagram" id="diagram-official"><h3>实际 Simulink 模型框图</h3><p>models/dsss_ad9361_official.slx实际顶层，由MATLAB直接导出；入口open_ad9361_simulink.m，独立构建器build_ad9361_official_simulink.m。默认100ms/70km：148字节在12.5kbps下占94.72ms，另含约233.495us传播时间。waveform模式2ms/70km供波形观察；smoke模式20us/零距离仅做数值回归。功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF路径Delay/Gain、官方RX RF/ADC/HB/FIR，输出TX/RX Scope、officialRx和Simulation_Time。DAC200MHz/ADC400MHz，RF2GHz，理想公共LO，固定幅度衰减1e-4(-80dB)；70km传播在200MSPS路径取整为46699点，距离与StopTime独立。模拟带宽8/12.5MHz为候选规格，器件噪声非线性未实物标定；无外加AWGN/多径/衰落/独立铷钟。Scope使用1ms Scroll累计时间窗口及有界显示历史，进度每1ms记录；完整源数据在运行初始化时生成，不重复播放保存的12000点预览。新进程20us回归1001点与已验证脚本I/Q最大差值0；100ms初始化5,008,000输入点通过。100ms是已保存配置，不等于长时运行或完整载荷验收；2ms/70km实际计算得到100001点、到达前后RMS分别27.7102/120.3938码值；重验绘图通过。台架无在线DLL/Costas/解帧，完整通信功能参考仍为dsss_ad9361_link.mdl；非真实RTL/实板/测时精度证明。原始三模型保留；公开仅顶层图与说明，不发布官方模型/IP。</p><div class="diagram-toolbar"><button type="button" data-diagram="official" data-zoom="1">适合宽度</button><button type="button" data-diagram="official" data-zoom="2">放大 2 倍</button><button type="button" data-diagram="official" data-zoom="3">放大 3 倍</button><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" target="_blank" rel="noopener">打开高清原图 / 下载</a></div><p class="note">放大后可横向滚动查看。模型中的S-function内部算法解释见各模块卡片。</p><div class="diagram-viewport"><img id="image-official" loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" alt="E · 官方 AD9361 器件收发台架实际模块及连线"></div></section>
 <article id="official_source"><h3>E1 功能级 DSSS 激励</h3>
 <p><code>dsss_ad9361_official/Project_IQ</code></p>
 <p><a class="button" href="#diagram-official">查看本模块所在的实际模型图</a></p>
 <p>使用dsss_ad9361_step的组帧、PN1000、FIR201、抽取及12位量化结果；DSP逐采样源播放，不是HDL协同仿真。</p><table><tr><th>输入</th><td>按当前StopTime自动生成的项目功能TX数据。</td></tr><tr><th>输出</th><td>50 MSPS归一化复数I/Q。</td></tr>
-<tr><th>参数与尺度</th><td>默认20us；100ms模式用open_ad9361_simulink(&#x27;packet&#x27;)打开。</td></tr>
+<tr><th>参数与尺度</th><td>默认100ms/70km；waveform为2ms/70km，smoke为20us器件回环；帧148字节在12.5kbps下持续94.72ms。</td></tr>
 </table><p><strong>怎么看：</strong>双击Scope_TX_IQ查看输入的I/Q。</p><p class="scope"><strong>验证边界：</strong>不是实时运行的TX RTL；不包含AD9361模拟器件。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png">21_官方AD9361_器件收发Simulink模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
-</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m</p>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/38_%E5%AE%98%E6%96%B9AD9361_70km_2ms%E8%BF%9E%E7%BB%AD%E6%B3%A2%E5%BD%A2.png">38_官方AD9361_70km_2ms连续波形.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/build_ad9361_official_simulink.m；fpga_ad9361/tools/ad9361_official_model_init.m；fpga_ad9361/tools/ad9361_official_progress_sfun.m；fpga_ad9361/tools/ad9361_official_model_presave.m</p>
 <pre>open_ad9361_simulink;
 hilite_system(&#x27;dsss_ad9361_official/Project_IQ&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
@@ -606,7 +607,8 @@ hilite_system(&#x27;dsss_ad9361_official/Project_IQ&#x27;,&#x27;find&#x27;);</pr
 </table><p><strong>怎么看：</strong>Scope_RX_IQ看输出；TX和RX的掩码对话框查看器件配置。</p><p class="scope"><strong>验证边界：</strong>50MSPS，DAC200MHz，ADC400MHz；用户FIR按旁路假设，默认噪声/非线性未标定。不是FPGA逐拍或板级实测。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png">21_官方AD9361_器件收发Simulink模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
-</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m</p>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/38_%E5%AE%98%E6%96%B9AD9361_70km_2ms%E8%BF%9E%E7%BB%AD%E6%B3%A2%E5%BD%A2.png">38_官方AD9361_70km_2ms连续波形.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/build_ad9361_official_simulink.m；fpga_ad9361/tools/ad9361_official_model_init.m；fpga_ad9361/tools/ad9361_official_progress_sfun.m；fpga_ad9361/tools/ad9361_official_model_presave.m</p>
 <pre>open_ad9361_simulink;
 hilite_system(&#x27;dsss_ad9361_official/TX&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
@@ -614,12 +616,13 @@ hilite_system(&#x27;dsss_ad9361_official/TX&#x27;,&#x27;find&#x27;);</pre>
 <p><code>dsss_ad9361_official/RF_Propagation_Delay</code></p>
 <p><code>dsss_ad9361_official/Channel</code></p>
 <p><a class="button" href="#diagram-official">查看本模块所在的实际模型图</a></p>
-<p>短测不加传播延迟；StopTime&gt;1ms时增加70km/c，在200MSPS RF路径上取整为46699点。固定幅度1e-4等于-80dB。</p><table><tr><th>输入</th><td>官方TX的200MSPS RF复包络。</td></tr><tr><th>输出</th><td>延迟和衰减后的RF复包络。</td></tr>
+<p>默认100ms和2ms波形模式均为70km/c，在200MSPS RF路径取整为46699点。smoke显式使用零距离。距离由benchDistance_m独立指定，仅修改StopTime不会改变信道。固定幅度1e-4等于-80dB。</p><table><tr><th>输入</th><td>官方TX的200MSPS RF复包络。</td></tr><tr><th>输出</th><td>延迟和衰减后的RF复包络。</td></tr>
 <tr><th>参数与尺度</th><td>Channel增益可在块参数中改；短测与100ms模式的传播条件明确分开。</td></tr>
 </table><p><strong>怎么看：</strong>查看RF_Propagation_Delay与Channel参数；benchInfo给出时延取整误差。</p><p class="scope"><strong>验证边界：</strong>不是70km实测链路预算；没有额外衰落、多径、外加AWGN或独立铷钟LO。不是几百ps精度验收。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png">21_官方AD9361_器件收发Simulink模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
-</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m</p>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/38_%E5%AE%98%E6%96%B9AD9361_70km_2ms%E8%BF%9E%E7%BB%AD%E6%B3%A2%E5%BD%A2.png">38_官方AD9361_70km_2ms连续波形.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/build_ad9361_official_simulink.m；fpga_ad9361/tools/ad9361_official_model_init.m；fpga_ad9361/tools/ad9361_official_progress_sfun.m；fpga_ad9361/tools/ad9361_official_model_presave.m</p>
 <pre>open_ad9361_simulink;
 hilite_system(&#x27;dsss_ad9361_official/RF_Propagation_Delay&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
@@ -627,13 +630,16 @@ hilite_system(&#x27;dsss_ad9361_official/RF_Propagation_Delay&#x27;,&#x27;find&#
 <p><code>dsss_ad9361_official/Scope_TX_IQ</code></p>
 <p><code>dsss_ad9361_official/Scope_RX_IQ</code></p>
 <p><code>dsss_ad9361_official/Received_IQ</code></p>
+<p><code>dsss_ad9361_official/Simulation_Time</code></p>
+<p><code>dsss_ad9361_official/Progress_s</code></p>
 <p><a class="button" href="#diagram-official">查看本模块所在的实际模型图</a></p>
-<p>双击Scope后点击Run；默认20us用于通路观察，不把短测当完整报文。</p><table><tr><th>输入</th><td>TX输入、官方RX输出的I/Q。</td></tr><tr><th>输出</th><td>两个可打开的Scope与officialRx时序数据。</td></tr>
+<p>双击Scope后点击Run；默认100ms包含整帧发送，Scope按1ms滑动窗口显示。Progress_s每1ms更新累计仿真时间；命令窗口和按PID分开的JSON记录实际进度。时长达到不等于载荷或测时验收。</p><table><tr><th>输入</th><td>TX输入、官方RX输出的I/Q。</td></tr><tr><th>输出</th><td>两个可打开的Scope与officialRx时序数据。</td></tr>
 <tr><th>日志位置</th><td>officialRx为50MSPS原始复数输出；没有推定为时间同步结果。</td></tr>
 </table><p><strong>怎么看：</strong>先看I/Q是否连续、有无饱和或启动瞬态。</p><p class="scope"><strong>验证边界：</strong>本台架不含在线DLL/Costas/帧解析；完整功能接收机仍在A组模型中，完整官方报文另行验收。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png">21_官方AD9361_器件收发Simulink模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
-</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/run_official_ad9361_chain.m；fpga_ad9361/tools/ad9361_official_model_init.m</p>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/38_%E5%AE%98%E6%96%B9AD9361_70km_2ms%E8%BF%9E%E7%BB%AD%E6%B3%A2%E5%BD%A2.png">38_官方AD9361_70km_2ms连续波形.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/build_ad9361_official_simulink.m；fpga_ad9361/tools/ad9361_official_model_init.m；fpga_ad9361/tools/ad9361_official_progress_sfun.m；fpga_ad9361/tools/ad9361_official_model_presave.m</p>
 <pre>open_ad9361_simulink;
 hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
@@ -690,9 +696,10 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td><code>TX_Frame_DSSS_FIR201_DUC</code></td><td>M-S-Function / 0→2</td><td>dsss_wireless_sfun；&#x27;tx&#x27;,dsss_wireless_cfg</td></tr>
 <tr><td><code>Wireless_70km_Independent_Clocks</code></td><td>M-S-Function / 1→2</td><td>dsss_wireless_sfun；&#x27;channel&#x27;,dsss_wireless_cfg</td></tr>
 </table></details>
-<details><summary>dsss_ad9361_official：11个顶层块</summary><table><tr><th>实际块名</th><th>类型 / 输入→输出端口数</th><th>函数或变量</th></tr>
+<details><summary>dsss_ad9361_official：13个顶层块</summary><table><tr><th>实际块名</th><th>类型 / 输入→输出端口数</th><th>函数或变量</th></tr>
 <tr><td><code>Channel</code></td><td>Gain / 1→1</td><td></td></tr>
 <tr><td><code>Ideal_LO</code></td><td>Constant / 0→1</td><td></td></tr>
+<tr><td><code>Progress_s</code></td><td>Display / 1→0</td><td></td></tr>
 <tr><td><code>Project_IQ</code></td><td>SubSystem / 0→1</td><td></td></tr>
 <tr><td><code>RF_Propagation_Delay</code></td><td>Delay / 1→1</td><td></td></tr>
 <tr><td><code>RX</code></td><td>SubSystem / 2→1</td><td></td></tr>
@@ -700,6 +707,7 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td><code>Received_IQ</code></td><td>ToWorkspace / 1→0</td><td>officialRx</td></tr>
 <tr><td><code>Scope_RX_IQ</code></td><td>Scope / 2→0</td><td></td></tr>
 <tr><td><code>Scope_TX_IQ</code></td><td>Scope / 2→0</td><td></td></tr>
+<tr><td><code>Simulation_Time</code></td><td>M-S-Function / 0→1</td><td>ad9361_official_progress_sfun；benchProgressFile,benchStopTime</td></tr>
 <tr><td><code>TX</code></td><td>SubSystem / 2→1</td><td></td></tr>
 <tr><td><code>TX_IQ_Components</code></td><td>ComplexToRealImag / 1→2</td><td></td></tr>
 </table></details>
@@ -1210,5 +1218,13 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <details><summary>37_官方AD9361模型_当前代码时钟链短测.png</summary><p>已按登记信息关联模块；具体场景及信号说明：2026-10-15官方ad9361_tx/ad9361_rx模型scratch串联；当前control/ad9361_link_profile.h时钟链：I/Q50MSPS，TX DAC200MHz，RX ADC400MHz，BBPLL800MHz。官方固定HB+一阶单位用户FIR旁路假设；模拟带宽候选规格8/12.5MHz不是已部署配置。项目功能TX输入、RF2GHz、固定幅度增益1e-4(-80dB)、理想外部LO，无70km延迟/额外CFO/多径/外加白噪声；默认器件噪声非线性未标定。1001点达到20us且有有效输出；频谱为相对峰值，不是仪器dBm；起始尖峰保留。管理员解密返回124个标准MATLAB文件，经内容和原生SHA核对、备份恢复后重新运行。源run_official_ad9361_chain.m；plot_official_ad9361_signal_path.m画图；不是新Simulink交付模型，也不代表真实RTL整帧、实板或测时精度通过。</p>
 </details>
 <details><summary>21_官方AD9361_器件收发Simulink模型.png</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
+</details>
+<details><summary>38_官方AD9361_70km_2ms连续波形.png</summary><p>run_ad9361_waveform_observation实际运行已保存的dsss_ad9361_official.slx，读取officialRx并绘图；不是Scope截图，也不是缓存片段循环。默认100ms设置与本次2ms波形前缀验收明确分开。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>左上</td><td>20us冷启动之后至2ms的I/Q</td><td>officialRx实采样</td><td>累计仿真时间，不重放；竖线为设定70km/c时延。</td></tr>
+<tr><td>右上</td><td>信号到达附近200~280us</td><td>同一officialRx片段</td><td>包含器件滤波响应；竖线不是测量的到达时间。</td></tr>
+<tr><td>左下</td><td>连续接收末段20us放大</td><td>同一officialRx片段</td><td>没有另造短波形，也没有时间归零。</td></tr>
+<tr><td>右下</td><td>到达前后RMS</td><td>实际码值统计</td><td>不是仪器dBm或链路预算；未验收完整载荷。</td></tr>
+</table>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-10-15 19:05:46",
+  "inventory_date": "2026-10-15 19:35:05",
   "scope": "Read-only inventory of existing saved models; no new waveform run or model modification",
   "models": [
     {
@@ -405,6 +405,13 @@
           "outputPorts": 1
         },
         {
+          "path": "dsss_ad9361_official/Progress_s",
+          "name": "Progress_s",
+          "blockType": "Display",
+          "inputPorts": 1,
+          "outputPorts": 0
+        },
+        {
           "path": "dsss_ad9361_official/Project_IQ",
           "name": "Project_IQ",
           "blockType": "SubSystem",
@@ -455,6 +462,15 @@
           "outputPorts": 0
         },
         {
+          "path": "dsss_ad9361_official/Simulation_Time",
+          "name": "Simulation_Time",
+          "blockType": "M-S-Function",
+          "inputPorts": 0,
+          "outputPorts": 1,
+          "FunctionName": "ad9361_official_progress_sfun",
+          "Parameters": "benchProgressFile,benchStopTime"
+        },
+        {
           "path": "dsss_ad9361_official/TX",
           "name": "TX",
           "blockType": "SubSystem",
@@ -487,11 +503,13 @@
       "limits": "不是实时运行的TX RTL；不包含AD9361模拟器件。",
       "sources": [
         "open_ad9361_simulink.m",
-        "fpga_ad9361/tools/run_official_ad9361_chain.m",
-        "fpga_ad9361/tools/ad9361_official_model_init.m"
+        "fpga_ad9361/tools/build_ad9361_official_simulink.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m",
+        "fpga_ad9361/tools/ad9361_official_progress_sfun.m",
+        "fpga_ad9361/tools/ad9361_official_model_presave.m"
       ],
       "logs": "",
-      "tune": "默认20us；100ms模式用open_ad9361_simulink('packet')打开。"
+      "tune": "默认100ms/70km；waveform为2ms/70km，smoke为20us器件回环；帧148字节在12.5kbps下持续94.72ms。"
     },
     {
       "id": "official_device",
@@ -510,8 +528,10 @@
       "limits": "50MSPS，DAC200MHz，ADC400MHz；用户FIR按旁路假设，默认噪声/非线性未标定。不是FPGA逐拍或板级实测。",
       "sources": [
         "open_ad9361_simulink.m",
-        "fpga_ad9361/tools/run_official_ad9361_chain.m",
-        "fpga_ad9361/tools/ad9361_official_model_init.m"
+        "fpga_ad9361/tools/build_ad9361_official_simulink.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m",
+        "fpga_ad9361/tools/ad9361_official_progress_sfun.m",
+        "fpga_ad9361/tools/ad9361_official_model_presave.m"
       ],
       "logs": "Received_IQ → officialRx（SimulationOutput / To Workspace）",
       "tune": "RF/LO默认2GHz；滤波带宽仍为候选规格。"
@@ -527,13 +547,15 @@
       ],
       "inputs": "官方TX的200MSPS RF复包络。",
       "outputs": "延迟和衰减后的RF复包络。",
-      "purpose": "短测不加传播延迟；StopTime>1ms时增加70km/c，在200MSPS RF路径上取整为46699点。固定幅度1e-4等于-80dB。",
+      "purpose": "默认100ms和2ms波形模式均为70km/c，在200MSPS RF路径取整为46699点。smoke显式使用零距离。距离由benchDistance_m独立指定，仅修改StopTime不会改变信道。固定幅度1e-4等于-80dB。",
       "observe": "查看RF_Propagation_Delay与Channel参数；benchInfo给出时延取整误差。",
       "limits": "不是70km实测链路预算；没有额外衰落、多径、外加AWGN或独立铷钟LO。不是几百ps精度验收。",
       "sources": [
         "open_ad9361_simulink.m",
-        "fpga_ad9361/tools/run_official_ad9361_chain.m",
-        "fpga_ad9361/tools/ad9361_official_model_init.m"
+        "fpga_ad9361/tools/build_ad9361_official_simulink.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m",
+        "fpga_ad9361/tools/ad9361_official_progress_sfun.m",
+        "fpga_ad9361/tools/ad9361_official_model_presave.m"
       ],
       "logs": "",
       "tune": "Channel增益可在块参数中改；短测与100ms模式的传播条件明确分开。"
@@ -546,17 +568,21 @@
       "block_paths": [
         "dsss_ad9361_official/Scope_TX_IQ",
         "dsss_ad9361_official/Scope_RX_IQ",
-        "dsss_ad9361_official/Received_IQ"
+        "dsss_ad9361_official/Received_IQ",
+        "dsss_ad9361_official/Simulation_Time",
+        "dsss_ad9361_official/Progress_s"
       ],
       "inputs": "TX输入、官方RX输出的I/Q。",
       "outputs": "两个可打开的Scope与officialRx时序数据。",
-      "purpose": "双击Scope后点击Run；默认20us用于通路观察，不把短测当完整报文。",
+      "purpose": "双击Scope后点击Run；默认100ms包含整帧发送，Scope按1ms滑动窗口显示。Progress_s每1ms更新累计仿真时间；命令窗口和按PID分开的JSON记录实际进度。时长达到不等于载荷或测时验收。",
       "observe": "先看I/Q是否连续、有无饱和或启动瞬态。",
       "limits": "本台架不含在线DLL/Costas/帧解析；完整功能接收机仍在A组模型中，完整官方报文另行验收。",
       "sources": [
         "open_ad9361_simulink.m",
-        "fpga_ad9361/tools/run_official_ad9361_chain.m",
-        "fpga_ad9361/tools/ad9361_official_model_init.m"
+        "fpga_ad9361/tools/build_ad9361_official_simulink.m",
+        "fpga_ad9361/tools/ad9361_official_model_init.m",
+        "fpga_ad9361/tools/ad9361_official_progress_sfun.m",
+        "fpga_ad9361/tools/ad9361_official_model_presave.m"
       ],
       "logs": "officialRx为50MSPS原始复数输出；没有推定为时间同步结果。",
       "tune": ""
@@ -4247,7 +4273,7 @@
     {
       "relative_path": "00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png",
       "filename": "21_官方AD9361_器件收发Simulink模型.png",
-      "status": "真实可运行Simulink器件台架：20us/1001点与脚本差值0；非整帧或实板验收",
+      "status": "真实Simulink器件台架：默认100ms/70km；20us回归与2ms波形通过，非整帧验收",
       "module_refs": [
         {
           "id": "official_source",
@@ -4268,10 +4294,60 @@
       ],
       "panel_map": [],
       "provenance": "MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/38_官方AD9361_70km_2ms连续波形.png",
+      "filename": "38_官方AD9361_70km_2ms连续波形.png",
+      "status": "官方RF器件模型：实际2ms/100001点波形通过；默认100ms整帧尚未验收",
+      "module_refs": [
+        {
+          "id": "official_source",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_device",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_channel",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "official_observe",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "左上",
+          "title": "20us冷启动之后至2ms的I/Q",
+          "signal": "officialRx实采样",
+          "meaning": "累计仿真时间，不重放；竖线为设定70km/c时延。"
+        },
+        {
+          "position": "右上",
+          "title": "信号到达附近200~280us",
+          "signal": "同一officialRx片段",
+          "meaning": "包含器件滤波响应；竖线不是测量的到达时间。"
+        },
+        {
+          "position": "左下",
+          "title": "连续接收末段20us放大",
+          "signal": "同一officialRx片段",
+          "meaning": "没有另造短波形，也没有时间归零。"
+        },
+        {
+          "position": "右下",
+          "title": "到达前后RMS",
+          "signal": "实际码值统计",
+          "meaning": "不是仪器dBm或链路预算；未验收完整载荷。"
+        }
+      ],
+      "provenance": "run_ad9361_waveform_observation实际运行已保存的dsss_ad9361_official.slx，读取officialRx并绘图；不是Scope截图，也不是缓存片段循环。默认100ms设置与本次2ms波形前缀验收明确分开。"
     }
   ],
   "layout_verification": {
-    "date": "2026-10-15 19:05:44",
+    "date": "2026-10-15 19:35:03",
     "passed": true,
     "scope": "Actual Simulink diagrams; layout only. Block parameters, solver, edges and port logging checked unchanged. Compilation passed; numerical regression recorded separately.",
     "models": [
@@ -4298,8 +4374,8 @@
       },
       {
         "name": "dsss_ad9361_official",
-        "blocks": 11,
-        "edges": 13,
+        "blocks": 13,
+        "edges": 14,
         "unchangedGraph": true,
         "image": "ad9361_official_model.png"
       }
