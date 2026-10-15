@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "copied_files": 105,
+  "copied_files": 108,
   "original_files_preserved": true,
   "files": [
     {
@@ -3766,6 +3766,118 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-15用户确认PCB TX D4/D5 P/N实物反接。三组同激励、实际ODDR/OBUFDS/IBUFDS与显式PCB接线模型：正常接线0/67错，反接未补偿67/67错（两段6bit形成12bit异或0xC30），掩码110000补偿后0/67错；各组另验64对独立RX、DDR/复位。当前新工程真实FIR201 IP+TX+XPM桥接+LVDS+PCB反接模型回环1000对I/Q逐位一致；BPSK Q=0，动态非零Q由独立PHY对照覆盖。底板顶层17项边界检查包含补偿参数传递，其他PHY/MMCM/core边界显式模拟。引脚展开46/46通过，pins/timing XDC启用，非专用时钟绕行保持禁用；不是完整映射综合、布局布线、实板眼图、AD9361 RF、整帧或测时精度验收。图由plot_tx_lane_polarity.m读取实际Xsim CSV生成；来源ad9361_lvds_1r1t.v、ad9361_dsss_radio.v、DSSS_BPSK_TXRX_top.v；不是新增Simulink模块。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/ad9361_communication_20261015/functional_packet_acceptance.png",
+      "filename": "33_AD9361方案_完整报文功能级通信校验.png",
+      "status": "功能级完整波形：载荷校验通过；非官方RF完整报文或真实RTL全链路验收",
+      "note": "2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。单帧100字节一致，800比较比特错误0，捕获240us，报文末段Costas相位RMS约0.070度；seed20261006。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX已另行完成50MSPS/20us/1001点器件串接检查；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。",
+      "requested_module_ids": [
+        "ad_tx",
+        "ad_rx"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/33_AD9361方案_完整报文功能级通信校验.png",
+      "decoded_pixel_sha256": "bdeea329c82e7dedcf2858cf9eafe17c497eaf8c10d1d2c6efc8dd7ff660ddaa",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。单帧100字节一致，800比较比特错误0，捕获240us，报文末段Costas相位RMS约0.070度；seed20261006。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX已另行完成50MSPS/20us/1001点器件串接检查；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/ad9361_communication_20261015/functional_continuous_acceptance.png",
+      "filename": "34_AD9361方案_连续三帧功能级通信校验.png",
+      "status": "功能级完整波形：载荷校验通过；非官方RF完整报文或真实RTL全链路验收",
+      "note": "2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。每方向100ms，本站报文间隔200ms，3帧共300字节一致、2400比较比特错误0；seed20261015。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX已另行完成50MSPS/20us/1001点器件串接检查；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。",
+      "requested_module_ids": [
+        "ad_tx",
+        "ad_rx"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/34_AD9361方案_连续三帧功能级通信校验.png",
+      "decoded_pixel_sha256": "a18fd9f647eacbb7d9b07d791cdfe910e980b346aa83d90f4ba36256faee80da",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。每方向100ms，本站报文间隔200ms，3帧共300字节一致、2400比较比特错误0；seed20261015。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX已另行完成50MSPS/20us/1001点器件串接检查；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/ad9361_link/scenarios/preboard_communication_20261015/waveform_constellation.png",
+      "filename": "35_AD9361方案_功能级波形频谱与环路.png",
+      "status": "功能级完整波形：载荷校验通过；非官方RF完整报文或真实RTL全链路验收",
+      "note": "2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。单帧功能级通信的物理I/Q、频谱、解扩和Costas星座、DLL及码片叠加；包含报文结束后的无信号点，环路质量以有效报文窗口为准。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX已另行完成50MSPS/20us/1001点器件串接检查；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。",
+      "requested_module_ids": [
+        "ad_tx",
+        "ad_rx"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/35_AD9361方案_功能级波形频谱与环路.png",
+      "decoded_pixel_sha256": "63f18f43dcd6b112e42de1b55a4fd41b59686bfd0f227d73cf0a7ead33b8ab60",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "第1行左",
+          "title": "TX I与RX Q时域",
+          "signal": "TX/1实部；Channel/1虚部",
+          "meaning": "比较发送与信道损伤后的接收片段，不是RX FIR48输出。"
+        },
+        {
+          "position": "第1行右",
+          "title": "50 MSPS发送频谱",
+          "signal": "TX/1；r.waveforms.txIQ",
+          "meaning": "发送端扩频/滤波后的基带频谱。"
+        },
+        {
+          "position": "第2行左",
+          "title": "解扩后星座",
+          "signal": "DLL/1与DLL/2；dll_prompt、dll_valid",
+          "meaning": "码已解扩，载波相位尚未由Costas纠正。"
+        },
+        {
+          "position": "第2行右",
+          "title": "Costas后星座",
+          "signal": "Costas/1；costas_iq；frame_info限定末段",
+          "meaning": "同时保留捕获瞬态和帧后噪声；橙色仅标出载荷末200符号。"
+        },
+        {
+          "position": "第3行左",
+          "title": "DLL误差",
+          "signal": "DLL/3第4列；dll_info(:,4)",
+          "meaning": "Early/Late归一化误差，不能单凭趋零认定有效帧。"
+        },
+        {
+          "position": "第3行右",
+          "title": "接收码片叠加",
+          "signal": "Channel/1实部；rxPhysicalIQ",
+          "meaning": "未做眼中心对齐；不是解扩后数据符号眼图。"
+        }
+      ],
+      "provenance": "MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。"
     }
   ]
 }
