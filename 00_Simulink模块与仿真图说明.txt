@@ -32,6 +32,7 @@ dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12
 对应图：08_MATLAB_Simulink_RTL对照/33_AD9361方案_完整报文功能级通信校验.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/34_AD9361方案_连续三帧功能级通信校验.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/35_AD9361方案_功能级波形频谱与环路.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/37_官方AD9361模型_当前代码时钟链短测.png；登记的新图对应模块；场景及信号说明见图注
 
 02 信道：70 km、频偏、采样钟差与噪声
 dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
@@ -92,6 +93,8 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：08_MATLAB_Simulink_RTL对照/33_AD9361方案_完整报文功能级通信校验.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/34_AD9361方案_连续三帧功能级通信校验.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/35_AD9361方案_功能级波形频谱与环路.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/36_真实RTL_相关ROM加载修正前后.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/37_官方AD9361模型_当前代码时钟链短测.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -232,6 +235,7 @@ dsss_rtl_comparison/Actual_Verilog_and_IP_Xsim
 对应图：08_MATLAB_Simulink_RTL对照/30_AD9361_顶层校准与失锁恢复_真实RTL.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/31_AD9361_新工程IP与LVDS接口回环复测.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/32_AD9361_TX两路差分反接_RTL补偿对照.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/36_真实RTL_相关ROM加载修正前后.png；登记的新图对应模块；场景及信号说明见图注
 
 10 RTL对照：有效点差分与记录
 dsss_rtl_comparison/RTL_minus_Model
@@ -1072,10 +1076,10 @@ D · 独立脚本与展示（非 Simulink 模块）
 来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15用户确认PCB TX D4/D5 P/N实物反接。三组同激励、实际ODDR/OBUFDS/IBUFDS与显式PCB接线模型：正常接线0/67错，反接未补偿67/67错（两段6bit形成12bit异或0xC30），掩码110000补偿后0/67错；各组另验64对独立RX、DDR/复位。当前新工程真实FIR201 IP+TX+XPM桥接+LVDS+PCB反接模型回环1000对I/Q逐位一致；BPSK Q=0，动态非零Q由独立PHY对照覆盖。底板顶层17项边界检查包含补偿参数传递，其他PHY/MMCM/core边界显式模拟。引脚展开46/46通过，pins/timing XDC启用，非专用时钟绕行保持禁用；不是完整映射综合、布局布线、实板眼图、AD9361 RF、整帧或测时精度验收。图由plot_tx_lane_polarity.m读取实际Xsim CSV生成；来源ad9361_lvds_1r1t.v、ad9361_dsss_radio.v、DSSS_BPSK_TXRX_top.v；不是新增Simulink模块。
 
 图：08_MATLAB_Simulink_RTL对照/33_AD9361方案_完整报文功能级通信校验.png
-来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。单帧100字节一致，800比较比特错误0，捕获240us，报文末段Costas相位RMS约0.070度；seed20261006。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX已另行完成50MSPS/20us/1001点器件串接检查；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。单帧100字节一致，800比较比特错误0，捕获240us，报文末段Costas相位RMS约0.070度；seed20261006。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX另有20us/1001点短测：先前自动300/300MHz是候选配置；本次已在TX DAC200MHz/RX ADC400MHz、I/Q50MSPS的当前代码时钟链下复测通过。该短测使用理想LO与固定-80dB衰减，不是本图的70km/20dB信道；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。
 
 图：08_MATLAB_Simulink_RTL对照/34_AD9361方案_连续三帧功能级通信校验.png
-来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。每方向100ms，本站报文间隔200ms，3帧共300字节一致、2400比较比特错误0；seed20261015。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX已另行完成50MSPS/20us/1001点器件串接检查；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15当前系数与算法参考复测。50MSPS I/Q、250MHz DSP、12.5Mchip/s、PN1000、12.5kbps；70km传播时延、20dB SNR、1Hz CFO、35度初相位、converter code gain=0.5。接收增益、频偏、SNR为可调仿真假设，并非70km外场测得。每方向100ms，本站报文间隔200ms，3帧共300字节一致、2400比较比特错误0；seed20261015。 来源run_dsss_ad9361_link.m、dsss_ad9361_step.m、dsss_wireless_step.m和整数COE；本轮由MATLAB脚本执行同一组Simulink S-function阶段函数，并未运行Simulink模型或HDL Coder。官方AD9361 TX/RX另有20us/1001点短测：先前自动300/300MHz是候选配置；本次已在TX DAC200MHz/RX ADC400MHz、I/Q50MSPS的当前代码时钟链下复测通过。该短测使用理想LO与固定-80dB衰减，不是本图的70km/20dB信道；官方RF完整报文及新工程真实IP完整波形仍单独验证，不据此宣称实板通信或测时精度通过。
 
 图：08_MATLAB_Simulink_RTL对照/35_AD9361方案_功能级波形频谱与环路.png
 来源：MATLAB参考运行器与Simulink共用同一阶段函数；本图由plot_dsss_ad9361_link绘制，并非Scope截图。
@@ -1085,3 +1089,9 @@ D · 独立脚本与展示（非 Simulink 模块）
 第2行右 | Costas后星座 | Costas/1；costas_iq；frame_info限定末段 | 同时保留捕获瞬态和帧后噪声；橙色仅标出载荷末200符号。
 第3行左 | DLL误差 | DLL/3第4列；dll_info(:,4) | Early/Late归一化误差，不能单凭趋零认定有效帧。
 第3行右 | 接收码片叠加 | Channel/1实部；rxPhysicalIQ | 未做眼中心对齐；不是解扩后数据符号眼图。
+
+图：08_MATLAB_Simulink_RTL对照/36_真实RTL_相关ROM加载修正前后.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15当前DSSS_BPSK_TXRX生成IP复测。测试目录的MIF曾在Python复制时被绿盾加密，Xsim相关ROM全零；原始项目MIF为明文。保持原始ROM及激励不变，普通原生复制后16个地址I/Q全部正确；独立FFT/IFFT各1024点数值错误0。native_mif_copy.py现在逐次拒绝带加密头的来源，验证复制后的原生SHA256一致；没有修改加密策略或自行解密。图由plot_ad9361_rom_stage_check.m读取实际Xsim CSV生成。只证明本次仿真文件装载修正，不能据此归因历史80ns，也不是完整RTL报文、AD9361 RF或实板验收。
+
+图：08_MATLAB_Simulink_RTL对照/37_官方AD9361模型_当前代码时钟链短测.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-15官方ad9361_tx/ad9361_rx模型scratch串联；当前control/ad9361_link_profile.h时钟链：I/Q50MSPS，TX DAC200MHz，RX ADC400MHz，BBPLL800MHz。官方固定HB+一阶单位用户FIR旁路假设；模拟带宽候选规格8/12.5MHz不是已部署配置。项目功能TX输入、RF2GHz、固定幅度增益1e-4(-80dB)、理想外部LO，无70km延迟/额外CFO/多径/外加白噪声；默认器件噪声非线性未标定。1001点达到20us且有有效输出；频谱为相对峰值，不是仪器dBm；起始尖峰保留。管理员解密返回124个标准MATLAB文件，经内容和原生SHA核对、备份恢复后重新运行。源run_official_ad9361_chain.m；plot_official_ad9361_signal_path.m画图；不是新Simulink交付模型，也不代表真实RTL整帧、实板或测时精度通过。
