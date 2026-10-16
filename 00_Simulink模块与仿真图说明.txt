@@ -515,6 +515,18 @@ D · 独立脚本与展示（非 Simulink 模块）
 实现：scripts/rtl_link/render_rtl_findings.py；results/rtl_link/rtl_validation.json
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；左下/中下：独立RTL测试，非模型内Costas/解析块
 
+板上 SPI 自检：位错定位与修复
+
+作用：实际 FMQL45T900 板卡下载带 VIO/ILA 的独立10MHz自检程序，自动只读0x037。两次 ILA 波形证明原采样读回0x05而更新后SDO为0x0A；改为模式1后连续6组ID读回0x0A，另验证0x000与0x037手动地址切换。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：图由真实ILA/VIO记录只读绘制，不是Simulink模型块。8ns是器件仿真输出延迟模型，不是100ns ILA采样测得的延迟；只证明控制面可达，不代表AD9361完整初始化、LVDS/RF通信、PPS或测时精度验收。
+日志：
+参数：
+实现：fpga_ad9361/rtl/ad9361_spi_master.v；fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_boot_top.v；fpga_ad9361/rtl/board/dsss_board_boot_control.v；fpga_ad9361/sim/board/tb_board_boot_control.v；fpga_ad9361/tools/plot_board_spi_bringup.py
+对应图：08_MATLAB_Simulink_RTL对照/43_实物自检_SPI位错定位与修复.png；登记的新图对应模块；场景及信号说明见图注
+
 真实AD9361记录回灌：接收FIR / FFT / DLL观测
 
 作用：run_official_rx_playback.py回灌已验证的官方AD9361有符号12位I/Q文件，真实iq_clock_bridge.v、complex_interp5.v及dsss_rx_250.v工作；从fft_cap_3.v比较器前导出1024点相关功率，再记录原始/修正后峰位置、门限及实际DLL Prompt。
@@ -1226,3 +1238,6 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/40_真实RTL官方AD9361_非理想信道_接收捕获DLL前缀.png
 来源：已按登记信息关联模块；具体场景及信号说明：实际PN1000/FIR/XPM发送记录120000点，2.4ms；官方1.055GHz、5km候选非理想器件链输出回灌真实RX XPM/插值/RX FIR/FFT/DLL，捕获与至少16个解扩符号门槛通过。固定噪声、80ns/-10dB/60度回波、公共Rician K=10dB/Doppler≤1Hz、示例频偏，未标定通道幅度1e-4。图的四个面板是实际发送和官方RX输出，不是DLL或载荷图；真实接收事件日志本地保留。仍非完整载荷、PPS、测时精度或硬件验收。
+
+图：08_MATLAB_Simulink_RTL对照/43_实物自检_SPI位错定位与修复.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-16，FMQL45T900实板，外部10MHz、SPI1.25MHz、ILA10MHz采样。图的两组引脚波形及6+6次产品ID均来自真实ILA/VIO记录：原模式0上升沿提前取样为0x05，SDO更新后可解码为0x0A；修复为模式1下降沿取样并延长末位后CS保持后，连续6组0x037均为0x0A；另手动读0x000=0x00、0x037=0x0A。8ns是仿真器件输出延迟假设，100ns采样不能测量该模拟延迟。本图为脚本整理的板上接口实测，不是新增Simulink模块，不证明AD9361初始化、LVDS/RF通信、PPS或皮秒精度。

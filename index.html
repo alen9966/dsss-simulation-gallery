@@ -22,7 +22,7 @@
     </style></head><body>
 <header class="top"><div class="wrap"><a class="brand" href="00_图册索引.html">DSSS / ENGINEERING REVIEW</a><nav aria-label="主导航"><a aria-current="page" href="00_图册索引.html">评审首页</a><a href="field_environment.html">当前场景基线</a><a href="migration.html">工程主线</a><a href="modules.html">模型与模块</a><a href="node_lab.html">节点实验室</a><a href="precision_evidence.html">精度证据</a><a href="catalog.html">完整图册</a></nav></div></header>
 <div class="hero"><div class="wrap"><div class="hero-grid"><div><p class="eyebrow">LEGACY RTL → AD9361 · TRACEABLE ENGINEERING EVIDENCE</p><h1>接住原系统，解释关键误差，<br>把验证一路推进到可上板</h1><p class="lead">首页只回答技术评审最关心的三件事：原工程是否真正继承、80 ns与几百ps是否有可复跑证据、距离AD9361整机通信还剩哪些关卡。</p><div class="hero-actions"><a class="button primary" href="#verdict">先看评审结论 ↓</a><a class="button" href="#proofs">核对关键证据 →</a><a class="button" href="catalog.html">进入完整图册 →</a></div></div><div class="hero-note"><strong>当前总判断：算法链和RTL分段证据已形成</strong>80 ns机制可控复现，亚码片精测算术链已有RTL证据；当前1.055 GHz / ≤5 km的AD9361完整RTL、板级接口和双机仍待验收；旧70 km场景保留原条件。</div></div>
-<div class="hero-foot"><span>评审版更新 2026-10-16</span><span>图册收录 116 个图文件</span><span>证据等级：功能模型 / 真实RTL分段 / 待硬件实测</span></div></div></div>
+<div class="hero-foot"><span>评审版更新 2026-10-16</span><span>图册收录 117 个图文件</span><span>证据等级：功能模型 / 真实RTL分段 / SPI接口实测 / 系统待验收</span></div></div></div>
 <main class="wrap">
 <section id="verdict"><div class="section-head"><div><h2>六个数字，先给出工程判断</h2><p>数字旁边直接写明证据类型，避免把功能仿真、RTL分段和硬件实测混为一谈。</p></div><a href="precision_evidence.html">查看时间精度数据来源 →</a></div><div class="verdict">
 <article class="metric ok"><small>发送段逐点对照 · RTL</small><strong>160,000</strong><p>DSP点对齐后误差 <b>0</b>；启动阶段存在19个有效零样本差异。</p></article>
@@ -34,9 +34,10 @@
 <section><div class="section-head"><div><h2>证据等级与当前边界</h2><p>同一个“通过”在不同层级含义不同；最终结论只能由对应等级的证据支持。</p></div></div><div class="matrix"><table><thead><tr><th>等级</th><th>当前证据</th><th>已经证明</th><th>尚不能证明</th><th>状态</th></tr></thead><tbody>
 <tr><td><b>E1 功能模型</b></td><td>MATLAB/Simulink波形、噪声、多径、环路与BER</td><td>算法趋势、参数敏感度、故障机制</td><td class="boundary-cell">定点逐拍、资源、时序和硬件固定延迟</td><td><span class="state e1">已覆盖</span></td></tr>
 <tr><td><b>E2 RTL分段</b></td><td>真实.v、生产COE/IP、XSim分段测试</td><td>接口算术、位宽、关键算法段行为</td><td class="boundary-cell">完整RF链、板级CDC/LVDS和外场性能</td><td><span class="state e2">核心段通过</span></td></tr>
-<tr><td><b>E3 板级验证</b></td><td>同轴回环、ILA、LVDS校准、PPS/时标测量</td><td>AD9361整机接口、固定延迟和板级稳定性</td><td class="boundary-cell">当前外场传播互易性与现场多径</td><td><span class="state e3">待硬件</span></td></tr>
+<tr><td><b>E3 板级验证</b></td><td>JTAG配置、VIO/ILA、SPI产品ID修复前后实测</td><td>控制时钟在工作，模式1读取0x037=0x0A</td><td class="boundary-cell">AD9361初始化、LVDS/RF、固定延迟、PPS及精度仍待验收</td><td><span class="state e3">SPI已实测</span></td></tr>
 <tr><td><b>E4 双站外场</b></td><td>独立铷钟、双向无线、≤5 km与长期统计</td><td>最终通信和钟差指标</td><td class="boundary-cell">需要按验收规程定义统计口径</td><td><span class="state e4">待验收</span></td></tr>
 </tbody></table></div></section>
+<section id="board-bringup"><div class="section-head"><div><h2>最新上板进展 · 控制面已通</h2><p>先把实物证据补齐，再进入射频和时间精度验收。</p></div></div><div class="proof-grid" style="grid-template-columns:1fr"><article class="proof-card"><div class="proof-top"><span class="proof-no">LATEST / BOARD</span><span class="level">E3 · SPI接口实测</span></div><h3>首块板已跑通控制通路，SPI位错有实测闭环</h3><p class="result">修复前0x05 → 修复后连续6组0x0A；手动读两个地址通过。</p><a class="figure" href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/43_%E5%AE%9E%E7%89%A9%E8%87%AA%E6%A3%80_SPI%E4%BD%8D%E9%94%99%E5%AE%9A%E4%BD%8D%E4%B8%8E%E4%BF%AE%E5%A4%8D.png" target="_blank" aria-label="打开原图：首块板已跑通控制通路，SPI位错有实测闭环"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/43_%E5%AE%9E%E7%89%A9%E8%87%AA%E6%A3%80_SPI%E4%BD%8D%E9%94%99%E5%AE%9A%E4%BD%8D%E4%B8%8E%E4%BF%AE%E5%A4%8D.png" alt="首块板已跑通控制通路，SPI位错有实测闭环"></a><dl><div><dt>工程解释</dt><dd>实物ILA确认SDO更新边沿，修正SPI模式与末位CS保持，再重新下载对照验证。</dd></div><div><dt>证据边界</dt><dd>只证明JTAG、控制时钟活动和SPI；AD9361初始化、LVDS/RF与PPS精度仍待验收。</dd></div></dl><a class="detail" href="modules.html#script_board_spi">查看方法、来源与复跑入口 <span aria-hidden="true">→</span></a></article></div></section>
 <section id="workflow"><div class="section-head"><div><h2>工程继承与迁移主线</h2><p>所有新模型和代码都沿这条主线追溯；不把脚本功能参考冒充HDL自动生成。</p></div><a href="migration.html">查看差异、同载荷向量和关卡 →</a></div><div class="route">
 <a class="step" href="migration.html"><small>01 / BASELINE</small><strong>原Vivado工程</strong><p>审计组帧、PN、FIR、FFT捕获、DLL、Costas与时标链。</p></a>
 <a class="step" href="modules.html#diagram-if"><small>02 / REPRODUCTION</small><strong>原中频Simulink</strong><p>复现原链路结构，建立同载荷与系数基准。</p></a>
@@ -60,7 +61,7 @@
 <li class="done"><span>已完成</span>原链路审计、AD9361功能模型、参数来源映射与候选COE/IP配置</li>
 <li class="done"><span>已完成</span>发送段、FIR、捕获、DLL、Costas、粗细融合和双向算术的关键RTL分段</li>
 <li class="doing"><span>进行中</span>AD9361完整波形RTL集成、固定时延口径和跨时钟接口闭合</li>
-<li class="todo"><span>待硬件</span>SPI初始化、LVDS/IDELAY校准、同轴回环、ILA及PPS边沿测量</li>
+<li class="done"><span>接口实测</span>FMQL45T900配置、VIO/ILA、SPI产品ID0x0A；修复读回一位错位</li><li class="todo"><span>待联调</span>PS初始化接口、AD9361校准、LVDS/IDELAY、同轴回环及PPS测量</li>
 <li class="todo"><span>待验收</span>双机独立铷钟、长时间统计、≤5 km传播互易性与多径压力测试</li>
 </ul></div><div class="gate-panel"><h3>本页术语口径</h3><div class="terms">
 <div class="term"><b>功能模型</b><span>解释算法和参数趋势，不代表定点逐拍。</span></div>
