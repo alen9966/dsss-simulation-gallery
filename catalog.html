@@ -55,6 +55,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <option value="script_ui">22 MATLAB可视化调参及历史界面</option>
 <option value="script_diagram">23 历史方案框图</option>
 <option value="script_backend">24 RTL后端/解析器独立测试</option>
+<option value="script_official_rtl">真实RTL与官方AD9361文件交换验证</option>
 <option value="script_migration">25 四阶段迁移与模型驱动交付</option>
 <option value="script_calibration">26 RX接口：IDELAY扫描及radio复位门控</option>
 <option value="script_time_protocol">27 新应用报文：CRC、历元与四时标计算</option>
@@ -695,6 +696,10 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <p><strong>右上 · 信号到达附近200~280us</strong><br>同一officialRx片段<br>包含器件滤波响应；竖线不是测量的到达时间。</p>
 <p><strong>左下 · 连续接收末段20us放大</strong><br>同一officialRx片段<br>没有另造短波形，也没有时间归零。</p>
 <p><strong>右下 · 到达前后RMS</strong><br>实际码值统计<br>不是仪器dBm或链路预算；未验收完整载荷。</p>
+</details></article>
+<article data-era="current" data-modules="script_official_rtl"><span class="badge">真实RTL发送段 + 官方AD9361器件前缀：PASS</span><h3>39_真实RTL发送_官方AD9361_5km非理想前缀.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/39_%E7%9C%9F%E5%AE%9ERTL%E5%8F%91%E9%80%81_%E5%AE%98%E6%96%B9AD9361_5km%E9%9D%9E%E7%90%86%E6%83%B3%E5%89%8D%E7%BC%80.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/39_%E7%9C%9F%E5%AE%9ERTL%E5%8F%91%E9%80%81_%E5%AE%98%E6%96%B9AD9361_5km%E9%9D%9E%E7%90%86%E6%83%B3%E5%89%8D%E7%BC%80.png" alt="39_真实RTL发送_官方AD9361_5km非理想前缀.png"></a><p>实际dsss_tx_250.v/PN1000/当前DSSS_BPSK_TXRX FIR IP/12位量化/XPM时钟桥导出10000点、1253码片逐点检查，20ns节拍无误差无削顶；实际输入官方TX/RX，1.055GHz、5km/c、RF包络200MSPS显式线性分数延时，199.98us。假设80ns回波/-10dB/60度、公共平坦Rician K=10dB/Doppler≤1Hz、示例CFO−0.0036925Hz/初相35度、固定外加噪声每分量σ=1e-6；通道幅度1e-4未标定，两板开关各0.7dB，用户FIR旁路/固定HB，非实测链路预算。官方RX到达前/后复数RMS32.612/187.447码，ADC削顶0。四个子图来自实际导出CSV；短记录不能覆盖慢衰落统计、完整接收RTL/载荷/PPS或测时精度；非实时HDL协同仿真。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_official_rtl">真实RTL与官方AD9361文件交换验证</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v/PN1000/当前DSSS_BPSK_TXRX FIR IP/12位量化/XPM时钟桥导出10000点、1253码片逐点检查，20ns节拍无误差无削顶；实际输入官方TX/RX，1.055GHz、5km/c、RF包络200MSPS显式线性分数延时，199.98us。假设80ns回波/-10dB/60度、公共平坦Rician K=10dB/Doppler≤1Hz、示例CFO−0.0036925Hz/初相35度、固定外加噪声每分量σ=1e-6；通道幅度1e-4未标定，两板开关各0.7dB，用户FIR旁路/固定HB，非实测链路预算。官方RX到达前/后复数RMS32.612/187.447码，ADC削顶0。四个子图来自实际导出CSV；短记录不能覆盖慢衰落统计、完整接收RTL/载荷/PPS或测时精度；非实时HDL协同仿真。</p>
 </details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">当前MATLAB可视化参数探索：自定义FIR、Costas、码率与信道；与历史旧方案场景分开。功能探索不等于真实RTL或70km无线性能验收。</p><div class="grid">

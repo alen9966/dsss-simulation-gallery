@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "copied_files": 112,
+  "copied_files": 113,
   "original_files_preserved": true,
   "files": [
     {
@@ -4023,6 +4023,26 @@
         }
       ],
       "provenance": "run_ad9361_waveform_observation实际运行已保存的dsss_ad9361_official.slx，读取officialRx并绘图；不是Scope截图，也不是缓存片段循环。默认100ms设置与本次2ms波形前缀验收明确分开。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/official_rtl_bridge_20261016/device_prefix_nonideal_retry02/rtl_official_bridge.png",
+      "filename": "39_真实RTL发送_官方AD9361_5km非理想前缀.png",
+      "status": "真实RTL发送段 + 官方AD9361器件前缀：PASS",
+      "note": "实际dsss_tx_250.v/PN1000/当前DSSS_BPSK_TXRX FIR IP/12位量化/XPM时钟桥导出10000点、1253码片逐点检查，20ns节拍无误差无削顶；实际输入官方TX/RX，1.055GHz、5km/c、RF包络200MSPS显式线性分数延时，199.98us。假设80ns回波/-10dB/60度、公共平坦Rician K=10dB/Doppler≤1Hz、示例CFO−0.0036925Hz/初相35度、固定外加噪声每分量σ=1e-6；通道幅度1e-4未标定，两板开关各0.7dB，用户FIR旁路/固定HB，非实测链路预算。官方RX到达前/后复数RMS32.612/187.447码，ADC削顶0。四个子图来自实际导出CSV；短记录不能覆盖慢衰落统计、完整接收RTL/载荷/PPS或测时精度；非实时HDL协同仿真。",
+      "requested_module_ids": [
+        "script_official_rtl"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/39_真实RTL发送_官方AD9361_5km非理想前缀.png",
+      "decoded_pixel_sha256": "49d75d69e01a01d85fdb92b7fc3acf65dc3b35fc356f419092fcc6154d74bd39",
+      "module_refs": [
+        {
+          "id": "script_official_rtl",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v/PN1000/当前DSSS_BPSK_TXRX FIR IP/12位量化/XPM时钟桥导出10000点、1253码片逐点检查，20ns节拍无误差无削顶；实际输入官方TX/RX，1.055GHz、5km/c、RF包络200MSPS显式线性分数延时，199.98us。假设80ns回波/-10dB/60度、公共平坦Rician K=10dB/Doppler≤1Hz、示例CFO−0.0036925Hz/初相35度、固定外加噪声每分量σ=1e-6；通道幅度1e-4未标定，两板开关各0.7dB，用户FIR旁路/固定HB，非实测链路预算。官方RX到达前/后复数RMS32.612/187.447码，ADC削顶0。四个子图来自实际导出CSV；短记录不能覆盖慢衰落统计、完整接收RTL/载荷/PPS或测时精度；非实时HDL协同仿真。"
     }
   ]
 }

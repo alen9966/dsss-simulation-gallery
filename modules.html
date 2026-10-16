@@ -520,6 +520,14 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png">01_实际RTL_分段验证总览.png</a> — 左下/中下：独立RTL测试，非模型内Costas/解析块</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/rtl_link/render_rtl_findings.py；results/rtl_link/rtl_validation.json</p>
 </details></article>
+<article id="script_official_rtl"><h3>真实RTL与官方AD9361文件交换验证</h3>
+<p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
+<p>dsss_tx_250.v + 当前DSSS_BPSK_TXRX真实FIR IP + iq_clock_bridge.v导出50MSPS有符号12位I/Q；由run_ad9361_rtl_device.m建立临时官方TX/RX与1.055GHz、5km候选信道，再导出ADC I/Q供真实接收RTL回灌。图39四个子图均来自该次实际输出；不是现有功能模型内部的仿真图。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>脚本生成临时测试台，不改变已保存的四个模型，也不是实时HDL协同仿真。短记录通过只证明真实发送段与官方器件连接；80ns回波、噪声、慢衰落和增益是明确测试假设，完整接收RTL/载荷、硬件时序、PPS及几百ps精度另验收。</p>
+<p><strong>对应图：</strong></p><ul class="figlinks">
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/39_%E7%9C%9F%E5%AE%9ERTL%E5%8F%91%E9%80%81_%E5%AE%98%E6%96%B9AD9361_5km%E9%9D%9E%E7%90%86%E6%83%B3%E5%89%8D%E7%BC%80.png">39_真实RTL发送_官方AD9361_5km非理想前缀.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/sim/tb_official_tx_export.v；fpga_ad9361/sim/run_official_rtl_bridge.py；fpga_ad9361/tools/run_ad9361_rtl_device.m；fpga_ad9361/sim/tb_official_rx_playback.v；fpga_ad9361/sim/run_official_rx_playback.py；fpga_ad9361/tools/plot_ad9361_rtl_bridge.m</p>
+</details></article>
 <article id="script_migration"><h3>25 四阶段迁移与模型驱动交付</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
 <p>来源审计、两类功能模型重跑、TX独立整数卷积、实际发送器/PN/FIR IP对照、三组FIR响应及模型导出顶层验证。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
@@ -1226,5 +1234,7 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td>左下</td><td>连续接收末段20us放大</td><td>同一officialRx片段</td><td>没有另造短波形，也没有时间归零。</td></tr>
 <tr><td>右下</td><td>到达前后RMS</td><td>实际码值统计</td><td>不是仪器dBm或链路预算；未验收完整载荷。</td></tr>
 </table>
+</details>
+<details><summary>39_真实RTL发送_官方AD9361_5km非理想前缀.png</summary><p>已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v/PN1000/当前DSSS_BPSK_TXRX FIR IP/12位量化/XPM时钟桥导出10000点、1253码片逐点检查，20ns节拍无误差无削顶；实际输入官方TX/RX，1.055GHz、5km/c、RF包络200MSPS显式线性分数延时，199.98us。假设80ns回波/-10dB/60度、公共平坦Rician K=10dB/Doppler≤1Hz、示例CFO−0.0036925Hz/初相35度、固定外加噪声每分量σ=1e-6；通道幅度1e-4未标定，两板开关各0.7dB，用户FIR旁路/固定HB，非实测链路预算。官方RX到达前/后复数RMS32.612/187.447码，ADC削顶0。四个子图来自实际导出CSV；短记录不能覆盖慢衰落统计、完整接收RTL/载荷/PPS或测时精度；非实时HDL协同仿真。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
