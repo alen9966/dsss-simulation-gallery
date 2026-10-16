@@ -515,6 +515,18 @@ D · 独立脚本与展示（非 Simulink 模块）
 实现：scripts/rtl_link/render_rtl_findings.py；results/rtl_link/rtl_validation.json
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；左下/中下：独立RTL测试，非模型内Costas/解析块
 
+AD9361实板：内部BIST射频发射对照
+
+作用：真实JTAG/VIO/SPI控制实板AD9361，运行本地ADI no-OS初始化与模拟校准；N9020A经LAN读取五组同轴直连频谱，比较BIST开关、Fs/32与Fs/16频率切换，以及芯片衰减50/40dB响应。图中信号和锁定位均来自实际仪器/SPI记录。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：脚本整理的硬件实测，不是Simulink模块，也不是PS已接入。AXI_ADC_NOT_PRESENT跳过LVDS数字接口调谐；内部BIST绕过FPGA数据口，未验证DSSS载荷、接收、双站PPS或ps精度。人工报告700mVpp参考幅度仍需后续整改裕量，短测通过不能替代电气合规。
+日志：
+参数：
+实现：fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_rf_test_top.v；fpga_ad9361/control/host_jtag/ad9361_host_bridge.c；fpga_ad9361/tools/instruments/run_board_rf_tone.py；fpga_ad9361/tools/instruments/n9020a_scpi.py；fpga_ad9361/tools/plot_board_rf_bringup.py
+对应图：08_MATLAB_Simulink_RTL对照/45_AD9361实板_BIST发射_频率幅度开关对照.png；登记的新图对应模块；场景及信号说明见图注
+
 PS调用PL SPI：AXI4-Lite独立外设验证
 
 作用：真实AXI-SPI外设及1～8字节串行引擎由Xsim驱动，独立串行从模型提供8ns SDO延迟；图中SPI波形、字节数/CS时长及PS/VIO仲裁均读取实际RTL导出CSV。两组不同时钟比、回压和复位异常测试，加上实际C驱动的主机MMIO替身测试及ARM编译。
@@ -1256,3 +1268,6 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/44_AXI寄存器调用PL_SPI_独立外设验证.png
 来源：已按登记信息关联模块；具体场景及信号说明：ad9361_axi_spi.v和ad9361_spi_burst_master.v真实RTL；AXI71.43MHz/控制10MHz及AXI100MHz/控制13.51MHz两组共43425次检查，24个完整SPI事务/组，原生1～8字节、PS/VIO仲裁、回压与复位恢复。SDO延迟8ns是行为模型输入。实际C驱动34项主机MMIO替身测试及ARM编译通过；独立综合457LUT/969FF、无BRAM/DSP。CDC握手数据包170条警告保留，整板实现需复核。未包含实际PS工程、最终基地址、AD9361模拟/RF模型或实板AXI测试，不能代替RF通信/测时验收。
+
+图：08_MATLAB_Simulink_RTL对照/45_AD9361实板_BIST发射_频率幅度开关对照.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-16，FMQL45T900+AD9361实板，经真实JTAG/VIO/SPI运行本地ADI no-OS驱动初始化与模拟校准，未接PS工程；AXI_ADC_NOT_PRESENT跳过数字接口调谐。10MHz外部参考、1.055GHz本振、50MSPS、用户FIR旁路、模拟带宽20MHz候选。人工反馈XTALN幅度由约100mVpp改善到700mVpp后BBPLL及两路RFPLL实际回读锁定；700mVpp未达到ADI推荐下限，不能据本次运行认定裕量合格。当前射频同轴直连N9020A、无外部功放或外部衰减器，RF_SW选择HMC8038 TX路径。5组实际仪器CSV：BIST Fs/32峰1056.570MHz/-50.27dBm，Fs/16峰1058.130MHz/-50.51dBm；芯片衰减50变40dB，幅度上升9.98dB；开启比前/后关闭基线高40.1/38.0dB。RBW/VBW100kHz、仪器输入衰减10dB、前放关闭；线缆损耗未标定。此前未接射频线的失败采集仅本地保留，未作为板卡故障证据。本图为实际频谱与SPI记录的脚本绘图，不是Simulink模块或官方器件模型；内部BIST绕过FPGA LVDS数据口，不能证明DSSS载荷、接收通信、双站PPS或ps精度。

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "copied_files": 118,
+  "copied_files": 119,
   "original_files_preserved": true,
   "files": [
     {
@@ -4193,6 +4193,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：ad9361_axi_spi.v和ad9361_spi_burst_master.v真实RTL；AXI71.43MHz/控制10MHz及AXI100MHz/控制13.51MHz两组共43425次检查，24个完整SPI事务/组，原生1～8字节、PS/VIO仲裁、回压与复位恢复。SDO延迟8ns是行为模型输入。实际C驱动34项主机MMIO替身测试及ARM编译通过；独立综合457LUT/969FF、无BRAM/DSP。CDC握手数据包170条警告保留，整板实现需复核。未包含实际PS工程、最终基地址、AD9361模拟/RF模型或实板AXI测试，不能代替RF通信/测时验收。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/rf_tx_bringup_20261016/attempt05_cable_connected_acceptance/board_rf_bist_measured.png",
+      "filename": "45_AD9361实板_BIST发射_频率幅度开关对照.png",
+      "status": "E3射频发射实测：内部BIST三重对照通过；非DSSS通信",
+      "note": "2026-10-16，FMQL45T900+AD9361实板，经真实JTAG/VIO/SPI运行本地ADI no-OS驱动初始化与模拟校准，未接PS工程；AXI_ADC_NOT_PRESENT跳过数字接口调谐。10MHz外部参考、1.055GHz本振、50MSPS、用户FIR旁路、模拟带宽20MHz候选。人工反馈XTALN幅度由约100mVpp改善到700mVpp后BBPLL及两路RFPLL实际回读锁定；700mVpp未达到ADI推荐下限，不能据本次运行认定裕量合格。当前射频同轴直连N9020A、无外部功放或外部衰减器，RF_SW选择HMC8038 TX路径。5组实际仪器CSV：BIST Fs/32峰1056.570MHz/-50.27dBm，Fs/16峰1058.130MHz/-50.51dBm；芯片衰减50变40dB，幅度上升9.98dB；开启比前/后关闭基线高40.1/38.0dB。RBW/VBW100kHz、仪器输入衰减10dB、前放关闭；线缆损耗未标定。此前未接射频线的失败采集仅本地保留，未作为板卡故障证据。本图为实际频谱与SPI记录的脚本绘图，不是Simulink模块或官方器件模型；内部BIST绕过FPGA LVDS数据口，不能证明DSSS载荷、接收通信、双站PPS或ps精度。",
+      "requested_module_ids": [
+        "script_board_rf"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/45_AD9361实板_BIST发射_频率幅度开关对照.png",
+      "decoded_pixel_sha256": "f39f62636c74a7174cc13d72eee24f4e146c5825491d8171377c643bf0fde11a",
+      "module_refs": [
+        {
+          "id": "script_board_rf",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-16，FMQL45T900+AD9361实板，经真实JTAG/VIO/SPI运行本地ADI no-OS驱动初始化与模拟校准，未接PS工程；AXI_ADC_NOT_PRESENT跳过数字接口调谐。10MHz外部参考、1.055GHz本振、50MSPS、用户FIR旁路、模拟带宽20MHz候选。人工反馈XTALN幅度由约100mVpp改善到700mVpp后BBPLL及两路RFPLL实际回读锁定；700mVpp未达到ADI推荐下限，不能据本次运行认定裕量合格。当前射频同轴直连N9020A、无外部功放或外部衰减器，RF_SW选择HMC8038 TX路径。5组实际仪器CSV：BIST Fs/32峰1056.570MHz/-50.27dBm，Fs/16峰1058.130MHz/-50.51dBm；芯片衰减50变40dB，幅度上升9.98dB；开启比前/后关闭基线高40.1/38.0dB。RBW/VBW100kHz、仪器输入衰减10dB、前放关闭；线缆损耗未标定。此前未接射频线的失败采集仅本地保留，未作为板卡故障证据。本图为实际频谱与SPI记录的脚本绘图，不是Simulink模块或官方器件模型；内部BIST绕过FPGA LVDS数据口，不能证明DSSS载荷、接收通信、双站PPS或ps精度。"
     }
   ]
 }
