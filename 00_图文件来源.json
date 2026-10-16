@@ -4049,12 +4049,12 @@
       "source": "project/fpga_ad9361/results/official_rtl_bridge_20261016/backend_current_ip/backend_current_ip.png",
       "filename": "41_当前工程真实IP_归一化Costas_整帧后端.png",
       "status": "当前工程真实IP/RTL后端整帧：100字节逐一比较通过；非完整无线链路",
-      "note": "实际rx_norm、Costas、BPSK、帧识别及字节解析，使用当前DSSS_BPSK_TXRX的17个真实IP；250MHz/80µs生产符号间隔，1184个输入及输出，100字节0..99全部相同、last一次。输入为独立合成BPSK符号：幅度1000、初相35度、示例CFO−0.0036925Hz、每路噪声σ50码、seed20261016，绕过RF、FFT捕获及DLL。图中实际输出时序、Costas残余相位和字节对照不代表整个无线链路或测时精度。",
+      "note": "实际rx_norm、Costas、BPSK、帧识别及字节解析，使用当前DSSS_BPSK_TXRX的17个真实IP；250MHz/80µs生产符号间隔，1184个输入及输出，100字节0..99全部相同、last一次。输入为独立合成BPSK符号：幅度1000、初相35度、示例CFO−0.0036925Hz、每路噪声σ50码、seed20261016，绕过RF、FFT捕获及DLL。图中实际输出时序、Costas残余相位和字节对照不代表整个无线链路或测时精度。 实际末载荷时间95.987308ms仅属该后端测试台；末200符号输出相位RMS2.745°，不是铷钟相噪或测时精度。图已预留标题和说明空间，时序标签明确为RTL仿真。",
       "requested_module_ids": [
         "script_backend_current_ip"
       ],
       "relative_path": "08_MATLAB_Simulink_RTL对照/41_当前工程真实IP_归一化Costas_整帧后端.png",
-      "decoded_pixel_sha256": "8c9a220225762fb6ca8636f7ab6233907597655c3cb49e0a186b162dbc7f992d",
+      "decoded_pixel_sha256": "4e48eeb5165b5782afb58fc5451220e62f106a60251abd906471cb0ace599ac6",
       "module_refs": [
         {
           "id": "script_backend_current_ip",
