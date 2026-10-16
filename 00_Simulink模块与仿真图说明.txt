@@ -536,6 +536,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 日志：
 参数：
 实现：fpga_ad9361/sim/tb_backend_current_ip.v；fpga_ad9361/sim/run_backend_current_ip.py；fpga_ad9361/rtl/legacy/rx_norm.v；fpga_ad9361/rtl/legacy/costas_loop_v2.v；fpga_ad9361/rtl/legacy/rx_frame_identify_v2.v；fpga_ad9361/tools/plot_backend_current_ip.m
+对应图：08_MATLAB_Simulink_RTL对照/41_当前工程真实IP_归一化Costas_整帧后端.png；登记的新图对应模块；场景及信号说明见图注
 
 真实RTL与官方AD9361文件交换验证
 
@@ -1206,3 +1207,10 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/39_真实RTL发送_官方AD9361_5km非理想前缀.png
 来源：已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v/PN1000/当前DSSS_BPSK_TXRX FIR IP/12位量化/XPM时钟桥导出10000点、1253码片逐点检查，20ns节拍无误差无削顶；实际输入官方TX/RX，1.055GHz、5km/c、RF包络200MSPS显式线性分数延时，199.98us。假设80ns回波/-10dB/60度、公共平坦Rician K=10dB/Doppler≤1Hz、示例CFO−0.0036925Hz/初相35度、固定外加噪声每分量σ=1e-6；通道幅度1e-4未标定，两板开关各0.7dB，用户FIR旁路/固定HB，非实测链路预算。官方RX到达前/后复数RMS32.612/187.447码，ADC削顶0。四个子图来自实际导出CSV；短记录不能覆盖慢衰落统计、完整接收RTL/载荷/PPS或测时精度；非实时HDL协同仿真。
+
+图：08_MATLAB_Simulink_RTL对照/41_当前工程真实IP_归一化Costas_整帧后端.png
+来源：当前工程17个真实IP与实际生产后端RTL输出；输入为独立合成BPSK符号，保持80µs生产间隔；不是官方RF输出或Simulink内部Scope。
+左上 | 输入/Costas星座 | 合成输入与实际COSTAS事件 | 两者使用各自参考幅度；排除前280符号显示稳态，不据此验收捕获/DLL。
+右上 | 后端输出时序 | 实际NORM/HEADER/BYTE事件的250MHz时钟计数 | 不包含无线传播与接收前端等待；100ms线仅作时隙尺度参考。
+左下 | Costas残余相位 | 实际Costas I/Q的BPSK折叠相位 | 不是铷钟相噪或钟差。
+右下 | 100字节对照 | 实际BYTE事件与固定期望0..99 | 逐字节相同且last一次才验收后端；不等于整链通信。

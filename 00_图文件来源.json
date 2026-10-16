@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "copied_files": 113,
+  "copied_files": 114,
   "original_files_preserved": true,
   "files": [
     {
@@ -4043,6 +4043,51 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：实际dsss_tx_250.v/PN1000/当前DSSS_BPSK_TXRX FIR IP/12位量化/XPM时钟桥导出10000点、1253码片逐点检查，20ns节拍无误差无削顶；实际输入官方TX/RX，1.055GHz、5km/c、RF包络200MSPS显式线性分数延时，199.98us。假设80ns回波/-10dB/60度、公共平坦Rician K=10dB/Doppler≤1Hz、示例CFO−0.0036925Hz/初相35度、固定外加噪声每分量σ=1e-6；通道幅度1e-4未标定，两板开关各0.7dB，用户FIR旁路/固定HB，非实测链路预算。官方RX到达前/后复数RMS32.612/187.447码，ADC削顶0。四个子图来自实际导出CSV；短记录不能覆盖慢衰落统计、完整接收RTL/载荷/PPS或测时精度；非实时HDL协同仿真。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/official_rtl_bridge_20261016/backend_current_ip/backend_current_ip.png",
+      "filename": "41_当前工程真实IP_归一化Costas_整帧后端.png",
+      "status": "当前工程真实IP/RTL后端整帧：100字节逐一比较通过；非完整无线链路",
+      "note": "实际rx_norm、Costas、BPSK、帧识别及字节解析，使用当前DSSS_BPSK_TXRX的17个真实IP；250MHz/80µs生产符号间隔，1184个输入及输出，100字节0..99全部相同、last一次。输入为独立合成BPSK符号：幅度1000、初相35度、示例CFO−0.0036925Hz、每路噪声σ50码、seed20261016，绕过RF、FFT捕获及DLL。图中实际输出时序、Costas残余相位和字节对照不代表整个无线链路或测时精度。",
+      "requested_module_ids": [
+        "script_backend_current_ip"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/41_当前工程真实IP_归一化Costas_整帧后端.png",
+      "decoded_pixel_sha256": "8c9a220225762fb6ca8636f7ab6233907597655c3cb49e0a186b162dbc7f992d",
+      "module_refs": [
+        {
+          "id": "script_backend_current_ip",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "左上",
+          "title": "输入/Costas星座",
+          "signal": "合成输入与实际COSTAS事件",
+          "meaning": "两者使用各自参考幅度；排除前280符号显示稳态，不据此验收捕获/DLL。"
+        },
+        {
+          "position": "右上",
+          "title": "后端输出时序",
+          "signal": "实际NORM/HEADER/BYTE事件的250MHz时钟计数",
+          "meaning": "不包含无线传播与接收前端等待；100ms线仅作时隙尺度参考。"
+        },
+        {
+          "position": "左下",
+          "title": "Costas残余相位",
+          "signal": "实际Costas I/Q的BPSK折叠相位",
+          "meaning": "不是铷钟相噪或钟差。"
+        },
+        {
+          "position": "右下",
+          "title": "100字节对照",
+          "signal": "实际BYTE事件与固定期望0..99",
+          "meaning": "逐字节相同且last一次才验收后端；不等于整链通信。"
+        }
+      ],
+      "provenance": "当前工程17个真实IP与实际生产后端RTL输出；输入为独立合成BPSK符号，保持80µs生产间隔；不是官方RF输出或Simulink内部Scope。"
     }
   ]
 }
