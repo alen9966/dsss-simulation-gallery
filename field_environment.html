@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>当前场景基线 · 1.055 GHz / ≤5 km</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:#193149;font:16px/1.7 'Microsoft YaHei',system-ui,sans-serif}
+main{max-width:1100px;margin:auto;padding:28px 24px 56px}nav{display:flex;flex-wrap:wrap;gap:18px;font-size:14px}a{color:#1764ad;text-underline-offset:4px}
+header{margin:28px 0}h1{font-size:clamp(27px,4vw,40px);line-height:1.3;margin:0 0 12px}h2{font-size:23px;margin:28px 0 12px}h3{font-size:17px;margin:0 0 8px}p{margin:8px 0}
+.tag{display:inline-block;background:#fff0d7;color:#8e5300;padding:4px 10px;border-radius:5px;font-size:13px}.note{border-left:4px solid #e2a346;background:#fff8e9;padding:14px 18px}
+.box,article{background:white;border:1px solid #d6e1ed;border-radius:8px;padding:20px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;min-width:550px}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid #e4ebf2;vertical-align:top}th{width:22%;font-weight:600}
+.chain{display:grid;grid-template-columns:1fr 1fr;gap:16px}.chain p{font-size:14px}.path{background:#eaf3fc;padding:12px;border-radius:6px;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cards p,.small{font-size:14px;color:#526a80}footer{margin-top:30px;font-size:13px;color:#526a80}
+@media(max-width:700px){main{padding:20px 14px}.chain,.cards{grid-template-columns:1fr}.box,article{padding:15px}}
+</style><main>
+<nav><a href="index.html">评审首页</a><a href="modules.html">模型与模块</a><a href="catalog.html">完整图册</a></nav>
+<header><span class="tag">2026-10-16 · 配置与依据，不是仿真通过报告</span><h1>当前场景：1.055 GHz / ≤5 km</h1>
+<p>把用户确认、图纸连接、手册规格和待测参数分开记录，避免把旧场景结果当作新场景验收。</p></header>
+<div class="note"><b>当前验证边界：</b>系统与调参默认载频/距离已更新。2026-10-15保存的官方器件台架和2 ms曲线仍是2 GHz / 70 km历史场景；新条件下的“.v + 官方AD9361模型 + 非理想信道”完整报文尚未验收。</div>
+<h2>01 已确认条件</h2><div class="box scroll"><table><thead><tr><th>项目</th><td>当前值</td><td>依据 / 范围</td></tr></thead><tbody><tr><th>载频</th><td>1.055 GHz</td><td>用户确认</td></tr><tr><th>AD9361外部参考</th><td>10 MHz</td><td>用户确认</td></tr><tr><th>距离</th><td>≤5 km；端点用例取5 km</td><td>不是已经测得的精确站间距离</td></tr><tr><th>两站时钟</th><td>各自的K3A铷钟</td><td>载波仅驯服10 MHz；不据此认为PPS已对齐</td></tr><tr><th>每方向时隙</th><td>100 ms</td><td>沿用当前代码基线</td></tr><tr><th>外部开关</th><td>HMC8038LP4CETR</td><td>按底板RF原理图第7页连接</td></tr></tbody></table></div>
+<h2>02 按底板原理图连接开关</h2><div class="chain">
+<article><h3>发射：RF_SW = 1</h3><p class="path">AD9361 TX1A差分 → C94/C98 → L2巴伦 → C96 → U9 RF1(9脚) → RFC(3脚) → C95 → ANT_IN_1G / J6</p></article>
+<article><h3>接收：RF_SW = 0</h3><p class="path">ANT_IN_1G / J6 → C95 → U9 RFC(3脚) → RF2(12脚) → C93 → L1巴伦 → C89/C90 → AD9361 RX1A差分</p></article></div>
+<p class="small">图示U9供电3.3 V、EN接地。与DSSS_BPSK_TXRX_top.v的TX高电平及复位RX低电平一致。该图示射频段没有20 W功放，不能据此认定外部功放的接法。</p>
+<div class="box"><p><b>手册候选值：</b>0.1～2 GHz频段插损典型0.7 dB、最大1 dB；隔离最小55 dB、典型70 dB。开关时间典型150 ns，稳定至0.1 dB典型170 ns。</p>
+<p>3.3 V / 25°C导通路径推荐输入上限33 dBm，热切换27 dBm；这些数值受温度及工况限制。20 W约43 dBm，不能直接通过该开关。<a href="https://www.analog.com/media/en/technical-documentation/data-sheets/hmc8038.pdf">ADI HMC8038 Rev.A，表1/表6</a></p></div>
+<h2>03 必须继续验证的部分</h2><div class="cards"><article><h3>内部用户FIR / 模拟带宽</h3><p>尚未选出最佳值。保持码率、采样率和物理信道固定，对比合法FIR/带宽候选的报文成功率、捕获、环路、时延偏差与噪声。</p></article><article><h3>噪声 / 多径 / 衰落</h3><p>必须加入后续联仿。当前仅登记扫描范围，不能把这些范围当作5 km现场测量；官方RF与真实RTL桥接尚未完成。</p></article><article><h3>收发增益 / 链路预算</h3><p>射频开关提供插损与隔离，不提供功率增益。功放、天线、馈线和实际接收电平尚需纳入标定。</p></article><article><h3>LVDS与测时延迟</h3><p>接口采样窗、开关/滤波/巴伦/线缆/PCB及PPS延迟待上板测量。170 ns开关稳定时间不是固定传播延迟。</p></article><article><h3>铷钟噪声与驯服</h3><p>已有出厂频稳与10 MHz相噪点；完整相噪谱、PLL传递及驯服环路尚未验证。频稳不能直接等同TDEV或采样抖动。</p></article></div>
+<h2>04 旧结果如何使用</h2><div class="box"><p>旧70 km、2/5 GHz及理想LO结果保留其原始条件，只能证明当时执行过的场景。参数文件改成新值不会追溯改变旧图，也不会自动构成新条件下的验证。</p>
+<p>铷钟00091扫描复核：1 s / 100 s Allan偏差应为3.3×10⁻¹² / 7.3×10⁻¹³；旧图22采用了误转录的3.5×10⁻¹² / 7.7×10⁻¹³，已归入历史并标注更正。报告频率准确度数值也不等同现场两站的带符号相对频差。</p></div>
+<footer>维护来源：field_environment.json、system_requirements.json、dsss_rubidium_k3a_profile.m；底板第4/5/7页及ADI器件手册。公开页仅展示必要链路说明，不发布原始原理图、模型或私有IP。</footer>
+</main></html>

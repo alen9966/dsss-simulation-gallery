@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-16",
   "copied_files": 112,
   "original_files_preserved": true,
   "files": [
@@ -2957,8 +2957,8 @@
       "category": 8,
       "source": "project/results/parameter_tuning_v3/rubidium_k3a_report_calibration.png",
       "filename": "22_K3A铷钟报告参数接入对比.png",
-      "status": "功能参数标定：两台K3A报告值替换临时钟差假设",
-      "note": "对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。",
+      "status": "历史参考",
+      "note": "对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。 2026-10-16扫描复核：00091的1s/100s频稳应为3.3e-12/7.3e-13，旧图采用了误转录的3.5e-12/7.7e-13；时间噪声代理不等于实测TDEV。当前源码已更正；旧图保留，不能作为新条件的精度验收。",
       "requested_module_ids": [
         "script_ui",
         "ad_dll"
@@ -2976,7 +2976,7 @@
         }
       ],
       "panel_map": [],
-      "provenance": "已按登记信息关联模块；具体场景及信号说明：对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。"
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。 2026-10-16扫描复核：00091的1s/100s频稳应为3.3e-12/7.3e-13，旧图采用了误转录的3.5e-12/7.7e-13；时间噪声代理不等于实测TDEV。当前源码已更正；旧图保留，不能作为新条件的精度验收。"
     },
     {
       "category": 0,
@@ -3934,7 +3934,7 @@
       "source": "project/results/model_diagrams/ad9361_official_model.png",
       "filename": "21_官方AD9361_器件收发Simulink模型.png",
       "status": "真实Simulink器件台架：默认100ms/70km；20us回归与2ms波形通过，非整帧验收",
-      "note": "models/dsss_ad9361_official.slx实际顶层，由MATLAB直接导出；入口open_ad9361_simulink.m，独立构建器build_ad9361_official_simulink.m。默认100ms/70km：148字节在12.5kbps下占94.72ms，另含约233.495us传播时间。waveform模式2ms/70km供波形观察；smoke模式20us/零距离仅做数值回归。功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF路径Delay/Gain、官方RX RF/ADC/HB/FIR，输出TX/RX Scope、officialRx和Simulation_Time。DAC200MHz/ADC400MHz，RF2GHz，理想公共LO，固定幅度衰减1e-4(-80dB)；70km传播在200MSPS路径取整为46699点，距离与StopTime独立。模拟带宽8/12.5MHz为候选规格，器件噪声非线性未实物标定；无外加AWGN/多径/衰落/独立铷钟。Scope使用1ms Scroll累计时间窗口及有界显示历史，进度每1ms记录；完整源数据在运行初始化时生成，不重复播放保存的12000点预览。新进程20us回归1001点与已验证脚本I/Q最大差值0；100ms初始化5,008,000输入点通过。100ms是已保存配置，不等于长时运行或完整载荷验收；2ms/70km实际计算得到100001点、到达前后RMS分别27.7102/120.3938码值；重验绘图通过。台架无在线DLL/Costas/解帧，完整通信功能参考仍为dsss_ad9361_link.mdl；非真实RTL/实板/测时精度证明。原始三模型保留；公开仅顶层图与说明，不发布官方模型/IP。",
+      "note": "models/dsss_ad9361_official.slx实际顶层，由MATLAB直接导出；入口open_ad9361_simulink.m，独立构建器build_ad9361_official_simulink.m。默认100ms/70km：148字节在12.5kbps下占94.72ms，另含约233.495us传播时间。waveform模式2ms/70km供波形观察；smoke模式20us/零距离仅做数值回归。功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF路径Delay/Gain、官方RX RF/ADC/HB/FIR，输出TX/RX Scope、officialRx和Simulation_Time。DAC200MHz/ADC400MHz，RF2GHz，理想公共LO，固定幅度衰减1e-4(-80dB)；70km传播在200MSPS路径取整为46699点，距离与StopTime独立。模拟带宽8/12.5MHz为候选规格，器件噪声非线性未实物标定；无外加AWGN/多径/衰落/独立铷钟。Scope使用1ms Scroll累计时间窗口及有界显示历史，进度每1ms记录；完整源数据在运行初始化时生成，不重复播放保存的12000点预览。新进程20us回归1001点与已验证脚本I/Q最大差值0；100ms初始化5,008,000输入点通过。100ms是已保存配置，不等于长时运行或完整载荷验收；2ms/70km实际计算得到100001点、到达前后RMS分别27.7102/120.3938码值；重验绘图通过。台架无在线DLL/Costas/解帧，完整通信功能参考仍为dsss_ad9361_link.mdl；非真实RTL/实板/测时精度证明。原始三模型保留；公开仅顶层图与说明，不发布官方模型/IP。 当前用户确认条件已于2026-10-16改为1.055GHz、10MHz参考、≤5km；本图仍保留2026-10-15的2GHz/70km条件，不能当成新场景验证，见field_environment.html。",
       "requested_module_ids": [
         "official_source",
         "official_device",
@@ -3969,7 +3969,7 @@
       "source": "project/fpga_ad9361/results/official_simulink_20261015/extended_observation.png",
       "filename": "38_官方AD9361_70km_2ms连续波形.png",
       "status": "官方RF器件模型：实际2ms/100001点波形通过；默认100ms整帧尚未验收",
-      "note": "2026-10-15实际运行已保存的models/dsss_ad9361_official.slx，读取officialRx；50MSPS I/Q，TX DAC200MHz/RX ADC400MHz、BBPLL800MHz；RF2GHz、固定幅度1e-4(-80dB)、理想公共LO、官方固定HB和单位用户FIR。70km/c=233.494867us，在200MSPS RF路径取整46699点；不是70km实测链路预算。实际仿真2ms、100001点，耗时692.5s；到达前20~200us复数RMS=27.7102码值，到达后300us起RMS=120.3938码值。左上排除前20us冷启动瞬态，其余原始数据全部保存在received_waveform.mat；右上放大传播等待和信号到达，左下为同一连续记录末段20us，右下为实际样本统计。源run_ad9361_waveform_observation.m；收尾保存冲突后的重验和制图复用已保留的同一次实际计算I/Q，未重复运行RF模型。验证StopTime从2ms改4ms不改变距离；100ms初始化生成5,008,000输入点，保存仅保留12000预览点并在InitFcn重新生成完整输入。默认100ms可覆盖148字节/12.5kbps的94.72ms发送时间及传播延迟，但本图仅为2ms前缀，不是完整报文、真实RTL、实板或ps精度验收。Scope按1ms Scroll累计时间显示，进度按1ms记录。模拟带宽候选8/12.5MHz和器件默认噪声/非线性未实物标定；无外加AWGN、多径、衰落、独立铷钟/抖动；台架无在线DLL/Costas/解帧。",
+      "note": "2026-10-15实际运行已保存的models/dsss_ad9361_official.slx，读取officialRx；50MSPS I/Q，TX DAC200MHz/RX ADC400MHz、BBPLL800MHz；RF2GHz、固定幅度1e-4(-80dB)、理想公共LO、官方固定HB和单位用户FIR。70km/c=233.494867us，在200MSPS RF路径取整46699点；不是70km实测链路预算。实际仿真2ms、100001点，耗时692.5s；到达前20~200us复数RMS=27.7102码值，到达后300us起RMS=120.3938码值。左上排除前20us冷启动瞬态，其余原始数据全部保存在received_waveform.mat；右上放大传播等待和信号到达，左下为同一连续记录末段20us，右下为实际样本统计。源run_ad9361_waveform_observation.m；收尾保存冲突后的重验和制图复用已保留的同一次实际计算I/Q，未重复运行RF模型。验证StopTime从2ms改4ms不改变距离；100ms初始化生成5,008,000输入点，保存仅保留12000预览点并在InitFcn重新生成完整输入。默认100ms可覆盖148字节/12.5kbps的94.72ms发送时间及传播延迟，但本图仅为2ms前缀，不是完整报文、真实RTL、实板或ps精度验收。Scope按1ms Scroll累计时间显示，进度按1ms记录。模拟带宽候选8/12.5MHz和器件默认噪声/非线性未实物标定；无外加AWGN、多径、衰落、独立铷钟/抖动；台架无在线DLL/Costas/解帧。 当前用户确认条件已于2026-10-16改为1.055GHz、10MHz参考、≤5km；本图仍保留2026-10-15的2GHz/70km条件，不能当成新场景验证，见field_environment.html。",
       "requested_module_ids": [
         "official_source",
         "official_device",

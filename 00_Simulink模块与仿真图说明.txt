@@ -594,7 +594,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 E · 官方 AD9361 器件收发台架
 模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。
 实际模型框图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png
-models/dsss_ad9361_official.slx实际顶层，由MATLAB直接导出；入口open_ad9361_simulink.m，独立构建器build_ad9361_official_simulink.m。默认100ms/70km：148字节在12.5kbps下占94.72ms，另含约233.495us传播时间。waveform模式2ms/70km供波形观察；smoke模式20us/零距离仅做数值回归。功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF路径Delay/Gain、官方RX RF/ADC/HB/FIR，输出TX/RX Scope、officialRx和Simulation_Time。DAC200MHz/ADC400MHz，RF2GHz，理想公共LO，固定幅度衰减1e-4(-80dB)；70km传播在200MSPS路径取整为46699点，距离与StopTime独立。模拟带宽8/12.5MHz为候选规格，器件噪声非线性未实物标定；无外加AWGN/多径/衰落/独立铷钟。Scope使用1ms Scroll累计时间窗口及有界显示历史，进度每1ms记录；完整源数据在运行初始化时生成，不重复播放保存的12000点预览。新进程20us回归1001点与已验证脚本I/Q最大差值0；100ms初始化5,008,000输入点通过。100ms是已保存配置，不等于长时运行或完整载荷验收；2ms/70km实际计算得到100001点、到达前后RMS分别27.7102/120.3938码值；重验绘图通过。台架无在线DLL/Costas/解帧，完整通信功能参考仍为dsss_ad9361_link.mdl；非真实RTL/实板/测时精度证明。原始三模型保留；公开仅顶层图与说明，不发布官方模型/IP。
+models/dsss_ad9361_official.slx实际顶层，由MATLAB直接导出；入口open_ad9361_simulink.m，独立构建器build_ad9361_official_simulink.m。默认100ms/70km：148字节在12.5kbps下占94.72ms，另含约233.495us传播时间。waveform模式2ms/70km供波形观察；smoke模式20us/零距离仅做数值回归。功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF路径Delay/Gain、官方RX RF/ADC/HB/FIR，输出TX/RX Scope、officialRx和Simulation_Time。DAC200MHz/ADC400MHz，RF2GHz，理想公共LO，固定幅度衰减1e-4(-80dB)；70km传播在200MSPS路径取整为46699点，距离与StopTime独立。模拟带宽8/12.5MHz为候选规格，器件噪声非线性未实物标定；无外加AWGN/多径/衰落/独立铷钟。Scope使用1ms Scroll累计时间窗口及有界显示历史，进度每1ms记录；完整源数据在运行初始化时生成，不重复播放保存的12000点预览。新进程20us回归1001点与已验证脚本I/Q最大差值0；100ms初始化5,008,000输入点通过。100ms是已保存配置，不等于长时运行或完整载荷验收；2ms/70km实际计算得到100001点、到达前后RMS分别27.7102/120.3938码值；重验绘图通过。台架无在线DLL/Costas/解帧，完整通信功能参考仍为dsss_ad9361_link.mdl；非真实RTL/实板/测时精度证明。原始三模型保留；公开仅顶层图与说明，不发布官方模型/IP。 当前用户确认条件已于2026-10-16改为1.055GHz、10MHz参考、≤5km；本图仍保留2026-10-15的2GHz/70km条件，不能当成新场景验证，见field_environment.html。
 
 E1 功能级 DSSS 激励
 dsss_ad9361_official/Project_IQ
@@ -1061,7 +1061,7 @@ dsss_ad9361_official/Progress_s
 来源：已按登记信息关联模块；具体场景及信号说明：连续滑窗采用两台K3A报告频率准确度作为默认参考钟频差；相邻峰压力场景仍为功能注入，保护结果仍待双机硬件验证。
 
 图：08_MATLAB_Simulink_RTL对照/22_K3A铷钟报告参数接入对比.png
-来源：已按登记信息关联模块；具体场景及信号说明：对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。
+来源：已按登记信息关联模块；具体场景及信号说明：对比旧±0.1 ppb临时假设与两台K3A报告频率准确度；同时展示1/10/100 s频稳、累积钟差、4 ns量化残差周期和小误差预算。铷钟时间噪声是由频稳保守换算，非TDEV和非硬件验收。 2026-10-16扫描复核：00091的1s/100s频稳应为3.3e-12/7.3e-13，旧图采用了误转录的3.5e-12/7.7e-13；时间噪声代理不等于实测TDEV。当前源码已更正；旧图保留，不能作为新条件的精度验收。
 
 图：00_导航与方案说明/11_时间精度数据证据链.svg
 来源：已按登记信息关联模块；具体场景及信号说明：将4 ns时钟、80 ns码片、100 ms时隙、512次码环平均、载波相位码值比例、当前MATLAB几ns模型和待验证的整机几百ps分级追溯。算术分辨率不等于测量精度；几百ps仍需ARM融合实现及PPS/TIC原始实测记录。详见precision_evidence.html。
