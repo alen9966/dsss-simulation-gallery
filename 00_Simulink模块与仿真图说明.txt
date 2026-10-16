@@ -515,6 +515,28 @@ D · 独立脚本与展示（非 Simulink 模块）
 实现：scripts/rtl_link/render_rtl_findings.py；results/rtl_link/rtl_validation.json
 对应图：08_MATLAB_Simulink_RTL对照/01_实际RTL_分段验证总览.png；左下/中下：独立RTL测试，非模型内Costas/解析块
 
+真实AD9361记录回灌：接收FIR / FFT / DLL观测
+
+作用：run_official_rx_playback.py回灌已验证的官方AD9361有符号12位I/Q文件，真实iq_clock_bridge.v、complex_interp5.v及dsss_rx_250.v工作；从fft_cap_3.v比较器前导出1024点相关功率，再记录原始/修正后峰位置、门限及实际DLL Prompt。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：这是测试台只读层次观测和脚本作图，不是额外的Simulink模型块。记录达到真实捕获和至少16个DLL输出后才出接收捕获图；不强制峰值或锁定，不证明完整载荷、测时精度或历史80ns根因。
+日志：
+参数：
+实现：fpga_ad9361/sim/tb_official_rx_playback.v；fpga_ad9361/sim/run_official_rx_playback.py；fpga_ad9361/rtl/legacy/fft_cap_3.v；fpga_ad9361/rtl/legacy/code_loop_3.v；fpga_ad9361/tools/plot_ad9361_receiver_capture.m
+
+当前工程真实IP：生产节拍后端整帧
+
+作用：独立合成1184个BPSK符号，80µs间隔输入实际rx_norm、Costas、BPSK、帧识别和字节解析；当前DSSS_BPSK_TXRX生成的17个IP参与运行，实际逐字节比较100字节载荷。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：输入为已知符号夹具，绕过AD9361、信道、FFT捕获和DLL；图中输出时序只覆盖后端，不能替代完整无线通信或测时验收。
+日志：
+参数：
+实现：fpga_ad9361/sim/tb_backend_current_ip.v；fpga_ad9361/sim/run_backend_current_ip.py；fpga_ad9361/rtl/legacy/rx_norm.v；fpga_ad9361/rtl/legacy/costas_loop_v2.v；fpga_ad9361/rtl/legacy/rx_frame_identify_v2.v；fpga_ad9361/tools/plot_backend_current_ip.m
+
 真实RTL与官方AD9361文件交换验证
 
 作用：dsss_tx_250.v + 当前DSSS_BPSK_TXRX真实FIR IP + iq_clock_bridge.v导出50MSPS有符号12位I/Q；由run_ad9361_rtl_device.m建立临时官方TX/RX与1.055GHz、5km候选信道，再导出ADC I/Q供真实接收RTL回灌。关联图的四个子图均来自该次实际输出；不是现有功能模型内部的仿真图。

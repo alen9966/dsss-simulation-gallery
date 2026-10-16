@@ -1080,6 +1080,49 @@
       "tune": ""
     },
     {
+      "id": "script_official_rx_capture",
+      "title": "真实AD9361记录回灌：接收FIR / FFT / DLL观测",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "run_official_rx_playback.py回灌已验证的官方AD9361有符号12位I/Q文件，真实iq_clock_bridge.v、complex_interp5.v及dsss_rx_250.v工作；从fft_cap_3.v比较器前导出1024点相关功率，再记录原始/修正后峰位置、门限及实际DLL Prompt。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "这是测试台只读层次观测和脚本作图，不是额外的Simulink模型块。记录达到真实捕获和至少16个DLL输出后才出接收捕获图；不强制峰值或锁定，不证明完整载荷、测时精度或历史80ns根因。",
+      "sources": [
+        "fpga_ad9361/sim/tb_official_rx_playback.v",
+        "fpga_ad9361/sim/run_official_rx_playback.py",
+        "fpga_ad9361/rtl/legacy/fft_cap_3.v",
+        "fpga_ad9361/rtl/legacy/code_loop_3.v",
+        "fpga_ad9361/tools/plot_ad9361_receiver_capture.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_backend_current_ip",
+      "title": "当前工程真实IP：生产节拍后端整帧",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "独立合成1184个BPSK符号，80µs间隔输入实际rx_norm、Costas、BPSK、帧识别和字节解析；当前DSSS_BPSK_TXRX生成的17个IP参与运行，实际逐字节比较100字节载荷。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "输入为已知符号夹具，绕过AD9361、信道、FFT捕获和DLL；图中输出时序只覆盖后端，不能替代完整无线通信或测时验收。",
+      "sources": [
+        "fpga_ad9361/sim/tb_backend_current_ip.v",
+        "fpga_ad9361/sim/run_backend_current_ip.py",
+        "fpga_ad9361/rtl/legacy/rx_norm.v",
+        "fpga_ad9361/rtl/legacy/costas_loop_v2.v",
+        "fpga_ad9361/rtl/legacy/rx_frame_identify_v2.v",
+        "fpga_ad9361/tools/plot_backend_current_ip.m"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
       "id": "script_official_rtl",
       "title": "真实RTL与官方AD9361文件交换验证",
       "group": "script",
