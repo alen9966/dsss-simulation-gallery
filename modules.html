@@ -522,7 +522,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </details></article>
 <article id="script_official_rtl"><h3>真实RTL与官方AD9361文件交换验证</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
-<p>dsss_tx_250.v + 当前DSSS_BPSK_TXRX真实FIR IP + iq_clock_bridge.v导出50MSPS有符号12位I/Q；由run_ad9361_rtl_device.m建立临时官方TX/RX与1.055GHz、5km候选信道，再导出ADC I/Q供真实接收RTL回灌。图39四个子图均来自该次实际输出；不是现有功能模型内部的仿真图。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+<p>dsss_tx_250.v + 当前DSSS_BPSK_TXRX真实FIR IP + iq_clock_bridge.v导出50MSPS有符号12位I/Q；由run_ad9361_rtl_device.m建立临时官方TX/RX与1.055GHz、5km候选信道，再导出ADC I/Q供真实接收RTL回灌。关联图的四个子图均来自该次实际输出；不是现有功能模型内部的仿真图。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
 </table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>脚本生成临时测试台，不改变已保存的四个模型，也不是实时HDL协同仿真。短记录通过只证明真实发送段与官方器件连接；80ns回波、噪声、慢衰落和增益是明确测试假设，完整接收RTL/载荷、硬件时序、PPS及几百ps精度另验收。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/39_%E7%9C%9F%E5%AE%9ERTL%E5%8F%91%E9%80%81_%E5%AE%98%E6%96%B9AD9361_5km%E9%9D%9E%E7%90%86%E6%83%B3%E5%89%8D%E7%BC%80.png">39_真实RTL发送_官方AD9361_5km非理想前缀.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
