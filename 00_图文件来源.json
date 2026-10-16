@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "copied_files": 119,
+  "copied_files": 120,
   "original_files_preserved": true,
   "files": [
     {
@@ -4213,6 +4213,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-16，FMQL45T900+AD9361实板，经真实JTAG/VIO/SPI运行本地ADI no-OS驱动初始化与模拟校准，未接PS工程；AXI_ADC_NOT_PRESENT跳过数字接口调谐。10MHz外部参考、1.055GHz本振、50MSPS、用户FIR旁路、模拟带宽20MHz候选。人工反馈XTALN幅度由约100mVpp改善到700mVpp后BBPLL及两路RFPLL实际回读锁定；700mVpp未达到ADI推荐下限，不能据本次运行认定裕量合格。当前射频同轴直连N9020A、无外部功放或外部衰减器，RF_SW选择HMC8038 TX路径。5组实际仪器CSV：BIST Fs/32峰1056.570MHz/-50.27dBm，Fs/16峰1058.130MHz/-50.51dBm；芯片衰减50变40dB，幅度上升9.98dB；开启比前/后关闭基线高40.1/38.0dB。RBW/VBW100kHz、仪器输入衰减10dB、前放关闭；线缆损耗未标定。此前未接射频线的失败采集仅本地保留，未作为板卡故障证据。本图为实际频谱与SPI记录的脚本绘图，不是Simulink模块或官方器件模型；内部BIST绕过FPGA LVDS数据口，不能证明DSSS载荷、接收通信、双站PPS或ps精度。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/lvds_timing_20261016/board_lvds_timing_measured.png",
+      "filename": "46_AD9361实板_LVDS窗口_数字回环延时.png",
+      "status": "E3接口实测：RX/TX采样窗口及数字回环19拍；非模拟/RF延时",
+      "note": "2026-10-16，FMQL45T900+AD9361实板，10MHz外部参考、50MSPS、DATA_CLK标称100MHz，PPS不参与，外部RF开关固定RX。实际芯片RX BIST PRBS扫描0x006全部256点，通过207点，选0x44；随后FPGA共同IDELAY的0..25共26档通过，选tap12。真实FPGA PRBS经AD9361 TX->RX数字回环，扫描0x007全部256点，通过100点，选0x3B。每点检查实际计数增量≥4096字、PN锁定、数据/帧无新增错；失败档位累计错误保留，不混入选定点验收。延长约10秒检查500950000字零新增误码/帧错；ILA1024拍独立解码512有效字、502匹配返回字全部19拍。按标称IO周期10ns折算190ns，包含FPGA PHY/观测逻辑及芯片数字回环，不能除2当成单向PCB/RF延时。一次AD9361复位重初始化后再次选tap12，52050000字零误码、延时仍19拍；非掉电/FPGA重下载/温度扫描验收。定位并修正初始化0x03D/0x03E=00/00引起的数据反相，改FF/0F且真实复测驱动自动恢复；TX D4/D5物理交换仍由RTL掩码0x30补偿。本图为实板CSV/ILA记录的脚本绘图，不是Simulink块或模拟眼图；芯片约0.3ns/档为资料标称值。无外部LVDS测试点，未测每条PCB线飞行时间、ADC/DAC/FIR/HB/模拟RF群延迟或PPS。DATA_CLK非专用时钟脚绕行及未标定外部DDR时序预算的边界保留；当前位流/频率/工作条件通过不代替正式通信位流重新标定和完整时序签核。",
+      "requested_module_ids": [
+        "script_board_lvds"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/46_AD9361实板_LVDS窗口_数字回环延时.png",
+      "decoded_pixel_sha256": "59e611e2dc65205421287fa8a4442c1ca67877bbcf80c177ce25e1487d97a99d",
+      "module_refs": [
+        {
+          "id": "script_board_lvds",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-16，FMQL45T900+AD9361实板，10MHz外部参考、50MSPS、DATA_CLK标称100MHz，PPS不参与，外部RF开关固定RX。实际芯片RX BIST PRBS扫描0x006全部256点，通过207点，选0x44；随后FPGA共同IDELAY的0..25共26档通过，选tap12。真实FPGA PRBS经AD9361 TX->RX数字回环，扫描0x007全部256点，通过100点，选0x3B。每点检查实际计数增量≥4096字、PN锁定、数据/帧无新增错；失败档位累计错误保留，不混入选定点验收。延长约10秒检查500950000字零新增误码/帧错；ILA1024拍独立解码512有效字、502匹配返回字全部19拍。按标称IO周期10ns折算190ns，包含FPGA PHY/观测逻辑及芯片数字回环，不能除2当成单向PCB/RF延时。一次AD9361复位重初始化后再次选tap12，52050000字零误码、延时仍19拍；非掉电/FPGA重下载/温度扫描验收。定位并修正初始化0x03D/0x03E=00/00引起的数据反相，改FF/0F且真实复测驱动自动恢复；TX D4/D5物理交换仍由RTL掩码0x30补偿。本图为实板CSV/ILA记录的脚本绘图，不是Simulink块或模拟眼图；芯片约0.3ns/档为资料标称值。无外部LVDS测试点，未测每条PCB线飞行时间、ADC/DAC/FIR/HB/模拟RF群延迟或PPS。DATA_CLK非专用时钟脚绕行及未标定外部DDR时序预算的边界保留；当前位流/频率/工作条件通过不代替正式通信位流重新标定和完整时序签核。"
     }
   ]
 }

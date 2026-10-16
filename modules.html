@@ -520,6 +520,14 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/01_%E5%AE%9E%E9%99%85RTL_%E5%88%86%E6%AE%B5%E9%AA%8C%E8%AF%81%E6%80%BB%E8%A7%88.png">01_实际RTL_分段验证总览.png</a> — 左下/中下：独立RTL测试，非模型内Costas/解析块</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/rtl_link/render_rtl_findings.py；results/rtl_link/rtl_validation.json</p>
 </details></article>
+<article id="script_board_lvds"><h3>AD9361实板：LVDS双向窗口与数字回环延时</h3>
+<p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
+<p>真实SPI扫描RX寄存器0x006和TX寄存器0x007各256点；芯片RX BIST PRBS校验与FPGA输入32档IDELAY选窗后，用FPGA PRBS经芯片TX到RX数字回环实测。独立ILA解码与硬件延时计数交叉验证，并做一次AD9361复位重初始化。图中窗口、误码与19拍延时均来自实际板卡记录。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>脚本绘制实板数据，不是Simulink块或模拟眼图。190ns为标称100MHz下两个FPGA观测端点之间的总数字回环延时，包含PHY/观测逻辑，不能当作ADC/DAC/RF群延迟或单向PCB延时。PPS不参与；一次芯片复位不代替掉电/重新布局布线/温度扫描；非专用DATA_CLK绕行和未标定外部DDR预算仍需签核。</p>
+<p><strong>对应图：</strong></p><ul class="figlinks">
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/46_AD9361%E5%AE%9E%E6%9D%BF_LVDS%E7%AA%97%E5%8F%A3_%E6%95%B0%E5%AD%97%E5%9B%9E%E7%8E%AF%E5%BB%B6%E6%97%B6.png">46_AD9361实板_LVDS窗口_数字回环延时.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_lvds_test_top.v；fpga_ad9361/rtl/ad9361_lvds_1r1t.v；fpga_ad9361/rtl/ad9361_rx_delay_scan.v；fpga_ad9361/control/ad9361_link_profile.h；fpga_ad9361/tools/instruments/run_lvds_timing_scan.py；fpga_ad9361/tools/instruments/recheck_lvds_after_ad_reset.py；fpga_ad9361/tools/plot_board_lvds_timing.py</p>
+</details></article>
 <article id="script_board_rf"><h3>AD9361实板：内部BIST射频发射对照</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
 <p>真实JTAG/VIO/SPI控制实板AD9361，运行本地ADI no-OS初始化与模拟校准；N9020A经LAN读取五组同轴直连频谱，比较BIST开关、Fs/32与Fs/16频率切换，以及芯片衰减50/40dB响应。图中信号和锁定位均来自实际仪器/SPI记录。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
@@ -596,7 +604,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <article id="script_calibration"><h3>26 RX接口：IDELAY扫描及radio复位门控</h3>
 <p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
 <p>实际RTL扫描0..31档共同IDELAY，AD9361专用PRBS16锁定及错误检测，最长连续窗口选中心并复测。扫描13项、真实radio控制门控5项测试通过。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
-</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>独立RTL测试，不是Simulink块；radio测试使用模拟PHY/时钟/基带边界，尚无实测LVDS眼图。TX方向扫描和完整初始化仍待完成。</p>
+</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>本项为历史独立RTL测试，不是Simulink块；radio测试使用模拟PHY/时钟/基带边界，图中窗口不是实测眼图。后续真实RX/TX窗口、芯片初始化和数字回环延时见“AD9361实板：LVDS双向窗口与数字回环延时”，两类证据分别保留。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="07_%E5%8F%8C%E5%90%91%E6%97%B6%E9%9A%99%E4%B8%8E%E6%8E%A5%E5%8F%A3/02_RX_IDELAY%E6%89%AB%E6%8F%8F_%E9%80%BB%E8%BE%91%E6%95%85%E9%9A%9C%E9%AA%8C%E8%AF%81.png">02_RX_IDELAY扫描_逻辑故障验证.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/rtl/ad9361_prbs16_monitor.v；fpga_ad9361/rtl/ad9361_rx_delay_scan.v；fpga_ad9361/rtl/ad9361_dsss_radio.v；fpga_ad9361/sim/run_delay_scan.ps1；scripts/tools/plot_dsss_rx_delay_validation.m</p>
@@ -1301,5 +1309,7 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <details><summary>44_AXI寄存器调用PL_SPI_独立外设验证.png</summary><p>已按登记信息关联模块；具体场景及信号说明：ad9361_axi_spi.v和ad9361_spi_burst_master.v真实RTL；AXI71.43MHz/控制10MHz及AXI100MHz/控制13.51MHz两组共43425次检查，24个完整SPI事务/组，原生1～8字节、PS/VIO仲裁、回压与复位恢复。SDO延迟8ns是行为模型输入。实际C驱动34项主机MMIO替身测试及ARM编译通过；独立综合457LUT/969FF、无BRAM/DSP。CDC握手数据包170条警告保留，整板实现需复核。未包含实际PS工程、最终基地址、AD9361模拟/RF模型或实板AXI测试，不能代替RF通信/测时验收。</p>
 </details>
 <details><summary>45_AD9361实板_BIST发射_频率幅度开关对照.png</summary><p>已按登记信息关联模块；具体场景及信号说明：2026-10-16，FMQL45T900+AD9361实板，经真实JTAG/VIO/SPI运行本地ADI no-OS驱动初始化与模拟校准，未接PS工程；AXI_ADC_NOT_PRESENT跳过数字接口调谐。10MHz外部参考、1.055GHz本振、50MSPS、用户FIR旁路、模拟带宽20MHz候选。人工反馈XTALN幅度由约100mVpp改善到700mVpp后BBPLL及两路RFPLL实际回读锁定；700mVpp未达到ADI推荐下限，不能据本次运行认定裕量合格。当前射频同轴直连N9020A、无外部功放或外部衰减器，RF_SW选择HMC8038 TX路径。5组实际仪器CSV：BIST Fs/32峰1056.570MHz/-50.27dBm，Fs/16峰1058.130MHz/-50.51dBm；芯片衰减50变40dB，幅度上升9.98dB；开启比前/后关闭基线高40.1/38.0dB。RBW/VBW100kHz、仪器输入衰减10dB、前放关闭；线缆损耗未标定。此前未接射频线的失败采集仅本地保留，未作为板卡故障证据。本图为实际频谱与SPI记录的脚本绘图，不是Simulink模块或官方器件模型；内部BIST绕过FPGA LVDS数据口，不能证明DSSS载荷、接收通信、双站PPS或ps精度。</p>
+</details>
+<details><summary>46_AD9361实板_LVDS窗口_数字回环延时.png</summary><p>已按登记信息关联模块；具体场景及信号说明：2026-10-16，FMQL45T900+AD9361实板，10MHz外部参考、50MSPS、DATA_CLK标称100MHz，PPS不参与，外部RF开关固定RX。实际芯片RX BIST PRBS扫描0x006全部256点，通过207点，选0x44；随后FPGA共同IDELAY的0..25共26档通过，选tap12。真实FPGA PRBS经AD9361 TX-&gt;RX数字回环，扫描0x007全部256点，通过100点，选0x3B。每点检查实际计数增量≥4096字、PN锁定、数据/帧无新增错；失败档位累计错误保留，不混入选定点验收。延长约10秒检查500950000字零新增误码/帧错；ILA1024拍独立解码512有效字、502匹配返回字全部19拍。按标称IO周期10ns折算190ns，包含FPGA PHY/观测逻辑及芯片数字回环，不能除2当成单向PCB/RF延时。一次AD9361复位重初始化后再次选tap12，52050000字零误码、延时仍19拍；非掉电/FPGA重下载/温度扫描验收。定位并修正初始化0x03D/0x03E=00/00引起的数据反相，改FF/0F且真实复测驱动自动恢复；TX D4/D5物理交换仍由RTL掩码0x30补偿。本图为实板CSV/ILA记录的脚本绘图，不是Simulink块或模拟眼图；芯片约0.3ns/档为资料标称值。无外部LVDS测试点，未测每条PCB线飞行时间、ADC/DAC/FIR/HB/模拟RF群延迟或PPS。DATA_CLK非专用时钟脚绕行及未标定外部DDR时序预算的边界保留；当前位流/频率/工作条件通过不代替正式通信位流重新标定和完整时序签核。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
