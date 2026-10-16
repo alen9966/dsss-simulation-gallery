@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "copied_files": 114,
+  "copied_files": 116,
   "original_files_preserved": true,
   "files": [
     {
@@ -4088,6 +4088,71 @@
         }
       ],
       "provenance": "当前工程17个真实IP与实际生产后端RTL输出；输入为独立合成BPSK符号，保持80µs生产间隔；不是官方RF输出或Simulink内部Scope。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/official_rtl_bridge_20261016/rx_nonideal/rtl_receiver_capture.png",
+      "filename": "42_官方AD9361输出回灌_真实RX_FFT相关峰_DLL.png",
+      "status": "真实IP接收FIR/FFT/DLL前缀观测：PASS",
+      "note": "实际RTL发送记录经过官方AD9361及1.055GHz/5km明确候选信道后，回灌真实RX。图中前端窗口、1024点相关功率、相邻格点和DLL Prompt均为只读RTL导出；不是合成理想峰。原始FFT bin和去补零capture_location编号分别标注。捕获及至少16个DLL符号门槛通过，全部已观测DLL符号匹配已知A5前导码；仍非完整报文、几百ps测时或历史80ns根因证明。",
+      "requested_module_ids": [
+        "script_official_rx_capture"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/42_官方AD9361输出回灌_真实RX_FFT相关峰_DLL.png",
+      "decoded_pixel_sha256": "ed2f986aedff407f9d9db1686bf68e092ab27a8c64008f107bbea9a8ec3c6562",
+      "module_refs": [
+        {
+          "id": "script_official_rx_capture",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "左上",
+          "title": "接收前端窗口",
+          "signal": "实际RX FIR输出I/Q",
+          "meaning": "按DSP复位后时间显示；原始重构数据另留在本地CSV，图中未画。"
+        },
+        {
+          "position": "右上",
+          "title": "1024点相关功率",
+          "signal": "FFT/IFFT后实际比较器前幅值平方",
+          "meaning": "以本窗口最大值归一化dB，只比较真实峰；不是仪器dBm。"
+        },
+        {
+          "position": "左下",
+          "title": "相邻相关格点",
+          "signal": "同一实际相关窗口",
+          "meaning": "80ns格点仅是当前码率，不据此证明历史80ns根因。"
+        },
+        {
+          "position": "右下",
+          "title": "DLL Prompt",
+          "signal": "实际DLL解扩输出",
+          "meaning": "至少16符号且已知前导码匹配；不代表完整载荷或ps精度。"
+        }
+      ],
+      "provenance": "实际官方AD9361输出回灌真实RX；FIR、FFT相关器比较器输入与DLL Prompt均为测试台只读层次信号，不是合成相关峰。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/official_rtl_bridge_20261016/device_nonideal/rtl_official_bridge.png",
+      "filename": "40_真实RTL官方AD9361_非理想信道_接收捕获DLL前缀.png",
+      "status": "真实RTL发送+官方AD9361+真实接收捕获/DLL前缀：PASS",
+      "note": "实际PN1000/FIR/XPM发送记录120000点，2.4ms；官方1.055GHz、5km候选非理想器件链输出回灌真实RX XPM/插值/RX FIR/FFT/DLL，捕获与至少16个解扩符号门槛通过。固定噪声、80ns/-10dB/60度回波、公共Rician K=10dB/Doppler≤1Hz、示例频偏，未标定通道幅度1e-4。图的四个面板是实际发送和官方RX输出，不是DLL或载荷图；真实接收事件日志本地保留。仍非完整载荷、PPS、测时精度或硬件验收。",
+      "requested_module_ids": [
+        "script_official_rtl"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/40_真实RTL官方AD9361_非理想信道_接收捕获DLL前缀.png",
+      "decoded_pixel_sha256": "1dfd3d70484deeeafc8521e9f5ecf8438cb756db39d838caa4f36cc7ec389547",
+      "module_refs": [
+        {
+          "id": "script_official_rtl",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：实际PN1000/FIR/XPM发送记录120000点，2.4ms；官方1.055GHz、5km候选非理想器件链输出回灌真实RX XPM/插值/RX FIR/FFT/DLL，捕获与至少16个解扩符号门槛通过。固定噪声、80ns/-10dB/60度回波、公共Rician K=10dB/Doppler≤1Hz、示例频偏，未标定通道幅度1e-4。图的四个面板是实际发送和官方RX输出，不是DLL或载荷图；真实接收事件日志本地保留。仍非完整载荷、PPS、测时精度或硬件验收。"
     }
   ]
 }

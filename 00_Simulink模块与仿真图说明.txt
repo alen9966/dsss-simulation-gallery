@@ -525,6 +525,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 日志：
 参数：
 实现：fpga_ad9361/sim/tb_official_rx_playback.v；fpga_ad9361/sim/run_official_rx_playback.py；fpga_ad9361/rtl/legacy/fft_cap_3.v；fpga_ad9361/rtl/legacy/code_loop_3.v；fpga_ad9361/tools/plot_ad9361_receiver_capture.m
+对应图：08_MATLAB_Simulink_RTL对照/42_官方AD9361输出回灌_真实RX_FFT相关峰_DLL.png；登记的新图对应模块；场景及信号说明见图注
 
 当前工程真实IP：生产节拍后端整帧
 
@@ -549,6 +550,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 参数：
 实现：fpga_ad9361/sim/tb_official_tx_export.v；fpga_ad9361/sim/run_official_rtl_bridge.py；fpga_ad9361/tools/run_ad9361_rtl_device.m；fpga_ad9361/sim/tb_official_rx_playback.v；fpga_ad9361/sim/run_official_rx_playback.py；fpga_ad9361/tools/plot_ad9361_rtl_bridge.m
 对应图：08_MATLAB_Simulink_RTL对照/39_真实RTL发送_官方AD9361_5km非理想前缀.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/40_真实RTL官方AD9361_非理想信道_接收捕获DLL前缀.png；登记的新图对应模块；场景及信号说明见图注
 
 25 四阶段迁移与模型驱动交付
 
@@ -1214,3 +1216,13 @@ dsss_ad9361_official/Progress_s
 右上 | 后端输出时序 | 实际NORM/HEADER/BYTE事件的250MHz时钟计数 | 不包含无线传播与接收前端等待；100ms线仅作时隙尺度参考。
 左下 | Costas残余相位 | 实际Costas I/Q的BPSK折叠相位 | 不是铷钟相噪或钟差。
 右下 | 100字节对照 | 实际BYTE事件与固定期望0..99 | 逐字节相同且last一次才验收后端；不等于整链通信。
+
+图：08_MATLAB_Simulink_RTL对照/42_官方AD9361输出回灌_真实RX_FFT相关峰_DLL.png
+来源：实际官方AD9361输出回灌真实RX；FIR、FFT相关器比较器输入与DLL Prompt均为测试台只读层次信号，不是合成相关峰。
+左上 | 接收前端窗口 | 实际RX FIR输出I/Q | 按DSP复位后时间显示；原始重构数据另留在本地CSV，图中未画。
+右上 | 1024点相关功率 | FFT/IFFT后实际比较器前幅值平方 | 以本窗口最大值归一化dB，只比较真实峰；不是仪器dBm。
+左下 | 相邻相关格点 | 同一实际相关窗口 | 80ns格点仅是当前码率，不据此证明历史80ns根因。
+右下 | DLL Prompt | 实际DLL解扩输出 | 至少16符号且已知前导码匹配；不代表完整载荷或ps精度。
+
+图：08_MATLAB_Simulink_RTL对照/40_真实RTL官方AD9361_非理想信道_接收捕获DLL前缀.png
+来源：已按登记信息关联模块；具体场景及信号说明：实际PN1000/FIR/XPM发送记录120000点，2.4ms；官方1.055GHz、5km候选非理想器件链输出回灌真实RX XPM/插值/RX FIR/FFT/DLL，捕获与至少16个解扩符号门槛通过。固定噪声、80ns/-10dB/60度回波、公共Rician K=10dB/Doppler≤1Hz、示例频偏，未标定通道幅度1e-4。图的四个面板是实际发送和官方RX输出，不是DLL或载荷图；真实接收事件日志本地保留。仍非完整载荷、PPS、测时精度或硬件验收。

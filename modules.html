@@ -525,7 +525,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <p>run_official_rx_playback.py回灌已验证的官方AD9361有符号12位I/Q文件，真实iq_clock_bridge.v、complex_interp5.v及dsss_rx_250.v工作；从fft_cap_3.v比较器前导出1024点相关功率，再记录原始/修正后峰位置、门限及实际DLL Prompt。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
 </table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>这是测试台只读层次观测和脚本作图，不是额外的Simulink模型块。记录达到真实捕获和至少16个DLL输出后才出接收捕获图；不强制峰值或锁定，不证明完整载荷、测时精度或历史80ns根因。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
-<li>当前没有该模块的独立图；相关日志/待补项见上文，不能用其他图代替。</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/42_%E5%AE%98%E6%96%B9AD9361%E8%BE%93%E5%87%BA%E5%9B%9E%E7%81%8C_%E7%9C%9F%E5%AE%9ERX_FFT%E7%9B%B8%E5%85%B3%E5%B3%B0_DLL.png">42_官方AD9361输出回灌_真实RX_FFT相关峰_DLL.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/sim/tb_official_rx_playback.v；fpga_ad9361/sim/run_official_rx_playback.py；fpga_ad9361/rtl/legacy/fft_cap_3.v；fpga_ad9361/rtl/legacy/code_loop_3.v；fpga_ad9361/tools/plot_ad9361_receiver_capture.m</p>
 </details></article>
 <article id="script_backend_current_ip"><h3>当前工程真实IP：生产节拍后端整帧</h3>
@@ -542,6 +542,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>脚本生成临时测试台，不改变已保存的四个模型，也不是实时HDL协同仿真。短记录通过只证明真实发送段与官方器件连接；80ns回波、噪声、慢衰落和增益是明确测试假设，完整接收RTL/载荷、硬件时序、PPS及几百ps精度另验收。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/39_%E7%9C%9F%E5%AE%9ERTL%E5%8F%91%E9%80%81_%E5%AE%98%E6%96%B9AD9361_5km%E9%9D%9E%E7%90%86%E6%83%B3%E5%89%8D%E7%BC%80.png">39_真实RTL发送_官方AD9361_5km非理想前缀.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/40_%E7%9C%9F%E5%AE%9ERTL%E5%AE%98%E6%96%B9AD9361_%E9%9D%9E%E7%90%86%E6%83%B3%E4%BF%A1%E9%81%93_%E6%8E%A5%E6%94%B6%E6%8D%95%E8%8E%B7DLL%E5%89%8D%E7%BC%80.png">40_真实RTL官方AD9361_非理想信道_接收捕获DLL前缀.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/sim/tb_official_tx_export.v；fpga_ad9361/sim/run_official_rtl_bridge.py；fpga_ad9361/tools/run_ad9361_rtl_device.m；fpga_ad9361/sim/tb_official_rx_playback.v；fpga_ad9361/sim/run_official_rx_playback.py；fpga_ad9361/tools/plot_ad9361_rtl_bridge.m</p>
 </details></article>
 <article id="script_migration"><h3>25 四阶段迁移与模型驱动交付</h3>
@@ -1260,5 +1261,15 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td>左下</td><td>Costas残余相位</td><td>实际Costas I/Q的BPSK折叠相位</td><td>不是铷钟相噪或钟差。</td></tr>
 <tr><td>右下</td><td>100字节对照</td><td>实际BYTE事件与固定期望0..99</td><td>逐字节相同且last一次才验收后端；不等于整链通信。</td></tr>
 </table>
+</details>
+<details><summary>42_官方AD9361输出回灌_真实RX_FFT相关峰_DLL.png</summary><p>实际官方AD9361输出回灌真实RX；FIR、FFT相关器比较器输入与DLL Prompt均为测试台只读层次信号，不是合成相关峰。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>左上</td><td>接收前端窗口</td><td>实际RX FIR输出I/Q</td><td>按DSP复位后时间显示；原始重构数据另留在本地CSV，图中未画。</td></tr>
+<tr><td>右上</td><td>1024点相关功率</td><td>FFT/IFFT后实际比较器前幅值平方</td><td>以本窗口最大值归一化dB，只比较真实峰；不是仪器dBm。</td></tr>
+<tr><td>左下</td><td>相邻相关格点</td><td>同一实际相关窗口</td><td>80ns格点仅是当前码率，不据此证明历史80ns根因。</td></tr>
+<tr><td>右下</td><td>DLL Prompt</td><td>实际DLL解扩输出</td><td>至少16符号且已知前导码匹配；不代表完整载荷或ps精度。</td></tr>
+</table>
+</details>
+<details><summary>40_真实RTL官方AD9361_非理想信道_接收捕获DLL前缀.png</summary><p>已按登记信息关联模块；具体场景及信号说明：实际PN1000/FIR/XPM发送记录120000点，2.4ms；官方1.055GHz、5km候选非理想器件链输出回灌真实RX XPM/插值/RX FIR/FFT/DLL，捕获与至少16个解扩符号门槛通过。固定噪声、80ns/-10dB/60度回波、公共Rician K=10dB/Doppler≤1Hz、示例频偏，未标定通道幅度1e-4。图的四个面板是实际发送和官方RX输出，不是DLL或载荷图；真实接收事件日志本地保留。仍非完整载荷、PPS、测时精度或硬件验收。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
