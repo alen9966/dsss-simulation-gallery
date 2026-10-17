@@ -4897,6 +4897,23 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：真实costas_loop_v2.v与当前生成CORDIC、pll_phase_mult、pll_freq_mult、pll_freq_add、freq_ctrl_add、costas_nco_add、costas_nco_wrap_addsub构成反馈，原C1/C2不改。原链与候选同一BPSK比特、起相0.37rad、幅度16600→25000→42000→16600、注入频差0/±1/±10Hz。虚拟符号率12.5ksymbol/s；为加速把输入间隔改为128DSP拍，留足真实反馈流水线延迟，不能当作完整生产时钟节拍。每场景6500输入，前2500用于捕获与极性训练，仅用2000～2499确定一次BPSK反相极性，此后固定极性统计2500～6499共4000符号；5场景总2万符号，原链错误5855，候选0。相位图为+10Hz原IP实际I/Q，经已知发送比特去调制，每5点显示1点；不以modπ折叠掩盖180度错误。无AWGN/多径/时钟相噪/LVDS，频差是注入值而非铷钟实测，结果不是整机BER、无线、PPS或ps精度验收。工具run_guarded_costas_closed_loop.py/plot_guarded_costas_closed_loop.py，原始RTL、IP、CSV和哈希留本地。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/60_AD9361双板实测_数值保护_增益突变与持续接收.png",
+      "filename": "60_AD9361双板实测_数值保护_增益突变与持续接收.png",
+      "status": "E3实板：增益20/24/26/28/20dB后300s，4690正确帧，0观测错误",
+      "module_refs": [
+        {
+          "id": "script_continuous_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：真实FMQL45/AD9361双板同轴，用户确认两台独立铷钟10MHz，LO1.055GHz、50MSPS、模拟20MHz、用户FIR旁路、PN1000/12.5Mchip/s/12.5kbit/s，TX内部衰减50dB固定。RX数值保护前先保留旧计数，再更新接收板，重新LVDS/PRBS校准。rx_norm截位前I/Q共同缩放，Fix16_14输出范围-16384..16383，连续模式使能，默认突发模式不改，增加2个DSP拍8ns算法流水线。MIN_SHIFT=2相对原>>1名义预留6dB，C1/C2不变但等效鉴相增益会改变；不能将本次0/±1/±10Hz分段及当前同轴实测推广到所有频差/信噪比，需扩展跟踪覆盖。四组真实RTL/IP离线回归与正裕量布线通过。手动RX20→24→26→28→20各20s，随后20dB300s；不重捕获不清零，阶段累计实际DSP时间406.491000s，完整验收新增4690正确帧/3752000比较比特，坏帧/错误位/重捕获/ADC削顶/接口帧错增量均0，各阶段吞吐≥8帧/s。实际ILA每阶段完整载荷从Costas符号重建与输出一致，保护值范围核对。旧20→24dB约5s观察3坏帧64错误位，旧新时长/布局/校准不同，不作严格单变量整机BER对照；同输入原IP回放才隔离数值机制。首轮验收因观测工具ILA等待0.2s不足而中断（非载荷错误），保留hardware_acceptance原记录；仅重连主机桥并将采集等待改1s，FPGA未复位、错误计数未清零，完整验收为hardware_acceptance_02。无CRC/空口序号，不证明丢帧率或历史自然坏帧唯一根因；无无线/TDD/PPS/80ns或ps精度验收。工具bringup_numeric_guard_candidate.py/accept_numeric_guard_candidate.py/plot_numeric_guard_hardware.py；完整RTL/IP/位流/CSV/源哈希留本地。"
     }
   ],
   "layout_verification": {
