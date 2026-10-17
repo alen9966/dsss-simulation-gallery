@@ -1,6 +1,6 @@
 {
   "date": "2026-10-17",
-  "copied_files": 124,
+  "copied_files": 125,
   "original_files_preserved": true,
   "files": [
     {
@@ -4318,6 +4318,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-17，两块FMQL45T900+AD9361，共用10MHz铷钟，1.055GHz本振、50MSPS、模拟带宽20MHz、用户FIR旁路。第一板真实FPGA连续TX，第二板运行RX-only LVDS诊断位流，ADI no-OS置FDD/MGC20dB，BIST和数字回环关闭。用户确认同轴连接两板，无外部功放和衰减器；连接前TX已停止并验证ALERT，TX恢复时强制核对50dB衰减及PLL锁定。先前N9020A实测50MHz总功率-51.491dBm是连接前条件，不能当第二板芯片引脚功率测量。本图直接读取实际ILA CSV，每条1024个IO时钟含512有效12位I/Q，标称10.24us；同轴连接后先采发射关闭底噪，再发FPGA Fs/32单音，接收峰1.5625MHz，同频点开关差48.296dB；再切DSSS采8条独立记录，线性功率平均。FFT使用Hann窗且只对FFT去均值，dBFS/bin按2048码和窗和归一化，不是dBm/Hz或频谱仪测量；DC原值和逐记录统计本地保留。所采记录削顶0、LVDS帧错误0。已证明外部射频接收与数字采样链，第二板此时尚无DSSS解码器，不以PN监测器或ADC波形推断载荷BER、双向钟差/PPS或ps精度。完整RX正在修复插值FIR250MHz时序并重新实现，未下载失败位流。原始CSV/JSON本地保留，tools/plot_two_board_rf_adc.py绘图，不是Simulink输出。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/continuous_rx_20261017/norm_continuous/continuous_normalizer_regression.png",
+      "filename": "51_真实IP_连续归一化阻断定位与修复.png",
+      "status": "真实归一化IP片段：旧模式阻断复现；连续修复逐点回归通过；修正版实板载荷待验收",
+      "note": "2026-10-17双板同轴首次完整RX位流实测，ADC在15.112s推进755600000点、无新增削顶/帧错误，但接收字节和比较比特均为0，不能称BER=0；其余失败记录本地保留。发现旧rx_norm.v在P_END要求TIME_OUT_VAL=50000拍无输入才输出，250MHz对应200us；实际DLL每80us持续输出，无法满足此条件，Costas前级被阻断。新增CONTINUOUS_STREAM默认0，连续RX显式启用1：初始幅度估计后保持输出态，FIFO空时不产生输出；先锁定gap2的读出字，再在gap10消费，避免空闲间隙新到字被吞。tb_rx_norm_continuous.v使用当前工程8类真实生成IP、并行新连续模式/新默认模式/修改前旧源码；900个符号逐点完全一致，默认模式与旧源码同周期逐点一致，空闲后64个变间隔符号无丢失/重复。图来自实际Xsim事件CSV，250MHz、测试输入500拍/2us（为运行时间缩短），SKIP80/CAL500/真实IP延迟及50000拍超时保持生产值；不是生产80us输入节拍长仿真。首输出连续模式第289750拍、旧模式第499597拍；完整仿真3.068892ms。符号为合成有符号码值，绕过RF/FFT/DLL/Costas，不据此宣布新位流完整通信或历史80ns根因；新位流综合/实现和实板载荷另行验收。旧成功位流、原源码、时序和本次零载荷失败均存before_continuous_normalizer，未覆盖为通过。绘图tools/plot_rx_norm_continuous.py，不是新增Simulink模块。",
+      "requested_module_ids": [
+        "script_backend_current_ip"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/51_真实IP_连续归一化阻断定位与修复.png",
+      "decoded_pixel_sha256": "016decc3c94c988bb38cc2975fd4a998248a2068c06eb1829ce45826719b7046",
+      "module_refs": [
+        {
+          "id": "script_backend_current_ip",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-17双板同轴首次完整RX位流实测，ADC在15.112s推进755600000点、无新增削顶/帧错误，但接收字节和比较比特均为0，不能称BER=0；其余失败记录本地保留。发现旧rx_norm.v在P_END要求TIME_OUT_VAL=50000拍无输入才输出，250MHz对应200us；实际DLL每80us持续输出，无法满足此条件，Costas前级被阻断。新增CONTINUOUS_STREAM默认0，连续RX显式启用1：初始幅度估计后保持输出态，FIFO空时不产生输出；先锁定gap2的读出字，再在gap10消费，避免空闲间隙新到字被吞。tb_rx_norm_continuous.v使用当前工程8类真实生成IP、并行新连续模式/新默认模式/修改前旧源码；900个符号逐点完全一致，默认模式与旧源码同周期逐点一致，空闲后64个变间隔符号无丢失/重复。图来自实际Xsim事件CSV，250MHz、测试输入500拍/2us（为运行时间缩短），SKIP80/CAL500/真实IP延迟及50000拍超时保持生产值；不是生产80us输入节拍长仿真。首输出连续模式第289750拍、旧模式第499597拍；完整仿真3.068892ms。符号为合成有符号码值，绕过RF/FFT/DLL/Costas，不据此宣布新位流完整通信或历史80ns根因；新位流综合/实现和实板载荷另行验收。旧成功位流、原源码、时序和本次零载荷失败均存before_continuous_normalizer，未覆盖为通过。绘图tools/plot_rx_norm_continuous.py，不是新增Simulink模块。"
     }
   ]
 }
