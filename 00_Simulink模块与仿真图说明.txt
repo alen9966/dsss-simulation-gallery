@@ -539,6 +539,7 @@ AD9361实板：LVDS双向窗口与数字回环延时
 参数：
 实现：fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_lvds_test_top.v；fpga_ad9361/rtl/ad9361_lvds_1r1t.v；fpga_ad9361/rtl/ad9361_rx_delay_scan.v；fpga_ad9361/control/ad9361_link_profile.h；fpga_ad9361/tools/instruments/run_lvds_timing_scan.py；fpga_ad9361/tools/instruments/recheck_lvds_after_ad_reset.py；fpga_ad9361/tools/plot_board_lvds_timing.py
 对应图：08_MATLAB_Simulink_RTL对照/46_AD9361实板_LVDS窗口_数字回环延时.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/49_AD9361第二块板_RX接口预检_PRBS采样窗口.png；登记的新图对应模块；场景及信号说明见图注
 
 AD9361实板：内部BIST射频发射对照
 
@@ -1305,3 +1306,6 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/48_AD9361实板_两板连线前_通道功率实测.png
 来源：已按登记信息关联模块；具体场景及信号说明：2026-10-17，第一块FMQL45T900+AD9361板保持FPGA连续DSSS，1.055GHz/50MSPS，实际寄存器0x073=200、0x074=0对应50dB发射衰减，内部BIST/数字回环关闭。用户确认发射口仍由同轴接N9020A，无外部功放和外部衰减器；第二板已接独立JTAG、共用铷钟10MHz，但两板RF口未相连。用N9020A真实CHPower测量，中心1.055GHz、RBW100kHz、10次平均、仪器衰减10dB、前放关闭：25/50/100MHz积分分别-51.657/-51.491/-51.048dBm；SCPI错误队列均No error，发射状态前后均active、无FIFO故障/削顶。宽带功率包含仪器噪底，未扣底噪及未修正线损，不把单个频谱峰值当通道总功率。左图是恢复40MHz频谱显示后的另一次实际1001点采集。结果仅适用当前发射设置；不是接收芯片引脚功率实测，不证明硬件保护或其他衰减/复位状态下可无衰减器直连，不证明双板载荷通信、PPS或测时精度。原始记录保留在fpga_ad9361/results/continuous_rx_20261017/tx_channel_power_20261017.json与tx_channel_power_spectrum.csv；绘图脚本tools/plot_tx_channel_power.py，不是Simulink输出。
+
+图：08_MATLAB_Simulink_RTL对照/49_AD9361第二块板_RX接口预检_PRBS采样窗口.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-17，第二块FMQL45T900+AD9361板使用独立JTAG，用户确认与第一板共用铷钟10MHz。只向第二块板下载此前已验证的RX-only LVDS接口自检位流，第一板连续DSSS未被重下载；不是新的完整接收解码位流。SPI产品ID0x0A、实际ADI驱动初始化通过，读回1.055GHz/50MSPS/20MHz带宽，BBPLL/RX/TX PLL锁定寄存器分别0x05E=80、0x247=02、0x287=82。内部RX PRBS模式0x3F4=09，芯片RX延迟试用候选0x006=44（来源第一板经验，未扫描第二板全部256种芯片组合）；FPGA真实32档IDELAY扫描得到0..26共27档通过、mask07FFFFFF、选择tap13。保留启动及扫描失败点时累计错误，显式清监测计数后独立约1秒复测：实际checked增量50900055字、PRBS错误增量0、LVDS帧错误增量0。不是模拟ADC数据/无线信道/载荷BER或PCB飞行时间测量。图为脚本读取实板状态JSON绘制，不是Simulink仿真。测试后关BIST/数字回环、置ALERT、外部开关固定RX；两板RF口仍未相连、无外接衰减器。完整连续RX候选已通过板级控制包装仿真（解码器明确为夹具），真实算法综合/布局布线及新位流校准和实际载荷验收另记，不能用本图代替。
