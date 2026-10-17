@@ -1,6 +1,6 @@
 {
   "date": "2026-10-17",
-  "copied_files": 129,
+  "copied_files": 131,
   "original_files_preserved": true,
   "files": [
     {
@@ -4433,6 +4433,56 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：独立铷钟同轴条件保持，另建只添加观测输出和ILA的接收诊断位流，没有修改通信算法。最终内部STA setup+0.123ns/hold+0.052ns；FMSH补丁校验及接收板显式JTAG下载通过。新位流重新进行RX/TX延迟矩阵扫描并通过51500000个PRBS比较点零错误增量；外部LVDS时序仍未完成绝对标定。真实4096个有效事件覆盖0.3036s，包含3796个Costas符号及3个完整输出载荷帧；其中2帧的帧头也位于窗口内，能从实际Costas I符号判决重建100字节，并与最终载荷逐字节一致。左图为实际DLL Early/Prompt/Late相关能量，相对本窗口Prompt能量中位数归一化；中图为真实整数码值星座，未美化为理想直线；右图为发送约定、真实接收字节、从Costas符号重建的三方比较。不是MATLAB合成链路、不是坏帧、不是算法修复证明。首次立即触发绕过筛选得到的无效空闲时钟波形已保留；旧版等待命令返回值误判亦被校验拦截；当前按正常CE触发，并用FULL+4096硬件状态确认抓取完成，拒绝复用旧波形。原位流长时误码见图54，不能由正常基线覆盖；无无线、PPS或测时精度验收。工具plot_bad_frame_diagnostic_baseline.py；原始CSV、LTX、位流和RTL不公开。 首轮错误触发测试：等待600s，计数区间含基线抓取为605.647名义秒，新增6394正确帧、5115200个接收比较比特、坏帧0/错误比特0/rearm0、ADC削顶及接口帧错误增量均为0，未取得自然坏帧。累计ADC计数包含先前故意校准错误，本测试只比较增量。等待结束后另抓正常基线仍能重建3帧，再将硬件ILA设为等待首个错误；没有后台软件监控或计划任务。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/bad_frame_diag_20261017/controlled_numeric_failure_measured.png",
+      "filename": "56_AD9361双板实测_归一化与CORDIC越界坏帧定位.png",
+      "status": "E3受控幅度实验：坏位定位到Costas旋转IP；原IP重放完全一致",
+      "note": "2026-10-17，独立铷钟（操作者确认）、同轴、1.055GHz、50MSPS、TX衰减50dB。只将RX MGC从20dB提高到24dB，通信RTL、LVDS和参考时钟不变；约5秒新增3坏帧/64错误位，ADC削顶和接口帧错误增量均为0。ILA取得第一帧错误载荷，可由Costas I符号重建，排除这次坏载荷由字节打包凭空产生。该帧3个错误符号进入旋转IP前方向正确，旋转后I符号错误；实测例I/Q=(-22893,16832)，相位字6032，正确旋转I约-28266，板上与原生成IP均输出+28024。归一化均值219在增益变化后保持，16位SignedFraction的CORDIC输入实际为Fix16_14；AMD PG105第20/31页规定每路输入在±1内，即整数码值±16384，不能按可编码的±32767来替代合法工作范围。原IP87组输入输出与板上逐点完全一致，详图57。恢复RX20dB后重新捕获，生产算法没有修改。24→26→28dB后续抓取可能跨增益切换，未记录触发瞬间增益，因此不把后续CSV文件名当作精确静态增益标签。该受控实验验证明确缺陷，不证明此前自然长时坏帧的唯一根因，更不证明历史80ns、无线、PPS或精度。工具plot_bad_frame_numeric_range.py；原始ILA、IP和位流仅留本地。",
+      "requested_module_ids": [
+        "script_continuous_rx",
+        "ad_costas"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/56_AD9361双板实测_归一化与CORDIC越界坏帧定位.png",
+      "decoded_pixel_sha256": "1020e20daf54a18839deaeb8d4c470b2eef1d192046832bd5e7e45c460fbcd7d",
+      "module_refs": [
+        {
+          "id": "script_continuous_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-17，独立铷钟（操作者确认）、同轴、1.055GHz、50MSPS、TX衰减50dB。只将RX MGC从20dB提高到24dB，通信RTL、LVDS和参考时钟不变；约5秒新增3坏帧/64错误位，ADC削顶和接口帧错误增量均为0。ILA取得第一帧错误载荷，可由Costas I符号重建，排除这次坏载荷由字节打包凭空产生。该帧3个错误符号进入旋转IP前方向正确，旋转后I符号错误；实测例I/Q=(-22893,16832)，相位字6032，正确旋转I约-28266，板上与原生成IP均输出+28024。归一化均值219在增益变化后保持，16位SignedFraction的CORDIC输入实际为Fix16_14；AMD PG105第20/31页规定每路输入在±1内，即整数码值±16384，不能按可编码的±32767来替代合法工作范围。原IP87组输入输出与板上逐点完全一致，详图57。恢复RX20dB后重新捕获，生产算法没有修改。24→26→28dB后续抓取可能跨增益切换，未记录触发瞬间增益，因此不把后续CSV文件名当作精确静态增益标签。该受控实验验证明确缺陷，不证明此前自然长时坏帧的唯一根因，更不证明历史80ns、无线、PPS或精度。工具plot_bad_frame_numeric_range.py；原始ILA、IP和位流仅留本地。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/bad_frame_diag_20261017/numeric_range_exact_ip_replay.png",
+      "filename": "57_真实IP重放_CORDIC符号翻转与归一化截位回绕.png",
+      "status": "E2原生成IP重放：87/87与实测完全一致；46次符号翻转，减半后0次",
+      "note": "工程当前costas_cordic_rotate生成VHDL/XCI，选取实测正常点和错误点邻域，87组原输入在无Costas反馈、无RF模型的单IP重放中，I/Q与板上逐点完全相同；其中46组I符号与理想旋转相反。只把相同I/Q右移1位、相位字不变，87组均恢复正确符号，最大矢量误差0.968整数码值。46/87是有意选取定位向量统计，不能当作自然BER或错误概率；减半是隔离实验，未加载成生产修复，仍需动态幅度管理、IP合法范围保护、环路鉴相增益及系数回归和长时实板验收。第二独立段测试使用真实rx_norm.v与8类生成IP，SKIP80/CAL500保留、输入间隔加速为500拍；2600输入输出数相同，均值219保持，输入I=220输出16458，输入I=440输出-32619，证明[16:1]无饱和截位会回绕。该段不是射频仿真、不是实测整机修复，更不是历史自然坏帧的唯一归因。源码/IP/向量哈希存本地，公开仅图和说明。AMD PG105: https://www.amd.com/content/dam/xilinx/support/documents/ip_documentation/cordic/v6_0/pg105-cordic.pdf 。",
+      "requested_module_ids": [
+        "script_continuous_rx",
+        "ad_costas"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/57_真实IP重放_CORDIC符号翻转与归一化截位回绕.png",
+      "decoded_pixel_sha256": "600f50abbed138758392ae34474f38adb25f73cb0922ababf25c488fb3aea99f",
+      "module_refs": [
+        {
+          "id": "script_continuous_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：工程当前costas_cordic_rotate生成VHDL/XCI，选取实测正常点和错误点邻域，87组原输入在无Costas反馈、无RF模型的单IP重放中，I/Q与板上逐点完全相同；其中46组I符号与理想旋转相反。只把相同I/Q右移1位、相位字不变，87组均恢复正确符号，最大矢量误差0.968整数码值。46/87是有意选取定位向量统计，不能当作自然BER或错误概率；减半是隔离实验，未加载成生产修复，仍需动态幅度管理、IP合法范围保护、环路鉴相增益及系数回归和长时实板验收。第二独立段测试使用真实rx_norm.v与8类生成IP，SKIP80/CAL500保留、输入间隔加速为500拍；2600输入输出数相同，均值219保持，输入I=220输出16458，输入I=440输出-32619，证明[16:1]无饱和截位会回绕。该段不是射频仿真、不是实测整机修复，更不是历史自然坏帧的唯一归因。源码/IP/向量哈希存本地，公开仅图和说明。AMD PG105: https://www.amd.com/content/dam/xilinx/support/documents/ip_documentation/cordic/v6_0/pg105-cordic.pdf 。"
     }
   ]
 }
