@@ -526,6 +526,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 参数：
 实现：fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_continuous_tx_top.v；fpga_ad9361/rtl/dsss_continuous_tx.v；fpga_ad9361/rtl/dsss_tx_250.v；fpga_ad9361/rtl/iq_clock_bridge.v；fpga_ad9361/tools/instruments/continuous_tx_acceptance.py；fpga_ad9361/tools/instruments/control_continuous_tx.py；fpga_ad9361/sim/run_continuous_frame.py；fpga_ad9361/sim/run_continuous_tx.py；fpga_ad9361/tools/plot_continuous_tx.py
 对应图：08_MATLAB_Simulink_RTL对照/47_AD9361实板_FPGA连续DSSS发射_单音扩频衰减对照.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/48_AD9361实板_两板连线前_通道功率实测.png；登记的新图对应模块；场景及信号说明见图注
 
 AD9361实板：LVDS双向窗口与数字回环延时
 
@@ -1301,3 +1302,6 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/47_AD9361实板_FPGA连续DSSS发射_单音扩频衰减对照.png
 来源：已按登记信息关联模块；具体场景及信号说明：FMQL45T900+AD9361实板，1.055GHz/10MHz外部参考/50MSPS。真实组帧/BPSK、PN1000、201抽头实际FIR IP、每5点取1、12位量化、实际XPM FIFO、LVDS、AD9361 DAC/RF到N9020A；0x3F4/3F5/3F6实际回读0，内部BIST与数字回环关闭。148字节帧含35字节前导、8字节旧帧头、100字节0..99载荷和5字节尾；12.5Mchip/s、12.5kbit/s、94.72ms连续循环，无PPS/TDD依赖或帧间停发。真实PN1000帧源检查2368001码片含两完整帧及下一帧边界，原单帧回归通过（该项FIR为夹具）；真实生成FIR+XPM用CPB=1缩短帧检查连续边界，未冒充PN1000完整长波形仿真；板级控制使用实际IO原语/XPM，器件/时钟/FIR为夹具。导入实现FIR与已仿真IP的201项COE、MIF和功能参数相同，仅相对路径重定位。新位流内部实现建立/保持余量0.661/0.058ns；修正状态同步与FIFO两域复位释放，保留非专用DATA_CLK绕行及未标定外部DDR时序边界。新位流重新实扫RX206/256点、TX99/256点通过，选择0x006=44、0x007=3B、FPGA tap12；随后数字回环50550000字零错。四组真实频谱CSV：FPGA Fs/32单音峰1056.600MHz/-56.25dBm，比关闭基线高37.17dB；DSSS固定1..8MHz偏频范围线性功率均值高于关闭19.54dB，芯片衰减50变40dB响应10.50dB。最终恢复芯片衰减50dB，10.016秒实际帧计数64->170增加106，流错误与削顶0，保持连续发射。RBW/VBW100kHz、仪器衰减10dB，同轴直连无外部功放、线损未标定；不把带内均值当总发射功率。700mVpp参考幅度沿用人工反馈，不据此宣称电气裕量合规。新连续RX已完成95ms门控适配及夹具/包装验证，尚非接收实板或载荷解码验收。PPS、双站、BER和ps精度不由本图证明。
+
+图：08_MATLAB_Simulink_RTL对照/48_AD9361实板_两板连线前_通道功率实测.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-17，第一块FMQL45T900+AD9361板保持FPGA连续DSSS，1.055GHz/50MSPS，实际寄存器0x073=200、0x074=0对应50dB发射衰减，内部BIST/数字回环关闭。用户确认发射口仍由同轴接N9020A，无外部功放和外部衰减器；第二板已接独立JTAG、共用铷钟10MHz，但两板RF口未相连。用N9020A真实CHPower测量，中心1.055GHz、RBW100kHz、10次平均、仪器衰减10dB、前放关闭：25/50/100MHz积分分别-51.657/-51.491/-51.048dBm；SCPI错误队列均No error，发射状态前后均active、无FIFO故障/削顶。宽带功率包含仪器噪底，未扣底噪及未修正线损，不把单个频谱峰值当通道总功率。左图是恢复40MHz频谱显示后的另一次实际1001点采集。结果仅适用当前发射设置；不是接收芯片引脚功率实测，不证明硬件保护或其他衰减/复位状态下可无衰减器直连，不证明双板载荷通信、PPS或测时精度。原始记录保留在fpga_ad9361/results/continuous_rx_20261017/tx_channel_power_20261017.json与tx_channel_power_spectrum.csv；绘图脚本tools/plot_tx_channel_power.py，不是Simulink输出。
