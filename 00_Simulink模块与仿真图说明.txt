@@ -529,6 +529,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 对应图：08_MATLAB_Simulink_RTL对照/48_AD9361实板_两板连线前_通道功率实测.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/50_AD9361双板实测_单音与DSSS接收ADC.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/52_AD9361双板实测_连续DSSS载荷通信验收.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/53_AD9361双板实测_独立铷钟同轴DSSS通信.png；登记的新图对应模块；场景及信号说明见图注
 
 实板连续接收机：双板同轴载荷验证
 
@@ -541,6 +542,7 @@ D · 独立脚本与展示（非 Simulink 模块）
 参数：
 实现：fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_continuous_rx_top.v；fpga_ad9361/rtl/dsss_continuous_rx.v；fpga_ad9361/rtl/dsss_rx_250.v；fpga_ad9361/rtl/legacy/rx_norm.v；fpga_ad9361/rtl/complex_interp5.v；fpga_ad9361/tools/instruments/accept_conducted_rx.py；fpga_ad9361/tools/plot_continuous_two_board_payload.py
 对应图：08_MATLAB_Simulink_RTL对照/52_AD9361双板实测_连续DSSS载荷通信验收.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/53_AD9361双板实测_独立铷钟同轴DSSS通信.png；登记的新图对应模块；场景及信号说明见图注
 
 AD9361实板：LVDS双向窗口与数字回环延时
 
@@ -1334,3 +1336,6 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/52_AD9361双板实测_连续DSSS载荷通信验收.png
 来源：已按登记信息关联模块；具体场景及信号说明：2026-10-17两块FMQL45T900+AD9361实板，共用10MHz铷钟，同轴相连，无外部功放或衰减器。1.055GHz、I/Q50MSPS、模拟带宽20MHz、用户FIR旁路，TX芯片衰减50dB、RX MGC设20dB。真实FPGA发送组帧/PN1000/成型FIR/XPM/LVDS/AD9361 RF，经物理同轴进入另一板AD9361 ADC/LVDS/XPM/插值5/RX FIR/FFT捕获/DLL/归一化/Costas/BPSK/解帧/字节。发送148字节帧，含100字节0～99，12.5Mchip/s、12.5kbit/s、帧周期94.72ms；无PPS/TDD，PS未接入，JTAG主机调用ADI驱动初始化。首次零载荷阻断来自旧rx_norm等待200us无输入，已增加连续模式，900逐点及64稀疏恢复真实IP回归通过；插值器增加输入配对流水后比原算法多一拍/4ns，14992点位一致，时间校准须计入。最终Vivado内部STA建立0.158ns/保持0.052ns，FMSH DISABLE_ICAP/VCCM补丁实际校验并仅下载接收板。新位流重新扫描RX203/256点通过，选0x006=44；TX105/256点通过，选0x007=3B；选定点实际PRBS零新增错，完整记录本地保留。左右图都为硬件：左图60.36s真实VIO观测，新增638正确帧、63800字节、510400比较比特、错误0，ADC推进3020550000点，区间新增削顶/帧错误0、无流故障；右图另一帧独立ILA中100个payload_valid字节恰为0～99，last只在99处。关发射并等待至少300ms管线排空后，1.032s窗口新增字节/帧为0；恢复50dB发射并手动rearm后再次验收通过。BIST和数字回环关闭。此为已接收预期比特的观测零错误，未加帧序号，不等于无丢包或长期BER指标；不证明无线5km、独立铷钟、TDD、PPS或ps精度。失锁后当前为手动重捕获，外部DDR完整时序和全工况验收待补。源顶层DSSS_BPSK_TXRX_continuous_tx_top.v与DSSS_BPSK_TXRX_continuous_rx_top.v；accept_conducted_rx.py读取真实状态、plot_continuous_two_board_payload.py只在计数与ILA双门槛通过后绘图。不是Simulink仿真，原始CSV/JSON、位流/源SHA与旧失败保留本地，不公开RTL/IP/位流。
+
+图：08_MATLAB_Simulink_RTL对照/53_AD9361双板实测_独立铷钟同轴DSSS通信.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-17用户确认两站改用独立铷钟10MHz；按此前同轴连接继续测试，没有改接天线或提高发射功率。载频1.055GHz、50MSPS、20MHz模拟带宽、用户FIR旁路、PN1000/12.5Mchip/s/12.5kbit/s，148字节帧周期94.72ms，载荷100字节0～99，TX衰减50dB。初始JTAG的VIO固定识别字整体错位，原始异常单独保留，未将错位数据解码为通信结果；关闭并重开两板调试连接后读数恢复，无位流下载或AD9361重新初始化。重连期间射频路径暂置RX，确认PLL锁定、接口配置和衰减后恢复低功率连续扩频发射，接收手动rearm一次，然后进入60.125秒验收区间。区间新增635正确帧、63500字节、508000个已接收比较比特、错误比特0、坏帧0；ADC推进3007600038点，新增削顶0/接口帧错误0，无流故障、区间未再次rearm。另用本次实板ILA抓到100个payload_valid字节恰为0～99，last只在99处。两板BBPLL/RXPLL/TXPLL均读回锁定，内部BIST和数字回环关闭。图左为真实VIO累积帧计数，右为本次ILA逐字节比较；不是MATLAB合成接收数据。独立参考接法依据操作者确认，本次未用频率计独立测两台铷钟频差，也不从稀疏载波相位反推频差。零错误只涵盖实际收到的预期载荷，空口无帧序号，不能推出无丢包或长期BER；不证明无线、TDD、PS接入、PPS或ps测时精度。原始日志/CSV/JSON与SHA留本地，只公开图和说明。绘图tools/plot_independent_rubidium_payload.py，脚本测量输出，不是新Simulink模块。
