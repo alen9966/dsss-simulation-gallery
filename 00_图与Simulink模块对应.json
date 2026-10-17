@@ -1089,7 +1089,7 @@
       "outputs": "图像/统计/示意，不是Simulink端口。",
       "purpose": "独立连续发送顶层运行真实组帧、PN1000、201抽头FIR IP、/5与12位量化、XPM及LVDS；关闭芯片BIST/回环，使用N9020A比较FPGA单音、连续DSSS和两档衰减。148字节帧周期94.72ms，最终保持低功率连续发送；实测10.016秒增加106帧、流错误与削顶为0。",
       "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
-      "limits": "硬件频谱及状态记录的脚本绘图，不是Simulink模块。PN1000完整帧源、真实FIR缩短帧边界及板级夹具测试分别留证，未宣称完整接收或BER通过。连续RX门控/包装已开始适配，接收板顶层、实现与完整载荷仍需验收；PPS/TDD后续接入。当前非专用DATA_CLK绕行和外部DDR时序预算未签核。",
+      "limits": "硬件频谱及状态记录的脚本绘图，不是Simulink模块。PN1000完整帧源、真实FIR缩短帧边界及板级夹具测试分别留证，未宣称完整接收或BER通过。后续同轴接收证据见实板连续接收机条目；本条发送实测本身不代替接收验收，PPS/TDD后续接入。当前非专用DATA_CLK绕行和外部DDR时序预算未签核。",
       "sources": [
         "fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_continuous_tx_top.v",
         "fpga_ad9361/rtl/dsss_continuous_tx.v",
@@ -1100,6 +1100,29 @@
         "fpga_ad9361/sim/run_continuous_frame.py",
         "fpga_ad9361/sim/run_continuous_tx.py",
         "fpga_ad9361/tools/plot_continuous_tx.py"
+      ],
+      "logs": "",
+      "tune": ""
+    },
+    {
+      "id": "script_continuous_rx",
+      "title": "实板连续接收机：双板同轴载荷验证",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "实际接收顶层连接LVDS/XPM、插值5、RX FIR、FFT、DLL、连续归一化、Costas、BPSK和字节解析。共用10MHz、1.055GHz同轴台架，60.36秒新增638正确帧，510400个已接收比较比特错误0；独立ILA100字节0～99及last逐一正确。旧归一化等待200us停发已修复并用真实IP对照；新位流重新标定接口。关发射时无新字节，恢复后手动重捕获再次通过。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "真实板卡VIO/ILA数据的脚本整理，不是Simulink模块。当前测试载荷固定，未加无线帧序号，不以接收比特零错误宣称无丢包或长期BER；失锁后手动重捕获。PS/TDD、独立铷钟/无线、PPS/ps精度和完整外部DDR时序仍待验收。",
+      "sources": [
+        "fpga_ad9361/rtl/board/DSSS_BPSK_TXRX_continuous_rx_top.v",
+        "fpga_ad9361/rtl/dsss_continuous_rx.v",
+        "fpga_ad9361/rtl/dsss_rx_250.v",
+        "fpga_ad9361/rtl/legacy/rx_norm.v",
+        "fpga_ad9361/rtl/complex_interp5.v",
+        "fpga_ad9361/tools/instruments/accept_conducted_rx.py",
+        "fpga_ad9361/tools/plot_continuous_two_board_payload.py"
       ],
       "logs": "",
       "tune": ""
@@ -4742,6 +4765,23 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-17双板同轴首次完整RX位流实测，ADC在15.112s推进755600000点、无新增削顶/帧错误，但接收字节和比较比特均为0，不能称BER=0；其余失败记录本地保留。发现旧rx_norm.v在P_END要求TIME_OUT_VAL=50000拍无输入才输出，250MHz对应200us；实际DLL每80us持续输出，无法满足此条件，Costas前级被阻断。新增CONTINUOUS_STREAM默认0，连续RX显式启用1：初始幅度估计后保持输出态，FIFO空时不产生输出；先锁定gap2的读出字，再在gap10消费，避免空闲间隙新到字被吞。tb_rx_norm_continuous.v使用当前工程8类真实生成IP、并行新连续模式/新默认模式/修改前旧源码；900个符号逐点完全一致，默认模式与旧源码同周期逐点一致，空闲后64个变间隔符号无丢失/重复。图来自实际Xsim事件CSV，250MHz、测试输入500拍/2us（为运行时间缩短），SKIP80/CAL500/真实IP延迟及50000拍超时保持生产值；不是生产80us输入节拍长仿真。首输出连续模式第289750拍、旧模式第499597拍；完整仿真3.068892ms。符号为合成有符号码值，绕过RF/FFT/DLL/Costas，不据此宣布新位流完整通信或历史80ns根因；新位流综合/实现和实板载荷另行验收。旧成功位流、原源码、时序和本次零载荷失败均存before_continuous_normalizer，未覆盖为通过。绘图tools/plot_rx_norm_continuous.py，不是新增Simulink模块。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/52_AD9361双板实测_连续DSSS载荷通信验收.png",
+      "filename": "52_AD9361双板实测_连续DSSS载荷通信验收.png",
+      "status": "E3双板共参考同轴：60.36秒638正确帧/510400已接收比较比特错误0；独立ILA100字节正确",
+      "module_refs": [
+        {
+          "id": "script_continuous_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_continuous_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-17两块FMQL45T900+AD9361实板，共用10MHz铷钟，同轴相连，无外部功放或衰减器。1.055GHz、I/Q50MSPS、模拟带宽20MHz、用户FIR旁路，TX芯片衰减50dB、RX MGC设20dB。真实FPGA发送组帧/PN1000/成型FIR/XPM/LVDS/AD9361 RF，经物理同轴进入另一板AD9361 ADC/LVDS/XPM/插值5/RX FIR/FFT捕获/DLL/归一化/Costas/BPSK/解帧/字节。发送148字节帧，含100字节0～99，12.5Mchip/s、12.5kbit/s、帧周期94.72ms；无PPS/TDD，PS未接入，JTAG主机调用ADI驱动初始化。首次零载荷阻断来自旧rx_norm等待200us无输入，已增加连续模式，900逐点及64稀疏恢复真实IP回归通过；插值器增加输入配对流水后比原算法多一拍/4ns，14992点位一致，时间校准须计入。最终Vivado内部STA建立0.158ns/保持0.052ns，FMSH DISABLE_ICAP/VCCM补丁实际校验并仅下载接收板。新位流重新扫描RX203/256点通过，选0x006=44；TX105/256点通过，选0x007=3B；选定点实际PRBS零新增错，完整记录本地保留。左右图都为硬件：左图60.36s真实VIO观测，新增638正确帧、63800字节、510400比较比特、错误0，ADC推进3020550000点，区间新增削顶/帧错误0、无流故障；右图另一帧独立ILA中100个payload_valid字节恰为0～99，last只在99处。关发射并等待至少300ms管线排空后，1.032s窗口新增字节/帧为0；恢复50dB发射并手动rearm后再次验收通过。BIST和数字回环关闭。此为已接收预期比特的观测零错误，未加帧序号，不等于无丢包或长期BER指标；不证明无线5km、独立铷钟、TDD、PPS或ps精度。失锁后当前为手动重捕获，外部DDR完整时序和全工况验收待补。源顶层DSSS_BPSK_TXRX_continuous_tx_top.v与DSSS_BPSK_TXRX_continuous_rx_top.v；accept_conducted_rx.py读取真实状态、plot_continuous_two_board_payload.py只在计数与ILA双门槛通过后绘图。不是Simulink仿真，原始CSV/JSON、位流/源SHA与旧失败保留本地，不公开RTL/IP/位流。"
     }
   ],
   "layout_verification": {
