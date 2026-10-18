@@ -1,6 +1,6 @@
 {
   "date": "2026-10-18",
-  "copied_files": 139,
+  "copied_files": 140,
   "original_files_preserved": true,
   "files": [
     {
@@ -4708,6 +4708,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：对照已验证的AD9361连续TX/RX版本，非后续TDD版本进度图。标明250→50MSPS取样/量化、LVDS FIFO、AD9361内部ADC/DAC/HB/模拟链、50→250MSPS插值、FFT/DLL/归一化数值保护/Costas和载荷检查；注明I/Q位宽与valid。仅源码结构说明，无新增仿真数据、PPS精度或80ns解决结论。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/tdd_bidirectional_20261018/tdd_crc_diagnostic.png",
+      "filename": "64_双向分时实板_CRC坏帧与码环相关值诊断.png",
+      "status": "E3实板诊断：双向互传可用，持续零坏帧验收失败；根因未定",
+      "note": "同一S2位流已下载两块FMQL45T900/AD9361，独立铷钟10MHz、同轴、1.055GHz、50MSPS、20MHz模拟带宽、用户FIR旁路、TX内部衰减50dB、RX手动20dB；每方向100ms、200ms一轮、84用户字节。内部STA建立+0.110ns/保持+0.052ns，FMSH补丁与两板DONE/SPI/LVDS校准通过。六类可编辑内容仅抽样36帧、24192用户比特无差异；另约298.593秒保存计数区间A新增1356正确/122CRC拒绝、B新增1493正确/0拒绝，故持续验收失败，顺序JTAG读数不能精确反推全部丢帧。真实4096点ILA坏帧序号1684有连续8错比特（空口载荷636..643），Costas符号重建100字节与PHY输出一致；同刻DLL即时相关幅度骤降、早相关仍较强，相邻正确帧无此塌陷。展示局部已避开归一化FIFO启动积压段；同刻快照不是人为重定时对齐的输入输出。CORDIC输入未越界。单独A增益20/24/28dB各约20秒仍有CRC拒绝，已恢复20dB，未重捕获或清计数。提示码相位/采样对齐，尚未定唯一根因；无历史80ns、无线、PPS或ps精度通过结论。原始载荷、RTL/IP与位流不公开。",
+      "requested_module_ids": [
+        "script_continuous_rx"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/64_双向分时实板_CRC坏帧与码环相关值诊断.png",
+      "decoded_pixel_sha256": "38e534903b52cc6250b0affd118ff028a314207276bb0b3e125939839d586811",
+      "module_refs": [
+        {
+          "id": "script_continuous_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：同一S2位流已下载两块FMQL45T900/AD9361，独立铷钟10MHz、同轴、1.055GHz、50MSPS、20MHz模拟带宽、用户FIR旁路、TX内部衰减50dB、RX手动20dB；每方向100ms、200ms一轮、84用户字节。内部STA建立+0.110ns/保持+0.052ns，FMSH补丁与两板DONE/SPI/LVDS校准通过。六类可编辑内容仅抽样36帧、24192用户比特无差异；另约298.593秒保存计数区间A新增1356正确/122CRC拒绝、B新增1493正确/0拒绝，故持续验收失败，顺序JTAG读数不能精确反推全部丢帧。真实4096点ILA坏帧序号1684有连续8错比特（空口载荷636..643），Costas符号重建100字节与PHY输出一致；同刻DLL即时相关幅度骤降、早相关仍较强，相邻正确帧无此塌陷。展示局部已避开归一化FIFO启动积压段；同刻快照不是人为重定时对齐的输入输出。CORDIC输入未越界。单独A增益20/24/28dB各约20秒仍有CRC拒绝，已恢复20dB，未重捕获或清计数。提示码相位/采样对齐，尚未定唯一根因；无历史80ns、无线、PPS或ps精度通过结论。原始载荷、RTL/IP与位流不公开。"
     }
   ]
 }
