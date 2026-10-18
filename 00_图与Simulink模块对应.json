@@ -4961,6 +4961,64 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：真实fft_cap_3与原生成FFT/IFFT、生产相关ROM、FIFO、幅度及门限IP，两个测试使用同一全零I/Q与同一ROM，仅REJECT_ZERO_PEAK开关不同。每个测试320.444μs、输入有效间隔20个250MHz DSP拍、1000码片/1024点FFT，CAP_WAIT缩为500拍。各完成2次真实相关判决和2048个IFFT输出样点；旧版确认位置0/幅度0一次，开启零峰拒绝后确认0次。机制为0−0结果非负，旧版连续位置确认会接受零峰；不是FFT旁瓣或80ns跳变证据。图为真实日志计数，不是伪造波形；另六组固定峰值/门限的真实减法IP分段结果见图62。首次失败由XSim实际读到MIF加密头造成，用户解密两文件后在批准目录原位运行，未重写MIF；失败历史及ROM/源/测试台哈希保留本地。无RF、噪声、多径、DLL、Costas，不替代实板TDD持续通信、灵敏度、PPS或ps精度验收。原始RTL/IP及位流不公开。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/30_原工程_70MHz中频收发信号链.png",
+      "filename": "30_原工程_70MHz中频收发信号链.png",
+      "status": "MATLAB源码架构图 / 非仿真波形",
+      "module_refs": [
+        {
+          "id": "if_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "if_frame",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：依据原目录当前磁盘源码绘制：组帧、PN1000、201抽头RRC、70MHz DUC/外部DAC、ADC/DDC、RX FIR、FFT、DLL、原归一化、Costas和解帧。标出信号类型、位宽、有效采样率及控制侧支。模拟射频链仅示边界；不是原始交付快照或新硬件验收。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/31_AD9361_连续收发基线信号链.png",
+      "filename": "31_AD9361_连续收发基线信号链.png",
+      "status": "MATLAB源码架构图 / 连续收发基线",
+      "module_refs": [
+        {
+          "id": "ad_tx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_rx",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_dll",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "ad_frame",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：对照已验证的AD9361连续TX/RX版本，非后续TDD版本进度图。标明250→50MSPS取样/量化、LVDS FIFO、AD9361内部ADC/DAC/HB/模拟链、50→250MSPS插值、FFT/DLL/归一化数值保护/Costas和载荷检查；注明I/Q位宽与valid。仅源码结构说明，无新增仿真数据、PPS精度或80ns解决结论。"
     }
   ],
   "layout_verification": {

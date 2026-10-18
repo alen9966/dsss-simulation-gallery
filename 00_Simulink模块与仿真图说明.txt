@@ -33,6 +33,7 @@ dsss_ad9361_link/TX_PN1000_FIR201_decimate5_signed12
 对应图：08_MATLAB_Simulink_RTL对照/34_AD9361方案_连续三帧功能级通信校验.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/35_AD9361方案_功能级波形频谱与环路.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/37_官方AD9361模型_当前代码时钟链短测.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/31_AD9361_连续收发基线信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 02 信道：70 km、频偏、采样钟差与噪声
 dsss_ad9361_link/Wireless_70km_CFO_SFO_AWGN
@@ -95,6 +96,7 @@ dsss_ad9361_link/RX_signed12_interp5_FIR48
 对应图：08_MATLAB_Simulink_RTL对照/35_AD9361方案_功能级波形频谱与环路.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/36_真实RTL_相关ROM加载修正前后.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/37_官方AD9361模型_当前代码时钟链短测.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/31_AD9361_连续收发基线信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 04 接收同步：FFT捕获、DLL与DSSS解扩
 dsss_ad9361_link/FFT1024_DLL_20000point
@@ -140,6 +142,7 @@ dsss_ad9361_link/FFT1024_DLL_20000point
 对应图：00_导航与方案说明/29_V4.16_80ns调参实验室恢复.png；登记的新图对应模块；场景及信号说明见图注
 对应图：05_Costas环/04_V4.16_DLL计算中_历史与新符号连续显示.png；登记的新图对应模块；场景及信号说明见图注
 对应图：05_Costas环/05_V4.16_Costas计算中_时间轴不回跳.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/31_AD9361_连续收发基线信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 05 载波同步：归一化与Costas环
 dsss_ad9361_link/Normalization_Costas_raw40
@@ -174,6 +177,7 @@ dsss_ad9361_link/Normalization_Costas_raw40
 对应图：08_MATLAB_Simulink_RTL对照/58_真实RTL_IP_数值范围保护_归一化回绕修正.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/59_真实Costas闭环_数值保护_频差幅度突变对照.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/60_AD9361双板实测_数值保护_增益突变与持续接收.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/31_AD9361_连续收发基线信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 06 信息恢复：BPSK判决、帧头与100字节载荷
 dsss_ad9361_link/BPSK_Header_100Byte
@@ -192,6 +196,7 @@ dsss_ad9361_link/BPSK_Header_100Byte
 对应图：08_MATLAB_Simulink_RTL对照/12_阶段12_真实码相位时标与80ns跳变.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/13_阶段13_TDD双站时隙与帧内处理余量.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/14_阶段14A_四时标报文RTL与系统闭环缺口.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/31_AD9361_连续收发基线信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 B · 实际 RTL 导出对照模型
 模型文件：models/dsss_rtl_comparison.mdl；4 ns重放Xsim导出并运行整数参考。后端Costas和帧测试另在D组说明。
@@ -303,6 +308,7 @@ dsss_wireless_link/TX_Frame_DSSS_FIR201_DUC
 对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 对应图：01_发送与接收波形/03_旧方案到AD9361_信号域与码值核对.png；登记的新图对应模块；场景及信号说明见图注
 对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/30_原工程_70MHz中频收发信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 13 旧信道：独立时钟、中频、噪声和ADC打包
 dsss_wireless_link/Wireless_70km_Independent_Clocks
@@ -330,6 +336,7 @@ dsss_wireless_link/ADC_Bits_DDC_FIR48
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；DDC基带与展示眼图
 对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
 对应图：02_FIR与多速率/01_迁移_TX201_RX48_插值5_FIR121.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/30_原工程_70MHz中频收发信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 15 旧同步：FFT、DLL与解扩
 dsss_wireless_link/FFT_Acquisition_DLL_Despread
@@ -343,6 +350,7 @@ dsss_wireless_link/FFT_Acquisition_DLL_Despread
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；DLL误差与眼图对齐参考
 对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/30_原工程_70MHz中频收发信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 16 旧载波：归一化、PI/NCO与旋转
 dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate
@@ -356,6 +364,7 @@ dsss_wireless_link/Normalize_Costas_PI_NCO_Rotate
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；星座与频偏轨迹
 对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/30_原工程_70MHz中频收发信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 17 旧信息恢复：判决、极性与载荷
 dsss_wireless_link/Costas_I_Q
@@ -372,6 +381,7 @@ dsss_wireless_link/Header_Polarity_Payload100
 实现：scripts/wireless/dsss_wireless_sfun.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/plot_dsss_wireless_link.m
 对应图：01_发送与接收波形/90_旧70MHz中频_波形总览.png；右下收帧/误码统计
 对应图：00_导航与方案说明/02_旧中频_Simulink实际模型.png；登记的新图对应模块；场景及信号说明见图注
+对应图：00_导航与方案说明/30_原工程_70MHz中频收发信号链.png；登记的新图对应模块；场景及信号说明见图注
 
 D · 独立脚本与展示（非 Simulink 模块）
 这些是实际图源，但不是Simulink处理块；无对应模块或尚未实现的协议会明确写出。
@@ -1387,3 +1397,9 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/63_真实FFT_IFFT_ROM_全零输入误捕获与拒绝.png
 来源：已按登记信息关联模块；具体场景及信号说明：真实fft_cap_3与原生成FFT/IFFT、生产相关ROM、FIFO、幅度及门限IP，两个测试使用同一全零I/Q与同一ROM，仅REJECT_ZERO_PEAK开关不同。每个测试320.444μs、输入有效间隔20个250MHz DSP拍、1000码片/1024点FFT，CAP_WAIT缩为500拍。各完成2次真实相关判决和2048个IFFT输出样点；旧版确认位置0/幅度0一次，开启零峰拒绝后确认0次。机制为0−0结果非负，旧版连续位置确认会接受零峰；不是FFT旁瓣或80ns跳变证据。图为真实日志计数，不是伪造波形；另六组固定峰值/门限的真实减法IP分段结果见图62。首次失败由XSim实际读到MIF加密头造成，用户解密两文件后在批准目录原位运行，未重写MIF；失败历史及ROM/源/测试台哈希保留本地。无RF、噪声、多径、DLL、Costas，不替代实板TDD持续通信、灵敏度、PPS或ps精度验收。原始RTL/IP及位流不公开。
+
+图：00_导航与方案说明/30_原工程_70MHz中频收发信号链.png
+来源：已按登记信息关联模块；具体场景及信号说明：依据原目录当前磁盘源码绘制：组帧、PN1000、201抽头RRC、70MHz DUC/外部DAC、ADC/DDC、RX FIR、FFT、DLL、原归一化、Costas和解帧。标出信号类型、位宽、有效采样率及控制侧支。模拟射频链仅示边界；不是原始交付快照或新硬件验收。
+
+图：00_导航与方案说明/31_AD9361_连续收发基线信号链.png
+来源：已按登记信息关联模块；具体场景及信号说明：对照已验证的AD9361连续TX/RX版本，非后续TDD版本进度图。标明250→50MSPS取样/量化、LVDS FIFO、AD9361内部ADC/DAC/HB/模拟链、50→250MSPS插值、FFT/DLL/归一化数值保护/Costas和载荷检查；注明I/Q位宽与valid。仅源码结构说明，无新增仿真数据、PPS精度或80ns解决结论。

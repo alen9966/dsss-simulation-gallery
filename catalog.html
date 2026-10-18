@@ -220,6 +220,22 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#official_observe">E4 示波器与数据导出</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>MATLAB print直接导出的实际Simulink顶层框图。包含真实块名和端口连线；S-function内部算法仍在MATLAB代码中，图中没有虚构内部子系统。</p>
 </details></article>
+<article data-era="current" data-modules="if_tx if_rx if_dll if_costas if_frame"><span class="badge">MATLAB源码架构图 / 非仿真波形</span><h3>30_原工程_70MHz中频收发信号链.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/30_%E5%8E%9F%E5%B7%A5%E7%A8%8B_70MHz%E4%B8%AD%E9%A2%91%E6%94%B6%E5%8F%91%E4%BF%A1%E5%8F%B7%E9%93%BE.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/30_%E5%8E%9F%E5%B7%A5%E7%A8%8B_70MHz%E4%B8%AD%E9%A2%91%E6%94%B6%E5%8F%91%E4%BF%A1%E5%8F%B7%E9%93%BE.png" alt="30_原工程_70MHz中频收发信号链.png"></a><p>依据原目录当前磁盘源码绘制：组帧、PN1000、201抽头RRC、70MHz DUC/外部DAC、ADC/DDC、RX FIR、FFT、DLL、原归一化、Costas和解帧。标出信号类型、位宽、有效采样率及控制侧支。模拟射频链仅示边界；不是原始交付快照或新硬件验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#if_tx">12 旧发送：DSSS、FIR201与70MHz上变频</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_rx">14 旧接收：70MHz下变频与FIR48</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_dll">15 旧同步：FFT、DLL与解扩</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_costas">16 旧载波：归一化、PI/NCO与旋转</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#if_frame">17 旧信息恢复：判决、极性与载荷</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：依据原目录当前磁盘源码绘制：组帧、PN1000、201抽头RRC、70MHz DUC/外部DAC、ADC/DDC、RX FIR、FFT、DLL、原归一化、Costas和解帧。标出信号类型、位宽、有效采样率及控制侧支。模拟射频链仅示边界；不是原始交付快照或新硬件验收。</p>
+</details></article>
+<article data-era="current" data-modules="ad_tx ad_rx ad_dll ad_costas ad_frame"><span class="badge">MATLAB源码架构图 / 连续收发基线</span><h3>31_AD9361_连续收发基线信号链.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/31_AD9361_%E8%BF%9E%E7%BB%AD%E6%94%B6%E5%8F%91%E5%9F%BA%E7%BA%BF%E4%BF%A1%E5%8F%B7%E9%93%BE.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/31_AD9361_%E8%BF%9E%E7%BB%AD%E6%94%B6%E5%8F%91%E5%9F%BA%E7%BA%BF%E4%BF%A1%E5%8F%B7%E9%93%BE.png" alt="31_AD9361_连续收发基线信号链.png"></a><p>对照已验证的AD9361连续TX/RX版本，非后续TDD版本进度图。标明250→50MSPS取样/量化、LVDS FIFO、AD9361内部ADC/DAC/HB/模拟链、50→250MSPS插值、FFT/DLL/归一化数值保护/Costas和载荷检查；注明I/Q位宽与valid。仅源码结构说明，无新增仿真数据、PPS精度或80ns解决结论。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_tx">01 发送：组帧、DSSS 扩频、FIR201 与抽取</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_rx">03 接收前端：signed12、插值5与FIR48</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_dll">04 接收同步：FFT捕获、DLL与DSSS解扩</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#ad_frame">06 信息恢复：BPSK判决、帧头与100字节载荷</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：对照已验证的AD9361连续TX/RX版本，非后续TDD版本进度图。标明250→50MSPS取样/量化、LVDS FIFO、AD9361内部ADC/DAC/HB/模拟链、50→250MSPS插值、FFT/DLL/归一化数值保护/Costas和载荷检查；注明I/Q位宽与valid。仅源码结构说明，无新增仿真数据、PPS精度或80ns解决结论。</p>
+</details></article>
 </div></section>
 <section data-category="1" id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">
 <article data-era="current" data-modules="ad_tx ad_channel ad_rx ad_dll ad_costas ad_frame"><span class="badge">当前功能参考</span><h3>01_AD9361_单窗波形总览.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" alt="01_AD9361_单窗波形总览.png"></a><p>6子图；使用设定信道参数，不是70km实测。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
