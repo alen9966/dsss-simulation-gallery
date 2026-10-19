@@ -1,6 +1,6 @@
 {
   "date": "2026-10-19",
-  "copied_files": 143,
+  "copied_files": 144,
   "original_files_preserved": true,
   "files": [
     {
@@ -4788,6 +4788,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：脚本绘制的原S2实测快照，不是新增Simulink模块。复用2026-10-19约01:40的暖机原S2坏帧96501；选空口载荷520..555共36个稳态Costas输出事件，相邻实采tick间隔20000个250MHz DSP拍即80us。PN ROM地址均12、符号内计数均247；528/529/530位Prompt分别16874365、9293763、1533775，NCO内部模80ns小数状态35.97337/36.00864/36.25578ns。仅说明这些采样时刻未见持续整码片地址跳变，不能排除80us间隔内瞬态、ROM码值错误或绝对跟踪相位错误。相关值先下降，后续NCO漂移不能自动当作起因。后续S5观测镜像保持通信算法与RF增益/载荷配置，通过内部STA后短时实板测试；重载及重新校准改变初态和实现布局，不能与旧S2长时故障作严格单变量等价。新选接口点及旧记录点各限时自然异常等待未触发，不能宣称修复。旧点RX/数字TX回环分别超过5000万样点PRBS无新增错误，仅证明该检验区间；不排除运行中偶发错位。一次普通raw触发保存32768个连续DSP拍但FIFO/DLL输入全零、无同事件TX符号对应，已判为不合格异常/活动接收取证数据，不用来证明样点、PN或TX在故障时正常。发射数字记录位于异步TX FIFO之前，即使无标志也不能证明模拟射频正常。无历史80ns、无线、PPS或ps精度通过结论。工具report_correlation_drop_checkpoint.py；完整RTL/IP、原始CSV、位流和用户载荷仅本地。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/results/native50_board_20261019/native50_module_board_acceptance.png",
+      "filename": "68_原生50MHz新PL模块_双板内部自检.png",
+      "status": "E3板内模块实测：两板各10次逻辑启动通过；AD9361复位，非RF或PS-DDR验收",
+      "note": "2026-10-19实际JTAG读回，A/B两块FMQL45T900各10次逻辑启动，共20轮；不是10次断电重启。Ru_10MHz经MMCM生成50MHz，AD9361保持复位、射频关闭。实际位流568a3b721786af57开头，两板各次记录与本次nonce、原始日志SHA256绑定；完整原始日志留本地。每轮100B递增载荷经过真实phy_tx_top，组148B帧、同一PN1000扩频、12.5Mcps、4倍41tap RRC，输出4736040个有效I16样点（含40个尾样点），Q恒零，I16小端全帧CRC32均F5EECF75；独立整数卷积生成参考，不用DUT自身输出作为golden。RX以800个已解调测试bit驱动rx_phy_par到phy_adc_bridge，检查132B包；OBS检查256B固定地址模式的32拍AXIS记录，两条通路均加入背压并检查保持。板上TX/RX/OBS错误计数均0；DONE/INIT/CRC状态为1/1/0。OBS固定模式仅验证控制/握手，不是RAM全位覆盖或外部DDR测试。首轮50MHz建立时序-3.232ns，真实tx_intp4改为7级流水后建立+7.305ns、保持+0.046ns；相对旧实现增加6拍120ns固定计算延迟，系数、样点和CRC不变，不能当成传播延迟或同步精度。附属RTL仿真另外验证三帧逐点golden、故意破坏TX样点后拒绝、恢复启动、正负饱和和半LSB舍入。未验证DATA_CLK源同步/LVDS、ADC/DAC和RF、完整FFT/DLL/Costas接收、PS/DMA/物理DDR、空口TDD、PPS或1ns/ps精度。此为脚本生成的实测结果图，无新增Simulink块；源代码、私有IP、位流和用户载荷不公开。旧S2双向和连续收发记录为历史基线，不能与当前native50台架混用。",
+      "requested_module_ids": [
+        "script_native50_selftest"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/68_原生50MHz新PL模块_双板内部自检.png",
+      "decoded_pixel_sha256": "399b7f92ce55116495bbdf0bae14ce2fa746f1f15db615cf38ea0aed68f28125",
+      "module_refs": [
+        {
+          "id": "script_native50_selftest",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-19实际JTAG读回，A/B两块FMQL45T900各10次逻辑启动，共20轮；不是10次断电重启。Ru_10MHz经MMCM生成50MHz，AD9361保持复位、射频关闭。实际位流568a3b721786af57开头，两板各次记录与本次nonce、原始日志SHA256绑定；完整原始日志留本地。每轮100B递增载荷经过真实phy_tx_top，组148B帧、同一PN1000扩频、12.5Mcps、4倍41tap RRC，输出4736040个有效I16样点（含40个尾样点），Q恒零，I16小端全帧CRC32均F5EECF75；独立整数卷积生成参考，不用DUT自身输出作为golden。RX以800个已解调测试bit驱动rx_phy_par到phy_adc_bridge，检查132B包；OBS检查256B固定地址模式的32拍AXIS记录，两条通路均加入背压并检查保持。板上TX/RX/OBS错误计数均0；DONE/INIT/CRC状态为1/1/0。OBS固定模式仅验证控制/握手，不是RAM全位覆盖或外部DDR测试。首轮50MHz建立时序-3.232ns，真实tx_intp4改为7级流水后建立+7.305ns、保持+0.046ns；相对旧实现增加6拍120ns固定计算延迟，系数、样点和CRC不变，不能当成传播延迟或同步精度。附属RTL仿真另外验证三帧逐点golden、故意破坏TX样点后拒绝、恢复启动、正负饱和和半LSB舍入。未验证DATA_CLK源同步/LVDS、ADC/DAC和RF、完整FFT/DLL/Costas接收、PS/DMA/物理DDR、空口TDD、PPS或1ns/ps精度。此为脚本生成的实测结果图，无新增Simulink块；源代码、私有IP、位流和用户载荷不公开。旧S2双向和连续收发记录为历史基线，不能与当前native50台架混用。"
     }
   ]
 }
