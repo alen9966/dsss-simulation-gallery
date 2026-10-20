@@ -1386,6 +1386,26 @@
       ],
       "logs": "",
       "tune": ""
+    },
+    {
+      "id": "script_v11_native50_release",
+      "title": "V11原生50 MHz：完整数字收发与环路上报",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "实际V11 TX单PN/四倍RRC波形进入真实匹配滤波、FFT/IFFT、DLL、Costas、解帧链，100字节逐一比较；无加噪与20Hz频偏/固定随机噪声两场景。独立LVDS测试使用真实UNISIM/XPM；上下文和AXIS批由实际RTL产生，再交给宿主PS C解码。DLL分数延迟/20ppm漂移产生实际非零修正，并检查源窗及运行中复位。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "脚本产图，不是Simulink块。完整RX是数字波形链，不含AD9361模拟通道。LVDS、控制、DLL动态与PS夹具分别验收，不拼称物理端到端。legacy锁定提示尚未形成原生50MHz稳定跟踪/精细测时质量判据；通信正确与质量验收分开。未知BSP、真实DDR/DMA、FMQL布局布线、RF空口TDD和<1ns精度仍需板级验收。私有源代码及IP不公开。",
+      "sources": [
+        "fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v",
+        "fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v",
+        "fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv",
+        "fpga_ad9361/native50/v11/scripts/plot_release_verification.py"
+      ],
+      "logs": "",
+      "tune": ""
     }
   ],
   "figures": [
@@ -5198,6 +5218,44 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-20真实FMQL45T900/AD9361双板室内无源天线100ms双向TDD的RS232独立接收载荷核对，脚本生成实测图，无新增Simulink块。两端同一UART监视候选位流，FMSH补丁、真实内部时序、UART CDC范围与存储器有效初值已分别验收；这些不是模拟RF互斥、PCB传播延时或测时精度证明。1.055GHz、I/Q采样50MSPS、模拟带宽20MHz、用户FIR旁路、PN1000、12.5Mchip/s；TX片内衰减40dB、RX全表手动30dB，衰减不是输出dBm。两站独立铷钟标称10MHz，实际频差及输出包率对应的物理时钟本轮未用仪器复测；天线型号、增益、距离未知，室内有转发器是现场说明。接线改正后的最新中立实读及与JTAG实际TX缓存交叉比对确认A=COM5（协调站）、B=COM4（跟随站）；旧拔插映射记录保留为历史，未重写。发送内容仍由JTAG写入并读取实际生效缓存，100B主机缓存后16B补零；无线证据只取RS232 CRC合格kind=1的84B对端用户内容，UART不发送业务命令或串口透传。UART使用已核对1152008N1，只读、不purge、不改波特率或RTS/DTR。六类内容为中文UTF8、递增/递减、全零/全一、确定种子随机字节、嵌入同步魔数、84B满载；每个正常窗口实际10.0s，门槛仍为每方向至少10个不同RF序号。A到B各组样本数13/12/13/13/12/13，共76包；B到A为13/12/13/13/12/12，共75包。六主窗口合计151包、101472用户bit逐字节比对0错，不能把未输出的CRC好帧算进比对分母。最后恢复展示消息窗口2.0s，A有3包、B仅2包，未达到各3包门槛；恢复窗实际5包另计后全脚本156包104832bit0观测错，原始整体acceptance status仍failed，未解锁上位机载荷写入。原3.5s窗口因各5包少于10门槛失败也完整保留；后续仅将CLI允许窗口上限4改为30秒，默认3.5秒、样本门槛和错误判据不变，不改写失败结果。身份确认后全会话UART CRC/解析丢字节/畸形头/Win32线路错误与monitor丢帧计数增量均0；RF坏帧累计A1、B3保持不变，六主窗口新增均0，不能写累计零坏帧。全raw离线重解码A165个RF包、B162个RF包，无CRC或残片错误；A多数序号步进4，B全部步进4。监视器丢帧计数0不代表全帧覆盖，串口输出多数每4个RF帧一个，逐帧覆盖原因仍待查；后续标准ClearCommError加ReadFile、直接ReadFile、标准重复三个8秒只读阶段两端均各10RF包、步长4、间隔中位约0.797s，不能据此归因ClearCommError。后续独立三个8秒只读阶段累计24秒，另行将恢复展示消息的实际60个RF输出逐84B比对（A30/B30、40320bit），0错，证明展示消息已恢复；这是另一个有限窗口，不回填原2秒失败窗，也不把原脚本改判通过。所有失败、启动、切换、恢复与原始数据留本地，公开仅此统计结果图；不上传用户载荷、原始串口字节、完整本地路径、RTL/IP或位流。不证明长期零误码、无线距离或灵敏度、全帧覆盖、PPS或ps同步精度。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/70_V11原生50MHz_完整数字链与环路记录验证.png",
+      "filename": "70_V11原生50MHz_完整数字链与环路记录验证.png",
+      "status": "实际RTL数字链与独立接口验证",
+      "module_refs": [
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "左上",
+          "title": "TX三帧样点数",
+          "signal": "实际TX有效样点与独立整数PN/FIR基准",
+          "meaning": "每帧4,736,040点一致；含40尾样点。"
+        },
+        {
+          "position": "右上",
+          "title": "完整RX载荷恢复",
+          "signal": "两组真实FFT/DLL/Costas波形仿真日志",
+          "meaning": "无加噪与20Hz/固定有界随机噪声；100B帧末统一交付，不是重复播放。"
+        },
+        {
+          "position": "左下",
+          "title": "独立接口/协议检查",
+          "signal": "UNISIM/XPM、控制、事件AXIS和宿主C日志",
+          "meaning": "各有独立输入与验收范围；没有物理DDR测试。"
+        },
+        {
+          "position": "右下",
+          "title": "本次边界",
+          "signal": "源码/脚本清单及状态",
+          "meaning": "完整数字链与独立PHY/协议；不宣称RF或<1ns通过。"
+        }
+      ],
+      "provenance": "冻结V11源码的真实RTL/厂商IP模型日志；公开图只含结果和范围，不包含私有源代码。独立链段明确分开。"
     }
   ],
   "layout_verification": {
