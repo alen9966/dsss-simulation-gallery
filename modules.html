@@ -718,6 +718,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/70_V11%E5%8E%9F%E7%94%9F50MHz_%E5%AE%8C%E6%95%B4%E6%95%B0%E5%AD%97%E9%93%BE%E4%B8%8E%E7%8E%AF%E8%B7%AF%E8%AE%B0%E5%BD%95%E9%AA%8C%E8%AF%81.png">70_V11原生50MHz_完整数字链与环路记录验证.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/75_V11%E5%8E%9F%E7%94%9F50MHz_%E6%9C%AC%E8%BD%AE%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E4%B8%8E%E6%9D%A5%E6%BA%90%E6%A0%87%E7%AD%BE%E5%9B%9E%E5%BD%92.png">75_V11原生50MHz_本轮数字通信与来源标签回归.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/76_%E6%97%B6%E9%92%9F%E9%97%A8%E6%8E%A7BUFH%E4%B8%AD%E7%BB%A7_%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E4%B8%8E%E6%A0%B7%E7%82%B9%E9%94%9A%E7%82%B9%E5%A4%8D%E6%A0%B8.png">76_时钟门控BUFH中继_数字通信与样点锚点复核.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/77_%E6%97%B6%E5%BA%8F%E4%BF%AE%E8%AE%A2_%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BA%8B%E4%BB%B6%E9%A1%BA%E5%BA%8F%E5%A4%8D%E6%A0%B8.png">77_时序修订_数字通信与事件顺序复核.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v；fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v；fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv；fpga_ad9361/native50/v11/scripts/plot_release_verification.py</p>
 </details></article>
 <h2 id="group-official">E · 官方 AD9361 器件收发台架</h2>
@@ -1472,13 +1473,22 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td>底部</td><td>验证范围与来源SHA</td><td>真实JSON状态、测试条件和文件指纹</td><td>固定有界噪声非标定SNR；总共1600载荷比特，不验收长期BER、RF、PS/DDR硬件或1ns精度。</td></tr>
 </table>
 </details>
-<details><summary>76_时钟门控BUFH中继_数字通信与样点锚点复核.png</summary><p>2026-10-21 BUFH门控中继修订的四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。</p>
+<details><summary>76_时钟门控BUFH中继_数字通信与样点锚点复核.png</summary><p>2026-10-21 21:51 BUFH修订后的历史源码快照，队列定宽/许可接线修订前；旧76计数保留，新修订见77。四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。</p>
 <table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
 <tr><td>顶行与结果卡</td><td>实际修订版数字链</td><td>Top启动、TX三帧全14,208,120样点、完整FFT/DLL/Costas/解帧两工况各100B</td><td>两端共用50MHz仿真采样钟；20Hz载波频偏和确定性有界整数噪声非标定SNR。</td></tr>
 <tr><td>中部</td><td>全部环路与事件标签</td><td>每例1138CODE/1138CARRIER/7事件/800载荷极性记录</td><td>更新号、来源样点、同窗、帧参考与重捕获清理通过；不把DDR抵达时刻当事件时间。</td></tr>
 <tr><td>黄色框</td><td>原锁定判据保留</td><td>理想CODE_LOCK=0/CARRIER_LOCK=1，频偏噪声均0</td><td>载荷正确不等于原生50MHz锁定质量或精细测时通过。</td></tr>
 <tr><td>下部</td><td>门控与数字锚点独立复核</td><td>真实UNISIM18场景41359检查；捕获/首CODE/帧及basic事件绝对来源样点与旧快照一致</td><td>capture门控片段子算法明示stub；完整实际算法由本图波形回归另验。数字一致不代替真实布局时序或PCB延时。</td></tr>
 <tr><td>底部</td><td>范围与指纹</td><td>实际status/comparison/门控片段状态SHA及两改动文件前后SHA</td><td>本轮未访问/下载硬件；PS-DDR硬件、RF、独立采样钟偏差、多径、长期BER与1ns均未验收。</td></tr>
+</table>
+</details>
+<details><summary>77_时序修订_数字通信与事件顺序复核.png</summary><p>时序修订源码的本轮四项真实XSim/厂商IP结果；队列定宽与Core同步许可两文件改动的前后SHA、绝对样点锚点与独立控制fixture结果分别留证。统计图不补画波形；原始源码/IP和大日志留本地。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>顶行</td><td>真实完整数字链</td><td>TX全14,208,120点、匹配滤波/FFT/DLL/归一化/Costas/解帧两工况各100B</td><td>同一个50MHz仿真采样钟；20Hz载波频偏/固定整数噪声非标定SNR。</td></tr>
+<tr><td>中部</td><td>全部观测来源</td><td>每例1138CODE/1138CARRIER/7事件/800极性记录</td><td>与21:51前版捕获、首CODE、帧/basic绝对来源样点与计数一致。</td></tr>
+<tr><td>左片段</td><td>真实事件wrapper与明确输入fixture</td><td>9场景1609检查；8同时请求/7drop/9错误上界、满近满回卷顺序</td><td>159入队144交付15reset清除；245为故意饱和期望drop，不是正常波形丢事件。DSP/basic输入明示stub，旧/新同fixture结果一致。</td></tr>
+<tr><td>右片段</td><td>实际Top/SPI/Ru/reset许可链</td><td>6场景14196检查；Mgmt26ns/BB20ns，25次raw撤销立即外RFoff</td><td>Interface/Core明示stub，仅证明Core输入同步和外RF mask；旧接线预期拒绝仅作测试敏感性，不是历史RF失败。</td></tr>
+<tr><td>底部</td><td>原诊断与验收边界</td><td>源码/JSON SHA、CODE_LOCK0及载波锁定原值完整保留</td><td>无硬件访问或下载；锁定质量、实板PS-DDR、物理时序、RF、PPS与1ns分开验收。</td></tr>
 </table>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

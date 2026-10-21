@@ -1,6 +1,6 @@
 {
   "date": "2026-10-21",
-  "copied_files": 153,
+  "copied_files": 154,
   "original_files_preserved": true,
   "files": [
     {
@@ -5044,8 +5044,8 @@
       "category": 8,
       "source": "project/fpga_ad9361/native50/v11/results/communication_clockrelay_20261021/communication_clockrelay_20261021.png",
       "filename": "76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
-      "status": "本轮BUFH修订真实RTL数字复核PASS；实板/PS-DDR/RF/1ns未验收",
-      "note": "2026-10-21 21:51本轮四项实际XSim/厂商IP全部通过；统计图未补画波形。仅rx_valid_clock_gate和rx_phy_cap_top_3两文件的下级BUFGCE前增加BUFH中继，CE/TAIL/reset逻辑保持；两处修改的前后SHA见脱敏JSON。当前45个生产RTL、共67个输入运行后复核变化0。Top真实IP/UNISIM/XPM启动与SESSION→CONFIG、无隐式ARM；TX3帧14,208,120有效样点与独立PN/FIR逐点一致，背压/缓冲次序/坏包拒绝通过。实际TX→匹配滤波/FFT/IFFT→DLL/归一化→Costas/解帧两工况各100B正确：理想与20.00015229Hz载波频偏+固定xorshift I/Q整数噪声-128..127，seed0x782ACFA1，非标定AWGN/SNR；两端共用50MHz仿真采样时钟，50MSPS、12.5Mchip/s、PN1000，不含独立采样钟偏差/多径/衰落。每例1138CODE/1138CARRIER/7事件/800载荷极性、4,577,268周期；样点/更新号连续、同窗配对、帧参考与重捕获清理通过。与20:41修订前快照的捕获loc/sample、首CODE来源、全部帧/basic事件来源和循环计数等绝对数字样点锚点一致，未出现常数样点错移。另有真实UNISIM门控片段18场景41359检查与原版边沿等价，capture片段子算法明示stub；完整实际算法由本次波形另验。保留旧锁定标志：两工况CODE_LOCK=0，理想CARRIER_LOCK=1、频偏噪声CARRIER_LOCK=0，未强制置锁，质量仍未验收。两例仅1600载荷bit，不作长期BER/灵敏度结论。本轮未访问/下载硬件，数字一致不代替真实布局时序、PCB传播/时钟偏斜、PS-DDR/DMA、AD9361模拟/RF、PPS或1ns/ps精度；与历史S2/10月19日板内自检分开。完整RTL/IP/位流/个人路径/原始大日志留本地，公开仅图、短说明、脱敏统计和SHA。",
+      "status": "历史RTL数字回归（21:51 BUFH快照，定宽/许可修订前）PASS",
+      "note": "历史范围：2026-10-21 21:51 BUFH中继源码快照，事件队列定宽/Core许可接线修订前；原图、计数与原始结果保留。新修订独立完整数字回归和样点锚点复核见77图，本图不代表后续源码通过。2026-10-21 21:51本轮四项实际XSim/厂商IP全部通过；统计图未补画波形。仅rx_valid_clock_gate和rx_phy_cap_top_3两文件的下级BUFGCE前增加BUFH中继，CE/TAIL/reset逻辑保持；两处修改的前后SHA见脱敏JSON。当前45个生产RTL、共67个输入运行后复核变化0。Top真实IP/UNISIM/XPM启动与SESSION→CONFIG、无隐式ARM；TX3帧14,208,120有效样点与独立PN/FIR逐点一致，背压/缓冲次序/坏包拒绝通过。实际TX→匹配滤波/FFT/IFFT→DLL/归一化→Costas/解帧两工况各100B正确：理想与20.00015229Hz载波频偏+固定xorshift I/Q整数噪声-128..127，seed0x782ACFA1，非标定AWGN/SNR；两端共用50MHz仿真采样时钟，50MSPS、12.5Mchip/s、PN1000，不含独立采样钟偏差/多径/衰落。每例1138CODE/1138CARRIER/7事件/800载荷极性、4,577,268周期；样点/更新号连续、同窗配对、帧参考与重捕获清理通过。与20:41修订前快照的捕获loc/sample、首CODE来源、全部帧/basic事件来源和循环计数等绝对数字样点锚点一致，未出现常数样点错移。另有真实UNISIM门控片段18场景41359检查与原版边沿等价，capture片段子算法明示stub；完整实际算法由本次波形另验。保留旧锁定标志：两工况CODE_LOCK=0，理想CARRIER_LOCK=1、频偏噪声CARRIER_LOCK=0，未强制置锁，质量仍未验收。两例仅1600载荷bit，不作长期BER/灵敏度结论。本轮未访问/下载硬件，数字一致不代替真实布局时序、PCB传播/时钟偏斜、PS-DDR/DMA、AD9361模拟/RF、PPS或1ns/ps精度；与历史S2/10月19日板内自检分开。完整RTL/IP/位流/个人路径/原始大日志留本地，公开仅图、短说明、脱敏统计和SHA。",
       "requested_module_ids": [
         "script_v11_native50_release"
       ],
@@ -5089,7 +5089,58 @@
           "meaning": "本轮未访问/下载硬件；PS-DDR硬件、RF、独立采样钟偏差、多径、长期BER与1ns均未验收。"
         }
       ],
-      "provenance": "2026-10-21 BUFH门控中继修订的四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。"
+      "provenance": "2026-10-21 21:51 BUFH修订后的历史源码快照，队列定宽/许可接线修订前；旧76计数保留，新修订见77。四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/native50/v11/results/communication_timingclosure_20261021/communication_timingclosure_20261021.png",
+      "filename": "77_时序修订_数字通信与事件顺序复核.png",
+      "status": "本轮时序修订真实数字复核PASS；实板/锁定质量/PS-DDR/RF/1ns另验",
+      "note": "2026-10-21 23:33本轮真实XSim/厂商IP四项数字回归通过；统计图未补画波形。仅phy_rx_top临时队列指针/计数/错误/drop按4/5/4/4位定宽并零扩展32bit累计；Top中Core只接BB双FF许可，外RF保持raw立即撤销。AD9361_SPI既有status每bit2FF未再改。当前45生产RTL/全部67输入结束SHA复核变化0。Top实际IP/UNISIM/XPM启动/SESSION→CONFIG/无隐式ARM；TX3帧14,208,120样点独立PN/FIR逐点一致、背压/缓冲次序/坏包拒绝通过；实际TX→匹配滤波/FFT/IFFT/DLL/归一化/Costas/解帧理想及20.00015229Hz载波频偏+固定整数噪声各100B正确。每例1138CODE/1138CARRIER/7事件/800极性记录，来源/更新号/帧basic/重捕获检查通过；与21:51前版绝对样点锚点/计数一致。独立真实phy_rx_top事件片段9场景1609检查，DSP/basic输入为CONTROL_STUBS；同周期8请求仅1空槽时7drop并累计9错误，满/近满/回卷/部分接受和clear/start/frame/basic顺序、75CODE/75CARRIER全字段通过，旧/新最终fixture统计相同。159入队=144交付+15显式全局reset清除，245为故意压满期望drop，不能与正常波形混计。独立actual Top/SPI/Ru/reset片段6场景14196检查，Interface/Core为CONTROL_STUBS；26ns管理/20ns BB下25次raw撤销外RF立即off，Core输入经双FF，含停BB钟、RESETB/Mgmt reset与Ru超时；旧rawAND接线在新同步输入约定下预期拒绝只证明oracle敏感性，不是历史通信失败。两例共用50MHz采样钟，50MSPS/12.5Mchip/s/PN1000，I/Q噪声-128..127 seed0x782ACFA1非标定AWGN/SNR，无独立采样钟漂移/多径衰落。仅1600载荷bit，原CODE_LOCK两例0、CARRIER_LOCK理想1噪声0，锁定质量未验收；本轮无硬件访问/下载，PS-DDR实板/AD9361模拟RF/PPS/1ns未验收，物理布局时序另查独立实现报告。旧75/76保留历史源码边界；公开仅图/短说明/脱敏JSON/SHA，私有RTL/IP/位流/个人路径和原始大日志留本地。",
+      "requested_module_ids": [
+        "script_v11_native50_release"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/77_时序修订_数字通信与事件顺序复核.png",
+      "decoded_pixel_sha256": "e0da4c5310270700b44782194edbbe061c23acd0eac6db6cfd8333a052b56c48",
+      "module_refs": [
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "顶行",
+          "title": "真实完整数字链",
+          "signal": "TX全14,208,120点、匹配滤波/FFT/DLL/归一化/Costas/解帧两工况各100B",
+          "meaning": "同一个50MHz仿真采样钟；20Hz载波频偏/固定整数噪声非标定SNR。"
+        },
+        {
+          "position": "中部",
+          "title": "全部观测来源",
+          "signal": "每例1138CODE/1138CARRIER/7事件/800极性记录",
+          "meaning": "与21:51前版捕获、首CODE、帧/basic绝对来源样点与计数一致。"
+        },
+        {
+          "position": "左片段",
+          "title": "真实事件wrapper与明确输入fixture",
+          "signal": "9场景1609检查；8同时请求/7drop/9错误上界、满近满回卷顺序",
+          "meaning": "159入队144交付15reset清除；245为故意饱和期望drop，不是正常波形丢事件。DSP/basic输入明示stub，旧/新同fixture结果一致。"
+        },
+        {
+          "position": "右片段",
+          "title": "实际Top/SPI/Ru/reset许可链",
+          "signal": "6场景14196检查；Mgmt26ns/BB20ns，25次raw撤销立即外RFoff",
+          "meaning": "Interface/Core明示stub，仅证明Core输入同步和外RF mask；旧接线预期拒绝仅作测试敏感性，不是历史RF失败。"
+        },
+        {
+          "position": "底部",
+          "title": "原诊断与验收边界",
+          "signal": "源码/JSON SHA、CODE_LOCK0及载波锁定原值完整保留",
+          "meaning": "无硬件访问或下载；锁定质量、实板PS-DDR、物理时序、RF、PPS与1ns分开验收。"
+        }
+      ],
+      "provenance": "时序修订源码的本轮四项真实XSim/厂商IP结果；队列定宽与Core同步许可两文件改动的前后SHA、绝对样点锚点与独立控制fixture结果分别留证。统计图不补画波形；原始源码/IP和大日志留本地。"
     }
   ]
 }

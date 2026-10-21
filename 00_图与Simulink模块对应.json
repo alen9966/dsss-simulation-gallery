@@ -5304,7 +5304,7 @@
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
       "filename": "76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
-      "status": "本轮BUFH修订真实RTL数字复核PASS；实板/PS-DDR/RF/1ns未验收",
+      "status": "历史RTL数字回归（21:51 BUFH快照，定宽/许可修订前）PASS",
       "module_refs": [
         {
           "id": "script_v11_native50_release",
@@ -5343,7 +5343,51 @@
           "meaning": "本轮未访问/下载硬件；PS-DDR硬件、RF、独立采样钟偏差、多径、长期BER与1ns均未验收。"
         }
       ],
-      "provenance": "2026-10-21 BUFH门控中继修订的四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。"
+      "provenance": "2026-10-21 21:51 BUFH修订后的历史源码快照，队列定宽/许可接线修订前；旧76计数保留，新修订见77。四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/77_时序修订_数字通信与事件顺序复核.png",
+      "filename": "77_时序修订_数字通信与事件顺序复核.png",
+      "status": "本轮时序修订真实数字复核PASS；实板/锁定质量/PS-DDR/RF/1ns另验",
+      "module_refs": [
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "顶行",
+          "title": "真实完整数字链",
+          "signal": "TX全14,208,120点、匹配滤波/FFT/DLL/归一化/Costas/解帧两工况各100B",
+          "meaning": "同一个50MHz仿真采样钟；20Hz载波频偏/固定整数噪声非标定SNR。"
+        },
+        {
+          "position": "中部",
+          "title": "全部观测来源",
+          "signal": "每例1138CODE/1138CARRIER/7事件/800极性记录",
+          "meaning": "与21:51前版捕获、首CODE、帧/basic绝对来源样点与计数一致。"
+        },
+        {
+          "position": "左片段",
+          "title": "真实事件wrapper与明确输入fixture",
+          "signal": "9场景1609检查；8同时请求/7drop/9错误上界、满近满回卷顺序",
+          "meaning": "159入队144交付15reset清除；245为故意饱和期望drop，不是正常波形丢事件。DSP/basic输入明示stub，旧/新同fixture结果一致。"
+        },
+        {
+          "position": "右片段",
+          "title": "实际Top/SPI/Ru/reset许可链",
+          "signal": "6场景14196检查；Mgmt26ns/BB20ns，25次raw撤销立即外RFoff",
+          "meaning": "Interface/Core明示stub，仅证明Core输入同步和外RF mask；旧接线预期拒绝仅作测试敏感性，不是历史RF失败。"
+        },
+        {
+          "position": "底部",
+          "title": "原诊断与验收边界",
+          "signal": "源码/JSON SHA、CODE_LOCK0及载波锁定原值完整保留",
+          "meaning": "无硬件访问或下载；锁定质量、实板PS-DDR、物理时序、RF、PPS与1ns分开验收。"
+        }
+      ],
+      "provenance": "时序修订源码的本轮四项真实XSim/厂商IP结果；队列定宽与Core同步许可两文件改动的前后SHA、绝对样点锚点与独立控制fixture结果分别留证。统计图不补画波形；原始源码/IP和大日志留本地。"
     }
   ],
   "layout_verification": {

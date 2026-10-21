@@ -102,5 +102,7 @@
   "baseline_completed_utc": "2026-10-21T12:41:07.311472+00:00",
   "figure_filename": "76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
   "figure_sha256": "969f3a9494822fe21244b58e5fdd7a35201c82f53a0baead0ddb28ad0bdd2480",
-  "figure_decoded_rgb_sha256": "d596f99c7da50fdc18daf70a6e986977ed34b6e856a72a9a1c5a1e32da7af3b3"
+  "figure_decoded_rgb_sha256": "d596f99c7da50fdc18daf70a6e986977ed34b6e856a72a9a1c5a1e32da7af3b3",
+  "snapshot_scope": "历史范围：2026-10-21 21:51 BUFH中继源码快照，事件队列定宽/Core许可接线修订前；原图、计数与原始结果保留。新修订独立完整数字回归和样点锚点复核见77图，本图不代表后续源码通过。",
+  "related_revision_figure": "77_时序修订_数字通信与事件顺序复核.png"
 }

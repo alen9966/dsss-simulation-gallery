@@ -1,0 +1,142 @@
+{
+  "schema": "dsss-gallery-timingclosure-digital-v1",
+  "completed_utc": "2026-10-21T15:33:14.416608+00:00",
+  "scope": "Actual full RTL/IP digital waveform communication plus separate explicit control fixtures; statistics, not fabricated waveform",
+  "hardware_access": false,
+  "board_download_performed": false,
+  "precision_accepted": false,
+  "tests_passed": 4,
+  "tx": {
+    "frames": 3,
+    "golden_samples_checked": 14208120
+  },
+  "rx": {
+    "rx_clean": {
+      "case": 0,
+      "payload_bytes": 100,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "basic_ps": 27522980000,
+      "observed_payload_mismatches": 0,
+      "payload_polarity_records": 800,
+      "legacy_code_lock": 0,
+      "legacy_carrier_lock": 1,
+      "lock_quality_accepted": false
+    },
+    "rx_noisy": {
+      "case": 1,
+      "payload_bytes": 100,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "basic_ps": 27522980000,
+      "observed_payload_mismatches": 0,
+      "payload_polarity_records": 800,
+      "legacy_code_lock": 0,
+      "legacy_carrier_lock": 0,
+      "lock_quality_accepted": false
+    }
+  },
+  "conditions": {
+    "sample_hz": 50000000,
+    "chip_hz": 12500000,
+    "chips_per_bit": 1000,
+    "payload_bytes": 100,
+    "rx_clean": "TX I scaled by 32767/65536, zero Q, no noise/frequency offset",
+    "rx_noisy": {
+      "carrier_offset_hz": 20.0001522898674,
+      "phase_increment_u32": 1718,
+      "rotation_table_points": 256,
+      "noise": "Deterministic independent I/Q xorshift integer noise; each lane -128..127 ADC testbench units; not calibrated AWGN or measured SNR",
+      "random_seed_hex": "782acfa1"
+    },
+    "excluded": [
+      "AD9361 analog/RF response",
+      "multipath/fading",
+      "independent-clock sample-rate offset",
+      "hardware DDR/DMA",
+      "measured sensitivity/BER bound",
+      "1ns timing accuracy"
+    ]
+  },
+  "sample_clock": "Common50MHz simulation sample clock; no independent sample-rate offset",
+  "source_delta": [
+    {
+      "file": "rtl/rx/phy_rx_top.v",
+      "baseline_sha256": "ed7bf3b6ffda70359bee704363207fe66c73c304cbad019975e249da615ad3ba",
+      "candidate_sha256": "d37492fc699f55dd1bfc6f29e7fbc6456f370af66c46e70c8c07d813cd4ea444"
+    },
+    {
+      "file": "rtl/top/MW_BiDir_Transceiver_Top.v",
+      "baseline_sha256": "c5b7e22f89e7fa2d669a97d5db049794411aebebdd329e7d00ec84abbdeb8e8e",
+      "candidate_sha256": "e04c3b549f00efb3be39216c23c2045ed36074728855b0717b36ea3e43056f0d"
+    }
+  ],
+  "absolute_simulation_sample_anchors_equal": true,
+  "source_files_rechecked": 67,
+  "changed_source_files_during_run": [],
+  "event_queue_fragment": {
+    "actual_wrapper": "phy_rx_top",
+    "input_producers": "DSP and basic-time CONTROL_STUBS",
+    "coverage": {
+      "scenarios": 9,
+      "checks": 1609,
+      "accepted": 159,
+      "delivered": 144,
+      "reset_flushed": 15,
+      "overflow_dropped": 245,
+      "overflow_cycles": 64,
+      "partial_cycles": 64,
+      "peak_queue": 16,
+      "max_offers": 8,
+      "max_errors": 9,
+      "max_drops": 7,
+      "code_records": 75,
+      "carrier_records": 75
+    },
+    "before_after_coverage_equal": true,
+    "overflow_interpretation": "Deliberate saturation; accepted entries preserve order and drop/error counters match, not normal-waveform losses"
+  },
+  "permit_fragment": {
+    "actual_RTL": "Top, AD9361_SPI, SPI master, Ru monitor, reset",
+    "fixtures": "Interface and Core CONTROL_STUBS; validates Core INPUT and outer RF mask, not complete Core packet or physical RF",
+    "coverage": {
+      "scenarios": 6,
+      "checks": 14196,
+      "raw_revokes": 25,
+      "deferred_core_revokes": 25,
+      "bb_edges": 6889
+    },
+    "mgmt_period_ns": 26,
+    "bb_period_ns": 20,
+    "prior_connection_expected_contract_rejection": true,
+    "prior_rejection_meaning": "Only demonstrates new synchronous-Core-input oracle sensitivity; not historical communication failure"
+  },
+  "not_accepted": [
+    "native50 lock quality",
+    "hardware PS/DDR/DMA",
+    "physical CDC/metastability and PCB delay",
+    "AD9361 analog/RF",
+    "independent sample clocks",
+    "multipath/fading",
+    "long BER/sensitivity",
+    "1ns/ps time accuracy"
+  ],
+  "physical_implementation_scope": "See separate implementation reports; never inferred from this digital plot",
+  "source_material_sha256": {
+    "status.json": "2e000e8d26020a9337a6f7ef4ad82e31f999a036b2234314c1d63ab57f8cba0c",
+    "acceptance_summary.json": "32f645cc5300625a4cb0ca32d775ccc89692e7778c7d9ca6193a0d629f7eb648",
+    "run_provenance.json": "023fc666ff9ee79d125d9b1249291768a0df772fa20479f299b03a69096d85ce",
+    "comparison_to_clockrelay.json": "944b2359490bf0caf4c00de9772a6dd5fb8413c5249de7245e0e8377853ba3a1",
+    "directed_comparison.json": "f9c84a05c307edf7e44c7151519d52b4e5e9e78f2f944036efe447da9f277015",
+    "event_order_guarded/status.json": "3887ae028fa0ed7219c36ddfb0daab8f26188ff728fb4647d78b36867d5951ee",
+    "top_permit_guarded/status.json": "b2c7c08506a16facdbae0b2e645c2a3e3575e94976674abd75b02433155d875c",
+    "plot_timingclosure_acceptance_summary.py": "b438c94503be60e007b458fcc63390cd7fb805664efdb6982d9107a14b62d2ff"
+  },
+  "privacy": "No complete project, private RTL/IP, bitstreams, raw logs or personal paths",
+  "figure_filename": "77_时序修订_数字通信与事件顺序复核.png",
+  "figure_sha256": "0b8af396571fb5dc2492138212176a8e406c60b0df50ea804c9b4bf48f7b6b35"
+}
