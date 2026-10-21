@@ -1462,6 +1462,13 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td>右下</td><td>本次边界</td><td>源码/脚本清单及状态</td><td>完整数字链与独立PHY/协议；不宣称RF或&lt;1ns通过。</td></tr>
 </table>
 </details>
-<details><summary>75_V11原生50MHz_本轮数字通信与来源标签回归.png</summary><p>已按登记信息关联模块；具体场景及信号说明：2026-10-21本轮XSim真实RTL/厂商IP统计图，不是Simulink Scope或新硬件实测。固定当前45个生产RTL，全部67个测试输入运行后SHA复核变化0。四项分别为真实IP/UNISIM/XPM启动与SESSION→CONFIG/无隐式ARM；TX三帧14,208,120个有效样点与独立PN/FIR逐点核对（含背压/缓冲次序/错误包拒绝）；真实TX→匹配滤波/FFT/IFFT→DLL/归一化→Costas/解帧两组100B逐字节一致。50MSPS、12.5Mchip/s、PN1000、两端共用50MHz仿真采样时钟；理想工况无加噪/载波频偏，另工况载波频偏20.00015229Hz，I/Q固定xorshift整数噪声-128..127、seed0x782ACFA1，非标定AWGN/SNR，不含独立采样钟偏差、多径或衰落。每个RX工况1138条CODE、1138条CARRIER、7条事件、800条载荷极性观测，4,577,268周期，来源样点/更新号连续、同窗配对、帧参考与重捕获清理通过。保留原诊断：两例payload_code=0，理想payload_carrier=1、频偏噪声payload_carrier=0，未强制置锁，原生50MHz锁定质量未验收。两例仅比较1600载荷比特，不作长期BER、灵敏度结论；无实板PS/DDR/DMA、AD9361模拟/RF、空口TDD、PPS或1ns/ps精度验收，不能与旧S2实板结果混用。原始JSON/日志、RTL/IP/位流及个人路径留本地，公开仅图、短说明、脱敏统计和来源SHA256；同目录同名前缀HTML/JSON可核对取数与范围。</p>
+<details><summary>75_V11原生50MHz_本轮数字通信与来源标签回归.png</summary><p>2026-10-21本轮真实XSim/厂商IP模型日志经status.json与acceptance_summary.json汇总；脚本只读取实际计数和断言结果，不补画波形，不是新Simulink块。来源SHA见图及同目录脱敏JSON；原始源码/IP、路径和大日志留本地。</p>
+<table><tr><th>位置</th><th>子图</th><th>取数节点</th><th>解释</th></tr>
+<tr><td>顶行</td><td>真实数字通信链</td><td>当前TX样点实际连接匹配滤波/FFT/DLL/归一化/Costas/解帧测试台</td><td>两端共用50MHz仿真采样钟；不含AD9361模拟/RF或PS DDR运行。</td></tr>
+<tr><td>结果卡片</td><td>四项本轮结果</td><td>Top启动、TX独立PN/FIR逐点、RX理想和载波频偏/固定噪声的实际PASS</td><td>TX共14,208,120样点；两个RX各100B正确。接口启动与波形解码分别验收。</td></tr>
+<tr><td>中部表格</td><td>环路记录与来源标签</td><td>每工况1138CODE/1138CARRIER/7事件/800载荷极性记录</td><td>源样点与更新号连续、同窗配对、帧参考及重捕获清理通过；不把DDR到达时刻当样点时刻。</td></tr>
+<tr><td>黄色框</td><td>原锁定诊断保留</td><td>理想CODE_LOCK=0/CARRIER_LOCK=1；频偏噪声均0</td><td>原阈值诊断未强制置锁；载荷正确不等于原生50MHz锁定质量通过。</td></tr>
+<tr><td>底部</td><td>验证范围与来源SHA</td><td>真实JSON状态、测试条件和文件指纹</td><td>固定有界噪声非标定SNR；总共1600载荷比特，不验收长期BER、RF、PS/DDR硬件或1ns精度。</td></tr>
+</table>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
