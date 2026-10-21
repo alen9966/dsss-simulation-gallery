@@ -1,0 +1,20 @@
+BUFH时钟门控中继修订：仅修改rx_valid_clock_gate与rx_phy_cap_top_3的时钟接线，原CE/TAIL/reset逻辑保持。两个改动文件的前后SHA及实际数字样点锚点对比见脱敏JSON。真实UNISIM门控片段18场景/41359检查通过，capture片段子算法明示为控制stub；本图完整真实FFT/DLL/Costas链另有两工况载荷与来源观测验收。与2026-10-21 20:41快照的捕获、首CODE、帧/basic事件和循环计数等数字样点锚点一致。片段边沿等价或数字样点锚点相同都不能代替真实布局时序、PCB延时、RF、PS/DDR或1ns精度验收。
+
+V11原生50MHz：本轮真实RTL数字通信回归
+
+四项通过：真实IP启动；TX三帧14,208,120个有效样点与独立PN/FIR参考逐点一致；理想与20.00015229Hz载波频偏＋固定有界噪声两组真实TX→匹配滤波/FFT→DLL/归一化→Costas/解帧，各100B内容一致。每个RX工况1138条CODE、1138条CARRIER、7条事件、800条载荷极性观测，来源样点、更新号、同窗配对、帧参考与重捕获清理通过。两端共用50MHz仿真采样钟，50MSPS、12.5Mchip/s、PN1000。
+
+噪声为I/Q各-128..127的确定性xorshift整数序列，seed0x782ACFA1；不是标定AWGN/SNR，不含独立采样钟偏差、多径或衰落。两例合计仅比较1600个载荷比特，不作长期BER或灵敏度结论。
+
+重要保留项：两工况payload_code=0，理想payload_carrier=1，频偏噪声payload_carrier=0；旧命令阈值诊断没有强制置锁，原生50MHz锁定质量仍未验收。实板PS/DDR/DMA、AD9361模拟/RF和1ns/ps测时均未验收。本轮未下载或访问硬件。不能把历史双板实测或其他独立接口测试拼成该版整板通过。
+
+这是脚本从本轮JSON读取的统计图，不是新Simulink块，不是补画波形；原始结果和67个输入的SHA记录本地保留，运行结束及交付前复核变化0。公开仅图、此说明及脱敏统计JSON，不公开完整源码、私有IP、位流、个人路径或原始大日志。
+
+来源指纹：
+status.json SHA256 6da82ccaf110e46d78b2284a06c5f3e4d6d609a403b95d8b3a0fcd91f399ecd1
+acceptance_summary.json SHA256 35b07a14f59ece9404644090d294103e9857bfa64e9e747f1d1e1e0f964ab042
+run_provenance.json SHA256 d9390a1ad5a7fade2f7fb3f7af46d390b0865ca5b42a0605af0fc25d6008621c
+plot_communication_acceptance_summary.py SHA256 b2444d9da55c54c1ffe3e9882e06373f98284011280c3aca92d4e7da2939ef3c
+clock_gate_relay_status.json SHA256 a8d222d77851704dd41c7302fddd3a293b05567328b0d639d68a3ca4e12dc0e8
+comparison_to_pre_relay.json SHA256 04903ad58840c9a44745eba0ed6bb06598ee3820c29c91482180f1e277a46672
+PNG SHA256 969f3a9494822fe21244b58e5fdd7a35201c82f53a0baead0ddb28ad0bdd2480

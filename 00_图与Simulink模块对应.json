@@ -5260,7 +5260,7 @@
     {
       "relative_path": "08_MATLAB_Simulink_RTL对照/75_V11原生50MHz_本轮数字通信与来源标签回归.png",
       "filename": "75_V11原生50MHz_本轮数字通信与来源标签回归.png",
-      "status": "本轮真实RTL数字链：两工况各100B正确；锁定质量/PS-DDR硬件/RF/1ns未验收",
+      "status": "历史RTL数字回归（20:41源码快照，BUFH修订前）PASS",
       "module_refs": [
         {
           "id": "script_v11_native50_release",
@@ -5299,7 +5299,51 @@
           "meaning": "固定有界噪声非标定SNR；总共1600载荷比特，不验收长期BER、RF、PS/DDR硬件或1ns精度。"
         }
       ],
-      "provenance": "2026-10-21本轮真实XSim/厂商IP模型日志经status.json与acceptance_summary.json汇总；脚本只读取实际计数和断言结果，不补画波形，不是新Simulink块。来源SHA见图及同目录脱敏JSON；原始源码/IP、路径和大日志留本地。"
+      "provenance": "2026-10-21 20:41 BUFH门控修订前的历史源码快照，真实XSim/厂商IP模型日志经status.json与acceptance_summary.json汇总；75原计数保留，新修订独立结果见76；脚本只读取实际计数和断言结果，不补画波形，不是新Simulink块。来源SHA见图及同目录脱敏JSON；原始源码/IP、路径和大日志留本地。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
+      "filename": "76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
+      "status": "本轮BUFH修订真实RTL数字复核PASS；实板/PS-DDR/RF/1ns未验收",
+      "module_refs": [
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "顶行与结果卡",
+          "title": "实际修订版数字链",
+          "signal": "Top启动、TX三帧全14,208,120样点、完整FFT/DLL/Costas/解帧两工况各100B",
+          "meaning": "两端共用50MHz仿真采样钟；20Hz载波频偏和确定性有界整数噪声非标定SNR。"
+        },
+        {
+          "position": "中部",
+          "title": "全部环路与事件标签",
+          "signal": "每例1138CODE/1138CARRIER/7事件/800载荷极性记录",
+          "meaning": "更新号、来源样点、同窗、帧参考与重捕获清理通过；不把DDR抵达时刻当事件时间。"
+        },
+        {
+          "position": "黄色框",
+          "title": "原锁定判据保留",
+          "signal": "理想CODE_LOCK=0/CARRIER_LOCK=1，频偏噪声均0",
+          "meaning": "载荷正确不等于原生50MHz锁定质量或精细测时通过。"
+        },
+        {
+          "position": "下部",
+          "title": "门控与数字锚点独立复核",
+          "signal": "真实UNISIM18场景41359检查；捕获/首CODE/帧及basic事件绝对来源样点与旧快照一致",
+          "meaning": "capture门控片段子算法明示stub；完整实际算法由本图波形回归另验。数字一致不代替真实布局时序或PCB延时。"
+        },
+        {
+          "position": "底部",
+          "title": "范围与指纹",
+          "signal": "实际status/comparison/门控片段状态SHA及两改动文件前后SHA",
+          "meaning": "本轮未访问/下载硬件；PS-DDR硬件、RF、独立采样钟偏差、多径、长期BER与1ns均未验收。"
+        }
+      ],
+      "provenance": "2026-10-21 BUFH门控中继修订的四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。"
     }
   ],
   "layout_verification": {

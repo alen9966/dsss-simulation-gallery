@@ -773,6 +773,7 @@ V11原生50 MHz：完整数字收发与环路上报
 实现：fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v；fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v；fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv；fpga_ad9361/native50/v11/scripts/plot_release_verification.py
 对应图：08_MATLAB_Simulink_RTL对照/70_V11原生50MHz_完整数字链与环路记录验证.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/75_V11原生50MHz_本轮数字通信与来源标签回归.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/76_时钟门控BUFH中继_数字通信与样点锚点复核.png；登记的新图对应模块；场景及信号说明见图注
 
 E · 官方 AD9361 器件收发台架
 模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。
@@ -1483,9 +1484,17 @@ dsss_ad9361_official/Progress_s
 右下 | 本次边界 | 源码/脚本清单及状态 | 完整数字链与独立PHY/协议；不宣称RF或<1ns通过。
 
 图：08_MATLAB_Simulink_RTL对照/75_V11原生50MHz_本轮数字通信与来源标签回归.png
-来源：2026-10-21本轮真实XSim/厂商IP模型日志经status.json与acceptance_summary.json汇总；脚本只读取实际计数和断言结果，不补画波形，不是新Simulink块。来源SHA见图及同目录脱敏JSON；原始源码/IP、路径和大日志留本地。
+来源：2026-10-21 20:41 BUFH门控修订前的历史源码快照，真实XSim/厂商IP模型日志经status.json与acceptance_summary.json汇总；75原计数保留，新修订独立结果见76；脚本只读取实际计数和断言结果，不补画波形，不是新Simulink块。来源SHA见图及同目录脱敏JSON；原始源码/IP、路径和大日志留本地。
 顶行 | 真实数字通信链 | 当前TX样点实际连接匹配滤波/FFT/DLL/归一化/Costas/解帧测试台 | 两端共用50MHz仿真采样钟；不含AD9361模拟/RF或PS DDR运行。
 结果卡片 | 四项本轮结果 | Top启动、TX独立PN/FIR逐点、RX理想和载波频偏/固定噪声的实际PASS | TX共14,208,120样点；两个RX各100B正确。接口启动与波形解码分别验收。
 中部表格 | 环路记录与来源标签 | 每工况1138CODE/1138CARRIER/7事件/800载荷极性记录 | 源样点与更新号连续、同窗配对、帧参考及重捕获清理通过；不把DDR到达时刻当样点时刻。
 黄色框 | 原锁定诊断保留 | 理想CODE_LOCK=0/CARRIER_LOCK=1；频偏噪声均0 | 原阈值诊断未强制置锁；载荷正确不等于原生50MHz锁定质量通过。
 底部 | 验证范围与来源SHA | 真实JSON状态、测试条件和文件指纹 | 固定有界噪声非标定SNR；总共1600载荷比特，不验收长期BER、RF、PS/DDR硬件或1ns精度。
+
+图：08_MATLAB_Simulink_RTL对照/76_时钟门控BUFH中继_数字通信与样点锚点复核.png
+来源：2026-10-21 BUFH门控中继修订的四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。
+顶行与结果卡 | 实际修订版数字链 | Top启动、TX三帧全14,208,120样点、完整FFT/DLL/Costas/解帧两工况各100B | 两端共用50MHz仿真采样钟；20Hz载波频偏和确定性有界整数噪声非标定SNR。
+中部 | 全部环路与事件标签 | 每例1138CODE/1138CARRIER/7事件/800载荷极性记录 | 更新号、来源样点、同窗、帧参考与重捕获清理通过；不把DDR抵达时刻当事件时间。
+黄色框 | 原锁定判据保留 | 理想CODE_LOCK=0/CARRIER_LOCK=1，频偏噪声均0 | 载荷正确不等于原生50MHz锁定质量或精细测时通过。
+下部 | 门控与数字锚点独立复核 | 真实UNISIM18场景41359检查；捕获/首CODE/帧及basic事件绝对来源样点与旧快照一致 | capture门控片段子算法明示stub；完整实际算法由本图波形回归另验。数字一致不代替真实布局时序或PCB延时。
+底部 | 范围与指纹 | 实际status/comparison/门控片段状态SHA及两改动文件前后SHA | 本轮未访问/下载硬件；PS-DDR硬件、RF、独立采样钟偏差、多径、长期BER与1ns均未验收。

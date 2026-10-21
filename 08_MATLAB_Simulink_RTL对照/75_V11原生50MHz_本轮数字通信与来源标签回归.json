@@ -76,5 +76,7 @@
   "privacy": "仅公开统计、条件、范围与指纹；完整原始记录、RTL/IP/位流及个人路径不公开",
   "figure_filename": "75_V11原生50MHz_本轮数字通信与来源标签回归.png",
   "figure_sha256": "c282d33ac5bd5eb49fb436c09f99f9d32d044f6e9deff3db18d30b180f4fc019",
-  "figure_decoded_rgb_sha256": "9cc29f4081fb6d18bc71326e6371c3eccc2e91735a12bb403e9314272b4bd465"
+  "figure_decoded_rgb_sha256": "9cc29f4081fb6d18bc71326e6371c3eccc2e91735a12bb403e9314272b4bd465",
+  "snapshot_scope": "2026-10-21 20:41 prior to BUFH clock relay revision; retained historical source snapshot",
+  "related_revision_figure": "76_时钟门控BUFH中继_数字通信与样点锚点复核.png"
 }

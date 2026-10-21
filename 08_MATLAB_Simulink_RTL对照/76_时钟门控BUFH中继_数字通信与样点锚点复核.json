@@ -1,0 +1,106 @@
+{
+  "schema": "dsss-gallery-rtl-communication-summary-v1",
+  "completed_utc": "2026-10-21T13:51:34.114636+00:00",
+  "scope": "本轮真实RTL数字波形链；脚本统计图，不是实板或Simulink Scope截图",
+  "hardware_access": false,
+  "board_download_performed": false,
+  "selected_tests_passed": 4,
+  "top_startup_passed": true,
+  "tx": {
+    "frames": 3,
+    "golden_samples_compared": 14208120,
+    "payload_bank_order_backpressure_and_bad_packet_rejection_passed": true
+  },
+  "rx": {
+    "rx_clean": {
+      "payload_bytes_compared": 100,
+      "observed_payload_mismatches": 0,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "payload_polarity_records": 800,
+      "legacy_code_lock_flag": 0,
+      "legacy_carrier_lock_flag": 1,
+      "lock_quality_accepted": false
+    },
+    "rx_noisy": {
+      "payload_bytes_compared": 100,
+      "observed_payload_mismatches": 0,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "payload_polarity_records": 800,
+      "legacy_code_lock_flag": 0,
+      "legacy_carrier_lock_flag": 0,
+      "lock_quality_accepted": false
+    }
+  },
+  "conditions": {
+    "sample_hz": 50000000,
+    "chip_hz": 12500000,
+    "chips_per_bit": 1000,
+    "sample_clock": "两端共用50MHz仿真采样时钟",
+    "clean": "无加噪、无载波频偏",
+    "noisy_carrier_offset_hz": 20.0001522898674,
+    "noise_iq_integer_range": [
+      -128,
+      127
+    ],
+    "noise_seed_hex": "782acfa1",
+    "noise_kind": "确定性xorshift有界整数噪声；非标定AWGN/SNR"
+  },
+  "source_alignment_assertions_passed": [
+    "CODE/CARRIER来源样点及更新号连续",
+    "码环/载波观测同窗配对",
+    "帧参考/基本时间与来源样点一致",
+    "重捕获后旧状态清理"
+  ],
+  "input_files_rechecked": 67,
+  "input_files_changed": 0,
+  "payload_bits_compared_total": 1600,
+  "not_accepted": [
+    "原生50MHz锁定质量",
+    "实板PS/DDR/DMA运行",
+    "AD9361模拟通道与RF",
+    "独立采样钟偏差",
+    "多径/衰落",
+    "长期BER/灵敏度",
+    "1ns或ps测时精度"
+  ],
+  "source_material_sha256": {
+    "status.json": "6da82ccaf110e46d78b2284a06c5f3e4d6d609a403b95d8b3a0fcd91f399ecd1",
+    "acceptance_summary.json": "35b07a14f59ece9404644090d294103e9857bfa64e9e747f1d1e1e0f964ab042",
+    "run_provenance.json": "d9390a1ad5a7fade2f7fb3f7af46d390b0865ca5b42a0605af0fc25d6008621c",
+    "plot_communication_acceptance_summary.py": "b2444d9da55c54c1ffe3e9882e06373f98284011280c3aca92d4e7da2939ef3c",
+    "clock_gate_relay_status.json": "a8d222d77851704dd41c7302fddd3a293b05567328b0d639d68a3ca4e12dc0e8",
+    "comparison_to_pre_relay.json": "04903ad58840c9a44745eba0ed6bb06598ee3820c29c91482180f1e277a46672"
+  },
+  "privacy": "仅公开统计、条件、范围与指纹；完整原始记录、RTL/IP/位流及个人路径不公开",
+  "revision": "BUFH clock relay revision",
+  "clock_relay": {
+    "change": "BUFH relay inserted before downstream BUFGCE; CE/TAIL/reset logic retained",
+    "source_delta": [
+      {
+        "file": "rtl/rx/rx_phy_cap_top_3.v",
+        "baseline_sha256": "c6fff7ecca7b74cf513a4e7d66ba7978402d980ec5c8a0206b7cdf5be3364c2f",
+        "candidate_sha256": "9ad2adbdb72cde9169090fc7c55932db9d021ad3b53ef9871d335fc4e490705b"
+      },
+      {
+        "file": "rtl/rx/rx_valid_clock_gate.v",
+        "baseline_sha256": "b6f6cd3f99c55959ab009915fcaa78abd248b9cb15babafd096b4fe5c862be98",
+        "candidate_sha256": "ddc60e7dd8699101c85dc5645ea5a7b193bf7399b048c3a00065355714c2a450"
+      }
+    ],
+    "absolute_simulation_sample_anchors_equal": true,
+    "unisim_gate_scenarios": 18,
+    "unisim_gate_checks": 41359,
+    "capture_fragment_algorithms": "Explicit control stubs; full FFT/DLL/Costas waveform verified separately",
+    "physical_place_route_scope": "Separate hardware implementation evidence; never inferred from this plot"
+  },
+  "baseline_completed_utc": "2026-10-21T12:41:07.311472+00:00",
+  "figure_filename": "76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
+  "figure_sha256": "969f3a9494822fe21244b58e5fdd7a35201c82f53a0baead0ddb28ad0bdd2480",
+  "figure_decoded_rgb_sha256": "d596f99c7da50fdc18daf70a6e986977ed34b6e856a72a9a1c5a1e32da7af3b3"
+}

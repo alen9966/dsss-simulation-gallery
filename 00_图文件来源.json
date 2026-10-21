@@ -1,6 +1,6 @@
 {
   "date": "2026-10-21",
-  "copied_files": 152,
+  "copied_files": 153,
   "original_files_preserved": true,
   "files": [
     {
@@ -4993,8 +4993,8 @@
       "category": 8,
       "source": "project/fpga_ad9361/native50/v11/results/maintainable_split_20261021/communication/communication_acceptance_20261021.png",
       "filename": "75_V11原生50MHz_本轮数字通信与来源标签回归.png",
-      "status": "本轮真实RTL数字链：两工况各100B正确；锁定质量/PS-DDR硬件/RF/1ns未验收",
-      "note": "2026-10-21本轮XSim真实RTL/厂商IP统计图，不是Simulink Scope或新硬件实测。固定当前45个生产RTL，全部67个测试输入运行后SHA复核变化0。四项分别为真实IP/UNISIM/XPM启动与SESSION→CONFIG/无隐式ARM；TX三帧14,208,120个有效样点与独立PN/FIR逐点核对（含背压/缓冲次序/错误包拒绝）；真实TX→匹配滤波/FFT/IFFT→DLL/归一化→Costas/解帧两组100B逐字节一致。50MSPS、12.5Mchip/s、PN1000、两端共用50MHz仿真采样时钟；理想工况无加噪/载波频偏，另工况载波频偏20.00015229Hz，I/Q固定xorshift整数噪声-128..127、seed0x782ACFA1，非标定AWGN/SNR，不含独立采样钟偏差、多径或衰落。每个RX工况1138条CODE、1138条CARRIER、7条事件、800条载荷极性观测，4,577,268周期，来源样点/更新号连续、同窗配对、帧参考与重捕获清理通过。保留原诊断：两例payload_code=0，理想payload_carrier=1、频偏噪声payload_carrier=0，未强制置锁，原生50MHz锁定质量未验收。两例仅比较1600载荷比特，不作长期BER、灵敏度结论；无实板PS/DDR/DMA、AD9361模拟/RF、空口TDD、PPS或1ns/ps精度验收，不能与旧S2实板结果混用。原始JSON/日志、RTL/IP/位流及个人路径留本地，公开仅图、短说明、脱敏统计和来源SHA256；同目录同名前缀HTML/JSON可核对取数与范围。",
+      "status": "历史RTL数字回归（20:41源码快照，BUFH修订前）PASS",
+      "note": "历史范围：2026-10-21 20:41修订前源码快照；原图、计数与原始结果保持。后续BUFH门控中继两文件修订的独立完整数字回归和样点锚点对比见76图；75不能作为新修订源码PASS。2026-10-21本轮XSim真实RTL/厂商IP统计图，不是Simulink Scope或新硬件实测。固定当前45个生产RTL，全部67个测试输入运行后SHA复核变化0。四项分别为真实IP/UNISIM/XPM启动与SESSION→CONFIG/无隐式ARM；TX三帧14,208,120个有效样点与独立PN/FIR逐点核对（含背压/缓冲次序/错误包拒绝）；真实TX→匹配滤波/FFT/IFFT→DLL/归一化→Costas/解帧两组100B逐字节一致。50MSPS、12.5Mchip/s、PN1000、两端共用50MHz仿真采样时钟；理想工况无加噪/载波频偏，另工况载波频偏20.00015229Hz，I/Q固定xorshift整数噪声-128..127、seed0x782ACFA1，非标定AWGN/SNR，不含独立采样钟偏差、多径或衰落。每个RX工况1138条CODE、1138条CARRIER、7条事件、800条载荷极性观测，4,577,268周期，来源样点/更新号连续、同窗配对、帧参考与重捕获清理通过。保留原诊断：两例payload_code=0，理想payload_carrier=1、频偏噪声payload_carrier=0，未强制置锁，原生50MHz锁定质量未验收。两例仅比较1600载荷比特，不作长期BER、灵敏度结论；无实板PS/DDR/DMA、AD9361模拟/RF、空口TDD、PPS或1ns/ps精度验收，不能与旧S2实板结果混用。原始JSON/日志、RTL/IP/位流及个人路径留本地，公开仅图、短说明、脱敏统计和来源SHA256；同目录同名前缀HTML/JSON可核对取数与范围。",
       "requested_module_ids": [
         "script_v11_native50_release"
       ],
@@ -5038,7 +5038,58 @@
           "meaning": "固定有界噪声非标定SNR；总共1600载荷比特，不验收长期BER、RF、PS/DDR硬件或1ns精度。"
         }
       ],
-      "provenance": "2026-10-21本轮真实XSim/厂商IP模型日志经status.json与acceptance_summary.json汇总；脚本只读取实际计数和断言结果，不补画波形，不是新Simulink块。来源SHA见图及同目录脱敏JSON；原始源码/IP、路径和大日志留本地。"
+      "provenance": "2026-10-21 20:41 BUFH门控修订前的历史源码快照，真实XSim/厂商IP模型日志经status.json与acceptance_summary.json汇总；75原计数保留，新修订独立结果见76；脚本只读取实际计数和断言结果，不补画波形，不是新Simulink块。来源SHA见图及同目录脱敏JSON；原始源码/IP、路径和大日志留本地。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/native50/v11/results/communication_clockrelay_20261021/communication_clockrelay_20261021.png",
+      "filename": "76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
+      "status": "本轮BUFH修订真实RTL数字复核PASS；实板/PS-DDR/RF/1ns未验收",
+      "note": "2026-10-21 21:51本轮四项实际XSim/厂商IP全部通过；统计图未补画波形。仅rx_valid_clock_gate和rx_phy_cap_top_3两文件的下级BUFGCE前增加BUFH中继，CE/TAIL/reset逻辑保持；两处修改的前后SHA见脱敏JSON。当前45个生产RTL、共67个输入运行后复核变化0。Top真实IP/UNISIM/XPM启动与SESSION→CONFIG、无隐式ARM；TX3帧14,208,120有效样点与独立PN/FIR逐点一致，背压/缓冲次序/坏包拒绝通过。实际TX→匹配滤波/FFT/IFFT→DLL/归一化→Costas/解帧两工况各100B正确：理想与20.00015229Hz载波频偏+固定xorshift I/Q整数噪声-128..127，seed0x782ACFA1，非标定AWGN/SNR；两端共用50MHz仿真采样时钟，50MSPS、12.5Mchip/s、PN1000，不含独立采样钟偏差/多径/衰落。每例1138CODE/1138CARRIER/7事件/800载荷极性、4,577,268周期；样点/更新号连续、同窗配对、帧参考与重捕获清理通过。与20:41修订前快照的捕获loc/sample、首CODE来源、全部帧/basic事件来源和循环计数等绝对数字样点锚点一致，未出现常数样点错移。另有真实UNISIM门控片段18场景41359检查与原版边沿等价，capture片段子算法明示stub；完整实际算法由本次波形另验。保留旧锁定标志：两工况CODE_LOCK=0，理想CARRIER_LOCK=1、频偏噪声CARRIER_LOCK=0，未强制置锁，质量仍未验收。两例仅1600载荷bit，不作长期BER/灵敏度结论。本轮未访问/下载硬件，数字一致不代替真实布局时序、PCB传播/时钟偏斜、PS-DDR/DMA、AD9361模拟/RF、PPS或1ns/ps精度；与历史S2/10月19日板内自检分开。完整RTL/IP/位流/个人路径/原始大日志留本地，公开仅图、短说明、脱敏统计和SHA。",
+      "requested_module_ids": [
+        "script_v11_native50_release"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/76_时钟门控BUFH中继_数字通信与样点锚点复核.png",
+      "decoded_pixel_sha256": "d596f99c7da50fdc18daf70a6e986977ed34b6e856a72a9a1c5a1e32da7af3b3",
+      "module_refs": [
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [
+        {
+          "position": "顶行与结果卡",
+          "title": "实际修订版数字链",
+          "signal": "Top启动、TX三帧全14,208,120样点、完整FFT/DLL/Costas/解帧两工况各100B",
+          "meaning": "两端共用50MHz仿真采样钟；20Hz载波频偏和确定性有界整数噪声非标定SNR。"
+        },
+        {
+          "position": "中部",
+          "title": "全部环路与事件标签",
+          "signal": "每例1138CODE/1138CARRIER/7事件/800载荷极性记录",
+          "meaning": "更新号、来源样点、同窗、帧参考与重捕获清理通过；不把DDR抵达时刻当事件时间。"
+        },
+        {
+          "position": "黄色框",
+          "title": "原锁定判据保留",
+          "signal": "理想CODE_LOCK=0/CARRIER_LOCK=1，频偏噪声均0",
+          "meaning": "载荷正确不等于原生50MHz锁定质量或精细测时通过。"
+        },
+        {
+          "position": "下部",
+          "title": "门控与数字锚点独立复核",
+          "signal": "真实UNISIM18场景41359检查；捕获/首CODE/帧及basic事件绝对来源样点与旧快照一致",
+          "meaning": "capture门控片段子算法明示stub；完整实际算法由本图波形回归另验。数字一致不代替真实布局时序或PCB延时。"
+        },
+        {
+          "position": "底部",
+          "title": "范围与指纹",
+          "signal": "实际status/comparison/门控片段状态SHA及两改动文件前后SHA",
+          "meaning": "本轮未访问/下载硬件；PS-DDR硬件、RF、独立采样钟偏差、多径、长期BER与1ns均未验收。"
+        }
+      ],
+      "provenance": "2026-10-21 BUFH门控中继修订的四项真实XSim/厂商IP结果；两处时钟接线变更的前后SHA及修订前后数字样点锚点另行核对。统计图没有补画波形；来源JSON与SHA公开，完整RTL/IP和原始大日志留本地。"
     }
   ]
 }
