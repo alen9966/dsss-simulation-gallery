@@ -716,6 +716,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 </table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>脚本产图，不是Simulink块。完整RX是数字波形链，不含AD9361模拟通道。LVDS、控制、DLL动态与PS夹具分别验收，不拼称物理端到端。legacy锁定提示尚未形成原生50MHz稳定跟踪/精细测时质量判据；通信正确与质量验收分开。未知BSP、真实DDR/DMA、FMQL布局布线、RF空口TDD和&lt;1ns精度仍需板级验收。私有源代码及IP不公开。</p>
 <p><strong>对应图：</strong></p><ul class="figlinks">
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/70_V11%E5%8E%9F%E7%94%9F50MHz_%E5%AE%8C%E6%95%B4%E6%95%B0%E5%AD%97%E9%93%BE%E4%B8%8E%E7%8E%AF%E8%B7%AF%E8%AE%B0%E5%BD%95%E9%AA%8C%E8%AF%81.png">70_V11原生50MHz_完整数字链与环路记录验证.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/75_V11%E5%8E%9F%E7%94%9F50MHz_%E6%9C%AC%E8%BD%AE%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E4%B8%8E%E6%9D%A5%E6%BA%90%E6%A0%87%E7%AD%BE%E5%9B%9E%E5%BD%92.png">75_V11原生50MHz_本轮数字通信与来源标签回归.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v；fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v；fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv；fpga_ad9361/native50/v11/scripts/plot_release_verification.py</p>
 </details></article>
 <h2 id="group-official">E · 官方 AD9361 器件收发台架</h2>
@@ -1460,5 +1461,7 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td>左下</td><td>独立接口/协议检查</td><td>UNISIM/XPM、控制、事件AXIS和宿主C日志</td><td>各有独立输入与验收范围；没有物理DDR测试。</td></tr>
 <tr><td>右下</td><td>本次边界</td><td>源码/脚本清单及状态</td><td>完整数字链与独立PHY/协议；不宣称RF或&lt;1ns通过。</td></tr>
 </table>
+</details>
+<details><summary>75_V11原生50MHz_本轮数字通信与来源标签回归.png</summary><p>已按登记信息关联模块；具体场景及信号说明：2026-10-21本轮XSim真实RTL/厂商IP统计图，不是Simulink Scope或新硬件实测。固定当前45个生产RTL，全部67个测试输入运行后SHA复核变化0。四项分别为真实IP/UNISIM/XPM启动与SESSION→CONFIG/无隐式ARM；TX三帧14,208,120个有效样点与独立PN/FIR逐点核对（含背压/缓冲次序/错误包拒绝）；真实TX→匹配滤波/FFT/IFFT→DLL/归一化→Costas/解帧两组100B逐字节一致。50MSPS、12.5Mchip/s、PN1000、两端共用50MHz仿真采样时钟；理想工况无加噪/载波频偏，另工况载波频偏20.00015229Hz，I/Q固定xorshift整数噪声-128..127、seed0x782ACFA1，非标定AWGN/SNR，不含独立采样钟偏差、多径或衰落。每个RX工况1138条CODE、1138条CARRIER、7条事件、800条载荷极性观测，4,577,268周期，来源样点/更新号连续、同窗配对、帧参考与重捕获清理通过。保留原诊断：两例payload_code=0，理想payload_carrier=1、频偏噪声payload_carrier=0，未强制置锁，原生50MHz锁定质量未验收。两例仅比较1600载荷比特，不作长期BER、灵敏度结论；无实板PS/DDR/DMA、AD9361模拟/RF、空口TDD、PPS或1ns/ps精度验收，不能与旧S2实板结果混用。原始JSON/日志、RTL/IP/位流及个人路径留本地，公开仅图、短说明、脱敏统计和来源SHA256；同目录同名前缀HTML/JSON可核对取数与范围。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

@@ -1,0 +1,16 @@
+V11原生50MHz：本轮真实RTL数字通信回归
+
+四项通过：真实IP启动；TX三帧14,208,120个有效样点与独立PN/FIR参考逐点一致；理想与20.00015229Hz载波频偏＋固定有界噪声两组真实TX→匹配滤波/FFT→DLL/归一化→Costas/解帧，各100B内容一致。每个RX工况1138条CODE、1138条CARRIER、7条事件、800条载荷极性观测，来源样点、更新号、同窗配对、帧参考与重捕获清理通过。两端共用50MHz仿真采样钟，50MSPS、12.5Mchip/s、PN1000。
+
+噪声为I/Q各-128..127的确定性xorshift整数序列，seed0x782ACFA1；不是标定AWGN/SNR，不含独立采样钟偏差、多径或衰落。两例合计仅比较1600个载荷比特，不作长期BER或灵敏度结论。
+
+重要保留项：两工况payload_code=0，理想payload_carrier=1，频偏噪声payload_carrier=0；旧命令阈值诊断没有强制置锁，原生50MHz锁定质量仍未验收。实板PS/DDR/DMA、AD9361模拟/RF和1ns/ps测时均未验收。不能把历史双板实测或其他独立接口测试拼成该版整板通过。
+
+这是脚本从本轮JSON读取的统计图，不是新Simulink块，不是补画波形；原始结果和67个输入的SHA记录本地保留，运行结束及交付前复核变化0。公开仅图、此说明及脱敏统计JSON，不公开完整源码、私有IP、位流、个人路径或原始大日志。
+
+来源指纹：
+status.json SHA256 10eb5c56e1cfd6d802f5d1d89e482185214ae740827306bf8f2b1ae7e8ac1915
+acceptance_summary.json SHA256 241c456820a3fd3d73d05cb3d404b474729ff5ea97860a5bcea370b1befecfa8
+run_provenance.json SHA256 58453d0cc5eeddc582dd843de8e592887c1ee3b511be75b771829e93e767f24e
+plot_communication_acceptance_summary.py SHA256 7991060138b8bc22ede0d63c3b46de9e152de63a1768e8ab6c9e75c5453f164b
+PNG SHA256 c282d33ac5bd5eb49fb436c09f99f9d32d044f6e9deff3db18d30b180f4fc019

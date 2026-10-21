@@ -1,0 +1,80 @@
+{
+  "schema": "dsss-gallery-rtl-communication-summary-v1",
+  "completed_utc": "2026-10-21T12:41:07.311472+00:00",
+  "scope": "本轮真实RTL数字波形链；脚本统计图，不是实板或Simulink Scope截图",
+  "selected_tests_passed": 4,
+  "top_startup_passed": true,
+  "tx": {
+    "frames": 3,
+    "golden_samples_compared": 14208120,
+    "payload_bank_order_backpressure_and_bad_packet_rejection_passed": true
+  },
+  "rx": {
+    "rx_clean": {
+      "payload_bytes_compared": 100,
+      "observed_payload_mismatches": 0,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "payload_polarity_records": 800,
+      "legacy_code_lock_flag": 0,
+      "legacy_carrier_lock_flag": 1,
+      "lock_quality_accepted": false
+    },
+    "rx_noisy": {
+      "payload_bytes_compared": 100,
+      "observed_payload_mismatches": 0,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "payload_polarity_records": 800,
+      "legacy_code_lock_flag": 0,
+      "legacy_carrier_lock_flag": 0,
+      "lock_quality_accepted": false
+    }
+  },
+  "conditions": {
+    "sample_hz": 50000000,
+    "chip_hz": 12500000,
+    "chips_per_bit": 1000,
+    "sample_clock": "两端共用50MHz仿真采样时钟",
+    "clean": "无加噪、无载波频偏",
+    "noisy_carrier_offset_hz": 20.0001522898674,
+    "noise_iq_integer_range": [
+      -128,
+      127
+    ],
+    "noise_seed_hex": "782acfa1",
+    "noise_kind": "确定性xorshift有界整数噪声；非标定AWGN/SNR"
+  },
+  "source_alignment_assertions_passed": [
+    "CODE/CARRIER来源样点及更新号连续",
+    "码环/载波观测同窗配对",
+    "帧参考/基本时间与来源样点一致",
+    "重捕获后旧状态清理"
+  ],
+  "input_files_rechecked": 67,
+  "input_files_changed": 0,
+  "payload_bits_compared_total": 1600,
+  "not_accepted": [
+    "原生50MHz锁定质量",
+    "实板PS/DDR/DMA运行",
+    "AD9361模拟通道与RF",
+    "独立采样钟偏差",
+    "多径/衰落",
+    "长期BER/灵敏度",
+    "1ns或ps测时精度"
+  ],
+  "source_material_sha256": {
+    "status.json": "10eb5c56e1cfd6d802f5d1d89e482185214ae740827306bf8f2b1ae7e8ac1915",
+    "acceptance_summary.json": "241c456820a3fd3d73d05cb3d404b474729ff5ea97860a5bcea370b1befecfa8",
+    "run_provenance.json": "58453d0cc5eeddc582dd843de8e592887c1ee3b511be75b771829e93e767f24e",
+    "plot_communication_acceptance_summary.py": "7991060138b8bc22ede0d63c3b46de9e152de63a1768e8ab6c9e75c5453f164b"
+  },
+  "privacy": "仅公开统计、条件、范围与指纹；完整原始记录、RTL/IP/位流及个人路径不公开",
+  "figure_filename": "75_V11原生50MHz_本轮数字通信与来源标签回归.png",
+  "figure_sha256": "c282d33ac5bd5eb49fb436c09f99f9d32d044f6e9deff3db18d30b180f4fc019",
+  "figure_decoded_rgb_sha256": "9cc29f4081fb6d18bc71326e6371c3eccc2e91735a12bb403e9314272b4bd465"
+}
