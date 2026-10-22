@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-22T03:40:45.225669+00:00",
+  "title": "通信 RTL 外移 BD：数字回归与接线复核",
+  "figure": "78_通信RTL外移BD_数字回归与接线复核.png",
+  "evidence_classes": [
+    "actual_vendor_IP_digital_waveform_regression",
+    "actual_generated_BD_and_RTL_structural_connectivity",
+    "checker_synthetic_fault_injection"
+  ],
+  "communication": {
+    "all_four_pass": true,
+    "tests": {
+      "rx_clean": true,
+      "rx_noisy": true,
+      "tx": true,
+      "top": true
+    },
+    "tx_frames": 3,
+    "all_checked_tx_samples": 14208120,
+    "clean": {
+      "payload_bytes": 100,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "basic_ps": 27522980000,
+      "payload_code_lock": 0,
+      "payload_carrier_lock": 1,
+      "quality_accepted": false
+    },
+    "offset_and_deterministic_noise": {
+      "payload_bytes": 100,
+      "code_records": 1138,
+      "carrier_records": 1138,
+      "events": 7,
+      "cycles": 4577268,
+      "basic_ps": 27522980000,
+      "payload_code_lock": 0,
+      "payload_carrier_lock": 0,
+      "quality_accepted": false
+    },
+    "conditions": {
+      "sample_hz": 50000000,
+      "chip_hz": 12500000,
+      "chips_per_bit": 1000,
+      "payload_bytes": 100,
+      "rx_clean": "TX I scaled by 32767/65536, zero Q, no noise/frequency offset",
+      "rx_noisy": {
+        "carrier_offset_hz": 20.0001522898674,
+        "phase_increment_u32": 1718,
+        "rotation_table_points": 256,
+        "noise": "Deterministic independent I/Q xorshift integer noise; each lane -128..127 ADC testbench units; not calibrated AWGN or measured SNR",
+        "random_seed_hex": "782acfa1"
+      },
+      "excluded": [
+        "AD9361 analog/RF response",
+        "multipath/fading",
+        "independent-clock sample-rate offset",
+        "hardware DDR/DMA",
+        "measured sensitivity/BER bound",
+        "1ns timing accuracy"
+      ]
+    },
+    "changed_inputs_during_run": 0
+  },
+  "structure": {
+    "passed_checks": 363,
+    "checks": 363,
+    "platform_and_radio_are_direct_siblings": true,
+    "two_axi_lite_links": true,
+    "three_64bit_axis_links": true,
+    "evidence_scope": "Saved generated BD graph + generated wrapper + maintained BoardTop and radio declarations; no PS/DDR transaction simulation"
+  },
+  "checker_fault_injection": {
+    "tests_run": 21,
+    "all_expected_results": true,
+    "synthetic_fixtures": true
+  },
+  "lineage": {
+    "production_RTL_count": 45,
+    "staged_source_count": 67,
+    "vendor_source_count": 4,
+    "metadata_count": 2,
+    "all_67_source_inputs_equal_figure77_revision": true,
+    "production_source_map_sha256": "e08e1aadd31d2ef50ee89e9e350ad289ffd3131e2303e0db5ca0caca3aeefc79"
+  },
+  "source_hashes": {
+    "communication_status": "94566735051c458ba17f82b230155b8f9589eb5399a96f7ada93ee5f6ca9fdbe",
+    "actual_boundary_result": "028e8abd7415a32d2041fcbd6b92fba28fb746ee6a907da73ce577318cf86cea",
+    "fault_injection_result": "c7e2d9d395fc39fd8d5444c081c8955b3cdd64c5560b31b2cdf8cc8148e2b026",
+    "maintained_interface_manifest": "5a4fe2832295299fc8797bd98c6769dc03c052744003b8ffbca96b3f9df2a0c8",
+    "maintained_board_RTL": "849eeb228cf428abaabe3cd8e0255b97cdac6ee1206967cb245dfea5c6e66dac",
+    "maintained_communication_RTL": "e04c3b549f00efb3be39216c23c2045ed36074728855b0717b36ea3e43056f0d",
+    "Vivado_generated_saved_BD": "df20414b3e014f2e945b336af2d43ee90631d61a8fce4e37e010cb642e3f0991",
+    "Vivado_generated_wrapper": "dc0d9b3b3c6754b5f0d74d76504a6846df79639d7155692b7485754ebac323c9",
+    "structural_checker": "b2b52fb522e732375212a37e93cf6b891250a9a4d82898db2379d257b06dcd80"
+  },
+  "limits": [
+    "100 payload bytes per condition (1600 payload bits total), not a measured BER or sensitivity bound",
+    "Payload decode passed; legacy code/carrier lock-quality flags have not passed acceptance",
+    "Common ideal 50 MHz sampling clock; no independent sampling-clock drift, multipath or fading",
+    "Approximately 20 Hz carrier offset plus deterministic integer noise, not calibrated AWGN/SNR",
+    "No PS DDR/DMA hardware runtime, RF/LVDS physical validation, new bitstream implementation/download, PPS or 1 ns acceptance is established by this figure",
+    "Private RTL/IP/bitstreams/full project and raw large logs remain local"
+  ]
+}

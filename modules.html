@@ -719,6 +719,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/75_V11%E5%8E%9F%E7%94%9F50MHz_%E6%9C%AC%E8%BD%AE%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E4%B8%8E%E6%9D%A5%E6%BA%90%E6%A0%87%E7%AD%BE%E5%9B%9E%E5%BD%92.png">75_V11原生50MHz_本轮数字通信与来源标签回归.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/76_%E6%97%B6%E9%92%9F%E9%97%A8%E6%8E%A7BUFH%E4%B8%AD%E7%BB%A7_%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E4%B8%8E%E6%A0%B7%E7%82%B9%E9%94%9A%E7%82%B9%E5%A4%8D%E6%A0%B8.png">76_时钟门控BUFH中继_数字通信与样点锚点复核.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/77_%E6%97%B6%E5%BA%8F%E4%BF%AE%E8%AE%A2_%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BA%8B%E4%BB%B6%E9%A1%BA%E5%BA%8F%E5%A4%8D%E6%A0%B8.png">77_时序修订_数字通信与事件顺序复核.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/78_%E9%80%9A%E4%BF%A1RTL%E5%A4%96%E7%A7%BBBD_%E6%95%B0%E5%AD%97%E5%9B%9E%E5%BD%92%E4%B8%8E%E6%8E%A5%E7%BA%BF%E5%A4%8D%E6%A0%B8.png">78_通信RTL外移BD_数字回归与接线复核.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v；fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v；fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv；fpga_ad9361/native50/v11/scripts/plot_release_verification.py</p>
 </details></article>
 <h2 id="group-official">E · 官方 AD9361 器件收发台架</h2>
@@ -1490,5 +1491,7 @@ hilite_system(&#x27;dsss_ad9361_official/Scope_TX_IQ&#x27;,&#x27;find&#x27;);</p
 <tr><td>右片段</td><td>实际Top/SPI/Ru/reset许可链</td><td>6场景14196检查；Mgmt26ns/BB20ns，25次raw撤销立即外RFoff</td><td>Interface/Core明示stub，仅证明Core输入同步和外RF mask；旧接线预期拒绝仅作测试敏感性，不是历史RF失败。</td></tr>
 <tr><td>底部</td><td>原诊断与验收边界</td><td>源码/JSON SHA、CODE_LOCK0及载波锁定原值完整保留</td><td>无硬件访问或下载；锁定质量、实板PS-DDR、物理时序、RF、PPS与1ns分开验收。</td></tr>
 </table>
+</details>
+<details><summary>78_通信RTL外移BD_数字回归与接线复核.png</summary><p>已按登记信息关联模块；具体场景及信号说明：2026-10-22实际XSim/厂商IP四项数字回归PASS；TX3帧14,208,120样点独立PN/FIR逐点一致，含回压/缓冲次序和坏包拒绝。实际TX→匹配滤波/FFT/IFFT/DLL/归一化/Costas/解帧，理想及20.00015229Hz载波频偏+确定性整数噪声两工况各100B正确；每例1138CODE/1138CARRIER/7事件，来源/更新号/帧basic/重捕获检查通过。45生产RTL及全部67源输入与图77版本相同，4厂商源/2运行元数据结束SHA也无变化。新BoardTop直接实例化u_PS_Platform与u_MW_Communication，实际生成BD+wrapper+真实BoardTop363项静态结构检查通过：2AXIL、3路64bitAXIS、时钟复位/三DMA/HP0/IRQ/物理口，SPI导出32位明确低8、CFG12位明确低12，4条3bitPROT独占Unused线。BD属性与wrapper真实HDL位宽分开记录。21项checker fixture预期全符合（1正例20故障）；fixture不冒称实际PS/DDR执行。两例共用50MHz理想采样钟，50MSPS/12.5Mchip/s/PN1000，I/Q噪声-128..127 seed0x782ACFA1非标定AWGN/SNR，无独立采样漂移/多径衰落。仅1600载荷bit，CODE_LOCK载荷期两例0、CARRIER_LOCK理想1噪声0，锁定质量未验收。此图无硬件访问/下载，PS DDR/DMA硬件、AD9361模拟RF、位流实现/下载/实板、PPS与1ns均另验。不补造波形，图77保持历史revision证据；公开仅图/短说明/脱敏JSON/SHA，不含私有RTL/IP/位流/完整工程/个人路径/原始大日志。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>
