@@ -1,3 +1,7 @@
-通信 RTL 外移 BD：本轮四项实际厂商 IP 数字回归通过。TX 三帧共 14,208,120 个样点逐点一致；理想与约20Hz载波偏差+确定性噪声接收各100B正确。平台和通信RTL为两个直接子层次；实际BD、wrapper与BoardTop接线检查通过。噪声不代表标定SNR，锁定质量与PS-DDR/RF/新bit/PPS/1ns由独立验收决定。图77保留历史revision证据；本图未补造波形。完整来源SHA及检查边界见同名JSON。
+通信RTL外移BD的四项实际厂商IP数字回归保持原结果：TX三帧14,208,120样点逐点一致，理想及约20Hz载波偏差+确定性整数噪声两工况各100B正确。363项实际结构检查通过；原21项fixture仍是检查器敏感性证据。当前另已形成内部合格台架候选，见实现更新；数字回归、源码结构、原生实现和硬件连接诊断分开记载，不代表PS/RF/1ns验收。PNG保持原字节，未重跑或补造波形。
 
-更新（2026-10-22，结构来源修订）：真实网表诊断确认根级多插入16个IBUF和16个OBUF，与内部8个IBUFDS/8个OBUFDS重复，独立I/O DRC共32项错误。现仅在BoardTop的12个LVDS端口声明（32个物理位）增加IO_BUFFER_TYPE=NONE及解释注释；修后实际363项接线检查与130项源码契约检查通过。此属性只控制综合I/O插入，45个算法RTL及原四项回归的67个源输入/4个厂商文件/2个运行元数据当前SHA均未变，未重跑或改写原波形统计。平台正在重新综合及网表白名单验证；新网表I/O关闭、bit/实板通信/1ns均不由本图宣称通过。PNG保持原字节，21项fixture仍标为先前检查器敏感性证据。
+历史I/O修正：旧网表曾多插16个IBUF和16个OBUF并产生32项I/O DRC错误；BoardTop的12个LVDS声明（32物理位）增加IO_BUFFER_TYPE=NONE。新I4最终网表已确认单层pad结构，包含5个IBUF、11个OBUF、8个IBUFDS和8个OBUFDS；363项结构与130项源码契约检查仍保留原证据。该关闭结论仅限实现网表，不代替物理接口眼图或外部I/O时序。
+
+实现更新（2026-10-22）：I4已完成原生实现（返回0）和官方FMSH -disable_icap处理，内部台架候选资格40/40通过，独立核对raw/final及15项产物哈希。WNS +0.957ns、WHS +0.051ns，setup/hold/pulse失败端点均0；105,500条可布线网全部route。原生修复前后4份序列化XDC逐字节一致。DRC为0 Error、4 Critical Warning、248 Warning、16 Advisory；4项严重告警属于BUFH→BUFGCTRL，未隐藏或降级。DATA_CLK非专用时钟脚及外部I/O预算仍未签核；WNS/WHS是静态时序裕量，不是测时误差或1ns精度。
+
+下载与GUI状态：A配置请求因No devices detected在PROGRAM_BEGIN前停止，B未开始下载；空闲时重启server后，两个JTAG目标仍均未枚举到芯片。因此本轮没有配置成功、Flash写入、PS初始化或RF使能，也无PS/RF/1ns新验收。实际Vivado GUI已打开并确认两条direct-sibling层次和Core下9个子模块，GUI后资格复核仍为40/40。内部合格候选不等于实板通信通过。CODE_LOCK 0/0、CARRIER_LOCK 1/0的原数字回归限制保持不变。

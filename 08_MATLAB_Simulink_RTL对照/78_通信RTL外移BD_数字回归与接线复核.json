@@ -6,7 +6,10 @@
   "evidence_classes": [
     "actual_vendor_IP_digital_waveform_regression",
     "actual_generated_BD_and_RTL_structural_connectivity",
-    "checker_synthetic_fault_injection"
+    "checker_synthetic_fault_injection",
+    "native_implemented_internal_bench_candidate_qualification",
+    "actual_GUI_hierarchy_review",
+    "hardware_connection_diagnostic_not_programming"
   ],
   "communication": {
     "all_four_pass": true,
@@ -98,7 +101,8 @@
       "vendor_inputs": 4,
       "metadata_inputs": 2,
       "changed": 0
-    }
+    },
+    "waveform_rerun_for_implementation_qualification_update": false
   },
   "source_hashes": {
     "communication_status": "94566735051c458ba17f82b230155b8f9589eb5399a96f7ada93ee5f6ca9fdbe",
@@ -113,20 +117,27 @@
     "source_contract_result": "ff4e416c5e3e28f7acd4b539c9b8b778752f1101ac2e3b199cc888af92c6d3e8",
     "source_freeze_manifest": "3ee1b51c410e55eb749c74b081471b21223485b8eb08f70276bf123c8e77bd23",
     "source_freeze_fingerprint": "5d91d819f2b8d22eb55d08631bea9dc386c0efaba58f14f7e8476195d1f8c427",
-    "prior_IO_netlist_diagnosis": "ff26d81f0394f33c2b221b6d59772ff818d57c7a946bdc04b8fcef10d665acc4"
+    "prior_IO_netlist_diagnosis": "ff26d81f0394f33c2b221b6d59772ff818d57c7a946bdc04b8fcef10d665acc4",
+    "implementation_qualification": "1166378ea094f058e2563b4703d1f33f487a05941d42d6a23437035797c181b1",
+    "final_native_review": "81f3eaf3fb4edfd33dd91f294784e57800449c94727f6b5086e373e236c868f1",
+    "vendor_POST_independent_review": "a449a02655fe73ab3fa8de2c82f47b4f0ff9c379634bf67f87042a753746918c",
+    "hardware_connection_blocker": "565519e87ba4c0b43cbffd7ad7132969c883b134b59c0dc1670422eab6402fa3",
+    "actual_GUI_hierarchy_review": "0eaf1344cab76161aaad323b70d2a1fc34e24a8405051c1b9f826c0b976f94f6",
+    "qualification_after_GUI": "5a3ea3b430d55bc71d3b2ec16a5f78e052407e9a62336d82dde58959bfecfb06"
   },
   "limits": [
-    "100 payload bytes per condition (1600 payload bits total), not a measured BER or sensitivity bound",
-    "Payload decode passed; legacy code/carrier lock-quality flags have not passed acceptance",
-    "Common ideal 50 MHz sampling clock; no independent sampling-clock drift, multipath or fading",
-    "Approximately 20 Hz carrier offset plus deterministic integer noise, not calibrated AWGN/SNR",
-    "No PS DDR/DMA hardware runtime, RF/LVDS physical validation, new bitstream implementation/download, PPS or 1 ns acceptance is established by this figure",
-    "Private RTL/IP/bitstreams/full project and raw large logs remain local",
-    "Package IO attributes and new363 source-level boundary checks do not prove fresh synthesized IO topology, bitstream implementation or hardware communication; platform rebuild is tracked separately"
+    "100 payload bytes per condition (1600 payload bits total), not measured BER or sensitivity",
+    "Payload decode passed; CODE_LOCK payload flags remain0/0 and CARRIER_LOCK1/0; lock-quality acceptance has not passed",
+    "Common ideal50MHz sampling clock; no independent sampling-clock drift, multipath or fading",
+    "Approximately20Hz carrier offset plus deterministic integer noise, not calibrated AWGN/SNR",
+    "Native routed/FMSH POST qualification is an internal bench-candidate result; WNS/WHS are timing margins, not timing-measurement error or1ns accuracy",
+    "Four BUFH-to-BUFGCTRL Critical Warnings are retained; non-clock-capable DATA_CLK, external IO timing budgets and physical eye remain unsignoffed",
+    "JTAG configuration was blocked before PROGRAM_BEGIN on A; B was not started; no new board communication, PS DDR/DMA runtime, RF, PPS, Flash boot or1ns acceptance",
+    "Private RTL/IP/bitstreams/full project, raw large logs, hardware serials and absolute local paths remain local"
   ],
-  "updated_utc": "2026-10-22T04:35:10.215777+00:00",
+  "updated_utc": "2026-10-22T05:30:26.091091+00:00",
   "implementation_revision": {
-    "updated_utc": "2026-10-22T04:35:10.215777+00:00",
+    "updated_utc": "2026-10-22T05:30:26.091091+00:00",
     "scope": "Synthesis IO-buffer insertion only, plus explanatory comments; radio algorithm/PS ABI/waveform parameters unchanged",
     "IO_BUFFER_TYPE_NONE_declarations": 12,
     "LVDS_physical_bits": 32,
@@ -138,11 +149,84 @@
       "io_DRC_errors": 32
     },
     "current_source_freeze_file_count": 104,
-    "platform_rebuild_state": "Fresh platform synthesis/netlist IO whitelist verification pending independent implementation report",
-    "new_postfix_netlist_IO_closure_claimed": false,
-    "bitstream_acceptance_claimed": false,
+    "platform_rebuild_state": "Native implementation and official FMSH POST completed; internally qualified bench candidate, programming blocked by no detected devices",
+    "new_postfix_netlist_IO_closure_claimed": true,
     "board_acceptance_claimed": false,
     "one_ns_accuracy_claimed": false,
-    "PNG_unchanged": true
+    "PNG_unchanged": true,
+    "netlist_IO_closure_scope": "Final implemented single-layer pad topology verified only; not physical LVDS eye/external IO timing",
+    "qualified_internal_bench_candidate": true,
+    "full_board_timing_signoff": false,
+    "full_board_acceptance_claimed": false
+  },
+  "implementation_qualification": {
+    "updated_utc": "2026-10-22T05:30:26.091091+00:00",
+    "attempt": "I4",
+    "scope": "Internally timed/routed bench candidate only; not full FMQL/board timing signoff",
+    "native_returncode": 0,
+    "official_vendor_POST": {
+      "device": "FMQL45T900",
+      "disable_icap": true,
+      "passed": true,
+      "raw_and_final_hashes_independently_rechecked": true,
+      "qualification_artifacts_hash_rechecked": 15
+    },
+    "qualification": {
+      "checks": 40,
+      "passed": 40,
+      "all_pass": true
+    },
+    "internal_static_timing": {
+      "WNS_ns": 0.957,
+      "WHS_ns": 0.051,
+      "setup_failing_endpoints": 0,
+      "hold_failing_endpoints": 0,
+      "pulse_width_failing_endpoints": 0,
+      "is_clock_measurement_accuracy": false
+    },
+    "route": {
+      "routable_nets": 105500,
+      "fully_routed_nets": 105500,
+      "routing_errors": 0
+    },
+    "DRC": {
+      "Error": 0,
+      "Critical_Warning": 4,
+      "Warning": 248,
+      "Advisory": 16,
+      "critical_warning_scope": "BUFH to BUFGCTRL; retained and disclosed"
+    },
+    "four_serialized_XDC_members_byte_identical_before_after_native_fix": true,
+    "pad_buffer_counts": {
+      "IBUF": 5,
+      "OBUF": 11,
+      "IBUFDS": 8,
+      "OBUFDS": 8
+    },
+    "unresolved_blackboxes": 0,
+    "external_IO_timing_signoff": false,
+    "non_clock_capable_DATA_CLK_hardware_gate_open": true
+  },
+  "actual_GUI_hierarchy": {
+    "actual_GUI_opened_and_visually_reviewed": true,
+    "direct_sibling_count": 2,
+    "radio_core_child_count": 9,
+    "radio_not_inside_platform_BD": true,
+    "post_GUI_qualification_checks_passed": 40,
+    "GUI_run_completion_status_is_separate_from_explicit_implementation_reports": true
+  },
+  "hardware_programming_status": {
+    "state": "BLOCKED_NO_DEVICES_DETECTED",
+    "detected_JTAG_target_count": 2,
+    "detected_chip_count": 0,
+    "idle_server_restarted_then_same_no_devices_result": true,
+    "candidate_A_stopped_before_PROGRAM_BEGIN": true,
+    "candidate_B_not_started": true,
+    "current_candidate_programmed": false,
+    "flash_written": false,
+    "PS_initialized_in_this_attempt": false,
+    "RF_enabled_in_this_attempt": false,
+    "new_PS_RF_or_1ns_acceptance": false,
+    "hardware_serials_or_identifiers_published": false
   }
 }
