@@ -70,12 +70,20 @@
     "platform_and_radio_are_direct_siblings": true,
     "two_axi_lite_links": true,
     "three_64bit_axis_links": true,
-    "evidence_scope": "Saved generated BD graph + generated wrapper + maintained BoardTop and radio declarations; no PS/DDR transaction simulation"
+    "evidence_scope": "Saved generated BD graph + generated wrapper + maintained BoardTop and radio declarations; no PS/DDR transaction simulation",
+    "checked_revision_utc": "2026-10-22T04:19:43.508440+00:00",
+    "source_contract": {
+      "passed": true,
+      "checks": 130,
+      "evidence_class": "source_contract_not_hardware_runtime"
+    }
   },
   "checker_fault_injection": {
     "tests_run": 21,
     "all_expected_results": true,
-    "synthetic_fixtures": true
+    "synthetic_fixtures": true,
+    "scope_revision": "Original21-case checker-sensitivity suite; not rerun for package IO attribute-only revision",
+    "original_board_top_sha256": "849eeb228cf428abaabe3cd8e0255b97cdac6ee1206967cb245dfea5c6e66dac"
   },
   "lineage": {
     "production_RTL_count": 45,
@@ -83,18 +91,29 @@
     "vendor_source_count": 4,
     "metadata_count": 2,
     "all_67_source_inputs_equal_figure77_revision": true,
-    "production_source_map_sha256": "e08e1aadd31d2ef50ee89e9e350ad289ffd3131e2303e0db5ca0caca3aeefc79"
+    "production_source_map_sha256": "e08e1aadd31d2ef50ee89e9e350ad289ffd3131e2303e0db5ca0caca3aeefc79",
+    "waveform_rerun_for_IO_attribute_revision": false,
+    "current_waveform_input_hash_recheck": {
+      "source_inputs": 67,
+      "vendor_inputs": 4,
+      "metadata_inputs": 2,
+      "changed": 0
+    }
   },
   "source_hashes": {
     "communication_status": "94566735051c458ba17f82b230155b8f9589eb5399a96f7ada93ee5f6ca9fdbe",
-    "actual_boundary_result": "e43bf68006bdb82151256b92a657b3fb24eb725bb3e00ff13b1d09ad8517881a",
+    "actual_boundary_result": "057cb0b83ffc2e5f10d6c46e0bc1246b07aff3cd82540b0845404e6446378f72",
     "fault_injection_result": "1fcf9559dd3525c4e03630d81f5c5e912e14701c7b60b04f90c54e68e27f54bf",
     "maintained_interface_manifest": "3c5a2cbc4a52b8c63ee1b6e3eabb57b5affc3d43550f4171eec8a0dd929eb298",
-    "maintained_board_RTL": "849eeb228cf428abaabe3cd8e0255b97cdac6ee1206967cb245dfea5c6e66dac",
+    "maintained_board_RTL": "e18c70977355ef997b3c9d1c1cd7512c251511f98c6cc4132746d9f63a57a794",
     "maintained_communication_RTL": "e04c3b549f00efb3be39216c23c2045ed36074728855b0717b36ea3e43056f0d",
     "Vivado_generated_saved_BD": "46c5031910fcd367b31189d6fa564f1ffe52a5831a077781bc5da5ec88add8cc",
     "Vivado_generated_wrapper": "d7a9587bc28521d23edbc09426c3f4ee6c097a5309a2270038fa151cbc8cfa8f",
-    "structural_checker": "b2b52fb522e732375212a37e93cf6b891250a9a4d82898db2379d257b06dcd80"
+    "structural_checker": "b2b52fb522e732375212a37e93cf6b891250a9a4d82898db2379d257b06dcd80",
+    "source_contract_result": "ff4e416c5e3e28f7acd4b539c9b8b778752f1101ac2e3b199cc888af92c6d3e8",
+    "source_freeze_manifest": "3ee1b51c410e55eb749c74b081471b21223485b8eb08f70276bf123c8e77bd23",
+    "source_freeze_fingerprint": "5d91d819f2b8d22eb55d08631bea9dc386c0efaba58f14f7e8476195d1f8c427",
+    "prior_IO_netlist_diagnosis": "ff26d81f0394f33c2b221b6d59772ff818d57c7a946bdc04b8fcef10d665acc4"
   },
   "limits": [
     "100 payload bytes per condition (1600 payload bits total), not a measured BER or sensitivity bound",
@@ -102,6 +121,28 @@
     "Common ideal 50 MHz sampling clock; no independent sampling-clock drift, multipath or fading",
     "Approximately 20 Hz carrier offset plus deterministic integer noise, not calibrated AWGN/SNR",
     "No PS DDR/DMA hardware runtime, RF/LVDS physical validation, new bitstream implementation/download, PPS or 1 ns acceptance is established by this figure",
-    "Private RTL/IP/bitstreams/full project and raw large logs remain local"
-  ]
+    "Private RTL/IP/bitstreams/full project and raw large logs remain local",
+    "Package IO attributes and new363 source-level boundary checks do not prove fresh synthesized IO topology, bitstream implementation or hardware communication; platform rebuild is tracked separately"
+  ],
+  "updated_utc": "2026-10-22T04:35:10.215777+00:00",
+  "implementation_revision": {
+    "updated_utc": "2026-10-22T04:35:10.215777+00:00",
+    "scope": "Synthesis IO-buffer insertion only, plus explanatory comments; radio algorithm/PS ABI/waveform parameters unchanged",
+    "IO_BUFFER_TYPE_NONE_declarations": 12,
+    "LVDS_physical_bits": 32,
+    "prior_actual_netlist_diagnosis": {
+      "unwanted_root_IBUF": 16,
+      "unwanted_root_OBUF": 16,
+      "existing_inner_IBUFDS": 8,
+      "existing_inner_OBUFDS": 8,
+      "io_DRC_errors": 32
+    },
+    "current_source_freeze_file_count": 104,
+    "platform_rebuild_state": "Fresh platform synthesis/netlist IO whitelist verification pending independent implementation report",
+    "new_postfix_netlist_IO_closure_claimed": false,
+    "bitstream_acceptance_claimed": false,
+    "board_acceptance_claimed": false,
+    "one_ns_accuracy_claimed": false,
+    "PNG_unchanged": true
+  }
 }
