@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "created_utc": "2026-10-22T03:40:45.225669+00:00",
+  "created_utc": "2026-10-22T03:47:25.016188+00:00",
   "title": "通信 RTL 外移 BD：数字回归与接线复核",
   "figure": "78_通信RTL外移BD_数字回归与接线复核.png",
   "evidence_classes": [
@@ -87,13 +87,13 @@
   },
   "source_hashes": {
     "communication_status": "94566735051c458ba17f82b230155b8f9589eb5399a96f7ada93ee5f6ca9fdbe",
-    "actual_boundary_result": "028e8abd7415a32d2041fcbd6b92fba28fb746ee6a907da73ce577318cf86cea",
-    "fault_injection_result": "c7e2d9d395fc39fd8d5444c081c8955b3cdd64c5560b31b2cdf8cc8148e2b026",
-    "maintained_interface_manifest": "5a4fe2832295299fc8797bd98c6769dc03c052744003b8ffbca96b3f9df2a0c8",
+    "actual_boundary_result": "e43bf68006bdb82151256b92a657b3fb24eb725bb3e00ff13b1d09ad8517881a",
+    "fault_injection_result": "1fcf9559dd3525c4e03630d81f5c5e912e14701c7b60b04f90c54e68e27f54bf",
+    "maintained_interface_manifest": "3c5a2cbc4a52b8c63ee1b6e3eabb57b5affc3d43550f4171eec8a0dd929eb298",
     "maintained_board_RTL": "849eeb228cf428abaabe3cd8e0255b97cdac6ee1206967cb245dfea5c6e66dac",
     "maintained_communication_RTL": "e04c3b549f00efb3be39216c23c2045ed36074728855b0717b36ea3e43056f0d",
-    "Vivado_generated_saved_BD": "df20414b3e014f2e945b336af2d43ee90631d61a8fce4e37e010cb642e3f0991",
-    "Vivado_generated_wrapper": "dc0d9b3b3c6754b5f0d74d76504a6846df79639d7155692b7485754ebac323c9",
+    "Vivado_generated_saved_BD": "46c5031910fcd367b31189d6fa564f1ffe52a5831a077781bc5da5ec88add8cc",
+    "Vivado_generated_wrapper": "d7a9587bc28521d23edbc09426c3f4ee6c097a5309a2270038fa151cbc8cfa8f",
     "structural_checker": "b2b52fb522e732375212a37e93cf6b891250a9a4d82898db2379d257b06dcd80"
   },
   "limits": [
