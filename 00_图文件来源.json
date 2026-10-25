@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "copied_files": 156,
+  "copied_files": 157,
   "original_files_preserved": true,
   "files": [
     {
@@ -5181,6 +5181,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-25独立候选的真实XSim2018.3分段验证，脚本将实际日志/断言整理成矩阵，不补造测量曲线或波形。SPI/observer/reset_release生产参数50MHz管理钟、50000拍1ms窗，94项检查/10个频率与复位场景；0/50/100/125MHz、异相重启、hold独立释放/拉住、停钟/重启、RESETB重建窗，count接受范围为0、781–782、1562–1563、1953–1954。范围是断言边界，未保留逐窗计数序列，不能取中点冒充实测。另独立observer短窗参数32拍，32个启动相位各6窗共192项，逐窗要求valid且count=1；用于边界敏感性，不能混作生产1ms参数。默认GPIO200、RESETB/hold分离、STATUS能力4/6与valid5、RO20读不清除/写SLVERR、非法GPIO401无副作用和合法31F组合均检查；测试台有意置过TXpermit合法位，只验证语义，无硬件射频。编译/展开/仿真返回0，全部实际输入SHA运行后未变。模块关联沿现有V11脚本映射，图为本轮接口分段，不是Simulink新块；三个模型结构未变。未覆盖完整MMCM/平台supervisor、物理亚稳概率、布局时序、AD9361模拟/RF、无线通信、PS上板或1ns测时。独立候选和原冻结PL分开，原RTL/IP/ROM/位流/缓存/绝对路径不公开。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/native50/v11/results/ps_wireless_20261025/pll_alert_ab_comparison_20261025/gallery/80_AD9361_SPI锁状态_ALERT驻留对照_实测.png",
+      "filename": "80_AD9361_SPI锁状态_ALERT驻留对照_实测.png",
+      "status": "E3 CPU-SPI实测：A 3/64、B 64/64锁位读0；均未READY；非物理失锁/RF因果证明",
+      "note": "2026-10-25同一FMQL45T900/AD9361板的两轮启动后CPU-SPI实际观察，A/B是试验标签，不是双板对传。沿用同一C2位流SHA380207ef3763d04c…，PHY hold保持，未发业务RF_START。B软件仅ALERT成功后请求mdelay100及声明，PLL/SPI参数及原门槛不变；未单独计时证明驻留精确100ms。A此前有工作/暖态历史，B由用户物理重启，因此不是完全受控的因果重复实验，不能认定等待使更差。A到RAW门槛phase6拒绝-4，之后先有单独50.015ms RAW追踪，再取32条/62.562ms失败后双读；64次BBPLL_LOCK bit7中3次0，索引12/20/27分别01→81、81→00、81→00。B原PLL稳定门槛phase5超时-2，639次状态读未取得三连合格；33寄存器快照attempted0/未读哨兵和原RAW资格未触发，不是实际配置全零或0MHz。B失败后另32条/62.835ms诊断中64次BBPLL锁bit7全0。两组Revision0A各32次、RX/TX锁bit1全1、ENSM1A/GPIO201稳定，SPI返回与CPU异常0；transport0没有SPI线上CRC保障，读位0不等于独立证明模拟PLL物理失锁。A/B独立失败后RAW监测各32有效，分别2195..2239和2225..2270，非精密MHz测量。名义管理50MHz/50000拍1ms窗、每64输入edge一次翻转，稳定100MHz预期count1562/1563；只据此判类别不符，不用异常计数反推精密频率。图横轴是各自失败后观察起点的相对记录时间，PS名义定时器；顺序SPI非同时采样，不代表共同绝对时刻或原始初始化/校准全过程，点间连线只引导阅读。独立SRAM重新解码、SHA身份与统计一致性审核通过，根因未确认。首次B发生wait_gp CP15临时halt/CPU访问失败且未到AD9361/驻留，另存并排除效果比较。两组均release0/Main未READY，无实际DMA/外部串口、无线/PPS/1ns或Flash验收；下一步静态MSB判别未包含在本图。内部STA/DRC资格及外部IO/非CC/眼窗边界另验。脚本实测结果，无Simulink新块或算法更改；公开只PNG及本说明/来源SHA，不上传RTL/IP/ROM/bit、原始SRAM/日志、载荷、硬件ID或本地路径。",
+      "requested_module_ids": [
+        "script_v11_native50_release"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/80_AD9361_SPI锁状态_ALERT驻留对照_实测.png",
+      "decoded_pixel_sha256": "a23bdc244596b03553a08db874ebd783026c032e29666e8b9479590aa24c0078",
+      "module_refs": [
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-25同一FMQL45T900/AD9361板的两轮启动后CPU-SPI实际观察，A/B是试验标签，不是双板对传。沿用同一C2位流SHA380207ef3763d04c…，PHY hold保持，未发业务RF_START。B软件仅ALERT成功后请求mdelay100及声明，PLL/SPI参数及原门槛不变；未单独计时证明驻留精确100ms。A此前有工作/暖态历史，B由用户物理重启，因此不是完全受控的因果重复实验，不能认定等待使更差。A到RAW门槛phase6拒绝-4，之后先有单独50.015ms RAW追踪，再取32条/62.562ms失败后双读；64次BBPLL_LOCK bit7中3次0，索引12/20/27分别01→81、81→00、81→00。B原PLL稳定门槛phase5超时-2，639次状态读未取得三连合格；33寄存器快照attempted0/未读哨兵和原RAW资格未触发，不是实际配置全零或0MHz。B失败后另32条/62.835ms诊断中64次BBPLL锁bit7全0。两组Revision0A各32次、RX/TX锁bit1全1、ENSM1A/GPIO201稳定，SPI返回与CPU异常0；transport0没有SPI线上CRC保障，读位0不等于独立证明模拟PLL物理失锁。A/B独立失败后RAW监测各32有效，分别2195..2239和2225..2270，非精密MHz测量。名义管理50MHz/50000拍1ms窗、每64输入edge一次翻转，稳定100MHz预期count1562/1563；只据此判类别不符，不用异常计数反推精密频率。图横轴是各自失败后观察起点的相对记录时间，PS名义定时器；顺序SPI非同时采样，不代表共同绝对时刻或原始初始化/校准全过程，点间连线只引导阅读。独立SRAM重新解码、SHA身份与统计一致性审核通过，根因未确认。首次B发生wait_gp CP15临时halt/CPU访问失败且未到AD9361/驻留，另存并排除效果比较。两组均release0/Main未READY，无实际DMA/外部串口、无线/PPS/1ns或Flash验收；下一步静态MSB判别未包含在本图。内部STA/DRC资格及外部IO/非CC/眼窗边界另验。脚本实测结果，无Simulink新块或算法更改；公开只PNG及本说明/来源SHA，不上传RTL/IP/ROM/bit、原始SRAM/日志、载荷、硬件ID或本地路径。"
     }
   ]
 }
