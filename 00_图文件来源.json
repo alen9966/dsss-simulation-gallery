@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-22",
-  "copied_files": 155,
+  "date": "2026-10-25",
+  "copied_files": 156,
   "original_files_preserved": true,
   "files": [
     {
@@ -5161,6 +5161,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：通信RTL外移BD的四项实际厂商IP数字回归保持原结果：TX三帧14,208,120样点逐点一致，理想及约20Hz载波偏差+确定性整数噪声两工况各100B正确。363项实际结构检查通过；原21项fixture仍是检查器敏感性证据。当前另已形成内部合格台架候选，见实现更新；数字回归、源码结构、原生实现和硬件连接诊断分开记载，不代表PS/RF/1ns验收。PNG保持原字节，未重跑或补造波形。 历史I/O修正：旧网表曾多插16个IBUF和16个OBUF并产生32项I/O DRC错误；BoardTop的12个LVDS声明（32物理位）增加IO_BUFFER_TYPE=NONE。新I4最终网表已确认单层pad结构，包含5个IBUF、11个OBUF、8个IBUFDS和8个OBUFDS；363项结构与130项源码契约检查仍保留原证据。该关闭结论仅限实现网表，不代替物理接口眼图或外部I/O时序。 实现更新（2026-10-22）：I4已完成原生实现（返回0）和官方FMSH -disable_icap处理，内部台架候选资格40/40通过，独立核对raw/final及15项产物哈希。WNS +0.957ns、WHS +0.051ns，setup/hold/pulse失败端点均0；105,500条可布线网全部route。原生修复前后4份序列化XDC逐字节一致。DRC为0 Error、4 Critical Warning、248 Warning、16 Advisory；4项严重告警属于BUFH→BUFGCTRL，未隐藏或降级。DATA_CLK非专用时钟脚及外部I/O预算仍未签核；WNS/WHS是静态时序裕量，不是测时误差或1ns精度。 下载与GUI状态：A配置请求因No devices detected在PROGRAM_BEGIN前停止，B未开始下载；空闲时重启server后，两个JTAG目标仍均未枚举到芯片。因此本轮没有配置成功、Flash写入、PS初始化或RF使能，也无PS/RF/1ns新验收。实际Vivado GUI已打开并确认两条direct-sibling层次和Core下9个子模块，GUI后资格复核仍为40/40。内部合格候选不等于实板通信通过。CODE_LOCK 0/0、CARRIER_LOCK 1/0的原数字回归限制保持不变。 公开仅统计、说明及脱敏来源哈希，无私有RTL/IP/bit/硬件序号/绝对路径。"
+    },
+    {
+      "category": 8,
+      "source": "project/fpga_ad9361/native50/v11/results/ps_wireless_20261025/phy_hold_rawio_candidate_192237/gallery/79_PHY独立复位_RAW_IO监测_RTL分段验证.png",
+      "filename": "79_PHY独立复位_RAW_IO监测_RTL分段验证.png",
+      "status": "实际RTL分段PASS：SPI/observer/reset_release；非整机/RF/1ns验收",
+      "note": "2026-10-25独立候选的真实XSim2018.3分段验证，脚本将实际日志/断言整理成矩阵，不补造测量曲线或波形。SPI/observer/reset_release生产参数50MHz管理钟、50000拍1ms窗，94项检查/10个频率与复位场景；0/50/100/125MHz、异相重启、hold独立释放/拉住、停钟/重启、RESETB重建窗，count接受范围为0、781–782、1562–1563、1953–1954。范围是断言边界，未保留逐窗计数序列，不能取中点冒充实测。另独立observer短窗参数32拍，32个启动相位各6窗共192项，逐窗要求valid且count=1；用于边界敏感性，不能混作生产1ms参数。默认GPIO200、RESETB/hold分离、STATUS能力4/6与valid5、RO20读不清除/写SLVERR、非法GPIO401无副作用和合法31F组合均检查；测试台有意置过TXpermit合法位，只验证语义，无硬件射频。编译/展开/仿真返回0，全部实际输入SHA运行后未变。模块关联沿现有V11脚本映射，图为本轮接口分段，不是Simulink新块；三个模型结构未变。未覆盖完整MMCM/平台supervisor、物理亚稳概率、布局时序、AD9361模拟/RF、无线通信、PS上板或1ns测时。独立候选和原冻结PL分开，原RTL/IP/ROM/位流/缓存/绝对路径不公开。",
+      "requested_module_ids": [
+        "script_v11_native50_release"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/79_PHY独立复位_RAW_IO监测_RTL分段验证.png",
+      "decoded_pixel_sha256": "39098c835e86db2b0c038e1e88c5df55c60820d695c7961ad4c83b1f921e21fe",
+      "module_refs": [
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-10-25独立候选的真实XSim2018.3分段验证，脚本将实际日志/断言整理成矩阵，不补造测量曲线或波形。SPI/observer/reset_release生产参数50MHz管理钟、50000拍1ms窗，94项检查/10个频率与复位场景；0/50/100/125MHz、异相重启、hold独立释放/拉住、停钟/重启、RESETB重建窗，count接受范围为0、781–782、1562–1563、1953–1954。范围是断言边界，未保留逐窗计数序列，不能取中点冒充实测。另独立observer短窗参数32拍，32个启动相位各6窗共192项，逐窗要求valid且count=1；用于边界敏感性，不能混作生产1ms参数。默认GPIO200、RESETB/hold分离、STATUS能力4/6与valid5、RO20读不清除/写SLVERR、非法GPIO401无副作用和合法31F组合均检查；测试台有意置过TXpermit合法位，只验证语义，无硬件射频。编译/展开/仿真返回0，全部实际输入SHA运行后未变。模块关联沿现有V11脚本映射，图为本轮接口分段，不是Simulink新块；三个模型结构未变。未覆盖完整MMCM/平台supervisor、物理亚稳概率、布局时序、AD9361模拟/RF、无线通信、PS上板或1ns测时。独立候选和原冻结PL分开，原RTL/IP/ROM/位流/缓存/绝对路径不公开。"
     }
   ]
 }

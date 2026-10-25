@@ -761,21 +761,22 @@ PS调用PL SPI：AXI4-Lite独立外设验证
 实现：fpga_ad9361/native50/board/native50_module_selftest.v；fpga_ad9361/native50/board/AD9361_Native50_Selftest_Top.v；fpga_ad9361/native50/rtl/tx/phy_tx_top.v；fpga_ad9361/native50/rtl/tx/tx_intp4.v；fpga_ad9361/native50/rtl/rx/rx_phy_par.v；fpga_ad9361/native50/rtl/rx/phy_adc_bridge.v；fpga_ad9361/native50/rtl/observe/obs_ddr_bridge.v；fpga_ad9361/native50/board/plot_board_selftest.py
 对应图：08_MATLAB_Simulink_RTL对照/68_原生50MHz新PL模块_双板内部自检.png；登记的新图对应模块；场景及信号说明见图注
 
-V11原生50 MHz：完整数字收发与环路上报
+V11原生50 MHz：数字链与接口分段验证
 
-作用：实际V11 TX单PN/四倍RRC波形进入真实匹配滤波、FFT/IFFT、DLL、Costas、解帧链，100字节逐一比较；无加噪与20Hz频偏/固定随机噪声两场景。独立LVDS测试使用真实UNISIM/XPM；上下文和AXIS批由实际RTL产生，再交给宿主PS C解码。DLL分数延迟/20ppm漂移产生实际非零修正，并检查源窗及运行中复位。
+作用：实际V11 TX单PN/四倍RRC波形进入真实匹配滤波、FFT/IFFT、DLL、Costas、解帧链，100字节逐一比较；无加噪与20Hz频偏/固定随机噪声两场景。独立LVDS测试使用真实UNISIM/XPM；上下文和AXIS批由实际RTL产生，再交给宿主PS C解码。DLL分数延迟/20ppm漂移产生实际非零修正，并检查源窗及运行中复位。 2026-10-25另有独立候选SPI/observer/reset_release分段：94项检查/10场景，以及32启动相位各6短窗的192项边界检查；图79是实际日志的断言矩阵，不是逐窗实测曲线。
 输入：配置、COE、历史MATLAB或Xsim导出。
 输出：图像/统计/示意，不是Simulink端口。
 观察：对照图的真实产生路径；没有对应块的图不编造模块名。
 边界：脚本产图，不是Simulink块。完整RX是数字波形链，不含AD9361模拟通道。LVDS、控制、DLL动态与PS夹具分别验收，不拼称物理端到端。legacy锁定提示尚未形成原生50MHz稳定跟踪/精细测时质量判据；通信正确与质量验收分开。未知BSP、真实DDR/DMA、FMQL布局布线、RF空口TDD和<1ns精度仍需板级验收。私有源代码及IP不公开。
 日志：
 参数：
-实现：fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v；fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v；fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv；fpga_ad9361/native50/v11/scripts/plot_release_verification.py
+实现：fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v；fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v；fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv；fpga_ad9361/native50/v11/scripts/plot_release_verification.py；fpga_ad9361/native50/v11/results/ps_wireless_20261025/phy_hold_rawio_candidate_192237/gallery/make_summary.py
 对应图：08_MATLAB_Simulink_RTL对照/70_V11原生50MHz_完整数字链与环路记录验证.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/75_V11原生50MHz_本轮数字通信与来源标签回归.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/76_时钟门控BUFH中继_数字通信与样点锚点复核.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/77_时序修订_数字通信与事件顺序复核.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/78_通信RTL外移BD_数字回归与接线复核.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/79_PHY独立复位_RAW_IO监测_RTL分段验证.png；登记的新图对应模块；场景及信号说明见图注
 
 E · 官方 AD9361 器件收发台架
 模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。
@@ -1511,3 +1512,6 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/78_通信RTL外移BD_数字回归与接线复核.png
 来源：已按登记信息关联模块；具体场景及信号说明：通信RTL外移BD的四项实际厂商IP数字回归保持原结果：TX三帧14,208,120样点逐点一致，理想及约20Hz载波偏差+确定性整数噪声两工况各100B正确。363项实际结构检查通过；原21项fixture仍是检查器敏感性证据。当前另已形成内部合格台架候选，见实现更新；数字回归、源码结构、原生实现和硬件连接诊断分开记载，不代表PS/RF/1ns验收。PNG保持原字节，未重跑或补造波形。 历史I/O修正：旧网表曾多插16个IBUF和16个OBUF并产生32项I/O DRC错误；BoardTop的12个LVDS声明（32物理位）增加IO_BUFFER_TYPE=NONE。新I4最终网表已确认单层pad结构，包含5个IBUF、11个OBUF、8个IBUFDS和8个OBUFDS；363项结构与130项源码契约检查仍保留原证据。该关闭结论仅限实现网表，不代替物理接口眼图或外部I/O时序。 实现更新（2026-10-22）：I4已完成原生实现（返回0）和官方FMSH -disable_icap处理，内部台架候选资格40/40通过，独立核对raw/final及15项产物哈希。WNS +0.957ns、WHS +0.051ns，setup/hold/pulse失败端点均0；105,500条可布线网全部route。原生修复前后4份序列化XDC逐字节一致。DRC为0 Error、4 Critical Warning、248 Warning、16 Advisory；4项严重告警属于BUFH→BUFGCTRL，未隐藏或降级。DATA_CLK非专用时钟脚及外部I/O预算仍未签核；WNS/WHS是静态时序裕量，不是测时误差或1ns精度。 下载与GUI状态：A配置请求因No devices detected在PROGRAM_BEGIN前停止，B未开始下载；空闲时重启server后，两个JTAG目标仍均未枚举到芯片。因此本轮没有配置成功、Flash写入、PS初始化或RF使能，也无PS/RF/1ns新验收。实际Vivado GUI已打开并确认两条direct-sibling层次和Core下9个子模块，GUI后资格复核仍为40/40。内部合格候选不等于实板通信通过。CODE_LOCK 0/0、CARRIER_LOCK 1/0的原数字回归限制保持不变。 公开仅统计、说明及脱敏来源哈希，无私有RTL/IP/bit/硬件序号/绝对路径。
+
+图：08_MATLAB_Simulink_RTL对照/79_PHY独立复位_RAW_IO监测_RTL分段验证.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-25独立候选的真实XSim2018.3分段验证，脚本将实际日志/断言整理成矩阵，不补造测量曲线或波形。SPI/observer/reset_release生产参数50MHz管理钟、50000拍1ms窗，94项检查/10个频率与复位场景；0/50/100/125MHz、异相重启、hold独立释放/拉住、停钟/重启、RESETB重建窗，count接受范围为0、781–782、1562–1563、1953–1954。范围是断言边界，未保留逐窗计数序列，不能取中点冒充实测。另独立observer短窗参数32拍，32个启动相位各6窗共192项，逐窗要求valid且count=1；用于边界敏感性，不能混作生产1ms参数。默认GPIO200、RESETB/hold分离、STATUS能力4/6与valid5、RO20读不清除/写SLVERR、非法GPIO401无副作用和合法31F组合均检查；测试台有意置过TXpermit合法位，只验证语义，无硬件射频。编译/展开/仿真返回0，全部实际输入SHA运行后未变。模块关联沿现有V11脚本映射，图为本轮接口分段，不是Simulink新块；三个模型结构未变。未覆盖完整MMCM/平台supervisor、物理亚稳概率、布局时序、AD9361模拟/RF、无线通信、PS上板或1ns测时。独立候选和原冻结PL分开，原RTL/IP/ROM/位流/缓存/绝对路径不公开。
