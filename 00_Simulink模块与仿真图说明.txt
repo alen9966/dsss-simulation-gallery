@@ -778,6 +778,7 @@ V11原生50 MHz：数字链与接口分段验证
 对应图：08_MATLAB_Simulink_RTL对照/78_通信RTL外移BD_数字回归与接线复核.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/79_PHY独立复位_RAW_IO监测_RTL分段验证.png；登记的新图对应模块；场景及信号说明见图注
 对应图：08_MATLAB_Simulink_RTL对照/80_AD9361_SPI锁状态_ALERT驻留对照_实测.png；登记的新图对应模块；场景及信号说明见图注
+对应图：08_MATLAB_Simulink_RTL对照/81_AD9361_SPI半周期8与20_实际RTL时序验证.png；登记的新图对应模块；场景及信号说明见图注
 
 E · 官方 AD9361 器件收发台架
 模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。
@@ -1519,3 +1520,6 @@ dsss_ad9361_official/Progress_s
 
 图：08_MATLAB_Simulink_RTL对照/80_AD9361_SPI锁状态_ALERT驻留对照_实测.png
 来源：已按登记信息关联模块；具体场景及信号说明：2026-10-25同一FMQL45T900/AD9361板的两轮启动后CPU-SPI实际观察，A/B是试验标签，不是双板对传。沿用同一C2位流SHA380207ef3763d04c…，PHY hold保持，未发业务RF_START。B软件仅ALERT成功后请求mdelay100及声明，PLL/SPI参数及原门槛不变；未单独计时证明驻留精确100ms。A此前有工作/暖态历史，B由用户物理重启，因此不是完全受控的因果重复实验，不能认定等待使更差。A到RAW门槛phase6拒绝-4，之后先有单独50.015ms RAW追踪，再取32条/62.562ms失败后双读；64次BBPLL_LOCK bit7中3次0，索引12/20/27分别01→81、81→00、81→00。B原PLL稳定门槛phase5超时-2，639次状态读未取得三连合格；33寄存器快照attempted0/未读哨兵和原RAW资格未触发，不是实际配置全零或0MHz。B失败后另32条/62.835ms诊断中64次BBPLL锁bit7全0。两组Revision0A各32次、RX/TX锁bit1全1、ENSM1A/GPIO201稳定，SPI返回与CPU异常0；transport0没有SPI线上CRC保障，读位0不等于独立证明模拟PLL物理失锁。A/B独立失败后RAW监测各32有效，分别2195..2239和2225..2270，非精密MHz测量。名义管理50MHz/50000拍1ms窗、每64输入edge一次翻转，稳定100MHz预期count1562/1563；只据此判类别不符，不用异常计数反推精密频率。图横轴是各自失败后观察起点的相对记录时间，PS名义定时器；顺序SPI非同时采样，不代表共同绝对时刻或原始初始化/校准全过程，点间连线只引导阅读。独立SRAM重新解码、SHA身份与统计一致性审核通过，根因未确认。首次B发生wait_gp CP15临时halt/CPU访问失败且未到AD9361/驻留，另存并排除效果比较。两组均release0/Main未READY，无实际DMA/外部串口、无线/PPS/1ns或Flash验收；下一步静态MSB判别未包含在本图。内部STA/DRC资格及外部IO/非CC/眼窗边界另验。脚本实测结果，无Simulink新块或算法更改；公开只PNG及本说明/来源SHA，不上传RTL/IP/ROM/bit、原始SRAM/日志、载荷、硬件ID或本地路径。
+
+图：08_MATLAB_Simulink_RTL对照/81_AD9361_SPI半周期8与20_实际RTL时序验证.png
+来源：已按登记信息关联模块；具体场景及信号说明：2026-10-26，XSim2018.3执行未改动的同一SPI master与AXI wrapper；基准与候选仅顶层有效HALF_PERIOD_CLOCKS从8到20及匹配SCLK说明/属性变化。两组各6完整事务、1249项协议/AXI检查通过：每事务24上升沿和24下降沿、指令/数据MSB优先、读回5C/81/80/01/00/FF覆盖首末位，忙时CMD/WDATA拒绝且原事务不变，完成记录跨多次STATUS读取保持，未消费结果时新命令拒绝，RDATA正确且只消费一次，AXI响应背压保持。实际CS低区间分别7840ns和19600ns，等于49H；首个SCLK上升沿和最后下降采样后的CS保持分别160ns/400ns。图中曲线来自仿真实际引脚变化日志，首尾细节由该日志重采样；MISO从机模型在上升沿后8ns更新。未仿真模拟AD9361、板级电平转换/走线/IO延迟、PS/DDR/DMA或无线通信，不能据此判定BBPLL已修复或1ns测时达标。脚本/数字接口分段映射，不是新增Simulink模块；模型结构未变。仅发布通用时序PNG、参数与验证边界，不发布RTL/IP/ROM/位流、测试源、原始日志、硬件ID或私有目录。
