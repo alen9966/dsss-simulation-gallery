@@ -10,7 +10,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 .module-links{font-size:14px;padding-left:18px}.module-links li{margin:7px 0}.filters{background:white;padding:14px;border-radius:8px;border:1px solid #dae2ec}.filters select{max-width:100%;padding:7px;font:inherit}.module-button{display:inline-block;padding:8px 16px;background:#075fa7;color:white;border-radius:6px;text-decoration:none}.panel-note{font-size:14px}.panel-note summary{cursor:pointer;color:#075fa7}
 .old,.pending{background:#fff0d5;color:#7c4a09}.note{color:#536476}section{margin-top:36px}
 </style><main><h1>完整图册</h1>
-<p>2026-11-10 · XC7Z045 + AD9361 · 已有图分类副本</p>
+<p>2026-11-11 · XC7Z045 + AD9361 · 已有图分类副本</p>
 <p><a href="00_图册索引.html">← 返回成果精选</a> · <a href="https://alen9966.github.io/dsss-simulation-gallery/">在线首页</a> · <a href="https://github.com/alen9966/dsss-simulation-gallery">GitHub仓库</a></p>
 <p class="note">按模块或证据类型查图；点击原图放大，展开图注可查取数节点。历史参考单独筛选，不代表新板验证。</p>
 <p><a href="migration.html">工程主线</a> · <a href="modules.html">模型与模块</a> · <a href="precision_evidence.html">时间精度证据链</a> · <a href="completion.html">近期补齐详情</a></p>
@@ -71,6 +71,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <option value="script_native50_selftest">原生50 MHz：双板内部模块自检</option>
 <option value="script_v11_native50_release">V11原生50 MHz：数字链与接口分段验证</option>
 <option value="script_native50_v3_replay">native50_v3：实测I/Q导入与源码功能回放</option>
+<option value="script_native50_v11_crc_diagnosis">native50_v11：同轴拒收分析与功能仿真</option>
 </select> <a id="module-help" href="modules.html">查看模块说明</a><p id="filter-count">显示全部图片</p></div>
 <section data-category="0" id="c0"><h2>00_导航与方案说明</h2><p class="note">迁移主线、实际模型图、导航入口与历史方案框图；不同图的来源和验证范围见各自图注。</p><div class="grid">
 <article data-era="historical" data-modules="script_ui"><span class="badge old">历史参考</span><h3>90_旧中频_参数界面.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" alt="90_旧中频_参数界面.png"></a><p>历史界面截图，不表示当前运行状态。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
@@ -414,6 +415,10 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
 <p><strong>节点特性 · 当前参数→运算/系数→响应</strong><br>选中功能节点的实算特性或独立预算<br>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</p>
 <p><strong>观测/参数 · 实际缓存波形、来源、生效范围</strong><br>连续原始窗口或符号事件<br>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</p>
+</details></article>
+<article data-era="current" data-modules="script_native50_v11_crc_diagnosis"><span class="badge">B 板接收内存实测，MATLAB 独立 CRC 复算</span><h3>104_同轴实测首尾坏包_位错误分布.png</h3><a href="06_%E5%B8%A7%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%81%A2%E5%A4%8D/104_%E5%90%8C%E8%BD%B4%E5%AE%9E%E6%B5%8B%E9%A6%96%E5%B0%BE%E5%9D%8F%E5%8C%85_%E4%BD%8D%E9%94%99%E8%AF%AF%E5%88%86%E5%B8%83.png" target="_blank"><img loading="lazy" src="06_%E5%B8%A7%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%81%A2%E5%A4%8D/104_%E5%90%8C%E8%BD%B4%E5%AE%9E%E6%B5%8B%E9%A6%96%E5%B0%BE%E5%9D%8F%E5%8C%85_%E4%BD%8D%E9%94%99%E8%AF%AF%E5%88%86%E5%B8%83.png" alt="104_同轴实测首尾坏包_位错误分布.png"></a><p>首坏包 13 位分散在 10 字节，均为 0→1。末包前 82 字节正确，后 18 字节有 77 位错误。收到的实际字节已在进入 PS 载荷解析前保存。根因仍需同帧 I/Q 与解调观测。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_native50_v11_crc_diagnosis">native50_v11：同轴拒收分析与功能仿真</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：首坏包 13 位分散在 10 字节，均为 0→1。末包前 82 字节正确，后 18 字节有 77 位错误。收到的实际字节已在进入 PS 载荷解析前保存。根因仍需同帧 I/Q 与解调观测。</p>
 </details></article>
 </div></section>
 <section data-category="7" id="c7"><h2>07_双向时隙与接口</h2><p class="note">新增RX共同IDELAY扫描逻辑测试图，非实测眼图；时隙有RTL/Simulink对照，双站历元仍待实现。</p><div class="grid">
@@ -1052,6 +1057,10 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 <li><a href="modules.html#script_v11_native50_release">V11原生50 MHz：数字链与接口分段验证</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：2026-11-10真实硬件诊断测量。主工程为当前维护的MW_AD9361；本图不是Simulink输出或正常通信验收。新PS经实际暖重载启动，受控60秒诊断预算，运行中最后快照为629次完成，停机后DMA与PL完成计数均为630，表示尾帧随后完成；未据此声称无线接收无丢包。随后定时STOP并报告RF关闭；这只证明该诊断路径能运行和存在RF输出。2秒静默后BBPLL状态仍异常，580次稳态样本中285次原值为0，启用了只观测诊断策略，因此不构成BBPLL合格或可交付结论。ON曲线原文件名为PRE_START_noise，原始名称与数据完整保留；按实际GO时刻2026-11-10T11:21:06.5608Z核对，其采集2026-11-10T11:21:44.993Z至11:21:54.447Z处于TX窗口（+38.432至+47.886秒），所以只增加ON_during_diagnostic语义别名，不能称启动前噪声。OFF是同轮真实STOP/RF关闭确认之后采集。设置相同：1.055GHz中心、50MHz跨度、2001点、RBW30kHz、VBW91kHz、RMS100次、频谱仪内部衰减10dB、前放关闭、参考INT；同轴路径未标定。0.25至4MHz强带302点中位ON/OFF功率比23.172dB，全部点超过10dB；曲线为RBW桶功率，未当作绝对PSD或校准发射功率。频谱峰位置不能当载波频偏，未做相噪、真实I/Q逐点对拍、接收CRC/BER、双向通信、100ms TDD、四时间戳或1ns验收。仪器原始QUES汇总512、POW0保留，未据此宣称所有状态正常。只公开脱敏PNG和简短说明，不公开板卡/下载器身份、DNA、nonce、IP地址、私有路径、源代码、位流或完整UART。模块映射沿用脚本测量模块，不虚构Simulink节点。 MATLAB R2024b仅用于绘制频谱仪的原始实测点和ON/OFF桶功率比，没有运行ADI AD9361模型。板上最终OCM记录再次确认580次稳态采样、285次BBPLL原值为0、全体601次采样无无效读，静默计时59948ms；AppWarm消费phase4/error0/consumed1，原冷启动交接仍保留。</p>
 </details></article>
+<article data-era="current" data-modules="script_native50_v11_crc_diagnosis"><span class="badge">主工程源码功能波形，七组 MATLAB 对照</span><h3>105_主工程MATLAB_载荷截断与帧尾对照.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/105_%E4%B8%BB%E5%B7%A5%E7%A8%8BMATLAB_%E8%BD%BD%E8%8D%B7%E6%88%AA%E6%96%AD%E4%B8%8E%E5%B8%A7%E5%B0%BE%E5%AF%B9%E7%85%A7.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/105_%E4%B8%BB%E5%B7%A5%E7%A8%8BMATLAB_%E8%BD%BD%E8%8D%B7%E6%88%AA%E6%96%AD%E4%B8%8E%E5%B8%A7%E5%B0%BE%E5%AF%B9%E7%85%A7.png" alt="105_主工程MATLAB_载荷截断与帧尾对照.png"></a><p>第 83 字节截断点由实际差异范围选定。固定噪声下两组分别得到 69 与 75 个错位。最后 11 μs 的截断发生在完整帧末端，载荷仍正确。离线相位估计和已知相位对照只说明模型在这些假设下的判决。实际停止时刻与错误源仍待同步录波。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_native50_v11_crc_diagnosis">native50_v11：同轴拒收分析与功能仿真</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：第 83 字节截断点由实际差异范围选定。固定噪声下两组分别得到 69 与 75 个错位。最后 11 μs 的截断发生在完整帧末端，载荷仍正确。离线相位估计和已知相位对照只说明模型在这些假设下的判决。实际停止时刻与错误源仍待同步录波。</p>
+</details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">当前MATLAB可视化参数探索：自定义FIR、Costas、码率与信道；与历史旧方案场景分开。功能探索不等于真实RTL或70km无线性能验收。</p><div class="grid">
 <article data-era="historical" data-modules="script_link"><span class="badge old">历史参考</span><h3>90_旧方案_无噪声70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" alt="90_旧方案_无噪声70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
@@ -1180,6 +1189,10 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
 <p><strong>节点特性 · 当前参数→运算/系数→响应</strong><br>选中功能节点的实算特性或独立预算<br>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</p>
 <p><strong>观测/参数 · 实际缓存波形、来源、生效范围</strong><br>连续原始窗口或符号事件<br>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</p>
+</details></article>
+<article data-era="current" data-modules="script_native50_v11_crc_diagnosis"><span class="badge">约 15 分钟同轴试验，运行中段拒收成簇</span><h3>106_同轴实测CRC拒收时间分布.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/106_%E5%90%8C%E8%BD%B4%E5%AE%9E%E6%B5%8BCRC%E6%8B%92%E6%94%B6%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%83.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/106_%E5%90%8C%E8%BD%B4%E5%AE%9E%E6%B5%8BCRC%E6%8B%92%E6%94%B6%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%83.png" alt="106_同轴实测CRC拒收时间分布.png"></a><p>按串口汇总的电脑接收时刻分桶。末帧新增一条拒收来自终态内存，在图中只标终态数字。区间时间没有逐帧精度。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_native50_v11_crc_diagnosis">native50_v11：同轴拒收分析与功能仿真</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：按串口汇总的电脑接收时刻分桶。末帧新增一条拒收来自终态内存，在图中只标终态数字。区间时间没有逐帧精度。</p>
 </details></article>
 </div></section>
 <section data-category="10" id="c10"><h2>10_双向时间比对</h2><p class="note">新增100字节报文/CRC及合成四时标延迟补偿图；历史示意另标注，仍无标定后的可用硬件钟差。</p><div class="grid">

@@ -1433,6 +1433,26 @@
       ],
       "logs": "",
       "tune": ""
+    },
+    {
+      "id": "script_native50_v11_crc_diagnosis",
+      "title": "native50_v11：同轴拒收分析与功能仿真",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "MATLAB 脚本复算 B 板接收记录的 CRC，按实际串口汇总计数绘制时间分布。采用主工程 PN1000、50 MSPS 和 41 抽头收发 FIR 比较截断及载波极性变化后的判决。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "时间分布和错位来自板上记录。截断、噪声和相位变化来自人工注入。离线载波估计用于功能对照，实际 DLL、Costas 和射频根因仍需同步录波。",
+      "sources": [
+        "results/replay/crc_diagnosis_20261111/run_crc_diagnosis.m",
+        "results/replay/crc_diagnosis_20261111/plot_crc_timeline.m",
+        "scripts/replay/mw_replay_tx.m",
+        "scripts/replay/mw_replay_rx_reference.m"
+      ],
+      "logs": "",
+      "tune": ""
     }
   ],
   "figures": [
@@ -5765,6 +5785,45 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：2026-11-10真实硬件诊断测量。主工程为当前维护的MW_AD9361；本图不是Simulink输出或正常通信验收。新PS经实际暖重载启动，受控60秒诊断预算，运行中最后快照为629次完成，停机后DMA与PL完成计数均为630，表示尾帧随后完成；未据此声称无线接收无丢包。随后定时STOP并报告RF关闭；这只证明该诊断路径能运行和存在RF输出。2秒静默后BBPLL状态仍异常，580次稳态样本中285次原值为0，启用了只观测诊断策略，因此不构成BBPLL合格或可交付结论。ON曲线原文件名为PRE_START_noise，原始名称与数据完整保留；按实际GO时刻2026-11-10T11:21:06.5608Z核对，其采集2026-11-10T11:21:44.993Z至11:21:54.447Z处于TX窗口（+38.432至+47.886秒），所以只增加ON_during_diagnostic语义别名，不能称启动前噪声。OFF是同轮真实STOP/RF关闭确认之后采集。设置相同：1.055GHz中心、50MHz跨度、2001点、RBW30kHz、VBW91kHz、RMS100次、频谱仪内部衰减10dB、前放关闭、参考INT；同轴路径未标定。0.25至4MHz强带302点中位ON/OFF功率比23.172dB，全部点超过10dB；曲线为RBW桶功率，未当作绝对PSD或校准发射功率。频谱峰位置不能当载波频偏，未做相噪、真实I/Q逐点对拍、接收CRC/BER、双向通信、100ms TDD、四时间戳或1ns验收。仪器原始QUES汇总512、POW0保留，未据此宣称所有状态正常。只公开脱敏PNG和简短说明，不公开板卡/下载器身份、DNA、nonce、IP地址、私有路径、源代码、位流或完整UART。模块映射沿用脚本测量模块，不虚构Simulink节点。 MATLAB R2024b仅用于绘制频谱仪的原始实测点和ON/OFF桶功率比，没有运行ADI AD9361模型。板上最终OCM记录再次确认580次稳态采样、285次BBPLL原值为0、全体601次采样无无效读，静默计时59948ms；AppWarm消费phase4/error0/consumed1，原冷启动交接仍保留。"
+    },
+    {
+      "relative_path": "06_帧同步与信息恢复/104_同轴实测首尾坏包_位错误分布.png",
+      "filename": "104_同轴实测首尾坏包_位错误分布.png",
+      "status": "B 板接收内存实测，MATLAB 独立 CRC 复算",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_crc_diagnosis",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：首坏包 13 位分散在 10 字节，均为 0→1。末包前 82 字节正确，后 18 字节有 77 位错误。收到的实际字节已在进入 PS 载荷解析前保存。根因仍需同帧 I/Q 与解调观测。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/105_主工程MATLAB_载荷截断与帧尾对照.png",
+      "filename": "105_主工程MATLAB_载荷截断与帧尾对照.png",
+      "status": "主工程源码功能波形，七组 MATLAB 对照",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_crc_diagnosis",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：第 83 字节截断点由实际差异范围选定。固定噪声下两组分别得到 69 与 75 个错位。最后 11 μs 的截断发生在完整帧末端，载荷仍正确。离线相位估计和已知相位对照只说明模型在这些假设下的判决。实际停止时刻与错误源仍待同步录波。"
+    },
+    {
+      "relative_path": "09_无线性能与鲁棒性/106_同轴实测CRC拒收时间分布.png",
+      "filename": "106_同轴实测CRC拒收时间分布.png",
+      "status": "约 15 分钟同轴试验，运行中段拒收成簇",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_crc_diagnosis",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：按串口汇总的电脑接收时刻分桶。末帧新增一条拒收来自终态内存，在图中只标终态数字。区间时间没有逐帧精度。"
     }
   ],
   "layout_verification": {
