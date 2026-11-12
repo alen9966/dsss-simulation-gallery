@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "copied_files": 188,
+  "copied_files": 203,
   "original_files_preserved": true,
   "files": [
     {
@@ -5851,6 +5851,215 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：实测坏帧的 CRC 与硬件及 MATLAB 重算结果一致失败。参考帧据相符的外层字段和起始 367 位恢复，帧内序号与收到的 CRC 已损坏。首错附近在旋转前的 Prompt I/Q 已发生符号方向变化，旋转命令连续。此结果定位本帧最早有证据的异常阶段，仍需 TX、ADC 与 DLL 同窗观测追溯。公开仅派生图与说明，原始 I/Q 与载荷留本地。"
+    },
+    {
+      "category": 3,
+      "source": "project/results/replay/sync_20261112/final_60ppm_80hz/sync_acquisition.png",
+      "filename": "112_native50_V11_FFT与时域互相关捕获.png",
+      "status": "V11 源码系数和 FFT 共轭 ROM 驱动的 MATLAB 功能回归",
+      "note": "FFT 使用与 V11 实际 I/Q ROM 一致的系数。保留 FFT 峰索引和 cap_loc，独立全采样率互相关给出 DLL 起窗和峰位差。此图用于功能和峰位对拍。",
+      "requested_module_ids": [
+        "script_native50_v11_sync"
+      ],
+      "relative_path": "03_FFT捕获/112_native50_V11_FFT与时域互相关捕获.png",
+      "decoded_pixel_sha256": "fc9e9e40db43a583149e2985629d67dd636e7a93149f4239d2240591378c9b49",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_sync",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：FFT 使用与 V11 实际 I/Q ROM 一致的系数。保留 FFT 峰索引和 cap_loc，独立全采样率互相关给出 DLL 起窗和峰位差。此图用于功能和峰位对拍。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/replay/sync_20261112/final_60ppm_80hz/sync_tracking.png",
+      "filename": "113_native50_V11_DLL_NCO_Costas闭环同步.png",
+      "status": "MATLAB 闭环整帧功能回归，DLL 与载波环均启用",
+      "note": "闭环找到同步头，100 字节一致且 CRC 通过。关闭双环仍能捕获 PN，未检出完整同步头。仿真使用符号级环路和功能旋转模型，RTL 定点截断和流水拍数需另行对拍。",
+      "requested_module_ids": [
+        "script_native50_v11_sync"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/113_native50_V11_DLL_NCO_Costas闭环同步.png",
+      "decoded_pixel_sha256": "7d62881e150199ead514c9e519baed4fb951372c7a236ab9ebebc534bcecd35e",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_sync",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：闭环找到同步头，100 字节一致且 CRC 通过。关闭双环仍能捕获 PN，未检出完整同步头。仿真使用符号级环路和功能旋转模型，RTL 定点截断和流水拍数需另行对拍。"
+    },
+    {
+      "category": 3,
+      "source": "project/results/replay/sync_20261112/official_400us/sync_acquisition.png",
+      "filename": "114_官方AD9361_400us前端与PN捕获.png",
+      "status": "官方 AD9361 模型生成短段 ADC I/Q，MATLAB 完成 PN 捕获",
+      "note": "FFT 粗峰与互相关通过一致性检查，采集长度覆盖 4 个完整跟踪窗口。完整帧、板测与定点流水验证另有独立范围。",
+      "requested_module_ids": [
+        "official_device",
+        "script_native50_v11_sync"
+      ],
+      "relative_path": "03_FFT捕获/114_官方AD9361_400us前端与PN捕获.png",
+      "decoded_pixel_sha256": "a709664b03b685e1aaafefed2d501cf9ec0f99551612b20aaba5510bab8ef22f",
+      "module_refs": [
+        {
+          "id": "official_device",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_native50_v11_sync",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：FFT 粗峰与互相关通过一致性检查，采集长度覆盖 4 个完整跟踪窗口。完整帧、板测与定点流水验证另有独立范围。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/baseline/sync_acquisition.png",
+      "filename": "80_新成果待归类_sync_acquisition_b4766e41.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_b4766e41.png",
+      "decoded_pixel_sha256": "8b3d715907ee6d294742b4ba49c1a5e0b9d06ce65fb011abcd0006d46860a9c1",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/baseline/sync_tracking.png",
+      "filename": "80_新成果待归类_sync_tracking_cb16081c.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_cb16081c.png",
+      "decoded_pixel_sha256": "472588955c0e7fc3a3494ad8d645cab803124aac50258bc75a56ac6b37ba83fc",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/clock_and_cfo/sync_acquisition.png",
+      "filename": "80_新成果待归类_sync_acquisition_fa887f4e.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_fa887f4e.png",
+      "decoded_pixel_sha256": "9a46f33534fb9d16bac967d0f6cdb69be21d75521f3fa1ef778f0327489e4752",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/clock_and_cfo/sync_tracking.png",
+      "filename": "80_新成果待归类_sync_tracking_11051dc1.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_11051dc1.png",
+      "decoded_pixel_sha256": "057eaf03cceb275b99ec8e16a775c27be420ee661c7fbe71ee47d26cc601dc15",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/final_clean/sync_acquisition.png",
+      "filename": "80_新成果待归类_sync_acquisition_1ba1a6fb.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_1ba1a6fb.png",
+      "decoded_pixel_sha256": "11d774fe1c26e5f3f84008070b915ebd3f36f92eeb08117cd7388f2ee2caa3c3",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/final_clean/sync_tracking.png",
+      "filename": "80_新成果待归类_sync_tracking_ef912110.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_ef912110.png",
+      "decoded_pixel_sha256": "15d7c00a8fcb759560ec0bc36f85593cbfddb42bbe1fb3f500e5f546910766d9",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/import_negative/zero/sync_acquisition.png",
+      "filename": "80_新成果待归类_sync_acquisition_4c19f0a5.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_4c19f0a5.png",
+      "decoded_pixel_sha256": "bb7eb9a50e7c9a19a99fca5945700ca0eaa539f18cee1e987b8a546ad5bd25fb",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/loops_disabled/sync_acquisition.png",
+      "filename": "80_新成果待归类_sync_acquisition_b3d0f161.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_b3d0f161.png",
+      "decoded_pixel_sha256": "fc9e9e40db43a583149e2985629d67dd636e7a93149f4239d2240591378c9b49",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/loops_disabled/sync_tracking.png",
+      "filename": "80_新成果待归类_sync_tracking_af5df8ae.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_af5df8ae.png",
+      "decoded_pixel_sha256": "6458793129e941b5b58c20d78fb8f21bfbf5f810de9f9a77777191c853fd7ad8",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/official_400us/sync_tracking.png",
+      "filename": "80_新成果待归类_sync_tracking_f3843e04.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_f3843e04.png",
+      "decoded_pixel_sha256": "7a3cde3c353420137bcb196a2e60a66fba9ee434ba34ef9fa2bf6e1995fdeb83",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/old_demo_regression/injected_header_inversion_diagnostics.png",
+      "filename": "80_新成果待归类_injected_header_inversion_diagnostics_5a6bccb0.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_injected_header_inversion_diagnostics_5a6bccb0.png",
+      "decoded_pixel_sha256": "7b1c593e19e82febe1bc05aed8ced5c2fdd74a380338f0b7b1f480d360ca31d9",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "category": 0,
+      "source": "project/results/replay/sync_20261112/old_demo_regression/synthetic_diagnostics.png",
+      "filename": "80_新成果待归类_synthetic_diagnostics_3f821ab0.png",
+      "status": "待确认",
+      "note": "自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。",
+      "relative_path": "00_导航与方案说明/80_新成果待归类_synthetic_diagnostics_3f821ab0.png",
+      "decoded_pixel_sha256": "692d8ea7577f61ee6130adea77f47af153a05b467eb83f60fee5c328a5c181d3",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
     }
   ]
 }

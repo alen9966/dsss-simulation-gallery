@@ -1507,6 +1507,26 @@
       ],
       "logs": "",
       "tune": ""
+    },
+    {
+      "id": "script_native50_v11_sync",
+      "title": "native50_v11：FFT 捕获与闭环同步回放",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "实际 ROM 的 FFT 捕获由全速率时域互相关核对，DLL 和码 NCO 与 Costas 载波 NCO 逐符号闭环。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "由 MATLAB 脚本生成。DLL 插值与旋转是功能计算，流水、有效拍和板测锁定需用对应数据逐级验证。",
+      "sources": [
+        "run_ad9361_replay.m",
+        "scripts/replay/mw_sync_capture.m",
+        "scripts/replay/mw_sync_track.m",
+        "scripts/replay/mw_sync_plot.m"
+      ],
+      "logs": "",
+      "tune": ""
     }
   ],
   "figures": [
@@ -5955,6 +5975,145 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：实测坏帧的 CRC 与硬件及 MATLAB 重算结果一致失败。参考帧据相符的外层字段和起始 367 位恢复，帧内序号与收到的 CRC 已损坏。首错附近在旋转前的 Prompt I/Q 已发生符号方向变化，旋转命令连续。此结果定位本帧最早有证据的异常阶段，仍需 TX、ADC 与 DLL 同窗观测追溯。公开仅派生图与说明，原始 I/Q 与载荷留本地。"
+    },
+    {
+      "relative_path": "03_FFT捕获/112_native50_V11_FFT与时域互相关捕获.png",
+      "filename": "112_native50_V11_FFT与时域互相关捕获.png",
+      "status": "V11 源码系数和 FFT 共轭 ROM 驱动的 MATLAB 功能回归",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_sync",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：FFT 使用与 V11 实际 I/Q ROM 一致的系数。保留 FFT 峰索引和 cap_loc，独立全采样率互相关给出 DLL 起窗和峰位差。此图用于功能和峰位对拍。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/113_native50_V11_DLL_NCO_Costas闭环同步.png",
+      "filename": "113_native50_V11_DLL_NCO_Costas闭环同步.png",
+      "status": "MATLAB 闭环整帧功能回归，DLL 与载波环均启用",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_sync",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：闭环找到同步头，100 字节一致且 CRC 通过。关闭双环仍能捕获 PN，未检出完整同步头。仿真使用符号级环路和功能旋转模型，RTL 定点截断和流水拍数需另行对拍。"
+    },
+    {
+      "relative_path": "03_FFT捕获/114_官方AD9361_400us前端与PN捕获.png",
+      "filename": "114_官方AD9361_400us前端与PN捕获.png",
+      "status": "官方 AD9361 模型生成短段 ADC I/Q，MATLAB 完成 PN 捕获",
+      "module_refs": [
+        {
+          "id": "official_device",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_native50_v11_sync",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：FFT 粗峰与互相关通过一致性检查，采集长度覆盖 4 个完整跟踪窗口。完整帧、板测与定点流水验证另有独立范围。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_b4766e41.png",
+      "filename": "80_新成果待归类_sync_acquisition_b4766e41.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_cb16081c.png",
+      "filename": "80_新成果待归类_sync_tracking_cb16081c.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_fa887f4e.png",
+      "filename": "80_新成果待归类_sync_acquisition_fa887f4e.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_11051dc1.png",
+      "filename": "80_新成果待归类_sync_tracking_11051dc1.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_1ba1a6fb.png",
+      "filename": "80_新成果待归类_sync_acquisition_1ba1a6fb.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_ef912110.png",
+      "filename": "80_新成果待归类_sync_tracking_ef912110.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_4c19f0a5.png",
+      "filename": "80_新成果待归类_sync_acquisition_4c19f0a5.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_acquisition_b3d0f161.png",
+      "filename": "80_新成果待归类_sync_acquisition_b3d0f161.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_af5df8ae.png",
+      "filename": "80_新成果待归类_sync_tracking_af5df8ae.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_sync_tracking_f3843e04.png",
+      "filename": "80_新成果待归类_sync_tracking_f3843e04.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_injected_header_inversion_diagnostics_5a6bccb0.png",
+      "filename": "80_新成果待归类_injected_header_inversion_diagnostics_5a6bccb0.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
+    },
+    {
+      "relative_path": "00_导航与方案说明/80_新成果待归类_synthetic_diagnostics_3f821ab0.png",
+      "filename": "80_新成果待归类_synthetic_diagnostics_3f821ab0.png",
+      "status": "待确认",
+      "module_refs": [],
+      "panel_map": [],
+      "provenance": "待补充图与模块对应关系。"
     }
   ],
   "layout_verification": {

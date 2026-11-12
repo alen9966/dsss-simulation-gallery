@@ -793,6 +793,16 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="06_%E5%B8%A7%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%81%A2%E5%A4%8D/111_%E5%AE%9E%E6%B5%8B%E5%9D%8F%E5%B8%A7_DLL_Prompt%E9%80%90%E7%AC%A6%E5%8F%B7%E5%AE%9A%E4%BD%8D.png">111_实测坏帧_DLL_Prompt逐符号定位.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">results/replay/rx_p44_20261112/replay_p44_bad_frames.m；results/replay/rx_p44_20261112/simulate_rx_fault_signatures.m</p>
 </details></article>
+<article id="script_native50_v11_sync"><h3>native50_v11：FFT 捕获与闭环同步回放</h3>
+<p class="note">类型：独立脚本/展示；没有对应Simulink块。</p>
+<p>实际 ROM 的 FFT 捕获由全速率时域互相关核对，DLL 和码 NCO 与 Costas 载波 NCO 逐符号闭环。</p><table><tr><th>输入</th><td>配置、COE、历史MATLAB或Xsim导出。</td></tr><tr><th>输出</th><td>图像/统计/示意，不是Simulink端口。</td></tr>
+</table><p><strong>怎么看：</strong>对照图的真实产生路径；没有对应块的图不编造模块名。</p><p class="scope"><strong>验证边界：</strong>由 MATLAB 脚本生成。DLL 插值与旋转是功能计算，流水、有效拍和板测锁定需用对应数据逐级验证。</p>
+<p><strong>对应图：</strong></p><ul class="figlinks">
+<li><a href="03_FFT%E6%8D%95%E8%8E%B7/112_native50_V11_FFT%E4%B8%8E%E6%97%B6%E5%9F%9F%E4%BA%92%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png">112_native50_V11_FFT与时域互相关捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/113_native50_V11_DLL_NCO_Costas%E9%97%AD%E7%8E%AF%E5%90%8C%E6%AD%A5.png">113_native50_V11_DLL_NCO_Costas闭环同步.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="03_FFT%E6%8D%95%E8%8E%B7/114_%E5%AE%98%E6%96%B9AD9361_400us%E5%89%8D%E7%AB%AF%E4%B8%8EPN%E6%8D%95%E8%8E%B7.png">114_官方AD9361_400us前端与PN捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details><summary>实现位置与本地定位命令</summary><p class="note">run_ad9361_replay.m；scripts/replay/mw_sync_capture.m；scripts/replay/mw_sync_track.m；scripts/replay/mw_sync_plot.m</p>
+</details></article>
 <h2 id="group-official">E · 官方 AD9361 器件收发台架</h2>
 <p class="groupnote">模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。</p>
 <section class="model-diagram" id="diagram-official"><h3>实际 Simulink 模型框图</h3><p>models/dsss_ad9361_official.slx实际顶层，由MATLAB直接导出；入口open_ad9361_simulink.m，独立构建器build_ad9361_official_simulink.m。默认100ms/70km：148字节在12.5kbps下占94.72ms，另含约233.495us传播时间。waveform模式2ms/70km供波形观察；smoke模式20us/零距离仅做数值回归。功能级组帧/PN1000/FIR201/抽取及量化预生成50MSPS输入，连接官方AD9361 TX FIR/HB/DAC/RF、RF路径Delay/Gain、官方RX RF/ADC/HB/FIR，输出TX/RX Scope、officialRx和Simulation_Time。DAC200MHz/ADC400MHz，RF2GHz，理想公共LO，固定幅度衰减1e-4(-80dB)；70km传播在200MSPS路径取整为46699点，距离与StopTime独立。模拟带宽8/12.5MHz为候选规格，器件噪声非线性未实物标定；无外加AWGN/多径/衰落/独立铷钟。Scope使用1ms Scroll累计时间窗口及有界显示历史，进度每1ms记录；完整源数据在运行初始化时生成，不重复播放保存的12000点预览。新进程20us回归1001点与已验证脚本I/Q最大差值0；100ms初始化5,008,000输入点通过。100ms是已保存配置，不等于长时运行或完整载荷验收；2ms/70km实际计算得到100001点、到达前后RMS分别27.7102/120.3938码值；重验绘图通过。台架无在线DLL/Costas/解帧，完整通信功能参考仍为dsss_ad9361_link.mdl；非真实RTL/实板/测时精度证明。原始三模型保留；公开仅顶层图与说明，不发布官方模型/IP。 当前用户确认条件已于2026-10-16改为1.055GHz、10MHz参考、≤5km；本图仍保留2026-10-15的2GHz/70km条件，不能当成新场景验证，见field_environment.html。</p><div class="diagram-toolbar"><button type="button" data-diagram="official" data-zoom="1">适合宽度</button><button type="button" data-diagram="official" data-zoom="2">放大 2 倍</button><button type="button" data-diagram="official" data-zoom="3">放大 3 倍</button><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" target="_blank" rel="noopener">打开高清原图 / 下载</a></div><p class="note">放大后可横向滚动查看。模型中的S-function内部算法解释见各模块卡片。</p><div class="diagram-viewport"><img id="image-official" loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png" alt="E · 官方 AD9361 器件收发台架实际模块及连线"></div></section>
@@ -822,6 +832,7 @@ hilite_system(&#x27;dsss_ad9361_official/Project_IQ&#x27;,&#x27;find&#x27;);</pr
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/21_%E5%AE%98%E6%96%B9AD9361_%E5%99%A8%E4%BB%B6%E6%94%B6%E5%8F%91Simulink%E6%A8%A1%E5%9E%8B.png">21_官方AD9361_器件收发Simulink模型.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/38_%E5%AE%98%E6%96%B9AD9361_70km_2ms%E8%BF%9E%E7%BB%AD%E6%B3%A2%E5%BD%A2.png">38_官方AD9361_70km_2ms连续波形.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/100_%E5%AE%98%E6%96%B9AD9361_%E5%BD%95%E6%B3%A2%E5%85%A5%E5%8F%A3%E9%A9%B1%E5%8A%A8_%E7%9F%AD%E6%AE%B5%E4%BF%A1%E5%8F%B7%E9%80%9A%E8%B7%AF.png">100_官方AD9361_录波入口驱动_短段信号通路.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="03_FFT%E6%8D%95%E8%8E%B7/114_%E5%AE%98%E6%96%B9AD9361_400us%E5%89%8D%E7%AB%AF%E4%B8%8EPN%E6%8D%95%E8%8E%B7.png">114_官方AD9361_400us前端与PN捕获.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">open_ad9361_simulink.m；fpga_ad9361/tools/build_ad9361_official_simulink.m；fpga_ad9361/tools/ad9361_official_model_init.m；fpga_ad9361/tools/ad9361_official_progress_sfun.m；fpga_ad9361/tools/ad9361_official_model_presave.m</p>
 <pre>open_ad9361_simulink;
 hilite_system(&#x27;dsss_ad9361_official/TX&#x27;,&#x27;find&#x27;);</pre>
@@ -1643,5 +1654,35 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 <details><summary>110_Costas相位回绕_CORDIC符号翻转_RTL分段.png</summary><p>已按登记信息关联模块；具体场景及信号说明：五组为定向激励。超过 40 位范围的两组因提前截断产生约 98.4° 的圆周误差。同一 I/Q 经实际 CORDIC 后，I 分量由正变负。跨 ±π 的锁定边界是另一处判据问题。当前坏帧是否进入该算术边界需要 B 板同帧数据验证。只发布仿真图及说明。</p>
 </details>
 <details><summary>111_实测坏帧_DLL_Prompt逐符号定位.png</summary><p>已按登记信息关联模块；具体场景及信号说明：实测坏帧的 CRC 与硬件及 MATLAB 重算结果一致失败。参考帧据相符的外层字段和起始 367 位恢复，帧内序号与收到的 CRC 已损坏。首错附近在旋转前的 Prompt I/Q 已发生符号方向变化，旋转命令连续。此结果定位本帧最早有证据的异常阶段，仍需 TX、ADC 与 DLL 同窗观测追溯。公开仅派生图与说明，原始 I/Q 与载荷留本地。</p>
+</details>
+<details><summary>112_native50_V11_FFT与时域互相关捕获.png</summary><p>已按登记信息关联模块；具体场景及信号说明：FFT 使用与 V11 实际 I/Q ROM 一致的系数。保留 FFT 峰索引和 cap_loc，独立全采样率互相关给出 DLL 起窗和峰位差。此图用于功能和峰位对拍。</p>
+</details>
+<details><summary>113_native50_V11_DLL_NCO_Costas闭环同步.png</summary><p>已按登记信息关联模块；具体场景及信号说明：闭环找到同步头，100 字节一致且 CRC 通过。关闭双环仍能捕获 PN，未检出完整同步头。仿真使用符号级环路和功能旋转模型，RTL 定点截断和流水拍数需另行对拍。</p>
+</details>
+<details><summary>114_官方AD9361_400us前端与PN捕获.png</summary><p>已按登记信息关联模块；具体场景及信号说明：FFT 粗峰与互相关通过一致性检查，采集长度覆盖 4 个完整跟踪窗口。完整帧、板测与定点流水验证另有独立范围。</p>
+</details>
+<details><summary>80_新成果待归类_sync_acquisition_b4766e41.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_tracking_cb16081c.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_acquisition_fa887f4e.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_tracking_11051dc1.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_acquisition_1ba1a6fb.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_tracking_ef912110.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_acquisition_4c19f0a5.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_acquisition_b3d0f161.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_tracking_af5df8ae.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_sync_tracking_f3843e04.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_injected_header_inversion_diagnostics_5a6bccb0.png</summary><p>待补充图与模块对应关系。</p>
+</details>
+<details><summary>80_新成果待归类_synthetic_diagnostics_3f821ab0.png</summary><p>待补充图与模块对应关系。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

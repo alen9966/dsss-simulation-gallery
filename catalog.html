@@ -75,6 +75,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <option value="script_native50_v11_dll_ip_replay">native50_v11：DLL 相关算术与有效窗对拍</option>
 <option value="script_native50_v11_rx_3fix">native50_v11：DLL 和归一化三项修正</option>
 <option value="script_native50_v11_rx_p44_replay">native50_v11：44 dB 实测坏帧判决回放</option>
+<option value="script_native50_v11_sync">native50_v11：FFT 捕获与闭环同步回放</option>
 </select> <a id="module-help" href="modules.html">查看模块说明</a><p id="filter-count">显示全部图片</p></div>
 <section data-category="0" id="c0"><h2>00_导航与方案说明</h2><p class="note">迁移主线、实际模型图、导航入口与历史方案框图；不同图的来源和验证范围见各自图注。</p><div class="grid">
 <article data-era="historical" data-modules="script_ui"><span class="badge old">历史参考</span><h3>90_旧中频_参数界面.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" alt="90_旧中频_参数界面.png"></a><p>历史界面截图，不表示当前运行状态。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
@@ -243,6 +244,54 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <li><a href="modules.html#ad_frame">06 信息恢复：BPSK判决、帧头与100字节载荷</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：对照已验证的AD9361连续TX/RX版本，非后续TDD版本进度图。标明250→50MSPS取样/量化、LVDS FIFO、AD9361内部ADC/DAC/HB/模拟链、50→250MSPS插值、FFT/DLL/归一化数值保护/Costas和载荷检查；注明I/Q位宽与valid。仅源码结构说明，无新增仿真数据、PPS精度或80ns解决结论。</p>
 </details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_acquisition_b4766e41.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_b4766e41.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_b4766e41.png" alt="80_新成果待归类_sync_acquisition_b4766e41.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_tracking_cb16081c.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_cb16081c.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_cb16081c.png" alt="80_新成果待归类_sync_tracking_cb16081c.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_acquisition_fa887f4e.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_fa887f4e.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_fa887f4e.png" alt="80_新成果待归类_sync_acquisition_fa887f4e.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_tracking_11051dc1.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_11051dc1.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_11051dc1.png" alt="80_新成果待归类_sync_tracking_11051dc1.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_acquisition_1ba1a6fb.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_1ba1a6fb.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_1ba1a6fb.png" alt="80_新成果待归类_sync_acquisition_1ba1a6fb.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_tracking_ef912110.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_ef912110.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_ef912110.png" alt="80_新成果待归类_sync_tracking_ef912110.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_acquisition_4c19f0a5.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_4c19f0a5.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_4c19f0a5.png" alt="80_新成果待归类_sync_acquisition_4c19f0a5.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_acquisition_b3d0f161.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_b3d0f161.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_acquisition_b3d0f161.png" alt="80_新成果待归类_sync_acquisition_b3d0f161.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_tracking_af5df8ae.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_af5df8ae.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_af5df8ae.png" alt="80_新成果待归类_sync_tracking_af5df8ae.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_sync_tracking_f3843e04.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_f3843e04.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_sync_tracking_f3843e04.png" alt="80_新成果待归类_sync_tracking_f3843e04.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_injected_header_inversion_diagnostics_5a6bccb0.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_injected_header_inversion_diagnostics_5a6bccb0.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_injected_header_inversion_diagnostics_5a6bccb0.png" alt="80_新成果待归类_injected_header_inversion_diagnostics_5a6bccb0.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
+<article data-era="current" data-modules=""><span class="badge pending">待确认</span><h3>80_新成果待归类_synthetic_diagnostics_3f821ab0.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_synthetic_diagnostics_3f821ab0.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/80_%E6%96%B0%E6%88%90%E6%9E%9C%E5%BE%85%E5%BD%92%E7%B1%BB_synthetic_diagnostics_3f821ab0.png" alt="80_新成果待归类_synthetic_diagnostics_3f821ab0.png"></a><p>自动发现的新仿真图；请在simulation_figure_registry.json补充分类、场景及验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li>尚未登记模块；请补充图源和关联节点。</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>待补充图与模块对应关系。</p>
+</details></article>
 </div></section>
 <section data-category="1" id="c1"><h2>01_发送与接收波形</h2><p class="note">已有新板单窗/双窗总览。含频谱、星座、DLL及码片叠加，尚未拆成独立图。</p><div class="grid">
 <article data-era="current" data-modules="ad_tx ad_channel ad_rx ad_dll ad_costas ad_frame"><span class="badge">当前功能参考</span><h3>01_AD9361_单窗波形总览.png</h3><a href="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" target="_blank"><img loading="lazy" src="01_%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B3%A2%E5%BD%A2/01_AD9361_%E5%8D%95%E7%AA%97%E6%B3%A2%E5%BD%A2%E6%80%BB%E8%A7%88.png" alt="01_AD9361_单窗波形总览.png"></a><p>6子图；使用设定信道参数，不是70km实测。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
@@ -355,6 +404,15 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>当前MATLAB V3节点实验室：open_dsss_node_dashboard与dsss_tuning_node_plot取实际功能结果绘图；功能框图/脚本输出，非生产Simulink块或RTL/硬件验收。</p>
 <p><strong>节点特性 · 当前参数→运算/系数→响应</strong><br>选中功能节点的实算特性或独立预算<br>FIR生成量化系数；Costas使用raw40事件；独立FFT/插值/时标不串入主链。</p>
 <p><strong>观测/参数 · 实际缓存波形、来源、生效范围</strong><br>连续原始窗口或符号事件<br>暂停冻结同一计算；无过采样的符号事件不虚构眼图，未观测的CDC/LVDS/RF信号不判PASS。</p>
+</details></article>
+<article data-era="current" data-modules="script_native50_v11_sync"><span class="badge">V11 源码系数和 FFT 共轭 ROM 驱动的 MATLAB 功能回归</span><h3>112_native50_V11_FFT与时域互相关捕获.png</h3><a href="03_FFT%E6%8D%95%E8%8E%B7/112_native50_V11_FFT%E4%B8%8E%E6%97%B6%E5%9F%9F%E4%BA%92%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png" target="_blank"><img loading="lazy" src="03_FFT%E6%8D%95%E8%8E%B7/112_native50_V11_FFT%E4%B8%8E%E6%97%B6%E5%9F%9F%E4%BA%92%E7%9B%B8%E5%85%B3%E6%8D%95%E8%8E%B7.png" alt="112_native50_V11_FFT与时域互相关捕获.png"></a><p>FFT 使用与 V11 实际 I/Q ROM 一致的系数。保留 FFT 峰索引和 cap_loc，独立全采样率互相关给出 DLL 起窗和峰位差。此图用于功能和峰位对拍。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_native50_v11_sync">native50_v11：FFT 捕获与闭环同步回放</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：FFT 使用与 V11 实际 I/Q ROM 一致的系数。保留 FFT 峰索引和 cap_loc，独立全采样率互相关给出 DLL 起窗和峰位差。此图用于功能和峰位对拍。</p>
+</details></article>
+<article data-era="current" data-modules="official_device script_native50_v11_sync"><span class="badge">官方 AD9361 模型生成短段 ADC I/Q，MATLAB 完成 PN 捕获</span><h3>114_官方AD9361_400us前端与PN捕获.png</h3><a href="03_FFT%E6%8D%95%E8%8E%B7/114_%E5%AE%98%E6%96%B9AD9361_400us%E5%89%8D%E7%AB%AF%E4%B8%8EPN%E6%8D%95%E8%8E%B7.png" target="_blank"><img loading="lazy" src="03_FFT%E6%8D%95%E8%8E%B7/114_%E5%AE%98%E6%96%B9AD9361_400us%E5%89%8D%E7%AB%AF%E4%B8%8EPN%E6%8D%95%E8%8E%B7.png" alt="114_官方AD9361_400us前端与PN捕获.png"></a><p>FFT 粗峰与互相关通过一致性检查，采集长度覆盖 4 个完整跟踪窗口。完整帧、板测与定点流水验证另有独立范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#official_device">E2 官方 AD9361 TX / RX 器件模型</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#script_native50_v11_sync">native50_v11：FFT 捕获与闭环同步回放</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：FFT 粗峰与互相关通过一致性检查，采集长度覆盖 4 个完整跟踪窗口。完整帧、板测与定点流水验证另有独立范围。</p>
 </details></article>
 </div></section>
 <section data-category="4" id="c4"><h2>04_DLL与解扩</h2><p class="note">新增功能Early/Prompt/Late、鉴别误差、采样偏移和星座独立图；功能DLL与原始raw32 RTL系数/轨迹仍须区分。</p><div class="grid">
@@ -1086,6 +1144,10 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 <li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="modules.html#script_v11_native50_release">V11原生50 MHz：数字链与接口分段验证</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：五组为定向激励。超过 40 位范围的两组因提前截断产生约 98.4° 的圆周误差。同一 I/Q 经实际 CORDIC 后，I 分量由正变负。跨 ±π 的锁定边界是另一处判据问题。当前坏帧是否进入该算术边界需要 B 板同帧数据验证。只发布仿真图及说明。</p>
+</details></article>
+<article data-era="current" data-modules="script_native50_v11_sync"><span class="badge">MATLAB 闭环整帧功能回归，DLL 与载波环均启用</span><h3>113_native50_V11_DLL_NCO_Costas闭环同步.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/113_native50_V11_DLL_NCO_Costas%E9%97%AD%E7%8E%AF%E5%90%8C%E6%AD%A5.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/113_native50_V11_DLL_NCO_Costas%E9%97%AD%E7%8E%AF%E5%90%8C%E6%AD%A5.png" alt="113_native50_V11_DLL_NCO_Costas闭环同步.png"></a><p>闭环找到同步头，100 字节一致且 CRC 通过。关闭双环仍能捕获 PN，未检出完整同步头。仿真使用符号级环路和功能旋转模型，RTL 定点截断和流水拍数需另行对拍。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_native50_v11_sync">native50_v11：FFT 捕获与闭环同步回放</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：闭环找到同步头，100 字节一致且 CRC 通过。关闭双环仍能捕获 PN，未检出完整同步头。仿真使用符号级环路和功能旋转模型，RTL 定点截断和流水拍数需另行对拍。</p>
 </details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">当前MATLAB可视化参数探索：自定义FIR、Costas、码率与信道；与历史旧方案场景分开。功能探索不等于真实RTL或70km无线性能验收。</p><div class="grid">
