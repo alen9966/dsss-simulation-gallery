@@ -1076,6 +1076,11 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 <li><a href="modules.html#script_native50_v11_rx_3fix">native50_v11：DLL 和归一化三项修正</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。</p>
 </details></article>
+<article data-era="current" data-modules="ad_costas script_v11_native50_release"><span class="badge">实际 NCO 和 CORDIC IP 分段仿真，MATLAB 根据 XSim 日志绘图</span><h3>110_Costas相位回绕_CORDIC符号翻转_RTL分段.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/110_Costas%E7%9B%B8%E4%BD%8D%E5%9B%9E%E7%BB%95_CORDIC%E7%AC%A6%E5%8F%B7%E7%BF%BB%E8%BD%AC_RTL%E5%88%86%E6%AE%B5.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/110_Costas%E7%9B%B8%E4%BD%8D%E5%9B%9E%E7%BB%95_CORDIC%E7%AC%A6%E5%8F%B7%E7%BF%BB%E8%BD%AC_RTL%E5%88%86%E6%AE%B5.png" alt="110_Costas相位回绕_CORDIC符号翻转_RTL分段.png"></a><p>五组为定向激励。超过 40 位范围的两组因提前截断产生约 98.4° 的圆周误差。同一 I/Q 经实际 CORDIC 后，I 分量由正变负。跨 ±π 的锁定边界是另一处判据问题。当前坏帧是否进入该算术边界需要 B 板同帧数据验证。只发布仿真图及说明。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#ad_costas">05 载波同步：归一化与Costas环</a>：登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="modules.html#script_v11_native50_release">V11原生50 MHz：数字链与接口分段验证</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：五组为定向激励。超过 40 位范围的两组因提前截断产生约 98.4° 的圆周误差。同一 I/Q 经实际 CORDIC 后，I 分量由正变负。跨 ±π 的锁定边界是另一处判据问题。当前坏帧是否进入该算术边界需要 B 板同帧数据验证。只发布仿真图及说明。</p>
+</details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">当前MATLAB可视化参数探索：自定义FIR、Costas、码率与信道；与历史旧方案场景分开。功能探索不等于真实RTL或70km无线性能验收。</p><div class="grid">
 <article data-era="historical" data-modules="script_link"><span class="badge old">历史参考</span><h3>90_旧方案_无噪声70km.png</h3><a href="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" target="_blank"><img loading="lazy" src="09_%E6%97%A0%E7%BA%BF%E6%80%A7%E8%83%BD%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7/90_%E6%97%A7%E6%96%B9%E6%A1%88_%E6%97%A0%E5%99%AA%E5%A3%B070km.png" alt="90_旧方案_无噪声70km.png"></a><p>旧信道/接口模型及假设，不是AD9361新板无线性能验收。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">

@@ -204,6 +204,7 @@ hilite_system(&#x27;dsss_ad9361_link/FFT1024_DLL_20000point&#x27;,&#x27;find&#x2
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/59_%E7%9C%9F%E5%AE%9ECostas%E9%97%AD%E7%8E%AF_%E6%95%B0%E5%80%BC%E4%BF%9D%E6%8A%A4_%E9%A2%91%E5%B7%AE%E5%B9%85%E5%BA%A6%E7%AA%81%E5%8F%98%E5%AF%B9%E7%85%A7.png">59_真实Costas闭环_数值保护_频差幅度突变对照.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/60_AD9361%E5%8F%8C%E6%9D%BF%E5%AE%9E%E6%B5%8B_%E6%95%B0%E5%80%BC%E4%BF%9D%E6%8A%A4_%E5%A2%9E%E7%9B%8A%E7%AA%81%E5%8F%98%E4%B8%8E%E6%8C%81%E7%BB%AD%E6%8E%A5%E6%94%B6.png">60_AD9361双板实测_数值保护_增益突变与持续接收.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/31_AD9361_%E8%BF%9E%E7%BB%AD%E6%94%B6%E5%8F%91%E5%9F%BA%E7%BA%BF%E4%BF%A1%E5%8F%B7%E9%93%BE.png">31_AD9361_连续收发基线信号链.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/110_Costas%E7%9B%B8%E4%BD%8D%E5%9B%9E%E7%BB%95_CORDIC%E7%AC%A6%E5%8F%B7%E7%BF%BB%E8%BD%AC_RTL%E5%88%86%E6%AE%B5.png">110_Costas相位回绕_CORDIC符号翻转_RTL分段.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">scripts/system/dsss_ad9361_sfun.m；scripts/system/dsss_ad9361_step.m；scripts/wireless/dsss_wireless_step.m；scripts/wireless/dsss_costas_integer_update.m；scripts/system/dsss_costas_lock_metrics.m</p>
 <pre>setup_dsss_project;
 open_system(&#x27;models/dsss_ad9361_link.mdl&#x27;);
@@ -742,6 +743,7 @@ hilite_system(&#x27;dsss_wireless_link/Costas_I_Q&#x27;,&#x27;find&#x27;);</pre>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/101_A%E6%9D%BFRF%E5%AE%9E%E6%B5%8B_RMS%E6%97%A9%E6%99%9A%E9%A2%91%E8%B0%B1%E4%B8%8E%E6%BA%90%E7%A0%81%E5%8F%82%E8%80%83.png">101_A板RF实测_RMS早晚频谱与源码参考.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/102_A%E6%9D%BFRF%E5%AE%9E%E6%B5%8B_ON_OFF%E5%B7%AE%E4%B8%8E%E5%8A%9F%E8%83%BD%E5%8F%82%E8%80%83%E6%AE%8B%E5%B7%AE.png">102_A板RF实测_ON_OFF差与功能参考残差.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 <li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/103_N7_PS%E6%9A%96%E6%9B%B4%E6%96%B0%E4%B8%8E60%E7%A7%92RF%E5%AE%9E%E6%B5%8B_BBPLL%E7%8A%B6%E6%80%81%E6%9C%AA%E5%90%88%E6%A0%BC.png">103_N7_PS暖更新与60秒RF实测_BBPLL状态未合格.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
+<li><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/110_Costas%E7%9B%B8%E4%BD%8D%E5%9B%9E%E7%BB%95_CORDIC%E7%AC%A6%E5%8F%B7%E7%BF%BB%E8%BD%AC_RTL%E5%88%86%E6%AE%B5.png">110_Costas相位回绕_CORDIC符号翻转_RTL分段.png</a> — 登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details><summary>实现位置与本地定位命令</summary><p class="note">fpga_ad9361/native50/v11/rtl/top/MW_BiDir_Transceiver_Top.v；fpga_ad9361/native50/v11/rtl/rx/phy_rx_top.v；fpga_ad9361/native50/v11/sim/rx/tb_rx_chain.sv；fpga_ad9361/native50/v11/scripts/plot_release_verification.py；fpga_ad9361/native50/v11/results/ps_wireless_20261025/phy_hold_rawio_candidate_192237/gallery/make_summary.py</p>
 </details></article>
 <article id="script_native50_v3_replay"><h3>native50_v3：实测I/Q导入与源码功能回放</h3>
@@ -1634,5 +1636,7 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 <details><summary>108_DLL与归一化三项修正_MATLAB和RTL对拍.png</summary><p>已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。</p>
 </details>
 <details><summary>109_44dB实测坏帧_MATLAB判决回放.png</summary><p>已按登记信息关联模块；具体场景及信号说明：实测输入是板上保存的判决字节。首坏帧仅连续19位与预期反相，CRC字段保持完整。末坏帧序号未能确认，图中偏移与极性曲线只表示候选拟合。根因需要同帧I/Q、相位和码环标签。图中不含载荷字节或原始抓取。</p>
+</details>
+<details><summary>110_Costas相位回绕_CORDIC符号翻转_RTL分段.png</summary><p>已按登记信息关联模块；具体场景及信号说明：五组为定向激励。超过 40 位范围的两组因提前截断产生约 98.4° 的圆周误差。同一 I/Q 经实际 CORDIC 后，I 分量由正变负。跨 ±π 的锁定边界是另一处判据问题。当前坏帧是否进入该算术边界需要 B 板同帧数据验证。只发布仿真图及说明。</p>
 </details>
 <script>document.querySelectorAll('[data-diagram][data-zoom]').forEach(button=>button.addEventListener('click',()=>{const image=document.getElementById('image-'+button.dataset.diagram);image.style.width=(100*Number(button.dataset.zoom))+'%';}));</script></main></html>

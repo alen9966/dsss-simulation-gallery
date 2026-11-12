@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "copied_files": 186,
+  "copied_files": 187,
   "original_files_preserved": true,
   "files": [
     {
@@ -5796,6 +5796,31 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：实测输入是板上保存的判决字节。首坏帧仅连续19位与预期反相，CRC字段保持完整。末坏帧序号未能确认，图中偏移与极性曲线只表示候选拟合。根因需要同帧I/Q、相位和码环标签。图中不含载荷字节或原始抓取。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/replay/rx_symbol_trace_20261112/costas_boundary_xsim_matlab.png",
+      "filename": "110_Costas相位回绕_CORDIC符号翻转_RTL分段.png",
+      "status": "实际 NCO 和 CORDIC IP 分段仿真，MATLAB 根据 XSim 日志绘图",
+      "note": "五组为定向激励。超过 40 位范围的两组因提前截断产生约 98.4° 的圆周误差。同一 I/Q 经实际 CORDIC 后，I 分量由正变负。跨 ±π 的锁定边界是另一处判据问题。当前坏帧是否进入该算术边界需要 B 板同帧数据验证。只发布仿真图及说明。",
+      "requested_module_ids": [
+        "ad_costas",
+        "script_v11_native50_release"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/110_Costas相位回绕_CORDIC符号翻转_RTL分段.png",
+      "decoded_pixel_sha256": "0394174875418711fef33b3bb9545923bedc8d7fad9d2a675b1d821214317558",
+      "module_refs": [
+        {
+          "id": "ad_costas",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        },
+        {
+          "id": "script_v11_native50_release",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：五组为定向激励。超过 40 位范围的两组因提前截断产生约 98.4° 的圆周误差。同一 I/Q 经实际 CORDIC 后，I 分量由正变负。跨 ±π 的锁定边界是另一处判据问题。当前坏帧是否进入该算术边界需要 B 板同帧数据验证。只发布仿真图及说明。"
     }
   ]
 }
