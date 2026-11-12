@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "copied_files": 184,
+  "copied_files": 185,
   "original_files_preserved": true,
   "files": [
     {
@@ -5756,6 +5756,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/replay/rx_3fix_20261112/rx_3fix_rtl_matlab.png",
+      "filename": "108_DLL与归一化三项修正_MATLAB和RTL对拍.png",
+      "status": "实际 RTL 段修前修后对拍，MATLAB 独立计算相关窗和 DLL 商值",
+      "note": "三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。",
+      "requested_module_ids": [
+        "script_native50_v11_rx_3fix"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/108_DLL与归一化三项修正_MATLAB和RTL对拍.png",
+      "decoded_pixel_sha256": "a2684584805cd0884128328b007b52981b068ff93d9eb644e86c125e8dbf1203",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_rx_3fix",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。"
     }
   ]
 }

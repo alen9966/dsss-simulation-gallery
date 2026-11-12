@@ -839,6 +839,18 @@ native50_v11：DLL 相关算术与有效窗对拍
 实现：results/replay/dll_legacy_ip_20261112/run_replay.py；results/replay/dll_legacy_ip_20261112/tb_dll_ip.sv；results/replay/dll_legacy_ip_20261112/dll_ip_replay.m
 对应图：08_MATLAB_Simulink_RTL对照/107_DLL相关累加_IP逐拍对拍与有效中断.png；登记的新图对应模块；场景及信号说明见图注
 
+native50_v11：DLL 和归一化三项修正
+
+作用：将实际 RTL 和生成 IP 的输出交给 MATLAB，逐项校验相关窗、鉴相商值和归一化输出。
+输入：配置、COE、历史MATLAB或Xsim导出。
+输出：图像/统计/示意，不是Simulink端口。
+观察：对照图的真实产生路径；没有对应块的图不编造模块名。
+边界：独立脚本和 RTL 分段注入。图中数据来自测试台，板上 CRC 和完整链另行验收。
+日志：
+参数：
+实现：results/replay/rx_3fix_20261112/verify_rx_3fix.m
+对应图：08_MATLAB_Simulink_RTL对照/108_DLL与归一化三项修正_MATLAB和RTL对拍.png；登记的新图对应模块；场景及信号说明见图注
+
 E · 官方 AD9361 器件收发台架
 模型文件：models/dsss_ad9361_official.slx；入口open_ad9361_simulink。官方器件收发台架，与A组完整通信功能参考明确区分。
 实际模型框图：00_导航与方案说明/21_官方AD9361_器件收发Simulink模型.png
@@ -1673,3 +1685,6 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 
 图：08_MATLAB_Simulink_RTL对照/107_DLL相关累加_IP逐拍对拍与有效中断.png
 来源：已按登记信息关联模块；具体场景及信号说明：测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。
+
+图：08_MATLAB_Simulink_RTL对照/108_DLL与归一化三项修正_MATLAB和RTL对拍.png
+来源：已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。

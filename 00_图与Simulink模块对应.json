@@ -1472,6 +1472,23 @@
       ],
       "logs": "",
       "tune": ""
+    },
+    {
+      "id": "script_native50_v11_rx_3fix",
+      "title": "native50_v11：DLL 和归一化三项修正",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "将实际 RTL 和生成 IP 的输出交给 MATLAB，逐项校验相关窗、鉴相商值和归一化输出。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "独立脚本和 RTL 分段注入。图中数据来自测试台，板上 CRC 和完整链另行验收。",
+      "sources": [
+        "results/replay/rx_3fix_20261112/verify_rx_3fix.m"
+      ],
+      "logs": "",
+      "tune": ""
     }
   ],
   "figures": [
@@ -5856,6 +5873,19 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/108_DLL与归一化三项修正_MATLAB和RTL对拍.png",
+      "filename": "108_DLL与归一化三项修正_MATLAB和RTL对拍.png",
+      "status": "实际 RTL 段修前修后对拍，MATLAB 独立计算相关窗和 DLL 商值",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_rx_3fix",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。"
     }
   ],
   "layout_verification": {

@@ -73,6 +73,7 @@ img{width:100%;height:240px;object-fit:contain;background:#f8fafc}h3{font-size:1
 <option value="script_native50_v3_replay">native50_v3：实测I/Q导入与源码功能回放</option>
 <option value="script_native50_v11_crc_diagnosis">native50_v11：同轴拒收分析与功能仿真</option>
 <option value="script_native50_v11_dll_ip_replay">native50_v11：DLL 相关算术与有效窗对拍</option>
+<option value="script_native50_v11_rx_3fix">native50_v11：DLL 和归一化三项修正</option>
 </select> <a id="module-help" href="modules.html">查看模块说明</a><p id="filter-count">显示全部图片</p></div>
 <section data-category="0" id="c0"><h2>00_导航与方案说明</h2><p class="note">迁移主线、实际模型图、导航入口与历史方案框图；不同图的来源和验证范围见各自图注。</p><div class="grid">
 <article data-era="historical" data-modules="script_ui"><span class="badge old">历史参考</span><h3>90_旧中频_参数界面.png</h3><a href="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" target="_blank"><img loading="lazy" src="00_%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%B9%E6%A1%88%E8%AF%B4%E6%98%8E/90_%E6%97%A7%E4%B8%AD%E9%A2%91_%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2.png" alt="90_旧中频_参数界面.png"></a><p>历史界面截图，不表示当前运行状态。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
@@ -1065,6 +1066,10 @@ D面板区分通信与日志问题：B控制台队列丢记录增加1851，串�
 <article data-era="current" data-modules="script_native50_v11_dll_ip_replay"><span class="badge">实际 RTL 段。旧 IP 与当前 RTL 逐拍一致，人工中断后相关窗保留残量</span><h3>107_DLL相关累加_IP逐拍对拍与有效中断.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/107_DLL%E7%9B%B8%E5%85%B3%E7%B4%AF%E5%8A%A0_IP%E9%80%90%E6%8B%8D%E5%AF%B9%E6%8B%8D%E4%B8%8E%E6%9C%89%E6%95%88%E4%B8%AD%E6%96%AD.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/107_DLL%E7%9B%B8%E5%85%B3%E7%B4%AF%E5%8A%A0_IP%E9%80%90%E6%8B%8D%E5%AF%B9%E6%8B%8D%E4%B8%8E%E6%9C%89%E6%95%88%E4%B8%AD%E6%96%AD.png" alt="107_DLL相关累加_IP逐拍对拍与有效中断.png"></a><p>测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
 <li><a href="modules.html#script_native50_v11_dll_ip_replay">native50_v11：DLL 相关算术与有效窗对拍</a>：登记的新图对应模块；场景及信号说明见图注</li>
 </ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。</p>
+</details></article>
+<article data-era="current" data-modules="script_native50_v11_rx_3fix"><span class="badge">实际 RTL 段修前修后对拍，MATLAB 独立计算相关窗和 DLL 商值</span><h3>108_DLL与归一化三项修正_MATLAB和RTL对拍.png</h3><a href="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/108_DLL%E4%B8%8E%E5%BD%92%E4%B8%80%E5%8C%96%E4%B8%89%E9%A1%B9%E4%BF%AE%E6%AD%A3_MATLAB%E5%92%8CRTL%E5%AF%B9%E6%8B%8D.png" target="_blank"><img loading="lazy" src="08_MATLAB_Simulink_RTL%E5%AF%B9%E7%85%A7/108_DLL%E4%B8%8E%E5%BD%92%E4%B8%80%E5%8C%96%E4%B8%89%E9%A1%B9%E4%BF%AE%E6%AD%A3_MATLAB%E5%92%8CRTL%E5%AF%B9%E6%8B%8D.png" alt="108_DLL与归一化三项修正_MATLAB和RTL对拍.png"></a><p>三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。</p><p><strong>对应模块 / 图源：</strong></p><ul class="module-links">
+<li><a href="modules.html#script_native50_v11_rx_3fix">native50_v11：DLL 和归一化三项修正</a>：登记的新图对应模块；场景及信号说明见图注</li>
+</ul><details class="panel-note"><summary>这张图从哪里取数 / 如何阅读</summary><p>已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。</p>
 </details></article>
 </div></section>
 <section data-category="9" id="c9"><h2>09_无线性能与鲁棒性</h2><p class="note">当前MATLAB可视化参数探索：自定义FIR、Costas、码率与信道；与历史旧方案场景分开。功能探索不等于真实RTL或70km无线性能验收。</p><div class="grid">
