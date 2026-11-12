@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-11",
-  "copied_files": 183,
+  "date": "2026-11-12",
+  "copied_files": 184,
   "original_files_preserved": true,
   "files": [
     {
@@ -5736,6 +5736,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：按串口汇总的电脑接收时刻分桶。末帧新增一条拒收来自终态内存，在图中只标终态数字。区间时间没有逐帧精度。"
+    },
+    {
+      "category": 8,
+      "source": "project/results/replay/dll_legacy_ip_20261112/dll_valid_gap_ip_comparison.png",
+      "filename": "107_DLL相关累加_IP逐拍对拍与有效中断.png",
+      "status": "实际 RTL 段。旧 IP 与当前 RTL 逐拍一致，人工中断后相关窗保留残量",
+      "note": "测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。",
+      "requested_module_ids": [
+        "script_native50_v11_dll_ip_replay"
+      ],
+      "relative_path": "08_MATLAB_Simulink_RTL对照/107_DLL相关累加_IP逐拍对拍与有效中断.png",
+      "decoded_pixel_sha256": "489556f55401bacc049a3a184bc02fb2f6fac34b88eb07db205a3d031112291e",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_dll_ip_replay",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。"
     }
   ]
 }

@@ -1453,6 +1453,25 @@
       ],
       "logs": "",
       "tune": ""
+    },
+    {
+      "id": "script_native50_v11_dll_ip_replay",
+      "title": "native50_v11：DLL 相关算术与有效窗对拍",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "Vivado XSim 同拍比较当前 RTL 与旧工程累加、平方、加法 IP，MATLAB 用整数模型核对同一批向量。真实 DLL 相关积分和窗口控制接受人工 valid 中断，记录前后 Prompt 值。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "这是接收 RTL 段的独立脚本试验。中断由测试台注入，未触发整机 ADC 丢样复位。板上坏帧是否经历此中断仍待同步波形确认。",
+      "sources": [
+        "results/replay/dll_legacy_ip_20261112/run_replay.py",
+        "results/replay/dll_legacy_ip_20261112/tb_dll_ip.sv",
+        "results/replay/dll_legacy_ip_20261112/dll_ip_replay.m"
+      ],
+      "logs": "",
+      "tune": ""
     }
   ],
   "figures": [
@@ -5824,6 +5843,19 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：按串口汇总的电脑接收时刻分桶。末帧新增一条拒收来自终态内存，在图中只标终态数字。区间时间没有逐帧精度。"
+    },
+    {
+      "relative_path": "08_MATLAB_Simulink_RTL对照/107_DLL相关累加_IP逐拍对拍与有效中断.png",
+      "filename": "107_DLL相关累加_IP逐拍对拍与有效中断.png",
+      "status": "实际 RTL 段。旧 IP 与当前 RTL 逐拍一致，人工中断后相关窗保留残量",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_dll_ip_replay",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：测试点在 DLL 积分段输入。人工中断期间不触发整机 ADC 丢样复位。原 RTL 和旧 IP 均出现相关窗残留，复现条件尚未和板上坏帧对齐。图中没有实测 ADC、载荷或私有 IP 数据。"
     }
   ],
   "layout_verification": {
