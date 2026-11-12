@@ -1489,6 +1489,24 @@
       ],
       "logs": "",
       "tune": ""
+    },
+    {
+      "id": "script_native50_v11_rx_p44_replay",
+      "title": "native50_v11：44 dB 实测坏帧判决回放",
+      "group": "script",
+      "model": null,
+      "block_paths": [],
+      "inputs": "配置、COE、历史MATLAB或Xsim导出。",
+      "outputs": "图像/统计/示意，不是Simulink端口。",
+      "purpose": "从板上留存的接收判决字节复算 CRC、对齐预期载荷，并验证已确认的局部反相。",
+      "observe": "对照图的真实产生路径；没有对应块的图不编造模块名。",
+      "limits": "基于真实坏帧字节和独立脚本。图中的偏移只用于诊断拟合。合成故障注入与实测板上字节分别保存。",
+      "sources": [
+        "results/replay/rx_p44_20261112/replay_p44_bad_frames.m",
+        "results/replay/rx_p44_20261112/simulate_rx_fault_signatures.m"
+      ],
+      "logs": "",
+      "tune": ""
     }
   ],
   "figures": [
@@ -5886,6 +5904,19 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。"
+    },
+    {
+      "relative_path": "06_帧同步与信息恢复/109_44dB实测坏帧_MATLAB判决回放.png",
+      "filename": "109_44dB实测坏帧_MATLAB判决回放.png",
+      "status": "44 dB同轴实测坏帧判决回放，MATLAB独立CRC复算",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_rx_p44_replay",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：实测输入是板上保存的判决字节。首坏帧仅连续19位与预期反相，CRC字段保持完整。末坏帧序号未能确认，图中偏移与极性曲线只表示候选拟合。根因需要同帧I/Q、相位和码环标签。图中不含载荷字节或原始抓取。"
     }
   ],
   "layout_verification": {

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "copied_files": 185,
+  "copied_files": 186,
   "original_files_preserved": true,
   "files": [
     {
@@ -5776,6 +5776,26 @@
       ],
       "panel_map": [],
       "provenance": "已按登记信息关联模块；具体场景及信号说明：三个分段试验采用可复现的人工输入。图中相关窗数值和有符号 Q31 鉴相结果与 MATLAB 参考核对。归一化异常按接收段报告。整机通信、射频及板上错帧不在该图验证范围。"
+    },
+    {
+      "category": 6,
+      "source": "project/results/replay/rx_p44_20261112/p44_matlab_measured_payload_replay.png",
+      "filename": "109_44dB实测坏帧_MATLAB判决回放.png",
+      "status": "44 dB同轴实测坏帧判决回放，MATLAB独立CRC复算",
+      "note": "实测输入是板上保存的判决字节。首坏帧仅连续19位与预期反相，CRC字段保持完整。末坏帧序号未能确认，图中偏移与极性曲线只表示候选拟合。根因需要同帧I/Q、相位和码环标签。图中不含载荷字节或原始抓取。",
+      "requested_module_ids": [
+        "script_native50_v11_rx_p44_replay"
+      ],
+      "relative_path": "06_帧同步与信息恢复/109_44dB实测坏帧_MATLAB判决回放.png",
+      "decoded_pixel_sha256": "84a0f87cad11c42bb8c850a1161382d1ea0ecfb66742027c191c3ab7b9ed6a7c",
+      "module_refs": [
+        {
+          "id": "script_native50_v11_rx_p44_replay",
+          "relation": "登记的新图对应模块；场景及信号说明见图注"
+        }
+      ],
+      "panel_map": [],
+      "provenance": "已按登记信息关联模块；具体场景及信号说明：实测输入是板上保存的判决字节。首坏帧仅连续19位与预期反相，CRC字段保持完整。末坏帧序号未能确认，图中偏移与极性曲线只表示候选拟合。根因需要同帧I/Q、相位和码环标签。图中不含载荷字节或原始抓取。"
     }
   ]
 }
